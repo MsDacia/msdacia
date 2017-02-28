@@ -1,0 +1,321 @@
+@media only screen and (min-width : 1824px) {
+
+	/* Will add if needed */
+
+}
+
+@media only screen and (max-width : 1823px) {
+
+	/* Will add if needed */
+
+}
+
+@media only screen and (max-width : 1200px) {
+
+	/* Will add if needed */
+
+}
+
+@media only screen and (max-width : 1024px) {
+
+	#wrapper { @include size(60% auto); }
+
+	#socialMedia li a span { font-size: $largest-large-font-size; }
+
+}
+
+@media only screen and (max-width : 980px) {
+
+	body:not(#intro) { background-image: none; }
+
+	#masonry dl { @include margin(null 0.2em null null); }
+
+}
+
+@media only screen and (max-width : 768px) {
+
+	body { background-position: right 200%; }
+
+	#wrapper {
+		@include padding(0 0.5em 0 1.5em);
+		@include size(auto);
+	}
+
+	#resume #wrapper { @include padding(null null null 0.5em); }
+
+	#mainContent { @include padding(null 0 null null); }
+
+	footer {
+    @include size(auto);
+
+    p { @include margin(null null 0.75em null); }
+  }
+
+	h1 { font-size: $extra-extra-large-font-size; }
+
+	h2 { font-size: $largest-font-size; }
+
+	h3 { font-size: $larger-font-size; }
+
+	nav {
+		@include margin(0 null null null);
+		@include padding(0);
+		@include size(100% auto);
+
+    ul {
+      li { font-size: $large-font-size; }
+    }
+	}
+
+	p { @include margin(null null 1.5em null); }
+
+	#masonry {
+    dl { @include margin(null 0 null null); }
+
+    dt span {
+			@include margin(0);
+			line-height: 1;
+  	}
+
+    .introBlock.double {
+			@include margin(null null null 0);
+			@include size(93% auto);
+			line-height: 1.2;
+  	}
+  }
+
+}
+
+@media only screen and (max-width : 768px) and (orientation : landscape) {
+
+	body {
+		@include margin(0 null null null);
+		background-position: 88% 45%;
+	}
+
+	#mainContent { @include padding(null null 0 null); }
+
+	a.home-link { top: -1em; }
+
+	footer { @include size(54% auto); }
+
+	h1 { font-size: $extra-extra-large-font-size; }
+
+	h2 { font-size: $largest-font-size; }
+
+	h3 { font-size: $larger-font-size; }
+
+	nav {
+		@include padding(0 0.5em);
+		@include size(60% auto);
+	}
+
+	body:not(#intro) footer,
+	body:not(#intro) nav { @include size(100% auto); }
+
+	nav ul li { font-size: $medium-larger-font-size; }
+
+	#socialMedia li a span { font-size: $larger-large-font-size; }
+
+}
+
+@media only screen and (max-width : 640px) {
+
+	body {
+		@include margin(0.5em null null null);
+		background-position: 88% 45%;
+	}
+
+	#wrapper {
+		@include padding(null 0.5em);
+		@include size(95% auto);
+	}
+
+	#mainContent { @include padding(null null 0 null); }
+
+	h1 { font-size: $extra-extra-large-font-size; }
+
+	h2 { font-size: $largest-font-size; }
+
+	h3 { font-size: $larger-font-size; }
+
+	nav {
+		@include margin(-4em null null null);
+		@include size(60% auto);
+
+    ul {
+      li {
+				@include size(51% auto);
+				font-size: $large-font-size;
+    	}
+    }
+	}
+
+	body:not(#intro) nav ul li { @include size(50% auto); }
+
+	#masonry {
+    @include margin(0 auto);
+
+    dl {
+			@include margin(null 0);
+			@include padding(null 0);
+  	}
+
+    dt {
+      span {
+				@include margin(0);
+				line-height: 1;
+      }
+  	}
+
+    .introBlock.double {
+			@include margin(null null null 0);
+			@include size(93% auto);
+  		line-height: 1.2;
+  	}
+
+    dd {
+      p {
+        @include size(95% auto);
+
+        &:first-child { @include size(100% auto); }
+      }
+    }
+  }
+
+	.rightPoem,
+	.centerPoem,
+	.leftPoem {
+		@include padding(0.5em 0);
+		float: left;
+		text-align: left;
+	}
+
+	#poetry h2 { font-size: $larger-font-size; }
+
+	footer { @include size(60% auto); }
+
+	body:not(#intro) nav,
+	body:not(#intro) footer {
+		@include margin(0 null null null);
+		@include size(auto);
+	}
+
+	#socialMedia li a span { font-size: $larger-large-font-size; }
+}
+
+@media only screen and (max-width : 568px) {
+
+	h1 {
+		@include margin(null 1em null null);
+		font-size: $extra-medium-large-font-size;
+	}
+
+	body:not(#intro) h1 { @include margin(null 0 null null); }
+
+}
+
+@media only screen and (max-width : 480px) {
+
+	body { background-position: 88% -10%; }
+
+	#wrapper {
+		@include margin(null null null 0);
+		@include padding(null 1em);
+		@include size(100% auto);
+	}
+
+	#mainContent { @include padding(null 1em null null); }
+
+	#portfolio #mainContent {
+		@include padding(0);
+		@include size(100% auto);
+	}
+
+	h1 { @include margin(null 0 null null); }
+
+	nav {
+		@include margin(0 null null null);
+		@include size(100% auto);
+
+    ul {
+			@include margin(null 1em null null);
+
+      li {
+				@include padding(null 0);
+				@include size(50% auto);
+    	}
+  	}
+	}
+
+	footer { @include size(100% auto); }
+
+}
+
+@media only screen and (max-width: 455px) {
+
+}
+
+@media only screen and (max-width: 414px) {
+
+	a.home-link {
+		@include position(relative, 0 null null null);
+		@include size(auto auto);
+		background: transparent;
+		color: $color-primary;
+		font-weight: 700;
+		line-height: 1;
+		text-align: left;
+	}
+
+	h1 { text-align: left; }
+
+	footer { @include size(70% auto); }
+
+}
+
+@media (max-width: 375px) {
+
+	body { background-image: none; }
+
+	footer {
+		@include size(100% auto);
+
+		p {
+			a:hover { color: $link-color-primary-hover; }
+		}
+	}
+
+	h1 { font-size: $larger-large-font-size; }
+
+	h2 { font-size: $larger-font-size; }
+
+	h3 { font-size: $medium-larger-font-size; }
+
+	nav ul li { font-size: $medium-large-font-size; }
+
+	#poetry h2 { font-size: $medium-larger-font-size; }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+
+}
+
+@media only screen and (max-width: 240px) {
+
+	#wrapper {
+		@include padding(0 0 0 0.5em);
+	}
+
+	#mainContent {
+		@include padding(0);
+	}
+
+	nav ul li {
+		@include size(100% auto);
+		float: none;
+	}
+
+}

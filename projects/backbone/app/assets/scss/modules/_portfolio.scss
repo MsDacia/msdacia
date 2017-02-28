@@ -1,0 +1,5 @@
+.introBlock {
+  p {
+    @include margin(null null 1em null);
+  }
+}

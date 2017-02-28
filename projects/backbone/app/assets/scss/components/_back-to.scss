@@ -1,0 +1,23 @@
+#back-to-bottom,
+#back-to-top {
+  @include border-width(0);
+  @include position(fixed, null null 40px 0);
+  @include size(1.25em 1.75em);
+  @include transition (opacity 0.2s ease-out);
+  background-color: $background-color;
+  border-radius: 0 7px 7px 0;
+  color: $link-color-secondary;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.75;
+  opacity: 0;
+  text-align: center;
+  text-decoration: none;
+  z-index: 9999;
+
+  &:hover { background-color: $link-color-primary-hover; }
+
+  &.show { opacity: 1; }
+}
+
+#back-to-bottom { @include position(fixed, 60px auto auto 0); }

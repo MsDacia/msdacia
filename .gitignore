@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+!/log/.keep
 
 # Runtime data
 pids
@@ -35,3 +36,14 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Ignore bundler config.
+/.bundle
+
+.sass-cache
+*/.sass-cache
+.htaccess
+*/.htaccess
+*/.babelrc
+.DS_Store
+*/.DS_Store*

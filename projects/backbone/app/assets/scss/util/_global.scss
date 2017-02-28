@@ -1,0 +1,35 @@
+* { @include prefixer(box-sizing, border-box, webkit ms spec); }
+
+body {
+  @include margin(2em auto 0 auto);
+  @include padding(0);
+  @include prefixer(background-size, cover, webkit ms spec);
+  background: #fff url($image-path+'/msdacia-background.png') no-repeat bottom right fixed;
+  color: $color-secondary;
+  font: 18px/1.5 $font-primary-stack;
+
+  #party { background-image: none; }
+
+  #container { position: relative; }
+  #wrapper {
+    @include margin(0 1em);
+    @include padding(0 0 2.5em);
+    @include size(62% auto);
+  	overflow: auto;
+  }
+
+  #mainContent {
+    @include margin(0);
+    @include padding(0 2.75em 1.25em 1em);
+  	position: relative;
+  }
+
+  .clear { @include clearfix; }
+
+  .floatLeft { float: left; }
+
+  .floatRight { float: right; }
+
+  img.floatLeft { @include margin(0 1.25em 0.25em 0); }
+
+}

@@ -1,0 +1,43 @@
+nav {
+	@include margin(1.5em 0);
+	@include padding(0 1.25em);
+	float: left;
+
+  .menuToggle {
+    display: none;
+
+    a {
+			@include padding(0.75em null);
+			display: inline-block;
+    }
+  }
+
+  ul {
+		@include margin(0 2em 0 0);
+		@include padding(0);
+
+    li {
+			@include margin(null null 0 null);
+			@include padding(0);
+			@include size(50% auto);
+			color: $color-secondary;
+    	display: block;
+    	float: left;
+    	font-size: $larger-font-size;
+    	font-weight: 700;
+    	line-height: 1.5;
+    	text-align: right;
+      text-shadow: none;
+
+      a {
+        color: $link-color-primary;
+        text-decoration: none;
+
+        &:hover {
+        	color: $link-color-primary-hover;
+        	text-decoration: underline;
+        }
+      }
+    }
+  }
+}

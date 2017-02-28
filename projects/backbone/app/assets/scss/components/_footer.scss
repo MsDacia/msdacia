@@ -1,0 +1,18 @@
+footer {
+	@include clearfix;
+	@include margin(1.250em 0 0 2.25em);
+	font-size: $small-font-size;
+
+	p {
+		color: $color-primary;
+		text-align: right;
+
+		a {
+			text-decoration: underline;
+
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+}

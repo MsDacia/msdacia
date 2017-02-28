@@ -1,0 +1,34 @@
+.symbol,
+a.symbol:before {
+	@include prefixer(font-smoothing, antialiased, webkit ms spec);
+	@include prefixer(text-rendering, optimizeLegibility, webkit ms spec);
+	font-family: $font-icon-stack;
+}
+
+a.symbol:before {
+	@include margin(null 0.3em null null);
+	content: attr(title);
+	font-size: $medium-larger-font-size;
+}
+
+#socialMedia {
+  li {
+		@include margin(0 1em 0 0);
+		display: inline-block;
+  	overflow: hidden;
+
+		&:last-child {
+			@include margin(null 0 null null);
+		}
+
+    a {
+    	display: block;
+    	text-decoration: none;
+
+      &:hover { text-decoration: none; }
+
+      span { font-size: $extra-large-font-size; }
+    }
+  }
+
+}
