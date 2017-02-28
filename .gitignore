@@ -41,10 +41,12 @@ jspm_packages
 /.bundle
 
 .sass-cache
-*/.sass-cache
+**/.sass-cache
 .htaccess
-*/.htaccess
-*/.babelrc
+**/.htaccess
+**/.babelrc
 .DS_Store
-*/.DS_Store*
+**/.DS_Store*
 .svn
+public
+temp
