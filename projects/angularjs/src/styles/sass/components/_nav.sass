@@ -1,0 +1,36 @@
+nav
+	@include rem(margin, 15px 0 15px 20px)
+	@include rem(padding, 0 12.5px)
+	float: left
+
+	.menuToggle
+		display: none
+
+		a
+			@include rem(padding-bottom, 7.5px)
+			@include rem(padding-top, 7.5px)
+			display: inline-block
+
+	ul
+		@include rem(margin, 0 20px 0 0)
+		@include rem(padding, 0)
+
+		li
+			@include bold
+			@include rem(font-size, 20px)
+			@include rem(margin-bottom, 0)
+			@include size(50%, auto)
+			@include rem(padding, 0 0 0 7.5px)
+			color: $text3
+			display: block
+			float: left
+			line-height: 1.5
+			text-shadow: none
+
+			a
+				color: $anchor-text
+				text-decoration: none
+
+				&::hover
+					color: $anchor-text-hover
+					text-decoration: underline

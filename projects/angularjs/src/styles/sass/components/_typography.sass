@@ -1,0 +1,103 @@
+main
+	.wrapper
+		h1, h2, h3,
+		h4, h5, h6
+			@include bold
+			@include rem(margin, 0)
+			color: $text3
+			font-family: $font-stack-cursive
+			line-height: 1.1
+
+		h1
+			@include rem(margin-top, 0)
+			border-bottom: 0 none
+
+			a
+				color: $text3
+
+		h2
+			@include rem(font-size, 25px)
+
+		h3
+			@include rem(font-size, 20px)
+			@include rem(margin, 2.5px 0 0)
+		p,
+		ul
+			@include rem(margin, 0 0 15px 2.5px)
+			@include rem(padding, 0 2.5px 0 0)
+
+		ul
+			li
+				@include rem(margin-bottom, 3.85px)
+				list-style: none
+
+		sup
+			font-size: 50%
+
+		span
+			.reference
+				@include rem(padding-right, 2.5px)
+				color: $text4
+				font: 1rem $font-stack-sans-serif-italic
+				text-transform: lowercase
+
+		a,
+		a:visited,
+		a:link
+			border-bottom: 2px solid transparent
+			color: $anchor-text
+			text-decoration: none
+			transition-: all 1s
+
+			&::hover
+				border-color: $anchor-text-hover
+				color: $anchor-text-hover
+				text-decoration: none
+
+			&.home-link
+				@include abs-pos(-5px, auto, auto, 5px)
+				@include bold
+				@include rem(font-size, 30px)
+				@include rem(margin-bottom, 15px)
+				@include rem(padding, 0)
+				color: $text3
+				line-height: 3rem
+				text-align: center
+				z-index: 1000
+
+				&::hover,
+				&::hover i
+					color: $anchor-text
+
+			// &.external
+			// 	@include rem(padding-left, 8.5px)
+			// 	background: transparent url('assets/external-link.png') no-repeat scroll left 12px
+
+			&.edit
+				border-left-color: $text3
+				border-top-color: $text3
+
+			&.link
+				@include rem(height, 15px)
+				@include rem(margin-bottom, 0)
+				//background: transparent url('assets/link-icon.png') no-repeat scroll left 0
+				display: inline-block
+				text-indent: -10000em
+				width: 15px
+
+				&::hover
+					background-position: left bottom
+
+		i
+			@include rem(font-size, 14px)
+			@include rem(margin-right, 5px)
+			color: $text4
+			display: inline-block
+
+			&::before
+				position: relative
+				top: 2px
+
+		.introBlock
+			p
+				@include rem(margin-bottom, 10px)

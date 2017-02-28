@@ -1,0 +1,24 @@
+#socialMedia
+	li
+		@include rem(margin, 0 5px 0 0)
+		display: inline-block
+		overflow: hidden
+
+		&::last-child
+			@include rem(margin-right, 0)
+
+		a
+			@include bold
+			@include rem(font-size, 17.5px)
+			@include size(1.75rem, 1.75rem)
+			background-color: $background4
+			border-radius: $border-radius
+			color: $text2
+			display: block
+			line-height: 1.75em
+			text-align: center
+			text-decoration: none
+
+			&::hover
+				background-color: $background4a
+				text-decoration: none

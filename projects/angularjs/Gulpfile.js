@@ -21,7 +21,12 @@ gulp.task('clean:public', function (done) {
 
 gulp.task('assets', function() {
 	return gulp.src('src/assets/**/*.*')
-		.pipe(gulp.dest(path.join(config.dist, 'static')));
+		.pipe(gulp.dest(path.join(config.dist, 'static/assets/')));
+});
+
+gulp.task('content', function() {
+	return gulp.src('src/json/**/*.*')
+		.pipe(gulp.dest(path.join(config.dist, 'static/json/')));
 });
 
 gulp.task('sass', function() {
@@ -49,7 +54,7 @@ gulp.task('html', function() {
 		.pipe(gulp.dest(config.dist));
 });
 
-gulp.task('connect', ['html', 'assets', 'js', 'sass'], function() {
+gulp.task('connect', ['html', 'assets', 'content', 'js', 'sass'], function() {
 	plugins.connect.server({
 		root: config.dist,
 		port: 2001
@@ -60,6 +65,7 @@ gulp.task('connect', ['html', 'assets', 'js', 'sass'], function() {
 gulp.task('watch', function () {
 	gulp.watch('view/*.html', ['html']);
 	gulp.watch('src/assets/**/*.*', ['assets']);
+	gulp.watch('src/json/**/*.*', ['content']);
 	gulp.watch('src/styles/sass/**/*.sass', ['sass']);
 	gulp.watch('src/scripts/**/*.js', ['js']);
 });
