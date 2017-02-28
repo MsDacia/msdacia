@@ -47,3 +47,4 @@ jspm_packages
 */.babelrc
 .DS_Store
 */.DS_Store*
+.svn
