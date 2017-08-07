@@ -1,19 +1,99 @@
-"en-us": {
+{
 	"common": {
+		"global": {
+			"title": "MsDacia",
+			"urlTitle": "msdacia.com",
+			"url": "http://msdacia.com"
+		},
 		"includes": {
-			"back-to-top": {
-
+			"back-to": {
+				"top": {
+					"title": "Up to top",
+					"icon": "",
+					"url": "#top"
+				},
+				"bottom": {
+					"title": "Down to bottom",
+					"icon": "",
+					"url": "#bottom"
+				}
 			},
-			"footer": {
-
+			"footer": [
+				{
+					"title": "Email",
+					"icon": "fa-envelope-o",
+					"url": "mailto:msdessin@gmail.com?subject=From%20msdacia.com"
+				},
+				{
+					"title": "Facebook",
+					"icon": "fa-facebook",
+					"url": "http://www.facebook.com/#!/msdacia"
+				},
+				{
+					"title": "LinkedIn",
+					"icon": "fa-linkedin",
+					"url": "http://www.linkedin.com/in/dessin"
+				},
+				{
+					"title": "Twitter",
+					"icon": "fa-twitter",
+					"url": "http://www.twitter.com/MsDaciaJ"
+				},
+				{
+					"title": "Instagram",
+					"icon": "fa-instagram",
+					"url": "https://www.instagram.com/msdacia1/"
+				},
+				{
+					"title": "Github",
+					"icon": "fa-github-alt",
+					"url": "https://github.com/MsDacia"
+				},
+				{
+					"title": "JSFiddle",
+					"icon": "fa-jsfiddle",
+					"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
+				},
+				{
+					"title": "Skype",
+					"icon": "fa-skype",
+					"url": "skype:msdacia1?userinfo"
+				},
+				{
+					"title": "Yelp",
+					"icon": "fa-yelp",
+					"url": "http://msdacia.yelp.com/"
+				}
+			],
+			"copyright": {
+				"content": "copyright &copy; 2008 &ndash;"
 			},
 			"home-link": {
-
+				"title": "Menu"
 			},
-			"navigation": {
-
-			}
-		}	,
+			"navigation": [
+				{
+					"title": "Home",
+					"item": "home",
+					"url": "/"
+				},
+				{
+					"title": "About MsDacia",
+					"item": "about",
+					"url": "/about"
+				},
+				{
+					"title": "Resume",
+					"item": "resume",
+					"url": "/resume"
+				},
+				{
+					"title": "Portfolio",
+					"item": "portfolio",
+					"url": "/portfolio"
+				}
+			]
+		},
 		"loading": {
 			"wrapper": "Loading&hellip;",
 			"navigation": "Loading Navigation Menu&hellip;",
@@ -21,579 +101,716 @@
 		}
 	},
 	"about": {
-
+		"title": "WYSIWYG",
+		"subtitle": "Foundation",
+		"subtitle2": "Professionally",
+		"subtitle3": "Personally",
+		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
+		"copy2": "I am a web developer, NOT a web designer. As you can see from the site design, it may be simple, but it works. As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance.",
+		"copy3": "When I am not billable, I find myself playing a series of games, like Words With Friends, Ruzzle, What's The Phrase, and Phase 10. I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan, from attending Bears games to activities at Soldier Field. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago.",
+		"copy4": "Another caveat about me is that I blog. I have 2 blogs that I maintain: <strong><a href=\"http://ctachronicles.com\" target=\"_blank\">CTA Chronicles</a></strong> and <strong>Rookie Home Life</strong>. CTA Chronicles has been up and running since 2014. It has my personal experiences on Chicago's public transportation system. I have a ton of stories and nothing is made up. I really enjoy writing it. Rookie Home Life is still in development. If you know me, then you know that I was not very domestic. I did not know how to cook, nor did I have the desire to. Ever since we purchased a house in September 2014, this domesticated woman has bloomed. I cook. I experiment. I decorate. I clean. I shovel snow. I wire lights. I live in Home Depot. And I keep an up-to-date grocery list. I am like a working housewife, and I love it. This blog will share my journey in my home&hellip;my haven."
 	},
-	"convictions": {
-
-	},
-	"home": {
-
-	},
-	"poetry": {
-
-	},
-	"portfolio": {
-		{
-			"year": "2015 - 2016",
-			"color": "pink",
-			"image": "intel.png",
-			"link": "",
-			"external": "",
-			"name": "Intel POS",
-			"text": "Responsible for responsive HTML, CSS, JavaScript, Angular JS, and multilingual customizations for on device application (not web-based), specifically Linux, Chromebook, Android, Windows 8, Windows 8.1, and Windows 10",
-			"client": "Leo Burnett",
-			"link2": "",
-			"height": "232",
-			"width": "260"
-		},
-		{
-			"year": "2015",
-			"color": "green",
-			"image": "mcdonalds.png",
-			"link": "",
-			"external": "",
-			"name": "McDonald's",
-			"text": "Responsible for responsive HTML, CSS, JavaScript, and JQuery for menu display board/kiosk (not web-based)",
-			"client": "Leo Burnett",
-			"link2": "",
-			"height": "381",
-			"width": "260"
-		},
-		{
-			"year": "2015",
-			"color": "purple",
-			"image": "czarnowski.png",
-			"link": "http://czarnowski.com",
-			"external": "external",
-			"name": "Czarnowski",
-			"text": "Responsible for responsive HTML, CSS, JavaScript, and WordPress",
-			"client": "Symbiont Group, LLC",
-			"link2": "",
-			"height": "461",
-			"width": "260"
-		},
-		{
-			"year": "2013 - 2015",
-			"color": "pink",
-			"image": "stopandshop.png",
-			"link": "http://stopandshop.com",
-			"external": "external",
-			"name": "Stop and Shop",
-			"text": "Responsible for HTML, CSS (Sass), jQuery, Backbone, and content management system, creating and maintaining sites. I also handled TypeKit Font integration, APIs for vendor integration, responsive, and ADA-compliance.",
-			"client": "Peapod/Ahold",
-			"link2": "",
-			"height": "155",
-			"width": "260"
-		},
-		{
-			"year": "2013 - 2015",
-			"color": "green",
-			"image": "giantfoods.png",
-			"link": "http://giantfoods.com",
-			"external": "external",
-			"name": "Giant Foods",
-			"text": "Responsible for HTML, CSS (Sass), jQuery, Backbone, and content management system, creating and maintaining sites. I also handled TypeKit Font integration, APIs for vendor integration, responsive, and ADA-compliance.",
-			"client": "Peapod/Ahold",
-			"link2": "",
-			"height": "194",
-			"width": "260"
-		},
-		{
-			"year": "2013 - 2015",
-			"color": "purple",
-			"image": "giant.png",
-			"link": "http://giantfoodstores.com",
-			"external": "external",
-			"name": "GIANT Foods",
-			"text": "Responsible for HTML, CSS (Sass), jQuery, Backbone, and content management system, creating and maintaining sites. I also handled TypeKit Font integration, APIs for vendor integration, responsive, and ADA-compliance.",
-			"client": "Peapod/Ahold",
-			"link2": "",
-			"height": "158",
-			"width": "260"
-		},
-		{
-			"year": "2013 - 2015",
-			"color": "pink",
-			"image": "martins.png",
-			"link": "http://martinfoods.com",
-			"external": "external",
-			"name": "Martin Foods",
-			"text": "Responsible for HTML, CSS (Sass), jQuery, Backbone, and content management system, creating and maintaining sites. I also handled TypeKit Font integration, APIs for vendor integration, responsive, and ADA-compliance.",
-			"client": "Peapod/Ahold",
-			"link2": "",
-			"height": "157",
-			"width": "260"
-		},
-		{
-			"year": "2013",
-			"color": "purple",
-			"image": "ameren.png",
-			"link": "",
-			"external": "",
-			"name": "Ameren",
-			"text": "Responsible for a responsive HTML (Jade), CSS (Less), AngularJS, node, and Restful APIs, developing in an Agile sprint environment.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "298",
-			"width": "260"
-		},
-		{
-			"year": "2013",
-			"color": "green",
-			"image": "lincolninternational.png",
-			"link": "http://www.lincolninternational.com",
-			"external": "external",
-			"name": "Lincoln International",
-			"text": "Responsible for a responsive HTML, CSS, JavaScript, and WordPress (multi-lingual site).",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "142",
-			"width": "260"
-		},
-		{
-			"year": "2012 &ndash; 2013",
-			"color": "pink",
-			"image": "thermofisher.png",
-			"link": "",
-			"external": "",
-			"name": "Thermofisher",
-			"text": "Responsible for HTML, CSS and jQuery developing in an Agile sprint environment. On this project, I also provided integration support, coding directly within Adobe CQ using Eclipse. As the lead developer, I managed a team of 3 front-end developers, distributed JIRA tickets, and provided estimates with a development project plan.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "384",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "purple",
-			"image": "border-states.png",
-			"link": "http://borderstates.com",
-			"external": "external",
-			"name": "Border States",
-			"text": "Responsible for QA and defect fixes via JIRA.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "369",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "green",
-			"image": "discover-bank-account-activity-mobile.png",
-			"link": "",
-			"external": "",
-			"name": "Discover Card: Bank Account Activity (Mobile)",
-			"text": "Responsible for HTML, CSS, jQuery Mobile, and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "542",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "purple",
-			"image": "evolve.png",
-			"link": "http://agideaforum.com",
-			"external": "external",
-			"name": "Evolve: AG Idea Forum",
-			"text": "Responsible for full cycle development of this site using HTML, CSS, jQuery and PHP within WordPress.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "173",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "pink",
-			"image": "evolve-mobile.png",
-			"link": "http://agideaforum.com/m/index.html",
-			"external": "external",
-			"name": "Evolve: AG Idea Forum Mobile",
-			"text": "Responsible for full cycle development of this site using HTML, CSS, jQuery and PHP within WordPress.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "444",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "green",
-			"image": "frontier.png",
-			"link": "http://frontier.com",
-			"external": "external",
-			"name": "Frontier",
-			"text": "Responsible for jQuery, QA and defect fixes via JIRA.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "352",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "purple",
-			"image": "mine-safety-applications.png",
-			"link": "http://us.msasafety.com",
-			"external": "external",
-			"name": "MSA Safety",
-			"text": "Responsible for HTML, CSS, jQuery and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "406",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "green",
-			"image": "tmobile-mobile2.png",
-			"link": "",
-			"external": "",
-			"name": "T-Mobile (Mobile)",
-			"text": "Responsible for HTML, CSS, jQuery Mobile and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "488",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "purple",
-			"image": "unsnowman.png",
-			"link": "",
-			"external": "",
-			"name": "Unsnowman Competition",
-			"text": "Responsible for full-cycle development of HTML, CSS, PHP, MySQL and jQuery.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "423",
-			"width": "260"
-		},
-		{
-			"year": "2012",
-			"color": "pink",
-			"image": "wesco.png",
-			"link": "",
-			"external": "",
-			"name": "Wesco",
-			"text": "Responsible for QA and bug fixes via JIRA.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "370",
-			"width": "260"
-		},
-		{
-			"year": "2011 &ndash; 2012",
-			"color": "green",
-			"image": "grainger.png",
-			"link": "",
-			"external": "",
-			"name": "Grainger",
-			"text": "Responsible for HTML, CSS and dojo developing in an Agile sprint environment. On this project, I also provided integration support, coding directly within Hybris using Eclipse. As the lead developer, I managed a team of 2 front-end developers, distributed JIRA tickets, and provided estimates with a development project plan.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "400",
-			"width": "260"
-		},
-		{
-			"year": "2010 &ndash; 2011",
-			"color": "pink",
-			"image": "sanford-health.png",
-			"link": "http://www.sanfordhealth.org/",
-			"external": "external",
-			"name": "Sanford Health",
-			"text": "Responsible for HTML, CSS, jQuery, and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "338",
-			"width": "260"
-		},
-		{
-			"year": "2010",
-			"color": "purple",
-			"image": "casual-male-dxl.png",
-			"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
-			"external": "external",
-			"name": "Casual Male DXL",
-			"text": "Responsible for HTML, CSS, jQuery and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "335",
-			"width": "260"
-		},
-		{
-			"year": "2010",
-			"color": "green",
-			"image": "loreal-ysl.png",
-			"link": "http://www.yslbeautyus.com/",
-			"external": "external",
-			"name": "L'Oreal",
-			"text": "Responsible for HTML, CSS and jQuery.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "196",
-			"width": "260"
-		},
-		{
-			"year": "2010",
-			"color": "pink",
-			"image": "ltd-commodities.png",
-			"link": "http://www.ltdcommodities.com/",
-			"external": "external",
-			"name": "LTD Commodities",
-			"text": "Responsible for HTML, CSS, jQuery and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "474",
-			"width": "260"
-		},
-		{
-			"year": "2010",
-			"color": "pink",
-			"image": "iloveny.png",
-			"link": "http://iloveny.com/",
-			"external": "external",
-			"name": "ILOVENY | The Official New York State Tourism Site",
-			"text": "Responsible for HTML, CSS, JavaScript, jQuery and AJAX within ASP.NET Visual Studio.",
-			"client": "Whittman Hart",
-			"link2": "",
-			"height": "205",
-			"width": "260"
-		},
-		{
-			"year": "2010",
-			"color": "green",
-			"image": "symptom-checker.png",
-			"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
-			"external": "external",
-			"name": "American Academy of Pediatrics",
-			"text": "Responsible for HTML, CSS, and jQuery of the Symptom Checker Tool.",
-			"client": "Manifest Digital",
-			"link2": "",
-			"height": "351",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "purple",
-			"image": "suntimes.png",
-			"link": "http://suntimes.com/",
-			"external": "external",
-			"name": "suntimes.com",
-			"text": "Responsible for HTML, CSS and JavaScript.",
-			"client": "STNG",
-			"link2": "",
-			"height": "182",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "pink",
-			"image": "pizzahut.png",
-			"link": "http://pizzahut.com/",
-			"external": "external",
-			"name": "Pizza Hut",
-			"text": "Responsible for HTML, CSS, JavaScript and IE6 bug fixes.",
-			"client": "QuikOrder",
-			"link2": "",
-			"height": "189",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "purple",
-			"image": "daa.png",
-			"link": "http://chicagobooth.edu/daa/",
-			"external": "external",
-			"name": "Distinguished Alumni Awards",
-			"text": "Responsible for HTML, CSS, JavaScript, jQuery, AJAX, XML and ASP Classic.",
-			"client": "Chicago Booth",
-			"link2": "",
-			"height": "210",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "green",
-			"image": "farm-to-fork.png",
-			"link": "http://chicagobooth.edu/food/2009/",
-			"external": "external",
-			"name": "From Farm to Fork Food Conference 2009",
-			"text": "Responsible for HTML, CSS and JavaScript.",
-			"client": "Chicago Booth",
-			"link2": "",
-			"height": "289",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "pink",
-			"image": "alumni-celebrations.png",
-			"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
-			"external": "external",
-			"name": "Alumni Celebrations 2009",
-			"text": "Responsible for HTML, CSS, and JavaScript.",
-			"client": "Chicago Booth",
-			"link2": "",
-			"height": "192",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "purple",
-			"image": "career-path.png",
-			"link": "http://career.chicagobooth.edu/parttime/careerpath/",
-			"external": "external",
-			"name": "Career Paths",
-			"text": "Responsible for HTML, CSS and ASP Classic.",
-			"client": "Chicago Booth",
-			"link2": "",
-			"height": "165",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "green",
-			"image": "alumni-reunion.png",
-			"link": "http://chicagobooth.edu/alumni/reunion2009/",
-			"external": "external",
-			"name": "Alumni Reunions 2009",
-			"text": "Responsible for HTML, CSS, JavaScript, jQuery, AJAX, XML and ASP Classic.",
-			"client": "Chicago Booth",
-			"link2": "",
-			"height": "181",
-			"width": "260"
-		},
-		{
-			"year": "2009",
-			"color": "purple",
-			"image": "talent-development.png",
-			"link": "http://www.chicagobooth.edu/recruiting/tdc/2010/",
-			"external": "external",
-			"name": "Talent Development Conference 2010",
-			"text": "Responsible for HTML, CSS, JavaScript, jQuery, and ASP Classic.",
-			"client": "Chicago Booth",
-			"link2": "",
-			"height": "236",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "pink",
-			"image": "discover-find-my-offer-mobile.png",
-			"link": "",
-			"external": "",
-			"name": "Discover Card: Find My Offer (Mobile)",
-			"text": "Responsible for HTML and CSS.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "608",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "green",
-			"image": "3m.png",
-			"link": "",
-			"external": "",
-			"name": "3M-Cuno",
-			"text": "Responsible for HTML, CSS, jQuery and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "161",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "purple",
-			"image": "ashley-furniture.png",
-			"link": "http://www.ashleyfurniturehomestore.com",
-			"external": "external",
-			"name": "Ashley Furniture Homestore",
-			"text": "Responsible for HTML, CSS, jQuery and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "195",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "pink",
-			"image": "gordon-food-services.png",
-			"link": "http://www.gfs.com/en",
-			"external": "external",
-			"name": "Gordon Food Services",
-			"text": "Responsible for HTML, CSS, jQuery, and PHP.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "178",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "green",
-			"image": "ul-myhome.png",
-			"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
-			"external": "external",
-			"name": "UL &ndash; @MyHome",
-			"text": "Responsible for HTML, CSS and jQuery.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "209",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "pink",
-			"image": "regis-franchise.png",
-			"link": "",
-			"external": "",
-			"name": "Regis Franchise",
-			"text": "Responsible for HTML, CSS and jQuery.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "175",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "green",
-			"image": "regis-stylist.png",
-			"link": "",
-			"external": "",
-			"name": "Regis Stylist",
-			"text": "Responsible for HTML, CSS and jQuery.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "160",
-			"width": "260"
-		},
-		{
-			"year": "2008",
-			"color": "pink",
-			"image": "invitrogen.png",
-			"link": "",
-			"external": "",
-			"name": "Invitrogen Rockfeller",
-			"text": "Responsible for HTML, CSS and jQuery.",
-			"client": "Undisclosed",
-			"link2": "",
-			"height": "337",
-			"width": "260"
-		},
-		{
-			"year": "2006 &ndash; 2008",
-			"color": "purple",
-			"image": "modern-lighting.png",
-			"link": "http://www.modernlighting.com",
-			"external": "external",
-			"name": "ModernLighting",
-			"text": "Responsible for HTML, CSS, AJAX, JavaScript (script.aculo.us / Prototype framework), PHP, and MySQL.",
-			"client": "Lightology",
-			"link2": "",
-			"height": "179",
-			"width": "260"
-		}
+	"projects": {
+		"title": "Portfolio",
+		"subtitle": "My Links",
+		"copy": "Please browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
+		"link-list": [
+			{
+				"url": "https://github.com/MsDacia",
+				"title": "My GitHub Repositories",
+				"icon": "fa-github"
+			},
+			{
+				"url": "https://jsfiddle.net/user/MsDacia/fiddles/",
+				"title": "My JSFiddle Code Snippets",
+				"icon": "fa-jsfiddle"
+			}
+		],
+		"project": [
+			{
+				"year": "2017",
+				"image": "valo.png",
+				"link": "",
+				"external": false,
+				"name": "Valo v2",
+				"tags": ["HTML5", "CSS3", "SASS", "AngularJS", "Azure", "Java", "Thymeleaf", "Grunt", "Web Application", "Responsive"],
+				"client": "Innerworkings",
+				"link2": "",
+				"height": "494",
+				"width": "260",
+				"timeline": "ongoing"
+			},
+			{
+				"year": "2017",
+				"image": "asics-flytefoam.png",
+				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
+				"external": true,
+				"name": "ASICS Flytefoam",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Sketch", "Zeplin", "Gulp", "AWS", "Responsive"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "494",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2016",
+				"image": "asics-urban-pack.png",
+				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
+				"external": true,
+				"name": "ASICS Urban Pack",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Sketch", "Zeplin", "Gulp", "AWS", "Responsive"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "640",
+				"width": "260",
+				"timeline": "60 hours"
+			},
+			{
+				"year": "2016",
+				"image": "whirlpool.png",
+				"link": "https://www.whirlpool.com/",
+				"external": false,
+				"name": "Whirlpool",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "BackboneJS", "Ecommerce", "Grunt", "Responsive", "Adobe AEM"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "159",
+				"width": "260",
+				"timeline": "5 months"
+			},
+			{
+				"year": "2016",
+				"image": "financial-services.png",
+				"link": "https://bankingonmycareer.com/",
+				"external": true,
+				"name": "Financial Services",
+				"tags": ["HTML5", "CSS3", "SASS", "Sketch", "JavaScript", "ES6", "JSON", "React", "Craft CMS", "Grunt", "Twig"],
+				"client": "SuperHumane",
+				"link2": "",
+				"height": "340",
+				"width": "260",
+				"timeline": "7 months"
+			},
+			{
+				"year": "2016",
+				"image": "advocate-io.png",
+				"link": "http://advocate.io",
+				"external": true,
+				"name": "Advocate",
+				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
+				"client": "Advocate",
+				"link2": "",
+				"height": "232",
+				"width": "641",
+				"timeline": "8 weeks"
+			},
+			{
+				"year": "2016",
+				"image": "allstate-veterans.png",
+				"link": "http://allstateveterans.com",
+				"external": true,
+				"name": "Allstate Veterans",
+				"tags": ["HTML5", "CSS3", "SASS", "PSD-to-HTML", "jQuery", "Grunt", "PHP", "MySQL", "Responsive"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "407",
+				"width": "260",
+				"timeline": "6 weeks"
+			},
+			{
+				"year": "2015 - 2016",
+				"image": "intel.png",
+				"link": "",
+				"external": false,
+				"name": "Intel POS",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "AngularJS", "Multi-lingual", "Grunt", "YAML", "OS Application"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "232",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2015",
+				"image": "mcdonalds.png",
+				"link": "",
+				"external": false,
+				"name": "McDonald's",
+				"tags": ["HTML5", "CSS3", "jQuery", "Kiosk"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "381",
+				"width": "260",
+				"timeline": "1 week"
+			},
+			{
+				"year": "2015",
+				"image": "czarnowski.png",
+				"link": "http://czarnowski.com",
+				"external": true,
+				"name": "Czarnowski",
+				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL"],
+				"client": "Symbiont Group, LLC",
+				"link2": "",
+				"height": "461",
+				"width": "260",
+				"timeline": "6 weeks"
+			},
+			{
+				"year": "2014 - 2016",
+				"image": "ctachronicles.png",
+				"link": "http://ctachronicles.com",
+				"external": true,
+				"name": "CTA Chronicles",
+				"tags": ["HTML5", "CSS3", "jQuery", "WordPress", "PHP", "MySQL", "Responsive"],
+				"client": "MsDacia",
+				"link2": "",
+				"height": "321",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2013 - 2015",
+				"image": "stopandshop.png",
+				"link": "http://stopandshop.com",
+				"external": true,
+				"name": "Stop and Shop",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"client": "Peapod/Ahold",
+				"link2": "",
+				"height": "155",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2013 - 2015",
+				"image": "giantfoods.png",
+				"link": "http://giantfoods.com",
+				"external": true,
+				"name": "Giant Foods",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"client": "Peapod/Ahold",
+				"link2": "",
+				"height": "194",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2013 - 2015",
+				"image": "giant.png",
+				"link": "http://giantfoodstores.com",
+				"external": true,
+				"name": "GIANT Foods",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"client": "Peapod/Ahold",
+				"link2": "",
+				"height": "158",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2013 - 2015",
+				"image": "martins.png",
+				"link": "http://martinfoods.com",
+				"external": true,
+				"name": "Martin Foods",
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"client": "Peapod/Ahold",
+				"link2": "",
+				"height": "157",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2013",
+				"image": "ameren.png",
+				"link": "",
+				"external": false,
+				"name": "Ameren",
+				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "NPM", "Restful APIs", "Grunt", "Jira", "Agile", "Mobile Application"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "298",
+				"width": "260",
+				"timeline": "6 weeks"
+			},
+			{
+				"year": "2013",
+				"image": "lincolninternational.png",
+				"link": "http://www.lincolninternational.com",
+				"external": true,
+				"name": "Lincoln International",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "JavaScript", "Responsive", "WordPress", "Multi-lingual"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "142",
+				"width": "260",
+				"timeline": "5 weeks"
+			},
+			{
+				"year": "2012 &ndash; 2013",
+				"image": "thermofisher.png",
+				"link": "",
+				"external": false,
+				"name": "Thermofisher",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "Adobe CQ", "Jira", "Agile", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "384",
+				"width": "260",
+				"timeline": "8 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "border-states.png",
+				"link": "http://borderstates.com",
+				"external": true,
+				"name": "Border States",
+				"tags": ["QA", "Bugfixes", "Jira"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "369",
+				"width": "260",
+				"timeline": "1 week"
+			},
+			{
+				"year": "2012",
+				"image": "discover-bank-account-activity-mobile.png",
+				"link": "",
+				"external": false,
+				"name": "Discover Card: Bank Account Activity",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "542",
+				"width": "260",
+				"timeline": "4 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "evolve.png",
+				"link": "http://agideaforum.com",
+				"external": true,
+				"name": "Evolve: AG Idea Forum",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress"],
+				"client": "Internal",
+				"link2": "",
+				"height": "173",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "evolve-mobile.png",
+				"link": "http://agideaforum.com/m/index.html",
+				"external": true,
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress", "Mobile"],
+				"client": "Internal",
+				"link2": "",
+				"height": "444",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "frontier.png",
+				"link": "http://frontier.com",
+				"external": true,
+				"name": "Frontier",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "Bugfixes", "Jira"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "352",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "mine-safety-applications.png",
+				"link": "http://us.msasafety.com",
+				"external": true,
+				"name": "MSA Safety",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "406",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "tmobile-mobile2.png",
+				"link": "",
+				"external": false,
+				"name": "T-Mobile",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "JQuery Mobile", "PHP", "Mobile", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "488",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "unsnowman.png",
+				"link": "",
+				"external": false,
+				"name": "Unsnowman Competition",
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "MySQL"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "423",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2012",
+				"image": "wesco.png",
+				"link": "",
+				"external": false,
+				"name": "Wesco",
+				"tags": ["QA", "Bugfixes", "Jira"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "370",
+				"width": "260",
+				"timeline": "1 week"
+			},
+			{
+				"year": "2011 &ndash; 2012",
+				"image": "grainger.png",
+				"link": "",
+				"external": false,
+				"name": "Grainger",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "DOJO", "Jira", "Hybris", "Agile", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "400",
+				"width": "260",
+				"timeline": "18 months"
+			},
+			{
+				"year": "2010 &ndash; 2011",
+				"image": "sanford-health.png",
+				"link": "http://www.sanfordhealth.org/",
+				"external": true,
+				"name": "Sanford Health",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "338",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2010",
+				"image": "casual-male-dxl.png",
+				"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
+				"external": true,
+				"name": "Casual Male DXL",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "335",
+				"width": "260",
+				"timeline": "5 weeks"
+			},
+			{
+				"year": "2010",
+				"image": "loreal-ysl.png",
+				"link": "http://www.yslbeautyus.com/",
+				"external": true,
+				"name": "L'Oreal",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "196",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2010",
+				"image": "ltd-commodities.png",
+				"link": "http://www.ltdcommodities.com/",
+				"external": true,
+				"name": "LTD Commodities",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "474",
+				"width": "260",
+				"timeline": "4 weeks"
+			},
+			{
+				"year": "2010",
+				"image": "iloveny.png",
+				"link": "http://iloveny.com/",
+				"external": true,
+				"name": "ILOVENY | The Official New York State Tourism Site",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX"],
+				"client": "Whittman Hart",
+				"link2": "",
+				"height": "205",
+				"width": "260",
+				"timeline": "10 weeks"
+			},
+			{
+				"year": "2010",
+				"image": "symptom-checker.png",
+				"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
+				"external": true,
+				"name": "American Academy of Pediatrics: Symptom Checker Tool",
+				"tags": ["HTML", "CSS", "jQuery"],
+				"client": "Manifest Digital",
+				"link2": "",
+				"height": "351",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2009",
+				"image": "suntimes.png",
+				"link": "http://suntimes.com/",
+				"external": true,
+				"name": "suntimes.com",
+				"tags": ["HTML", "CSS", "JavaScript"],
+				"client": "STNG",
+				"link2": "",
+				"height": "182",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2009",
+				"image": "pizzahut.png",
+				"link": "http://pizzahut.com/",
+				"external": true,
+				"name": "Pizza Hut",
+				"tags": ["HTML", "CSS", "JavaScript", "Bugfixes", "Ecommerce"],
+				"client": "QuikOrder",
+				"link2": "",
+				"height": "189",
+				"width": "260",
+				"timeline": "Ongoing"
+			},
+			{
+				"year": "2009",
+				"image": "daa.png",
+				"link": "http://chicagobooth.edu/daa/",
+				"external": true,
+				"name": "Distinguished Alumni Awards",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "AJAX", "JavaScript", "jQuery", "XML", "ASP Classic"],
+				"client": "Chicago Booth",
+				"link2": "",
+				"height": "210",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2009",
+				"image": "farm-to-fork.png",
+				"link": "http://chicagobooth.edu/food/2009/",
+				"external": true,
+				"name": "From Farm to Fork Food Conference 2009",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript"],
+				"client": "Chicago Booth",
+				"link2": "",
+				"height": "289",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2009",
+				"image": "alumni-celebrations.png",
+				"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
+				"external": true,
+				"name": "Alumni Celebrations 2009",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript"],
+				"client": "Chicago Booth",
+				"link2": "",
+				"height": "192",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2009",
+				"image": "career-path.png",
+				"link": "http://career.chicagobooth.edu/parttime/careerpath/",
+				"external": true,
+				"name": "Career Paths",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "ASP Classic"],
+				"client": "Chicago Booth",
+				"link2": "",
+				"height": "165",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2009",
+				"image": "alumni-reunion.png",
+				"link": "http://chicagobooth.edu/alumni/reunion2009/",
+				"external": true,
+				"name": "Alumni Reunions 2009",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX", "XML", "ASP Classic"],
+				"client": "Chicago Booth",
+				"link2": "",
+				"height": "181",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2009",
+				"image": "talent-development.png",
+				"link": "http://www.chicagobooth.edu/recruiting/tdc/2010/",
+				"external": true,
+				"name": "Talent Development Conference 2010",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "ASP Classic"],
+				"client": "Chicago Booth",
+				"link2": "",
+				"height": "236",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "discover-find-my-offer-mobile.png",
+				"link": "",
+				"external": false,
+				"name": "Discover Card: Find My Offer (Mobile)",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "Mobile"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "608",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "3m.png",
+				"link": "",
+				"external": false,
+				"name": "3M-Cuno",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "161",
+				"width": "260",
+				"timeline": "4 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "ashley-furniture.png",
+				"link": "http://www.ashleyfurniturehomestore.com",
+				"external": true,
+				"name": "Ashley Furniture Homestore",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "Ecommerce"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "195",
+				"width": "260",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "gordon-food-services.png",
+				"link": "http://www.gfs.com/en",
+				"external": true,
+				"name": "Gordon Food Services",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "178",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "ul-myhome.png",
+				"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
+				"external": true,
+				"name": "UL &ndash; @MyHome",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "209",
+				"width": "260",
+				"timeline": "4 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "regis-franchise.png",
+				"link": "",
+				"external": false,
+				"name": "Regis Franchise",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "175",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "regis-stylist.png",
+				"link": "",
+				"external": false,
+				"name": "Regis Stylist",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "160",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2008",
+				"image": "invitrogen.png",
+				"link": "",
+				"external": false,
+				"name": "Invitrogen Rockfeller",
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+				"client": "Undisclosed",
+				"link2": "",
+				"height": "337",
+				"width": "260",
+				"timeline": "3 weeks"
+			},
+			{
+				"year": "2006 &ndash; 2008",
+				"image": "modern-lighting.png",
+				"link": "http://www.modernlighting.com",
+				"external": true,
+				"name": "ModernLighting",
+				"tags": ["PSD-to-HTML", "Ecommerce", "HTML", "CSS", "AJAX", "JavaScript", "PHP", "MySQL"],
+				"client": "Lightology",
+				"link2": "",
+				"height": "179",
+				"width": "260",
+				"timeline": "Ongoing"
+			}
+		]
 	},
 	"resume": {
-
+		"title": "Dacia James",
+		"address": "Chicago, Illinois",
+		"resumeTitle": "Download PDF (.PDF)",
+		"resumeUrl": "media/miscellaneous/DaciaJamesResumeAll.pdf",
+		"modified": "<br /><span>(last modified: <span>",
+		"modified2": "</span>)</span>",
+		"skills": [
+			{
+				"title": "Development",
+				"tags": [
+					{
+						"category": "Development"
+					}
+				]
+			}
+		],
+		"content": {
+			"title": "Career Objective",
+			"copy": "12+ year of front-end web developer experience working with diverse clients and projects, showcasing my strong development and leadership skills. I have expert-level knowledge of W3C standards, cross-browser/platform development, accessibility, and a solid understanding of the principles of information architecture. I have the ability to quickly hand-code clean HTML/CSS from Photoshop/Sketch/Zeplin mock-ups, functional specs and use cases, with understanding of interaction design and user-centered design methods and practices. I have experience in refactoring existing codebase and in understanding existing implementations to decide to refactor or rewrite. I enjoy working in Agile development and am extremely comfortable with SCRUM process."
+		}
 	}
 }

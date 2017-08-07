@@ -3,7 +3,6 @@ import BootstrapVue from 'bootstrap-vue'
 import * as VueFire from 'vuefire'
 import VueVirtualScroller from 'vue-virtual-scroller'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
-import TreeView from 'vue-json-tree-view'
 import VueRouter from 'vue-router'
 
 import routes from './routes'
@@ -17,7 +16,6 @@ import './vendor/font-awesome/css/font-awesome-solid.css'
 // load vue plug-ins
 Vue.use(BootstrapVue)
 Vue.use(VueVirtualScroller)
-Vue.use(TreeView)
 Vue.use(VueFire)
 Vue.use(VueRouter)
 
