@@ -8,6 +8,15 @@
 	-moz-osx-font-smoothing: grayscale
 	text-align: left
 
+i,
+.svg-inline--fa
+	@include rem(margin-right, 5px)
+	display: inline-block
+	font-size: 18px
+
+em
+	font-style: normal
+
 h1, h2, h3,
 h4, h5, h6
 	@include rem(margin, 0 0 10px)
@@ -151,15 +160,6 @@ a:link
 		&:active
 			&:before
 				background: transparent
-
-i,
-.svg-inline--fa
-	@include rem(font-size, 18px)
-	@include rem(margin-right, 5px)
-	display: inline-block
-
-em
-	font-style: normal
 
 .nowrap
 	white-space: nowrap
@@ -579,14 +579,6 @@ button
 
 	@include tablet-small
 		display: none !important
-
-// .fade
-// 	opacity: 1
-
-.mint-loadmore-top
-	span
-		display: inline-block
-		transition: .2s linear
 
 .rotate
 	transform: rotate(180deg)

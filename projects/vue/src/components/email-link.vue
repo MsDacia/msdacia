@@ -1,44 +1,56 @@
 <template>
-    <a href="#" @click.prevent="open" v-html="obfuscatedText"></a>
+	<a href="#" @click.prevent="open" v-html="obfuscatedText"></a>
 </template>
 
 <script>
 
-    export default {
-        props: {
-            'domain': {
-                required: true,
-                type: String
-            },
-            'local-part': {
-                required: true,
-                type: String
-            },
-            'subject': String
-        },
-        computed: {
-            href: function () {
-                let uri = `mailto:${this.localPart}@${this.domain}`
+	export default {
+		props: {
+			'domain': {
+				required: true,
+				type: String
+			},
+			'local-part': {
+				required: true,
+				type: String
+			},
+			'subject': String
+		},
+		computed: {
+			href: function () {
+				let uri = `mailto:${this.localPart}@${this.domain}`
 
-                if (this.subject) {
-                    uri += `?subject=${encodeURIComponent(this.subject)}`
-                }
+				if (this.subject) {
+					uri += `?subject=${encodeURIComponent(this.subject)}`
+				}
 
-                return uri
-            },
-            obfuscatedText: function () {
-                return obfuscateHTML(this.localPart) + '&#64;' + obfuscateHTML(this.domain)
-            }
-        },
-        methods: {
-            open() {
-                window.open(this.href, '_self')
-            }
-        }
-    }
+				return uri
+			},
+			obfuscatedText: function () {
+				return '<i class="fa fa-envelope" style="font-size: 45px";></i>' + obfuscateHTML(this.localPart) + '&#64;' + obfuscateHTML(this.domain)
+			}
+		},
+		methods: {
+			open() {
+				window.open(this.href, '_self')
+			}
+		}
+	}
 
-    function obfuscateHTML(text) {
-        return text.split('').join('<span style="display:none">anti-spam</span>')
-    }
+	function obfuscateHTML(text) {
+		return text.split('').join('<span style="display:none">anti-spam</span>')
+	}
 
 </script>
+
+<style lang="sass" scoped>
+
+	@import '../styles/main.sass'
+
+	a
+		i,
+		.fal, .fa,
+		.svg-inline--fa
+			font-size: 45px
+
+</style>

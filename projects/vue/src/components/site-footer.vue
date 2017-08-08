@@ -1,19 +1,81 @@
 <template>
-	<b-navbar id="footer" type="dark" variant="default">
-		<div class="row">
-			<div class="col-sm-4">
-				<h4><i class="fal fa-envelope"></i> email</h4>
-				<p><email-link local-part="davidanddacia" domain="gmail.com" subject="Wedding Site Contact Us"></email-link></p>
-			</div>
-			<div class="col-sm-4">
-				<h2 @click="open"><span>Ms</span> Dacia</h2>
-				<p class="copyright">&copy; 2004 - 2018 website designed, developed by MsDacia</p>
-			</div>
-			<div class="col-sm-4">
-				
-			</div>
-		</div>
-	</b-navbar>
+	<div id="footer">
+		<ul>
+			<li>
+				<email-link :local-part="content.common.footer.email.local" :domain="content.common.footer.email.domain" :subject="content.common.footer.email.subject"></email-link>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.facebook.url"
+					target="_blank"
+					:title="content.common.footer.facebook.title">
+					<i :class="content.common.footer.facebook.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.linkedin.url"
+					target="_blank"
+					:title="content.common.footer.linkedin.title">
+					<i :class="content.common.footer.linkedin.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.twitter.url"
+					target="_blank"
+					:title="content.common.footer.twitter.title">
+					<i :class="content.common.footer.twitter.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.instagram.url"
+					target="_blank"
+					:title="content.common.footer.instagram.title">
+					<i :class="content.common.footer.instagram.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.github.url"
+					target="_blank"
+					:title="content.common.footer.github.title">
+					<i :class="content.common.footer.github.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.jsfiddle.url"
+					target="_blank"
+					:title="content.common.footer.jsfiddle.title">
+					<i :class="content.common.footer.jsfiddle.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.skype.url"
+					target="_blank"
+					:title="content.common.footer.skype.title">
+					<i :class="content.common.footer.skype.icon"></i>
+				</a>
+			</li>
+			<li>
+				<a
+					:href="content.common.footer.yelp.url"
+					target="_blank"
+					:title="content.common.footer.yelp.title">
+					<i :class="content.common.footer.yelp.icon"></i>
+				</a>
+			</li>
+		</ul>
+
+		<h2 @click="open">{{content.common.global.title}}</h2>
+		<p class="copyright">
+			<i :class="content.common.copyright.icon"></i>
+			{{content.common.copyright.content}}
+		</p>
+	</div>
 </template>
 
 <script>
@@ -23,6 +85,11 @@
 	export default {
 		components: {
 			EmailLink
+		},
+		data: function () {
+			return {
+				content: require('../json/static.en-us.json')
+			}
 		},
 		computed: {
 			href: function () {
@@ -46,52 +113,28 @@
 
 	#footer
 		@include rem(margin-top, 20px)
-		background: linear-gradient(transparent, $background3)
+		@include rem(padding-top, 20px)
+		background: linear-gradient($background3, transparent)
+		pointer-events: none
+		position: relative
 		text-align: center
+		width: 100%
 		z-index: 3
 
-		.col-sm-4
-			&:first-of-type,
-			&:last-of-type
-				@include rem(margin-top, 20px)
-				@include rem(padding-top, 20px)
-
-				h4
-					@include rem(margin-bottom, 2.5px)
-					font-size: 21.6px
-
-					i,
-					.svg-inline--fa
-						font-size: 18px
-
-				p
-					a
-						color: $text7
+		ul
+			li
+				display: inline-block
 
 				i,
 				.svg-inline--fa
-					@include rem(margin-right, 0)
-
-				b
-					font-family: $font-stack-sans-serif2
-					font-size: 17.5px
-
-			&:last-of-type
-				h4
-					color: $text8
-
-				p
-					@include rem(padding, 0 65px)
-
-					@include tablet-large
-						@include rem(padding, 0 25px)
+					font-size: 45px
 
 		h2
 			color: $text
 			cursor: pointer
 			font: 700 64px/1 $font-stack-sans-serif2
+			text-align: center
 			text-shadow: $text-shadow
-			text-transform: uppercase
 
 			@include tablet
 				font-size: 54px
@@ -104,9 +147,15 @@
 
 		p
 			font-size: $base-font-size
+			text-align: center
 
 			&.copyright
 				@include rem(margin-top, 10px)
 				font-size: 11px
+				text-align: center
+
+				i,
+				.svg-inline--fa
+					font-size: 11px
 
 </style>

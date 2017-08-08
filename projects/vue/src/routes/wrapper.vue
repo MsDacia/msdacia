@@ -1,6 +1,5 @@
-<template v-repeats="content">
+<template>
 	<div class="wrapper">
-		{{content.common.global.title}}
 		<cover-background>
 			<router-view class="main-content"></router-view>
 		</cover-background>
@@ -15,24 +14,6 @@
 
 		components: {
 			CoverBackground
-		},
-		data: function () {
-			return {
-				content: null
-			}
-		},
-		methods: {
-			getContent: function() {
-				this.$http.get('../json/static.en-us.json').then(function(response) {
-					console.log(response.data)
-					this.content = response.data
-				}, function(error){
-					console.log(error.statusText)
-				})
-			}
-		},
-		mounted: function () {
-			this.getContent()
 		}
 	}
 

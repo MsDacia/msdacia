@@ -5,95 +5,96 @@
 			"urlTitle": "msdacia.com",
 			"url": "http://msdacia.com"
 		},
-		"includes": {
-			"back-to": {
-				"top": {
-					"title": "Up to top",
-					"icon": "",
-					"url": "#top"
-				},
-				"bottom": {
-					"title": "Down to bottom",
-					"icon": "",
-					"url": "#bottom"
-				}
+		"back-to": {
+			"top": {
+				"title": "Up to top",
+				"icon": "",
+				"url": "#top"
 			},
-			"footer": [
-				{
-					"title": "Email",
-					"icon": "fa-envelope-o",
-					"url": "mailto:msdessin@gmail.com?subject=From%20msdacia.com"
-				},
-				{
-					"title": "Facebook",
-					"icon": "fa-facebook",
-					"url": "http://www.facebook.com/#!/msdacia"
-				},
-				{
-					"title": "LinkedIn",
-					"icon": "fa-linkedin",
-					"url": "http://www.linkedin.com/in/dessin"
-				},
-				{
-					"title": "Twitter",
-					"icon": "fa-twitter",
-					"url": "http://www.twitter.com/MsDaciaJ"
-				},
-				{
-					"title": "Instagram",
-					"icon": "fa-instagram",
-					"url": "https://www.instagram.com/msdacia1/"
-				},
-				{
-					"title": "Github",
-					"icon": "fa-github-alt",
-					"url": "https://github.com/MsDacia"
-				},
-				{
-					"title": "JSFiddle",
-					"icon": "fa-jsfiddle",
-					"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
-				},
-				{
-					"title": "Skype",
-					"icon": "fa-skype",
-					"url": "skype:msdacia1?userinfo"
-				},
-				{
-					"title": "Yelp",
-					"icon": "fa-yelp",
-					"url": "http://msdacia.yelp.com/"
-				}
-			],
-			"copyright": {
-				"content": "copyright &copy; 2008 &ndash;"
-			},
-			"home-link": {
-				"title": "Menu"
-			},
-			"navigation": [
-				{
-					"title": "Home",
-					"item": "home",
-					"url": "/"
-				},
-				{
-					"title": "About MsDacia",
-					"item": "about",
-					"url": "/about"
-				},
-				{
-					"title": "Resume",
-					"item": "resume",
-					"url": "/resume"
-				},
-				{
-					"title": "Portfolio",
-					"item": "portfolio",
-					"url": "/portfolio"
-				}
-			]
+			"bottom": {
+				"title": "Down to bottom",
+				"icon": "",
+				"url": "#bottom"
+			}
 		},
+		"footer": {
+			"email": {
+				"title": "Email",
+				"icon": "fa fa-envelope",
+				"local": "msdessin",
+				"domain": "gmail.com",
+				"subject": "MsDacia.com"
+			},
+			"facebook": {
+				"title": "Facebook",
+				"icon": "fab fa-facebook-square",
+				"url": "http://www.facebook.com/#!/msdacia"
+			},
+			"linkedin": {
+				"title": "LinkedIn",
+				"icon": "fab fa-linkedin-square",
+				"url": "http://www.linkedin.com/in/dessin"
+			},
+			"twitter": {
+				"title": "Twitter",
+				"icon": "fab fa-twitter-square",
+				"url": "http://www.twitter.com/MsDaciaJ"
+			},
+			"instagram": {
+				"title": "Instagram",
+				"icon": "fab fa-instagram",
+				"url": "https://www.instagram.com/msdacia1/"
+			},
+			"github": {
+				"title": "Github",
+				"icon": "fab fa-github-square",
+				"url": "https://github.com/MsDacia"
+			},
+			"jsfiddle": {
+				"title": "JSFiddle",
+				"icon": "fab fa-jsfiddle",
+				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
+			},
+			"skype": {
+				"title": "Skype",
+				"icon": "fab fa-skype",
+				"url": "skype:msdacia1?userinfo"
+			},
+			"yelp": {
+				"title": "Yelp",
+				"icon": "fab fa-yelp",
+				"url": "http://msdacia.yelp.com/"
+			}
+		},
+		"copyright": {
+			"icon": "fal fa-copyright",
+			"content": "2004 - 2018 designed, developed by MsDacia"
+		},
+		"home-link": {
+			"title": "Menu"
+		},
+		"navigation": [
+			{
+				"title": "Home",
+				"item": "home",
+				"url": "/"
+			},
+			{
+				"title": "About MsDacia",
+				"item": "about",
+				"url": "/about"
+			},
+			{
+				"title": "Resume",
+				"item": "resume",
+				"url": "/resume"
+			},
+			{
+				"title": "Portfolio",
+				"item": "portfolio",
+				"url": "/portfolio"
+			}
+		],
 		"loading": {
 			"wrapper": "Loading&hellip;",
 			"navigation": "Loading Navigation Menu&hellip;",

@@ -2,7 +2,13 @@
 	<div class="video-container">
 		<site-header></site-header>
 		<div class="filter"></div>
-		<iframe :src="src" height="120%" width="120%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<video autoplay loop class="fillWidth">
+			<source src="../assets/videos/After-Party/Mp4/After-Party.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+			<source src="../assets/videos/After-Party/WEBM/After-Party.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+		</video>
+		<div class="poster hidden">
+			<img src="../assets/videos/After-Party/Snapshots/After-Party.jpg" alt="After Party">
+		</div>
 		<main>
 			<slot></slot>
 		</main>
