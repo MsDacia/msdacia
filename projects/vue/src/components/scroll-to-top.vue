@@ -1,5 +1,5 @@
 <template>
-	<a href="#" id="back-to-top" title="Up to top">&uarr;</a>
+	<a href="#" id="back-to-top" title="Up to top"><i class="fal fa-arrow-up"></i></a>
 </template>
 
 <script>

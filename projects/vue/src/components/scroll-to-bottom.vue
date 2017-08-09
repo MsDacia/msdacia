@@ -1,5 +1,5 @@
 <template>
-	<a href="#bottom" id="back-to-bottom" title="Down to bottom">&darr;</a>
+	<a href="#bottom" id="back-to-bottom" title="Down to bottom"><i class="fal fa-arrow-down"></i></a>
 </template>
 
 <script>
@@ -69,7 +69,7 @@
 
 			#video-recording
 				.flashing
-					animation: blinker 1s linear infinite
+					animation: blinker .3s linear infinite
 					line-height: 27px
 					text-align: center
 

@@ -1,81 +1,30 @@
 <template>
-	<div id="footer">
-		<ul>
-			<li>
-				<email-link :local-part="content.common.footer.email.local" :domain="content.common.footer.email.domain" :subject="content.common.footer.email.subject"></email-link>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.facebook.url"
-					target="_blank"
-					:title="content.common.footer.facebook.title">
-					<i :class="content.common.footer.facebook.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.linkedin.url"
-					target="_blank"
-					:title="content.common.footer.linkedin.title">
-					<i :class="content.common.footer.linkedin.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.twitter.url"
-					target="_blank"
-					:title="content.common.footer.twitter.title">
-					<i :class="content.common.footer.twitter.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.instagram.url"
-					target="_blank"
-					:title="content.common.footer.instagram.title">
-					<i :class="content.common.footer.instagram.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.github.url"
-					target="_blank"
-					:title="content.common.footer.github.title">
-					<i :class="content.common.footer.github.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.jsfiddle.url"
-					target="_blank"
-					:title="content.common.footer.jsfiddle.title">
-					<i :class="content.common.footer.jsfiddle.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.skype.url"
-					target="_blank"
-					:title="content.common.footer.skype.title">
-					<i :class="content.common.footer.skype.icon"></i>
-				</a>
-			</li>
-			<li>
-				<a
-					:href="content.common.footer.yelp.url"
-					target="_blank"
-					:title="content.common.footer.yelp.title">
-					<i :class="content.common.footer.yelp.icon"></i>
-				</a>
-			</li>
-		</ul>
-
-		<h2 @click="open">{{content.common.global.title}}</h2>
-		<p class="copyright">
-			<i :class="content.common.copyright.icon"></i>
-			{{content.common.copyright.content}}
-		</p>
-	</div>
+	<footer>
+		<div class="row">
+			<div class="col-xs-4"></div>
+			<div class="col-xs-7">
+				<ul>
+					<li>
+						<email-link :local-part="content.common.email.local" :domain="content.common.email.domain" :subject="content.common.email.subject"></email-link>
+					</li>
+					<li v-for="footerNav in content.common.footer" :key="footerNav.id">
+						<a
+							:href="footerNav.url"
+							target="_blank"
+							:title="footerNav.title">
+							<i :class="footerNav.icon"></i>
+						</a>
+					</li>
+				</ul>
+				<h2 @click="open">{{content.common.global.title}}</h2>
+				<p class="copyright">
+					<i :class="content.common.copyright.icon"></i>
+					{{content.common.copyright.content}}
+				</p>
+			</div>
+			<div class="col-xs-1"></div>
+		</div>
+	</footer>
 </template>
 
 <script>
@@ -111,29 +60,30 @@
 
 	@import '../styles/main.sass'
 
-	#footer
+	footer
 		@include rem(margin-top, 20px)
-		@include rem(padding-top, 20px)
-		background: linear-gradient($background3, transparent)
-		pointer-events: none
+		@include rem(padding, 20px 0 0 20px)
 		position: relative
-		text-align: center
 		width: 100%
 		z-index: 3
 
 		ul
+			@include rem(padding-left, 0)
+
 			li
 				display: inline-block
+				text-align: center
 
-				i,
-				.svg-inline--fa
-					font-size: 45px
+				a
+					@include size(58px, 58px)
+
+					i,
+					.svg-inline--fa
+						font-size: 45px
 
 		h2
-			color: $text
 			cursor: pointer
 			font: 700 64px/1 $font-stack-sans-serif2
-			text-align: center
 			text-shadow: $text-shadow
 
 			@include tablet
@@ -147,12 +97,10 @@
 
 		p
 			font-size: $base-font-size
-			text-align: center
 
 			&.copyright
 				@include rem(margin-top, 10px)
 				font-size: 11px
-				text-align: center
 
 				i,
 				.svg-inline--fa

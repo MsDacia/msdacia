@@ -1,5 +1,5 @@
 <template>
-	<a href="#" @click.prevent="open" v-html="obfuscatedText"></a>
+	<a :href="href" @click.prevent="open" v-html="obfuscatedText"></a>
 </template>
 
 <script>
@@ -27,7 +27,7 @@
 				return uri
 			},
 			obfuscatedText: function () {
-				return '<i class="fa fa-envelope" style="font-size: 45px";></i>' + obfuscateHTML(this.localPart) + '&#64;' + obfuscateHTML(this.domain)
+				return '<i class="far fa-at" style="font-size: 45px"></i>'
 			}
 		},
 		methods: {

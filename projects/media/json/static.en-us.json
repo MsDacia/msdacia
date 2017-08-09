@@ -17,55 +17,55 @@
 				"url": "#bottom"
 			}
 		},
-		"footer": {
-			"email": {
-				"title": "Email",
-				"icon": "fa fa-envelope",
-				"local": "msdessin",
-				"domain": "gmail.com",
-				"subject": "MsDacia.com"
-			},
-			"facebook": {
+		"email": {
+			"title": "Email",
+			"icon": "far fa-at",
+			"local": "msdessin",
+			"domain": "gmail.com",
+			"subject": "MsDacia.com"
+		},
+		"footer": [
+			{
 				"title": "Facebook",
-				"icon": "fab fa-facebook-square",
+				"icon": "fab fa-facebook",
 				"url": "http://www.facebook.com/#!/msdacia"
 			},
-			"linkedin": {
+			{
 				"title": "LinkedIn",
-				"icon": "fab fa-linkedin-square",
+				"icon": "fab fa-linkedin",
 				"url": "http://www.linkedin.com/in/dessin"
 			},
-			"twitter": {
+			{
 				"title": "Twitter",
-				"icon": "fab fa-twitter-square",
+				"icon": "fab fa-twitter",
 				"url": "http://www.twitter.com/MsDaciaJ"
 			},
-			"instagram": {
+			{
 				"title": "Instagram",
 				"icon": "fab fa-instagram",
 				"url": "https://www.instagram.com/msdacia1/"
 			},
-			"github": {
+			{
 				"title": "Github",
-				"icon": "fab fa-github-square",
+				"icon": "fab fa-github",
 				"url": "https://github.com/MsDacia"
 			},
-			"jsfiddle": {
+			{
 				"title": "JSFiddle",
 				"icon": "fab fa-jsfiddle",
 				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
 			},
-			"skype": {
+			{
 				"title": "Skype",
 				"icon": "fab fa-skype",
 				"url": "skype:msdacia1?userinfo"
 			},
-			"yelp": {
+			{
 				"title": "Yelp",
 				"icon": "fab fa-yelp",
 				"url": "http://msdacia.yelp.com/"
 			}
-		},
+		],
 		"copyright": {
 			"icon": "fal fa-copyright",
 			"content": "2004 - 2018 designed, developed by MsDacia"
@@ -80,7 +80,7 @@
 				"url": "/"
 			},
 			{
-				"title": "About MsDacia",
+				"title": "About",
 				"item": "about",
 				"url": "/about"
 			},
@@ -107,24 +107,24 @@
 		"subtitle2": "Professionally",
 		"subtitle3": "Personally",
 		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
-		"copy2": "I am a web developer, NOT a web designer. As you can see from the site design, it may be simple, but it works. As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance.",
+		"copy2": "I am a web developer, learning UI/UX. As you can see from the site design, it may be simple, but it works. As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance.",
 		"copy3": "When I am not billable, I find myself playing a series of games, like Words With Friends, Ruzzle, What's The Phrase, and Phase 10. I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan, from attending Bears games to activities at Soldier Field. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago.",
-		"copy4": "Another caveat about me is that I blog. I have 2 blogs that I maintain: <strong><a href=\"http://ctachronicles.com\" target=\"_blank\">CTA Chronicles</a></strong> and <strong>Rookie Home Life</strong>. CTA Chronicles has been up and running since 2014. It has my personal experiences on Chicago's public transportation system. I have a ton of stories and nothing is made up. I really enjoy writing it. Rookie Home Life is still in development. If you know me, then you know that I was not very domestic. I did not know how to cook, nor did I have the desire to. Ever since we purchased a house in September 2014, this domesticated woman has bloomed. I cook. I experiment. I decorate. I clean. I shovel snow. I wire lights. I live in Home Depot. And I keep an up-to-date grocery list. I am like a working housewife, and I love it. This blog will share my journey in my home&hellip;my haven."
+		"copy4": "Another caveat about me is that I blog. I have 2 blogs that I used to maintain: <strong><a href=\"http://ctachronicles.com\" target=\"_blank\">CTA Chronicles</a></strong> and <strong>Rookie Home Life</strong>. CTA Chronicles has been up and running since 2014. It has my personal experiences on Chicago's public transportation system. I have a ton of stories and nothing is made up. I really enjoy writing it. Rookie Home Life is still in development. If you know me, then you know that I was not very domestic. I did not know how to cook, nor did I have the desire to. Ever since we purchased a house in September 2014, this domesticated woman has bloomed. I cook. I experiment. I decorate. I clean. I shovel snow. I wire lights. I live in Home Depot. And I keep an up-to-date grocery list. I am like a working housewife, and I love it. This blog will share my journey in my home&hellip;my haven."
 	},
 	"projects": {
 		"title": "Portfolio",
 		"subtitle": "My Links",
 		"copy": "Please browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
-		"link-list": [
+		"list": [
 			{
 				"url": "https://github.com/MsDacia",
 				"title": "My GitHub Repositories",
-				"icon": "fa-github"
+				"icon": "fab fa-github"
 			},
 			{
 				"url": "https://jsfiddle.net/user/MsDacia/fiddles/",
 				"title": "My JSFiddle Code Snippets",
-				"icon": "fa-jsfiddle"
+				"icon": "fab fa-jsfiddle"
 			}
 		],
 		"project": [
