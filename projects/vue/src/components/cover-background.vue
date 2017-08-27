@@ -54,8 +54,8 @@
 
 	.video-container
 		@include size(100%, auto)
-		background: $background6
-		background-image: linear-gradient(to top, $background4 0%, $background6 100%);
+		background: $background-alt
+		background-image: linear-gradient(to top, $background-alt 0%, $background4 100%);
 		background-size: cover
 		overflow: hidden
 		position: absolute
@@ -82,5 +82,8 @@
 			position: relative
 			width: 100%
 			z-index: 3
+
+		main
+			margin-bottom: 0
 
 </style>

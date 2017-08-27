@@ -62,7 +62,7 @@
 
 				span
 					@include rem(letter-spacing, .5px)
-					color: $text6
+					color: $text
 
 				.launch
 					background: transparent
@@ -85,7 +85,9 @@
 					.menu
 						@include abs-pos(0, auto, auto, 0)
 						@include rem(padding, 100px 30px)
-						background: $background6
+						background: linear-gradient($background3, $background-alt)
+						border: 0
+						box-shadow: unset
 						pointer-events: all
 						position: fixed
 						text-align: center
@@ -105,10 +107,10 @@
 
 							&:hover,
 							&.active
-								color: $anchor-text2
+								color: $anchor-text
 
 								&:before
-									background: $background5
+									background: $background4
 
 				.desktop-only
 					&.menu
@@ -126,7 +128,7 @@
 
 							&:hover,
 							&.active
-								color: $anchor-text2
+								color: $anchor-text
 
 								&:before
 									background: $background5
