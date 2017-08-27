@@ -1,8 +1,8 @@
 <template>
 	<div class="video-container">
 		<site-header></site-header>
-		<div class="filter"></div>
-		<!-- <video autoplay loop class="fillWidth">
+		<!-- <div class="filter"></div>
+		<video autoplay loop class="fillWidth">
 			<source src="../assets/videos/Ideas/Mp4/Ideas.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
 			<source src="../assets/videos/Ideas/WEBM/Ideas.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
 		</video>
@@ -54,9 +54,10 @@
 
 	.video-container
 		@include size(100%, auto)
-		background: $background-alt
-		background-image: linear-gradient(to top, $background-alt 0%, $background4 100%);
+		background: $background3
+		background-image: linear-gradient(to top, $background3 0%, $background4 100%);
 		background-size: cover
+		min-height: 480px
 		overflow: hidden
 		position: absolute
 

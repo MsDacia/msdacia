@@ -47,14 +47,24 @@
 	@import '../styles/main.sass'
 
 	.video-container
-
 		header
 			background: linear-gradient($background3, transparent)
+			min-height: 60px
+			padding-bottom: 0
+			padding-right: 0
 			z-index: 5
 
-			.ui.right.attached.button
-				box-shadow: inherit !important
-				padding: 0
+			@include phablet-large
+				@include rem(padding-right, 15px)
+				min-height: 80px
+
+			.ui.right
+				&.floated.menu
+					margin: 0
+
+				&.attached.button
+					box-shadow: inherit !important
+					padding: 0
 
 			.container
 				margin: 0 auto
@@ -62,30 +72,32 @@
 
 				span
 					@include rem(letter-spacing, .5px)
-					color: $text
 
 				.launch
 					background: transparent
-					color: $text
 					font-size: 15px
 					pointer-events: all
 
 					em
 						@include rel-pos(-1px, auto, auto, auto)
+						font-family: $font-stack-serif
 
 					.item
-						@include rem(padding, 5px 0 0 0)
 						@include transform(1px, 0)
 						@include transition(all 1s)
 						color: $text
 						overflow: hidden
+						padding: 0
 						pointer-events: all
 						z-index: 16
+
+						&:hover
+							color: $anchor-text-hover
 
 					.menu
 						@include abs-pos(0, auto, auto, 0)
 						@include rem(padding, 60px 30px)
-						background: linear-gradient($background3, $background-alt)
+						background: linear-gradient($background4, $background3)
 						pointer-events: all
 						position: fixed
 						text-align: center
@@ -94,40 +106,23 @@
 						a
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
-							color: $text
 							cursor: pointer
 							display: inline-block
-							font-size: 2rem
-							font-weight: normal
+							font: normal 2rem/1.6 $font-stack-serif
 
 							&:before
 								@include transition(all 1s ease-out)
-
-							&:hover,
-							&.active
-								color: $anchor-text
-
-								&:before
-									background: $background4
 
 				.desktop-only
 					&.menu
-						pointer-events: all
-
 						a
-							@include rem(padding, 7.5px 20px 10px)
+							@include rem(padding, 0 20px 5px)
 							color: $text
 							cursor: pointer
 							display: inline-block
-							font-size: 2rem
+							font: 2rem/1.6 $font-stack-serif
 
 							&:before
 								@include transition(all 1s ease-out)
 
-							&:hover,
-							&.active
-								color: $anchor-text
-
-								&:before
-									background: $background5
 </style>

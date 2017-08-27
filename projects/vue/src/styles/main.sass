@@ -142,7 +142,7 @@ iframe
 .overlay
 	@include abs-pos(0, 0, 0, 0)
 	@include size(100%, 100%)
-	background-color: $background-alt-a
+	background-color: $background3
 	position: fixed
 	z-index: 2
 
@@ -171,7 +171,7 @@ a:link
 		&:before
 			@include abs-pos(auto, 100%, 0, 0)
 			@include transition(all 1s ease-in)
-			background: $anchor-text
+			background: $anchor-text-hover
 			content: ""
 			height: 0
 			left: 0
@@ -184,7 +184,7 @@ a:link
 		cursor: pointer
 
 		&:before
-			background: $background-alt-b
+			background: $anchor-text-hover
 			height: 2px
 			right: 0
 
@@ -231,7 +231,7 @@ ul
 .card
 	@include animation(1s fadeIn forwards)
 	@include rem(padding, 0 !important)
-	background-color: $background-alt-b
+	background-color: $background3
 	text-align: left
 
 	@include tablet-small
@@ -290,13 +290,13 @@ address
 .mobile-only
 	display: inline-block !important
 
-	@include tablet
+	@include phablet-large
 		display: none !important
 
 .desktop-only
 	display: none !important
 
-	@include tablet
+	@include phablet-large
 		display: inline-block !important
 
 @-webkit-keyframes fadeIn
