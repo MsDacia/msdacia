@@ -27,7 +27,7 @@
 				return uri
 			},
 			obfuscatedText: function () {
-				return '<i class="far fa-at" style="font-size: 45px"></i>'
+				return '<i class="far fa-at" style="font-size: 48px;"></i>'
 			}
 		},
 		methods: {
@@ -47,10 +47,5 @@
 
 	@import '../styles/main.sass'
 
-	a
-		i,
-		.fal, .fa,
-		.svg-inline--fa
-			font-size: 45px
 
 </style>

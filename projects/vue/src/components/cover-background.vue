@@ -2,20 +2,19 @@
 	<div class="video-container">
 		<site-header></site-header>
 		<div class="filter"></div>
-		<video autoplay loop class="fillWidth">
+		<!-- <video autoplay loop class="fillWidth">
 			<source src="../assets/videos/Ideas/Mp4/Ideas.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
 			<source src="../assets/videos/Ideas/WEBM/Ideas.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
 		</video>
 		<div class="poster hidden">
 			<img src="../assets/videos/Ideas/Snapshots/Ideas.jpg" alt="Ideas">
-		</div>
+		</div> -->
 		<main>
-			<div class="row">
-				<div class="col-xs-4"></div>
-				<div class="col-xs-7">
+			<div class="ui two column centered grid">
+				<div class="column"></div>
+				<div class="four column centered row">
 					<slot></slot>
 				</div>
-				<div class="col-xs-1"></div>
 			</div>
 		</main>
 		<site-footer></site-footer>
@@ -55,7 +54,8 @@
 
 	.video-container
 		@include size(100%, auto)
-		background: #000
+		background: $background6
+		background-image: linear-gradient(to top, $background4 0%, $background6 100%);
 		background-size: cover
 		overflow: hidden
 		position: absolute
@@ -74,8 +74,13 @@
 			position: absolute
 			z-index: 0
 
-		main
+		main,
+		footer,
+		header
+			@include rem(margin-bottom, 15px)
+			@include rem(padding, 10px 15px 15px)
 			position: relative
+			width: 100%
 			z-index: 3
 
 </style>

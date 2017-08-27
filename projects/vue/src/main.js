@@ -13,6 +13,9 @@ import './vendor/font-awesome/css/font-awesome-light.css'
 import './vendor/font-awesome/css/font-awesome-regular.css'
 import './vendor/font-awesome/css/font-awesome-solid.css'
 
+import '../node_modules/semantic-ui/dist/semantic.min.css'
+import '../node_modules/semantic-ui/dist/semantic.min.js'
+
 // load vue plug-ins
 Vue.use(BootstrapVue)
 Vue.use(VueVirtualScroller)

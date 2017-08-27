@@ -1,19 +1,30 @@
 <template>
 	<header>
-		<div class="row">
-			<div class="col-xs-4"></div>
-			<div class="col-xs-7">
-				<b-navbar type="dark" variant="default">
-					<b-nav is-nav-bar class="pull-xs-left">
-						<li v-for="headerNav in content.common.navigation" :key="headerNav.id" class="nav-item">
-							<router-link class="nav-link" :to="headerNav.url">
+		<div class="container">
+			<div class="mobile-only ui right floated main menu">
+				<div class="ui big launch right attached fixed button dropdown">
+					<div class="item" @click="showMenu = !showMenu">
+						<i class="content icon"></i>
+						<em>Menu</em>
+					</div>
+
+					<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
+						<p v-for="headerNav in content.common.navigation" :key="headerNav.id">
+							<router-link class="nav-link" :to="headerNav.url" @click="showMenu = false">
 								{{headerNav.title}}
 							</router-link>
-						</li>
-					</b-nav>
-				</b-navbar>
+						</p>
+					</div>
+				</div>
 			</div>
-			<div class="col-xs-1"></div>
+
+			<div class="desktop-only ui right floated main menu">
+				<span v-for="headerNav in content.common.navigation" :key="headerNav.id">
+					<router-link class="nav-link" :to="headerNav.url">
+						{{headerNav.title}}
+					</router-link>
+				</span>
+			</div>
 		</div>
 	</header>
 </template>
@@ -23,7 +34,8 @@
 	export default {
 		data: function () {
 			return {
-				content: require('../json/static.en-us.json')
+				content: require('../json/static.en-us.json'),
+				showMenu: false
 			}
 		}
 	}
@@ -34,42 +46,88 @@
 
 	@import '../styles/main.sass'
 
-	header
-		@include animation(.3s fadeIn forwards)
-		position: relative
-		width: 100%
-		z-index: 3
+	.video-container
 
-		.navbar
-			@include rem(padding, 5px 10px 5px 20px)
+		header
+			background: linear-gradient($background3, transparent)
+			z-index: 5
 
-		.navbar-nav
-			margin: 0
-			padding-left: 0
-			padding-right: 0
+			.ui.right.attached.button
+				box-shadow: inherit !important
+				padding: 0
 
-			.nav-item
-				@include rem(padding, 10px 20px 20px 0)
-				width: 23%
+			.container
+				margin: 0 auto
+				max-width: 1200px
 
-				.nav-link
-					@include transform(1px, 0)
-					@include transition(all .3s)
-					box-shadow: 0 0 1px transparent
+				span
+					@include rem(letter-spacing, .5px)
+					color: $text6
+
+				.launch
+					background: transparent
 					color: $text
-					display: block
-					font-family: $font-stack-sans-serif2
-					font-size: 22px
-					overflow: hidden
+					font-size: 15px
 					pointer-events: all
-					position: relative
-					text-decoration: none
-					vertical-align: top
 
-					&.active
-						color: $text7
+					em
+						@include rel-pos(-1px, auto, auto, auto)
 
-					&:hover
-						color: $anchor-text-hover
+					.item
+						@include rem(padding, 5px 0 0 0)
+						@include transform(1px, 0)
+						@include transition(all 1s)
+						color: $text
+						overflow: hidden
+						pointer-events: all
+						z-index: 16
 
+					.menu
+						@include abs-pos(0, auto, auto, 0)
+						@include rem(padding, 100px 30px)
+						background: $background6
+						pointer-events: all
+						position: fixed
+						text-align: center
+						z-index: 15
+
+						a
+							@include rem(margin, 0 15px 10px)
+							@include rem(padding-bottom, 5px)
+							color: $text
+							cursor: pointer
+							display: inline-block
+							font-size: 2rem
+							font-weight: normal
+
+							&:before
+								@include transition(all 1s ease-out)
+
+							&:hover,
+							&.active
+								color: $anchor-text2
+
+								&:before
+									background: $background5
+
+				.desktop-only
+					&.menu
+						pointer-events: all
+
+						a
+							@include rem(padding, 7.5px 20px 10px)
+							color: $text
+							cursor: pointer
+							display: inline-block
+							font-size: 2rem
+
+							&:before
+								@include transition(all 1s ease-out)
+
+							&:hover,
+							&.active
+								color: $anchor-text2
+
+								&:before
+									background: $background5
 </style>

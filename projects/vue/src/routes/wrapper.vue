@@ -24,16 +24,8 @@
 	@import '../styles/main.sass'
 
 	.main-content
+		@include rem(padding, 0 15px)
 		margin: 0 auto
-		max-width: 1024px
-
-		@include tablet-large
-			max-width: $tablet
-
-		@include desktop-large
-			max-width: $desktop
-
-		@include desktop-xlarge
-			max-width: $desktop-large
+		max-width: 1440px
 
 </style>

@@ -105,19 +105,19 @@
 // Animations
 @mixin keyframes($animation-name)
     @-webkit-keyframes #{$animation-name}
-        @content;
+        @content
 
     @-moz-keyframes #{$animation-name}
-        @content;
+        @content
 
     @-ms-keyframes #{$animation-name}
-        @content;
+        @content
 
     @-o-keyframes #{$animation-name}
-        @content;
+        @content
 
     @keyframes #{$animation-name}
-        @content;
+        @content
 
 @mixin animation-name($name...)
 	-o-animation-name: $name
@@ -210,43 +210,76 @@
 	-ms-transform: perspective($perspective) translateZ($translateZ)
 	transform: perspective($perspective) translateZ($translateZ)
 
-// Media queries
+// $mobile-tiny: 320px
+@mixin mobile-tiny
+	@media (min-width: #{$mobile-tiny})
+		@content
+
+// $mobile-xsmall: 380px
+@mixin mobile-xsmall
+	@media (min-width: #{$mobile-xsmall})
+		@content
+
+// $mobile-small: 420px
+@mixin mobile-small
+	@media (min-width: #{$mobile-small})
+		@content
+
+// $mobile: 480px
 @mixin mobile
 	@media (min-width: #{$mobile})
 		@content
 
-@mixin mobile-large
-	@media (min-width: #{$mobile-large})
+// $phablet-small: 580px
+@mixin phablet-small
+	@media (min-width: #{$phablet-small})
 		@content
 
+// $phablet: 600px
+@mixin phablet
+	@media (min-width: #{$phablet})
+		@content
+
+// $phablet-large: 620px
+@mixin phablet-large
+	@media (min-width: #{$phablet-large})
+		@content
+
+// $tablet-small: 768px
 @mixin tablet-small
 	@media (min-width: #{$tablet-small})
 		@content
 
+// $tablet: 820px
 @mixin tablet
 	@media (min-width: #{$tablet})
 		@content
 
+// $tablet-large: 980px
 @mixin tablet-large
 	@media (min-width: #{$tablet-large})
 		@content
 
+// $tablet-xlarge: 1110px
 @mixin tablet-xlarge
 	@media (min-width: #{$tablet-xlarge})
 		@content
 
+// $desktop: 1280px
 @mixin desktop
 	@media (min-width: #{$desktop})
 		@content
 
+// $desktop-large: 1440px
 @mixin desktop-large
 	@media (min-width: #{$desktop-large})
 		@content
 
+// $desktop-xlarge: 1960px
 @mixin desktop-xlarge
-	@media (min-width: #{$desktop-large} + 1)
+	@media (min-width: #{$desktop-xlarge})
 		@content
 
-@mixin desktop-xxlarge
-	@media (min-width: #{$desktop-xlarge})
+@mixin retina
+	@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
 		@content

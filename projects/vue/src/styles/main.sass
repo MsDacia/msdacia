@@ -1,9 +1,16 @@
+@import 'themes/palette.sass'
+@import 'themes/paletteA.sass'
+@import 'themes/paletteB.sass'
+@import 'themes/paletteC.sass'
+@import 'themes/paletteD.sass'
+
 @import 'variables.sass'
 @import 'tools.mixins.sass'
 
 .wrapper
+	color: $text
 	display: block
-	font: 16px/1.5 $font-stack-sans-serif
+	font: 17px/1.6 $font-stack-sans-serif
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	text-align: left
@@ -20,7 +27,9 @@ em
 h1, h2, h3,
 h4, h5, h6
 	@include rem(margin, 0 0 10px)
-	font-family: $font-stack-sans-serif2
+	font-family: $font-stack-serif
+	font-weight: normal
+	line-height: 1.6
 
 	a
 		i,
@@ -40,16 +49,15 @@ h4, h5, h6
 				cursor: pointer
 
 h1
+	@include black()
 	@include rem(letter-spacing, 2px)
 	color: $text
 	cursor: pointer
-	font: 700 64px/1 $font-stack-sans-serif2
+	font-size: 64px
+	line-height: 1
 	text-shadow: $text-shadow
 	transform: rotate(90deg)
 	transform-origin: 0 -5px 0
-
-	@include tablet
-		font-size: 54px
 
 	span
 		font-size: 32px
@@ -61,12 +69,56 @@ h2
 	@include bold()
 	text-shadow: $text-shadow
 
+.ui.menu
+	background: transparent
+	border: 0
+	box-shadow: unset
+
+.ui.dropdown .menu
+	background: transparent
+
+.ui.cards > .card .header:not(.ui),
+.ui.cards > .card .content > .header:not(.ui),
+.ui.menu,
+
+.ui.card,
+.ui.cards > .card
+	background-color: transparent
+	box-shadow: unset
+
+	> .extra a:not(.ui):hover,
+	> .card >.extra a:not(.ui):hover
+		color: $text
+
+	.description,
+	p,
+	.header
+		color: $text
+
+	.extra
+		a
+			color: $anchor-text2
+
 .container
 	@include rem(margin, 0)
 	@include rem(padding, 0)
 
-	@include tablet-small
-		@include rem(margin, 0 auto)
+iframe
+	include abs-pos(auto, auto, auto, auto)
+	border: 0 none
+	box-shadow: unset
+	position: relative
+	transform: translate(-50%, 10%)
+	z-index: 0
+
+	main
+		@include rem(margin, 90px auto 20px)
+		@include rem(padding, 0 40px 50px)
+		@include size(100%, 100%)
+		max-width: 1140px
+		position: relative
+		text-align: left
+		z-index: 10
 
 .content
 	@include rem(margin-left, 20px)
@@ -84,7 +136,9 @@ h2
 			p
 				margin: 0
 
-.filter,
+	.image
+		border: 0 none !important
+
 .overlay
 	@include abs-pos(0, 0, 0, 0)
 	@include size(100%, 100%)
@@ -92,9 +146,11 @@ h2
 	position: fixed
 	z-index: 2
 
-.filter
-	@include rem(margin, 0)
-	background-color: $background3c
+.ui.segment,
+.ui.segments .segment
+	background: transparent
+	border: 0 none
+	font-size: inherit
 
 a,
 a:visited,
@@ -108,6 +164,113 @@ a:link
 	position: relative
 	text-decoration: none
 	vertical-align: top
+
+	&:not(.tab-title),
+	&:not(.has-icon),
+	&:not(.button-link)
+		&:before
+			@include abs-pos(auto, 100%, 0, 0)
+			@include transition(all 1s ease-in)
+			background: $anchor-text2
+			content: ""
+			height: 0
+			left: 0
+			right: auto
+			z-index: 1
+
+	&:hover,
+	&.active
+		color: $text
+		cursor: pointer
+
+		&:before
+			background: $background2
+			height: 2px
+			right: 0
+
+	&.has-icon
+		&:before
+			background: transparent
+
+		i,
+		.svg-inline--fa
+			&.fa-chevron-up
+				color: $anchor-text2 !important
+
+		&:hover,
+		&.active
+			&:before
+				background: transparent
+
+i,
+.svg-inline--fa
+	@include rem(font-size, 18px)
+	@include rem(margin-right, 5px)
+	display: inline-block
+
+ul
+	list-style-position: inside
+
+.nowrap
+	white-space: nowrap
+
+[data-tooltip]:before
+	z-index: 6
+
+[data-tooltip]:after
+	@include rem(padding-bottom, 10px)
+	max-width: 500px
+	min-width: 300px
+	white-space: normal
+	z-index: 12
+
+[data-inverted]:after,
+[data-inverted]:before
+	background: $color-grey-dark
+
+.card
+	@include animation(1s fadeIn forwards)
+	@include rem(padding, 0 !important)
+	background-color: $background3b
+	text-align: left
+
+	@include tablet-small
+		border-radius: 0
+
+	@include tablet-xlarge
+		@include rem(margin-bottom, 20px)
+		display: block
+		max-width: 660px
+
+	> a
+		@include tablet-xlarge
+			display: block
+			max-height: 200px
+			overflow: hidden
+
+			@include tablet-xlarge
+				max-height: 120px
+
+			&:hover
+				border-color: $text
+				text-decoration: none
+
+			img
+				width: 100%
+
+	.card-link
+		@include rem(letter-spacing, .5px)
+		@include rem(top, -1px)
+		font-family: $font-stack-serif
+
+	h2
+		i,
+		.svg-inline--fa
+			font-size: 24px
+			position: relative
+
+address
+	font-style: normal
 
 .nowrap
 	white-space: nowrap
@@ -124,20 +287,17 @@ a:link
 .show-content
 	display: block !important
 
-.mobile
-	display: none !important
-
-	@include tablet-small
-		display: inline-block !important
-
-.desktop
+.mobile-only
 	display: inline-block !important
 
-	@include tablet-small
+	@include tablet
 		display: none !important
 
-.rotate
-	transform: rotate(180deg)
+.desktop-only
+	display: none !important
+
+	@include tablet
+		display: inline-block !important
 
 @-webkit-keyframes fadeIn
 	0% { opacity: 0; transform: translateY(50px) }
