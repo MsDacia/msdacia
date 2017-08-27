@@ -84,10 +84,8 @@
 
 					.menu
 						@include abs-pos(0, auto, auto, 0)
-						@include rem(padding, 100px 30px)
+						@include rem(padding, 60px 30px)
 						background: linear-gradient($background3, $background-alt)
-						border: 0
-						box-shadow: unset
 						pointer-events: all
 						position: fixed
 						text-align: center
