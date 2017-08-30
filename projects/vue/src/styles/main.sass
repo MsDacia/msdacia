@@ -55,9 +55,10 @@ h1
 	cursor: pointer
 	font-size: 64px
 	line-height: 1
+	text-align: center
 	text-shadow: $text-shadow
-	transform: rotate(90deg)
-	transform-origin: 0 -5px 0
+	//transform: rotate(90deg)
+	//transform-origin: 0 -5px 0
 
 	span
 		font-size: 32px
@@ -99,27 +100,6 @@ h2
 		a
 			color: $anchor-text
 
-.container
-	@include rem(margin, 0)
-	@include rem(padding, 0)
-
-iframe
-	include abs-pos(auto, auto, auto, auto)
-	border: 0 none
-	box-shadow: unset
-	position: relative
-	transform: translate(-50%, 10%)
-	z-index: 0
-
-	main
-		@include rem(margin, 90px auto 20px)
-		@include rem(padding, 0 40px 50px)
-		@include size(100%, 100%)
-		max-width: 1140px
-		position: relative
-		text-align: left
-		z-index: 10
-
 .content
 	@include rem(margin-left, 20px)
 
@@ -139,13 +119,6 @@ iframe
 	.image
 		border: 0 none !important
 
-.overlay
-	@include abs-pos(0, 0, 0, 0)
-	@include size(100%, 100%)
-	background-color: $background3
-	position: fixed
-	z-index: 2
-
 .ui.segment,
 .ui.segments .segment
 	background: transparent
@@ -155,8 +128,6 @@ iframe
 a,
 a:visited,
 a:link
-	@include transform(1px, 0)
-	@include transition(all 1s)
 	box-shadow: 0 0 1px transparent
 	color: $anchor-text
 	display: inline-block
@@ -210,6 +181,17 @@ i,
 
 ul
 	list-style-position: inside
+
+.lead
+	@include black()
+	@include rem(margin-top, 10px)
+	font-size: 64px
+	line-height: 1
+	margin-bottom: 0
+	text-shadow: $text-shadow
+
+	@include tablet
+		@include rem(margin-bottom, 10px)
 
 .nowrap
 	white-space: nowrap
@@ -290,13 +272,13 @@ address
 .mobile-only
 	display: inline-block !important
 
-	@include phablet-large
+	@include phablet
 		display: none !important
 
 .desktop-only
 	display: none !important
 
-	@include phablet-large
+	@include phablet
 		display: inline-block !important
 
 @-webkit-keyframes fadeIn

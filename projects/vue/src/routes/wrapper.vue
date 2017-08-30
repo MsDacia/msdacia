@@ -23,9 +23,4 @@
 
 	@import '../styles/main.sass'
 
-	.main-content
-		@include rem(padding, 0 15px)
-		margin: 0 auto
-		max-width: 1440px
-
 </style>

@@ -47,5 +47,25 @@
 
 	@import '../styles/main.sass'
 
+	footer
+		@include rem(margin-top, 20px)
+		text-align: center
+
+		a
+			@include rem(margin-bottom, 15px)
+			@include size(54px, 54px)
+			text-align: center
+
+			@include phablet
+				font-size: 64px
+
+			i,
+			.far,
+			.svg-inline--fa
+				font-size: 36px
+				margin-right: 0
+
+				@include phablet
+					font-size: 48px
 
 </style>

@@ -3,7 +3,13 @@
 		"global": {
 			"title": "MsDacia",
 			"urlTitle": "msdacia.com",
-			"url": "http://msdacia.com"
+			"url": "http://msdacia.com",
+			"fullName": "Dacia James",
+			"name": "Dacia",
+			"prefix": "Ms",
+			"copy": "pronounced",
+			"copy2": "DAY-shuh",
+			"menu": "Menu"
 		},
 		"email": {
 			"title": "Email",
