@@ -96,7 +96,7 @@
 
 	footer
 		@include rem(margin-top, 20px)
-		background-image: linear-gradient(to top, #52b152 0%, #008a00 20%, #005700 40%, #002400 60%, $background-alt 80%, $background-alt 100%)
+		background-image: linear-gradient(to top, $background-alt 0%, transparent 100%)
 		text-align: center
 
 		.ui.centered.grid > .row

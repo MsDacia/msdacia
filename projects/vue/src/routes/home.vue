@@ -6,7 +6,7 @@
 					<div class="ui segment">
 						<h1>{{content.common.global.prefix}}{{content.common.global.name}}</h1>
 						<p><em>{{content.common.global.copy}}</em></p>
-						<h2><em>{{content.common.global.copy2}}</em></h2>
+						<h2>{{content.common.global.copy2}}</h2>
 					</div>
 				</div>
 			</div>
@@ -30,13 +30,10 @@
 
 	@import '../styles/main.sass'
 
-	// .centered
-	// 	align-items: center
-	// 	display: flex
-	// 	justify-content: center
-		
-	// 	.copy
-	// 		margin: auto
+	main
+		display: flex
+		flex-direction: column
+		justify-content: center
 
 	h1
 		font-size: 400%
@@ -48,8 +45,12 @@
 			font-size: 600%
 
 	h2
-		em
-			font-style: italic
+		@include animation(type 4s steps(60, end))
+		font-size: 250%
+		font-style: italic
+		overflow: hidden
+		white-space: nowrap
+		width: 5.75em
 
 	p
 		margin-bottom: 0

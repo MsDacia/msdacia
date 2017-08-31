@@ -41,6 +41,13 @@ body
 	-moz-osx-font-smoothing: grayscale
 	text-align: left
 
+.overlay
+	@include abs-pos(0, 0, 0, 0)
+	@include size(100%, 100%)
+	background-color: $background-alt-a
+	position: fixed
+	z-index: 2
+
 i,
 .svg-inline--fa
 	@include rem(margin-right, 5px)
@@ -328,3 +335,6 @@ address
 	30% { opacity: 1 }
 
 	100% { opacity: 0; transform: translateY(0) }
+
+@keyframes type
+	from { width: 0 } 

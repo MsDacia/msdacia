@@ -78,6 +78,8 @@
 
 			.eyedropper
 				@include abs-pos(5px, 0, 0, 5px)
+				@include rem(font-size, 15px)
+				font-weight: 300
 
 			.ui.left,
 			.ui.right
@@ -114,6 +116,9 @@
 						pointer-events: all
 						z-index: 1501
 
+						i
+							font-weight: 900
+
 						em
 							@include rel-pos(-1px, auto, auto, auto)
 							font-family: $font-stack-serif
@@ -128,7 +133,7 @@
 						text-align: center
 						z-index: 1500
 
-						a	
+						a
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
 
