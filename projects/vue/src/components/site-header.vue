@@ -47,7 +47,6 @@
 
 	.container
 		header
-			background: linear-gradient($background3, transparent)
 			min-height: 60px
 			padding-bottom: 0
 
@@ -67,10 +66,10 @@
 					padding: 0
 
 				a
-					@include rem(letter-spacing, .5px)
 					cursor: pointer
 					display: inline-block
 					font: normal 2rem/1.6 $font-stack-serif
+					letter-spacing: .5px
 
 					&:before
 						@include transition(all 1s ease-out)
@@ -87,7 +86,7 @@
 						overflow: hidden
 						padding: 0
 						pointer-events: all
-						z-index: 16
+						z-index: 1501
 
 						em
 							@include rel-pos(-1px, auto, auto, auto)
@@ -95,13 +94,13 @@
 
 					.menu
 						@include abs-pos(0, auto, auto, 0)
-						@include rem(padding, 50px 30px 5px)
-						background: linear-gradient($background4, $background3)
+						@include rem(padding, 50px 30px 40px)
+						@include size(100%, 100%)
+						background: $background-alt
 						pointer-events: all
 						position: fixed
 						text-align: center
-						width: 100%
-						z-index: 15
+						z-index: 1500
 
 						a	
 							@include rem(margin, 0 15px 10px)

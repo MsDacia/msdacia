@@ -52,12 +52,12 @@
 		text-align: center
 
 		a
-			@include rem(margin-bottom, 15px)
+			@include rem(margin-bottom, 5px)
 			@include size(54px, 54px)
 			text-align: center
 
 			@include phablet
-				font-size: 64px
+				width: 64px
 
 			i,
 			.far,

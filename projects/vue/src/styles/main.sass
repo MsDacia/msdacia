@@ -7,6 +7,27 @@
 @import 'variables.sass'
 @import 'tools.mixins.sass'
 
+*
+	-webkit-user-select: none
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0)
+
+html,
+body
+	-webkit-overflow-scrolling: touch
+	height: 100%
+
+html
+	box-sizing: border-box
+	font-size: 90%
+	line-height: 1.5
+
+body
+	background-color: $background-alt
+	color: $background
+	font-size: 18px
+	overflow-x: hidden !important
+	position: relative
+
 .wrapper
 	color: $text
 	display: block

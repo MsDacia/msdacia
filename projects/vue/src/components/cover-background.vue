@@ -1,14 +1,6 @@
 <template>
 	<div class="container">
 		<site-header></site-header>
-		<!-- <div class="filter"></div>
-		<video autoplay loop class="fillWidth">
-			<source src="../assets/videos/Ideas/Mp4/Ideas.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-			<source src="../assets/videos/Ideas/WEBM/Ideas.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-		</video>
-		<div class="poster hidden">
-			<img src="../assets/videos/Ideas/Snapshots/Ideas.jpg" alt="Ideas">
-		</div> -->
 		<main>
 			<div class="ui two column centered grid">
 				<div class="column"></div>
@@ -31,9 +23,6 @@
 		components: {
 			SiteFooter,
 			SiteHeader
-		},
-		props: {
-			'src': { type: String }
 		}
 
 }
@@ -45,12 +34,9 @@
 	@import '../styles/main.sass'
 
 	.container
-		@include size(100%, auto)
-		background: $background3
-		background-image: linear-gradient(to top, $background3 0%, $background4 100%);
-		background-size: cover
+		@include size(100%, 100%)
+		background: $background-alt
 		overflow: hidden
-		position: absolute
 
 		@include phablet
 			min-height: 480px
@@ -63,9 +49,11 @@
 			position: relative
 			width: 100%
 
-		main
+		main,
+		footer
 			margin-bottom: 0
 
+		main
 			.main-content
 				margin: 0 auto
 				max-width: 1440px
