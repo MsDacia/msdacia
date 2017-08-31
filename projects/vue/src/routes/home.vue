@@ -1,16 +1,8 @@
 <template>
-	<div id="home">
-		<div class="ui right aligned grid">
-			<div class="center aligned one column row">
-				<div class="column">
-					<div class="ui segment">
-						<h1>{{content.common.global.prefix}}{{content.common.global.name}}</h1>
-						<p><em>{{content.common.global.copy}}</em></p>
-						<h2>{{content.common.global.copy2}}</h2>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="copy">
+		<h1>{{content.common.global.prefix}}{{content.common.global.name}}</h1>
+		<p><em>{{content.common.global.copy}}</em></p>
+		<h2>{{content.common.global.copy2}}</h2>
 	</div>
 </template>
 
@@ -35,6 +27,10 @@
 		flex-direction: column
 		justify-content: center
 
+		.copy
+			text-align: right
+			z-index: 3
+
 	h1
 		font-size: 400%
 
@@ -48,9 +44,10 @@
 		@include animation(type 4s steps(60, end))
 		font-size: 250%
 		font-style: italic
+		margin: 0
 		overflow: hidden
 		white-space: nowrap
-		width: 5.75em
+		width: 100%
 
 	p
 		margin-bottom: 0

@@ -71,6 +71,7 @@
 		header
 			min-height: 60px
 			padding-bottom: 0
+			z-index: 3
 
 			@include phablet
 				@include rem(padding-right, 15px)
@@ -88,6 +89,13 @@
 
 				&.floated.menu
 					margin: 0
+
+					&.desktop-only
+						@include rem(margin, 20px 0 0)
+
+						span
+							a
+								@include rem(padding, 0 20px 5px)
 
 				&.attached
 					box-shadow: inherit !important
@@ -136,10 +144,5 @@
 						a
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
-
-			.desktop-only
-				span
-					a
-						@include rem(padding, 0 20px 5px)
 
 </style>

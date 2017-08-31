@@ -83,12 +83,10 @@ h4, h5, h6
 
 h1
 	@include black()
-	@include rem(letter-spacing, 2px)
 	color: $text
 	cursor: pointer
 	font-size: 64px
 	line-height: 1
-	text-align: center
 	text-shadow: $text-shadow
 
 	span
@@ -183,12 +181,12 @@ a:link
 
 		&:before
 			background: $anchor-text-hover
-			height: 2px
+			height: 3px
 			right: 0
 
 	&.has-icon
 		&:before
-			background: transparent
+			background: $background3
 
 		i,
 		.svg-inline--fa
@@ -198,13 +196,18 @@ a:link
 		&:hover,
 		&.active
 			&:before
-				background: transparent
+				background: $background4
 
 i,
 .svg-inline--fa
 	@include rem(font-size, 18px)
 	@include rem(margin-right, 5px)
 	display: inline-block
+
+	&:hover,
+	&.active
+		color: $background4
+		text-shadow: $text-shadow-hover
 
 ul
 	list-style-position: inside
@@ -338,3 +341,8 @@ address
 
 @keyframes type
 	from { width: 0 } 
+
+@keyframes background
+	0% { background-position: 0 0 }
+
+	100% { background-position: 100% 0 }

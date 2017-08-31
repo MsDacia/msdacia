@@ -9,7 +9,7 @@ body
 			color: $text-alt
 
 		.container
-			filter: invert(100%)
+			filter: invert(0%)
 
 		.overlay
 			background-color: $background-b
@@ -66,6 +66,13 @@ body
 				.svg-inline--fa
 					&.fa-chevron-up
 						color: $anchor-text-alt !important
+
+		i,
+		.svg-inline--fa
+			&:hover,
+			&.active
+				color: $background3
+				text-shadow: $text-shadow-hover-alt
 
 		header
 			.ui.right

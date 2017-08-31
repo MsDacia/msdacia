@@ -1,5 +1,5 @@
 <template>
-	<footer class="ui fixed bottom sticky">
+	<footer>
 		<div class="ui one column centered grid">
 			<div class="nine column centered row">
 				<email-link :local-part="content.common.email.local" :domain="content.common.email.domain" :subject="content.common.email.subject"></email-link>
@@ -96,7 +96,6 @@
 
 	footer
 		@include rem(margin-top, 20px)
-		background-image: linear-gradient(to top, $background-alt 0%, transparent 100%)
 		text-align: center
 
 		.ui.centered.grid > .row
