@@ -1,0 +1,77 @@
+body
+	&.light
+		background: $background
+		color: $text-alt
+
+		.container,
+		.wrapper
+			background-color: $background
+			color: $text-alt
+
+		.container
+			filter: invert(0%)
+
+		h1, h2, h3,
+		h4, h5, h6
+			a
+				&:hover,
+				&:focus,
+				&:active
+					i,
+					.svg-inline--fa
+						color: $anchor-text-hover-alt
+
+		h1
+			color: $text-alt
+			text-shadow: $text-shadow-alt
+
+		.ui.card,
+		.ui.cards > .card
+			> .extra a:not(.ui):hover,
+			> .card >.extra a:not(.ui):hover
+				color: $text-alt
+
+			.description,
+			p,
+			.header
+				color: $text-alt
+
+			.extra
+				a
+					color: $anchor-text-alt
+
+		a,
+		a:visited,
+		a:link
+			color: $anchor-text-alt
+
+			&:not(.tab-title),
+			&:not(.has-icon),
+			&:not(.button-link)
+				&:before
+					background: $anchor-text-hover-alt
+
+			&:hover,
+			&.active
+				color: $text-alt
+
+				&:before
+					background: $anchor-text-hover-alt
+
+			&.has-icon
+				i,
+				.svg-inline--fa
+					&.fa-chevron-up
+						color: $anchor-text-alt !important
+
+		header
+			.ui.right
+				.launch
+					.item
+						color: $text-alt
+
+					.menu
+						background: $background
+
+		footer
+			//background-image: linear-gradient(to top, #008a00 0%, #52b152 20%, #90db90 40%, $background 80%, $background 100%)

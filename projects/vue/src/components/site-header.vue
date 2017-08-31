@@ -1,5 +1,6 @@
 <template>
 	<header>
+		<i class="eyedropper icon" @click="colorsInverted"></i>
 		<div class="mobile-only ui right floated main menu">
 			<div class="ui launch right attached fixed dropdown">
 				<div class="item" @click="showMenu = !showMenu">
@@ -34,7 +35,28 @@
 		data: function () {
 			return {
 				content: require('../json/static.en-us.json'),
+				invertColors: false,
 				showMenu: false
+			}
+		},
+		methods: {
+			colorsInverted: function () {
+				const bodyTag = document.getElementsByTagName("body")[0]
+				this.invertColors = !this.invertColors
+
+				if (this.invertColors) {
+					if (bodyTag.classList) {
+						bodyTag.classList.add('light')
+					} else {
+						bodyTag.className += ' light'
+					}
+				} else {
+					if (bodyTag.classList) {
+						bodyTag.classList.remove('light')
+					} else {
+						bodyTag.className = bodyTag.className.replace(new RegExp('(^|\\b)' + 'light'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
+					}
+				}
 			}
 		}
 	}
@@ -54,6 +76,10 @@
 				@include rem(padding-right, 15px)
 				min-height: 80px
 
+			.eyedropper
+				@include abs-pos(5px, 0, 0, 5px)
+
+			.ui.left,
 			.ui.right
 				margin: 0 auto
 				max-width: 1200px

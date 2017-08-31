@@ -2,12 +2,7 @@
 	<div class="container">
 		<site-header></site-header>
 		<main>
-			<div class="ui two column centered grid">
-				<div class="column"></div>
-				<div class="four column centered row">
-					<slot></slot>
-				</div>
-			</div>
+			<slot></slot>
 		</main>
 		<site-footer></site-footer>
 	</div>
@@ -19,13 +14,11 @@
 	import SiteHeader from '../components/site-header.vue'
 
 	export default {
-
 		components: {
 			SiteFooter,
 			SiteHeader
 		}
-
-}
+	}
 
 </script>
 
@@ -35,7 +28,9 @@
 
 	.container
 		@include size(100%, 100%)
-		background: $background-alt
+		background: $background-alt url('../assets/images/dandelion_panel_land.jpg') 50% 50% no-repeat
+		background-size: cover
+		filter: invert(100%)
 		overflow: hidden
 
 		@include phablet

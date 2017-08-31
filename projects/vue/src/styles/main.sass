@@ -7,12 +7,16 @@
 @import 'variables.sass'
 @import 'tools.mixins.sass'
 
+@import 'invert.sass'
+
 *
 	-webkit-user-select: none
 	-webkit-tap-highlight-color:rgba(0, 0, 0, 0)
 
 html,
-body
+body,
+.wrapper,
+#app
 	-webkit-overflow-scrolling: touch
 	height: 100%
 
@@ -23,12 +27,13 @@ html
 
 body
 	background-color: $background-alt
-	color: $background
+	color: $text
 	font-size: 18px
 	overflow-x: hidden !important
 	position: relative
 
 .wrapper
+	background-color: $background-alt
 	color: $text
 	display: block
 	font: 17px/1.6 $font-stack-sans-serif
@@ -78,8 +83,6 @@ h1
 	line-height: 1
 	text-align: center
 	text-shadow: $text-shadow
-	//transform: rotate(90deg)
-	//transform-origin: 0 -5px 0
 
 	span
 		font-size: 32px
@@ -98,10 +101,6 @@ h2
 
 .ui.dropdown .menu
 	background: transparent
-
-.ui.cards > .card .header:not(.ui),
-.ui.cards > .card .content > .header:not(.ui),
-.ui.menu,
 
 .ui.card,
 .ui.cards > .card

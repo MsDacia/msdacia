@@ -1,10 +1,14 @@
 <template>
 	<div id="home">
-		<div class="ui two column centered grid">
-			<div class="six column centered row">
-				<h1>{{content.common.global.prefix}}{{content.common.global.name}}</h1>
-				<p><em>{{content.common.global.copy}}</em></p>
-				<h2><em>{{content.common.global.copy2}}</em></h2>
+		<div class="ui right aligned grid">
+			<div class="center aligned one column row">
+				<div class="column">
+					<div class="ui segment">
+						<h1>{{content.common.global.prefix}}{{content.common.global.name}}</h1>
+						<p><em>{{content.common.global.copy}}</em></p>
+						<h2><em>{{content.common.global.copy2}}</em></h2>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -25,6 +29,14 @@
 <style lang="sass">
 
 	@import '../styles/main.sass'
+
+	// .centered
+	// 	align-items: center
+	// 	display: flex
+	// 	justify-content: center
+		
+	// 	.copy
+	// 		margin: auto
 
 	h1
 		font-size: 400%
