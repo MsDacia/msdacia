@@ -43,6 +43,8 @@
 		header
 			@include rem(margin-bottom, 15px)
 			@include rem(padding, 10px 15px 15px)
+			margin: 0 auto
+			max-width: 1440px
 			position: relative
 			width: 100%
 			z-index: 2
@@ -53,8 +55,6 @@
 
 		main
 			height: 75%
-			margin: 0 auto
-			max-width: 1440px
 			min-height: 220px
 
 			@include phablet
