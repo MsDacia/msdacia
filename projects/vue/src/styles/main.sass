@@ -83,17 +83,23 @@ h4, h5, h6
 
 h1
 	@include black()
+	@include rem(letter-spacing, 2px)
+	@include rem(margin-left, -15px)
 	color: $text
 	cursor: pointer
 	font-size: 64px
 	line-height: 1
 	text-shadow: $text-shadow
+	transform: rotate(90deg)
+
+	@include phablet
+		margin-left: 0
 
 	span
 		font-size: 32px
 
 		&:last-of-type
-			font-size: 42px
+			font-size: 42px	
 
 h2
 	@include bold()

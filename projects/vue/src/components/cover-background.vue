@@ -59,4 +59,7 @@
 				@include rem(padding-right, 35px)
 				min-height: 600px
 
+		footer
+			@include rem(margin-top, 40px)
+
 </style>

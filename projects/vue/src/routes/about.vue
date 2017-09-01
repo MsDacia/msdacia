@@ -1,7 +1,9 @@
 <template>
-	<div>
-		<h1>{{content.about.title}}</h1>
-		<div class="content">
+	<div class="ui grid">
+		<div class="two wide column">
+			<h1>{{content.about.title}}</h1>
+		</div>
+		<div class="fourteen wide column">
 			<h2>{{content.about.subtitle}}</h2>
 			<p v-html="content.about.copy"></p>
 

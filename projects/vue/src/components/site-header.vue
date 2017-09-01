@@ -11,7 +11,7 @@
 
 				<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
 					<p v-for="headerNav in content.common.navigation" :key="headerNav.id">
-						<router-link class="nav-link" :to="headerNav.url" @click="showMenu = false">
+						<router-link class="nav-link" :to="headerNav.url" @click="showMenu == false">
 							{{headerNav.title}}
 						</router-link>
 					</p>
@@ -75,7 +75,7 @@
 
 			@include phablet
 				@include rem(padding-right, 15px)
-				min-height: 80px
+				min-height: 120px
 
 			.eyedropper
 				@include abs-pos(5px, 0, 0, 10px)

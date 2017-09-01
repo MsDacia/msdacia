@@ -31,25 +31,28 @@
 			text-align: right
 			z-index: 3
 
-	h1
-		font-size: 400%
+			h1
+				font-size: 400%
+				letter-spacing: 0
+				margin-left: 0
+				transform: rotate(0deg)
 
-		@include mobile-xsmall
-			font-size: 500%
+				@include mobile-xsmall
+					font-size: 500%
 
-		@include phablet
-			font-size: 600%
+				@include phablet
+					font-size: 600%
 
-	h2
-		@include animation(type 4s steps(60, end))
-		font-size: 250%
-		font-style: italic
-		margin: 0
-		overflow: hidden
-		white-space: nowrap
-		width: 100%
+			h2
+				@include animation(type 4s steps(60, end))
+				font-size: 250%
+				font-style: italic
+				margin: 0
+				overflow: hidden
+				white-space: nowrap
+				width: 100%
 
-	p
-		margin-bottom: 0
+			p
+				margin-bottom: 0
 
 </style>

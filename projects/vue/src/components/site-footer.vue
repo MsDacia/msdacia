@@ -95,7 +95,6 @@
 	@import '../styles/main.sass'
 
 	footer
-		@include rem(margin-top, 20px)
 		text-align: center
 
 		.ui.centered.grid > .row
