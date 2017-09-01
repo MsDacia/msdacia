@@ -78,9 +78,13 @@
 				min-height: 80px
 
 			.eyedropper
-				@include abs-pos(5px, 0, 0, 5px)
+				@include abs-pos(5px, 0, 0, 10px)
 				@include rem(font-size, 15px)
 				font-weight: 300
+
+				@include phablet
+					@include rem(right, 10px)
+					left: auto
 
 			.ui.left,
 			.ui.right
@@ -91,7 +95,7 @@
 					margin: 0
 
 					&.desktop-only
-						@include rem(margin, 20px 0 0)
+						@include rem(margin, 30px 0 0)
 
 						span
 							a

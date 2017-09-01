@@ -29,14 +29,11 @@
 
 	.container
 		@include animation(background 60s linear infinite)
-		@include size(100%, 100%)
+		@include size(100%, auto)
 		background: $background-alt url('../assets/images/dandelion_panel_land.jpg') 50% 50% no-repeat
 		background-size: cover
 		filter: invert(0%)
-		overflow: hidden
-
-		@include phablet
-			min-height: 480px
+		min-height: 100%
 
 		main,
 		footer,
@@ -55,11 +52,11 @@
 
 		main
 			height: 75%
-			min-height: 220px
+			min-height: 420px
 
 			@include phablet
 				@include rem(padding-left, 35px)
 				@include rem(padding-right, 35px)
-				min-height: 320px
+				min-height: 600px
 
 </style>
