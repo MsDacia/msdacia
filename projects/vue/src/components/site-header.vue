@@ -10,21 +10,22 @@
 				</div>
 
 				<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
-					<p v-for="headerNav in content.common.navigation" :key="headerNav.id">
-						<router-link class="nav-link" :to="headerNav.url" @click="showMenu == false">
-							{{headerNav.title}}
-						</router-link>
-					</p>
+					<router-link v-for="headerNav in content.common.navigation"
+						class="nav-link"
+						:key="headerNav.id"
+						:to="headerNav.url"
+						@click.native="showMenu = false"
+					>
+						{{headerNav.title}}
+					</router-link>
 				</div>
 			</div>
 		</div>
 
 		<div class="desktop-only ui right floated main menu">
-			<span v-for="headerNav in content.common.navigation" :key="headerNav.id">
-				<router-link class="nav-link" :to="headerNav.url">
-					{{headerNav.title}}
-				</router-link>
-			</span>
+			<router-link class="nav-link" :to="headerNav.url" v-for="headerNav in content.common.navigation" :key="headerNav.id">
+				{{headerNav.title}}
+			</router-link>
 		</div>
 	</header>
 </template>
@@ -112,10 +113,6 @@
 					font: normal 2rem/1.6 $font-stack-serif
 					letter-spacing: .5px
 
-					&:hover,
-					&.active
-						color: $anchor-text-hover
-
 					&:before
 						@include transition(all 1s ease-out)
 
@@ -153,5 +150,6 @@
 						a
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
+							display: block
 
 </style>

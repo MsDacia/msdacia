@@ -109,8 +109,7 @@
 			@include phablet
 				width: 64px
 
-			&:hover,
-			&.active
+			&:hover
 				color: $anchor-text-hover
 				cursor: pointer
 

@@ -24,5 +24,5 @@ Vue.use(VueRouter)
 
 
 // set up router and app
-const router = new VueRouter({ routes, linkActiveClass: 'active' })
+const router = new VueRouter({ routes, linkActiveClass: 'current' })
 const app = new Vue({ router }).$mount('#app')

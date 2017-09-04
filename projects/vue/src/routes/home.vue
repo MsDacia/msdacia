@@ -47,7 +47,6 @@
 				@include animation(type 4s steps(60, end))
 				color: $anchor-text-hover
 				font-size: 250%
-				font-style: italic
 				margin: 0
 				overflow: hidden
 				text-shadow: $text-shadow-hover

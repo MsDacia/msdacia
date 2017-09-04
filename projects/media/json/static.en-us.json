@@ -68,7 +68,7 @@
 			{
 				"title": "Home",
 				"item": "home",
-				"url": "/"
+				"url": "/home"
 			},
 			{
 				"title": "About",

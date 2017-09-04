@@ -61,11 +61,19 @@ body
 					background: $anchor-text-hover-alt
 
 			&:hover,
-			&.active
+			&.active,
+			&.router-link-exact-active
 				color: $text-alt
 
 				&:before
 					background: $anchor-text-hover-alt
+
+			// &.router-link-exact-active
+			// 	&.current
+			// 		color: $text-alt
+
+			// 		&:before
+			// 			background: $anchor-text-hover-alt
 
 			&.has-icon
 				i,

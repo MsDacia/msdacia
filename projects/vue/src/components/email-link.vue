@@ -55,13 +55,28 @@
 			@include rem(margin-bottom, 5px)
 			@include size(54px, 54px)
 			box-shadow: 0 0 1px transparent
-			color: $anchor-text
+			color: $text
 			overflow: hidden
 			padding-bottom: 3px
 			text-align: center
 
 			@include phablet
 				width: 64px
+
+			&:hover
+				color: $anchor-text-hover
+				cursor: pointer
+
+				&:before
+					background: $anchor-text-hover
+					height: 3px
+					right: 0
+
+				i,
+				.far,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-hover
 
 			i,
 			.far,
