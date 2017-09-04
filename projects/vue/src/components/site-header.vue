@@ -106,10 +106,15 @@
 					padding: 0
 
 				a
+					color: $text
 					cursor: pointer
 					display: inline-block
 					font: normal 2rem/1.6 $font-stack-serif
 					letter-spacing: .5px
+
+					&:hover,
+					&.active
+						color: $anchor-text-hover
 
 					&:before
 						@include transition(all 1s ease-out)

@@ -49,6 +49,7 @@ body
 	z-index: 2
 
 i,
+.icon,
 .svg-inline--fa
 	@include rem(margin-right, 5px)
 	display: inline-block
@@ -66,6 +67,7 @@ h4, h5, h6
 
 	a
 		i,
+		.icon,
 		.svg-inline--fa
 			@include rem(margin-left, 3px)
 			@include rem(margin-right, 0)
@@ -77,6 +79,7 @@ h4, h5, h6
 		&:focus,
 		&:active
 			i,
+			.icon,
 			.svg-inline--fa
 				color: $anchor-text-hover
 				cursor: pointer
@@ -101,9 +104,51 @@ h1
 		&:last-of-type
 			font-size: 42px	
 
-h2
+h2,
+.ui.attached.header
 	@include bold()
 	text-shadow: $text-shadow
+
+.ui.message,
+.ui.attached.header
+	background: transparent
+	color: $text
+
+.ui.feed > .event,
+.ui.message
+	box-shadow: unset
+	padding-left: 0
+	padding-right: 0
+
+	&.icon > .icon:not(.close)
+		font-size: 2rem
+
+	.content
+		margin: 0
+
+.ui.feed > .event
+	.content
+		.date
+			@include rem(padding-left, 5px)
+			background: $background-b
+			color: lighten($text3, 20%)
+			font-style: italic
+
+		.summary,
+		.extra.text
+			color: $text
+
+		.summary
+			font-weight: normal
+
+		a
+			color: $anchor-text
+
+.ui.list .list,
+.ui.list
+	> .item
+		> i.icon
+			@include rem(padding-top, 5px)
 
 .ui.menu
 	background: transparent
@@ -167,6 +212,16 @@ h2
 			@include phablet
 				font-size: 3rem
 
+		&:hover
+			.ui.message,
+			.ui.attached.header
+				color: lighten($text3, 20%)
+
+		&.active
+			.ui.message,
+			.ui.attached.header
+				color: lighten($text3, 30%)
+
 	&:not(.styled) .accordion .title~.content:not(.ui),
 	&:not(.styled) .title~.content:not(.ui)
 		margin-left: 0
@@ -175,9 +230,7 @@ h2
 			@include phablet
 				font-size: 1.75rem
 
-a,
-a:visited,
-a:link
+a
 	box-shadow: 0 0 1px transparent
 	color: $anchor-text
 	display: inline-block
@@ -192,7 +245,7 @@ a:link
 		&:before
 			@include abs-pos(auto, 100%, 0, 0)
 			@include transition(all 1s ease-in)
-			background: $anchor-text-hover
+			background: $background3
 			content: ""
 			height: 0
 			left: 0
@@ -201,7 +254,7 @@ a:link
 
 	&:hover,
 	&.active
-		color: $text
+		color: $anchor-text-hover
 		cursor: pointer
 
 		&:before
@@ -209,21 +262,13 @@ a:link
 			height: 3px
 			right: 0
 
-	&.has-icon
-		&:before
-			background: $background3
-
 		i,
+		.icon,
 		.svg-inline--fa
-			&.fa-chevron-up
-				color: $anchor-text !important
-
-		&:hover,
-		&.active
-			&:before
-				background: $background4
+			color: $anchor-text-hover
 
 i,
+.icon,
 .svg-inline--fa
 	@include rem(font-size, 18px)
 	@include rem(margin-right, 5px)
@@ -231,7 +276,7 @@ i,
 
 	&:hover,
 	&.active
-		color: $background4
+		color: $anchor-text-hover
 		text-shadow: $text-shadow-hover
 
 ul
@@ -302,6 +347,7 @@ ul
 
 	h2
 		i,
+		.icon,
 		.svg-inline--fa
 			font-size: 24px
 			position: relative

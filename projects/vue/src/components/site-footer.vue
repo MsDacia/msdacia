@@ -103,12 +103,19 @@
 		a
 			@include rem(margin-bottom, 5px)
 			@include size(54px, 54px)
+			color: $text
 			text-align: center
 
 			@include phablet
 				width: 64px
 
+			&:hover,
+			&.active
+				color: $anchor-text-hover
+				cursor: pointer
+
 			i,
+			.icon,
 			.svg-inline--fa
 				font-size: 36px
 				margin-right: 0
@@ -126,6 +133,7 @@
 					@include rem(margin-top, 10px)
 
 				i,
+				.icon,
 				.svg-inline--fa
 					font-size: 11px
 

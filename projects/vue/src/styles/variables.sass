@@ -29,15 +29,15 @@ $text2: $themeD-color2
 $text3: $themeD-color3
 $text4: $themeD-color4
 $text5: $themeD-color5
-$anchor-text: $text
-$anchor-text-alt: $text-alt
-$anchor-text-hover: $color-grey-lt
-$anchor-text-hover-alt: $background4
+$anchor-text: lighten($text3, 20%)
+$anchor-text-alt: lighten($text4, 20%)
+$anchor-text-hover: lighten($text3, 30%)
+$anchor-text-hover-alt: lighten($text4, 30%)
 
 $text-shadow: 0 0 15px $text
 $text-shadow-alt: 0 0 15px $text-alt
-$text-shadow-hover: 0 0 15px $text3
-$text-shadow-hover-alt: 0 0 15px $text4
+$text-shadow-hover: 0 0 15px $anchor-text-hover
+$text-shadow-hover-alt: 0 0 15px $anchor-text-hover-alt
 
 $mobile-tiny: 340px
 $mobile-xsmall: 380px

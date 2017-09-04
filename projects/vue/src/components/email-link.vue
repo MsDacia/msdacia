@@ -61,6 +61,7 @@
 
 			i,
 			.far,
+			.icon,
 			.svg-inline--fa
 				font-size: 36px
 				margin-right: 0
