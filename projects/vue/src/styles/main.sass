@@ -48,6 +48,9 @@ body
 	position: fixed
 	z-index: 2
 
+.block
+	position: relative
+
 em
 	font-style: normal
 
@@ -78,18 +81,17 @@ h4, h5, h6
 				cursor: pointer
 
 h1
+	@include abs-pos(170px, auto, auto, -120px)
 	@include black()
 	@include rem(letter-spacing, 2px)
-	@include rem(margin-left, -15px)
-	color: $text
+	color: $header-text
 	cursor: pointer
 	font-size: 64px
 	line-height: 1
-	text-shadow: $text-shadow
+	margin-bottom: 0
+	position: fixed
+	text-shadow: none
 	transform: rotate(90deg)
-
-	@include phablet
-		margin-left: 0
 
 	span
 		font-size: 32px
@@ -155,6 +157,9 @@ ul
 h2,
 .ui.attached.header
 	@include bold()
+	border: 0
+	padding-left: 0
+	padding-right: 0
 	text-shadow: $text-shadow
 
 .ui.table,
@@ -178,12 +183,18 @@ h2,
 		margin: 0
 
 
-.ui.definition.table tr td.definition,
-.ui.definition.table tr td:first-child:not(.ignored),
-.ui.table:not(.unstackable) tr > td,
-.ui.table:not(.unstackable) tr > th
-	color: $text
-	padding: 0 10px 0 0 !important
+.ui.definition.table tr,
+.ui.definition.table tr,
+.ui.table:not(.unstackable) tr,
+.ui.table:not(.unstackable) tr
+	box-shadow: 0 -1px 0 0 rgba(255, 255, 255, .1) inset !important
+
+	td.definition,
+	td:first-child:not(.ignored),
+	> td,
+	> th
+		color: $text
+		padding: 0 10px 0 0 !important
 
 .ui.horizontal.list .list > .item,
 .ui.horizontal.list > .item
@@ -313,16 +324,14 @@ h2,
 	border: 0 none
 	font-size: inherit
 
+	&.attached
+		@include rem(margin-bottom, 15px)
+		padding: 0
+
 .ui.accordion,
 .ui.accordion .accordion
 	.title:not(.ui)
 		color: $text
-
-		h2
-			font-size: 2.25rem
-
-			@include phablet
-				font-size: 3rem
 
 		&:hover
 			.ui.message,

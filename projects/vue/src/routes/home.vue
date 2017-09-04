@@ -32,9 +32,13 @@
 			z-index: 3
 
 			h1
+				@include rel-pos(auto, auto, auto, auto)
+				@include rem(margin-bottom, 10px)
+				color: $text
 				font-size: 400%
 				letter-spacing: 0
 				margin-left: 0
+				text-shadow: $text-shadow
 				transform: rotate(0deg)
 
 				@include mobile-xsmall
@@ -46,7 +50,7 @@
 			h2
 				@include animation(type 4s steps(60, end))
 				color: $anchor-text-hover
-				font-size: 250%
+				font-size: 180%
 				margin: 0
 				overflow: hidden
 				text-shadow: $text-shadow-hover

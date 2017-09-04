@@ -1,7 +1,9 @@
 <template>
 	<div class="ui grid">
 		<div class="two wide column">
-			<h1>{{content.resume.title}}</h1>
+			<div class="block">
+				<h1>{{content.resume.title}}</h1>
+			</div>
 		</div>
 		<div class="fourteen wide column">
 			<address>{{content.resume.address}}</address>
@@ -111,9 +113,13 @@
 
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
 	@import '../styles/main.sass'
+
+	h1
+		left: -86px
+		top: 145px
 
 	address ~ p
 		a

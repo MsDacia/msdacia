@@ -6,18 +6,15 @@
 				<div class="item" @click="showMenu = !showMenu">
 					<i class="toggle off icon" :class="[ showMenu ? 'hide-content' : 'show-content' ]"></i>
 					<i class="toggle on icon" :class="[ showMenu ? 'show-content' : 'hide-content' ]"></i>
-					<em>{{content.common.global.menu}}</em>
+					<em :class="[ showMenu ? 'active' : '' ]">{{content.common.global.menu}}</em>
 				</div>
 
 				<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
-					<router-link v-for="headerNav in content.common.navigation"
-						class="nav-link"
-						:key="headerNav.id"
-						:to="headerNav.url"
-						@click.native="showMenu = false"
-					>
-						{{headerNav.title}}
-					</router-link>
+					<span v-for="headerNav in content.common.navigation" :key="headerNav.id">
+						<router-link class="nav-link" :to="headerNav.url" @click.native="showMenu = false">
+							{{headerNav.title}}
+						</router-link>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -133,9 +130,15 @@
 						i
 							font-weight: 900
 
+							&.on
+								color: $anchor-text-hover
+
 						em
 							@include rel-pos(-1px, auto, auto, auto)
 							font-family: $font-stack-serif
+
+							&.active
+								color: $anchor-text-hover
 
 					.menu
 						@include abs-pos(0, auto, auto, 0)
@@ -147,9 +150,22 @@
 						text-align: center
 						z-index: 1500
 
+						span
+							display: block
+
 						a
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
-							display: block
+
+							&:hover,
+							&.active,
+							&.router-link-exact-active
+								color: $anchor-text-hover
+								cursor: pointer
+
+								&:before
+									background: $anchor-text-hover
+									height: 3px
+									right: 0
 
 </style>
