@@ -27,7 +27,7 @@
 				return uri
 			},
 			obfuscatedText: function () {
-				return '<i class="far fa-at" style="font-size: 48px;"></i>'
+				return '<i class="far fa-at" style="font-size: 46px;"></i>'
 			}
 		},
 		methods: {
@@ -54,6 +54,10 @@
 		a
 			@include rem(margin-bottom, 5px)
 			@include size(54px, 54px)
+			box-shadow: 0 0 1px transparent
+			color: $anchor-text
+			overflow: hidden
+			padding-bottom: 3px
 			text-align: center
 
 			@include phablet

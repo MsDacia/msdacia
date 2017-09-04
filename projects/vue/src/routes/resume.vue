@@ -11,15 +11,36 @@
 			</a></p>
 			<h2 class="ui top attached header">{{content.resume.skills.title}}</h2>
 			<div class="ui attached segment">
-				<p></p>
+				<table class="ui definition table">
+					<tbody>
+						<tr v-for="skill in content.resume.skills.categories" :key="skill.id">
+							<td class="two wide column">{{skill.title}}</td>
+							<td>{{skill.copy}}</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 			<h2 class="ui attached header">{{content.resume.links.title}}</h2>
 			<div class="ui attached segment">
-				<p></p>
+				<div class="ui card">
+					<div class="ui horizontal list">
+						<div class="item" v-for="link in content.resume.links.categories" :key="link.id">
+							<div class="content">
+								<a :href="link.url" self="_blank">{{link.title}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<h2 class="ui attached header">{{content.resume.objective.title}}</h2>
 			<div class="ui attached segment">
-				<p></p>
+				<div class="ui card">
+					<div class="content">
+						<div class="description">
+							<p>{{content.resume.objective.copy}}</p>
+						</div>
+					</div>
+				</div>
 			</div>
 			<h2 class="ui attached header">{{content.resume.experiences.title}}</h2>
 			<div class="ui attached segment">
@@ -50,9 +71,25 @@
 									</div>
 								</div>
 							</div>
-							<p></p>
 						</div>
 					</span>
+				</div>
+			</div>
+			<h2 class="ui attached header">{{content.resume.education.title}}</h2>
+			<div class="ui attached segment">
+				<div class="ui card">
+					<div class="content">
+						<div class="header">{{content.resume.education.school}}</div>
+						<div class="meta">
+							<div class="time">{{content.resume.education.date}}</div>
+							<div class="category">{{content.resume.education.degree}}</div>
+						</div>
+						<div class="description">
+							<p><em>Major:</em> {{content.resume.education.major}}</p>
+							<p><em>Minor:</em> {{content.resume.education.minor}}</p>
+							<p><em>Specialization:</em> {{content.resume.education.specialization}}</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -85,5 +122,8 @@
 			&:hover,
 			&.active
 				color: $anchor-text-hover
+
+	.ui.card
+		width: auto
 
 </style>

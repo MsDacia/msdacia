@@ -788,19 +788,19 @@
 			"categories": [
 				{
 					"title": "Development",
-					"url": "HTML5, CSS3 (LESS, SASS), XML, JSON, YAML, Twig"
+					"copy": "HTML5, CSS3 (LESS, SASS), XML, JSON, YAML, Twig"
 				},
 				{
 					"title": "Javascript",
-					"url": "jQuery, AJAX, Node, Grunt, Gulp, Bower, Bootstrap, AngularJS, VueJS"
+					"copy": "jQuery, AJAX, Node, Grunt, Gulp, Bower, Bootstrap, AngularJS, VueJS"
 				},
 				{
 					"title": "Environments",
-					"url": "PHP, SQL, WordPress, Craft CMS, Squarespace, Hybris, Adobe CQ/AEM"
+					"copy": "PHP, SQL, WordPress, Craft CMS, Squarespace, Hybris, Adobe CQ/AEM"
 				},
 				{
 					"title": "DevOps",
-					"url": "Jenkins, Splunk, Jira"
+					"copy": "Jenkins, Splunk, Jira"
 				}
 			]
 		},
@@ -827,7 +827,7 @@
 		},
 		"objective": {
 			"title": "Career Objective",
-			"copy": "13+ year of front-end web developer experience working with diverse clients and projects, showcasing my strong development and leadership skills. I have expert-level knowledge of W3C standards, cross-browser/platform development, accessibility, and a solid understanding of the principles of information architecture. I have the ability to quickly hand-code clean HTML / CSS from Photoshop / Sketch / Zeplin mock-ups, functional specs and use cases, with understanding of interaction design and user-centered design methods and practices. I have experience in refactoring existing codebase and in understanding existing implementations to decide to refactor or rewrite. I enjoy working in Agile development and am extremely comfortable with SCRUM process."
+			"copy": "13+ year of front-end web developer experience working with diverse clients and projects, showcasing my strong development and leadership skills. I have expert-level knowledge of W3C standards, cross-browser / platform development, accessibility, and a solid understanding of the principles of information architecture. I have the ability to quickly hand-code clean HTML / CSS from Photoshop / Sketch / Zeplin mock-ups, functional specs and use cases, with understanding of interaction design and user-centered design methods and practices. I have experience in refactoring existing codebase and in understanding existing implementations to decide to refactor or rewrite. I enjoy working in Agile development and am extremely comfortable with SCRUM process."
 		},
 		"experiences": {
 			"title": "Work Experiences",
@@ -905,7 +905,8 @@
 			"school": "Illinois Institute of Technology",
 			"location": "Chicago, Illinois",
 			"date": "08/1997 to 05/2002",
-			"major": "Professional and Technical Communications, Bachelor of Science Degree",
+			"degree": "Bachelor of Science Degree",
+			"major": "Professional and Technical Communicationse",
 			"minor": "Management",
 			"specialization": "CAD & Graphics Design for Non-Engineers"
 		}
