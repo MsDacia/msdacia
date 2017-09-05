@@ -1,7 +1,9 @@
 <template>
 	<div class="ui grid">
 		<div class="two wide column">
-			<h1>{{content.about.title}}</h1>
+			<div class="block">
+				<h1>{{content.about.title}}</h1>
+			</div>
 		</div>
 		<div class="fourteen wide column">
 			<div class="ui accordion">

@@ -48,6 +48,9 @@ body
 	position: fixed
 	z-index: 2
 
+main
+	font-size: 1.75rem
+
 .block
 	position: relative
 
@@ -160,6 +163,9 @@ h2,
 	padding-right: 0
 	text-shadow: $text-shadow
 
+.ui.table
+	max-width: 900px
+
 .ui.table,
 .ui.message,
 .ui.attached.header
@@ -193,20 +199,23 @@ h2,
 		color: $text
 		padding: 0 10px 0 0 !important
 
-.ui.horizontal.list .list > .item,
-.ui.horizontal.list > .item
-	margin-left: 0
-	padding-left: 0
-	width: 50%
+.ui.horizontal.list
+	width: 100%
 
-	@include tablet-small
-		width: 23%
-
-	.content
+	.list > .item,
+	> .item
 		margin-left: 0
+		padding-left: 0
+		width: 50%
 
-		a
-			font-size: 1.75rem
+		@include tablet-small
+			width: 25%
+
+		.content
+			margin-left: 0
+
+			a
+				font-size: 1.75rem
 
 .ui.feed > .event
 	.content
@@ -300,6 +309,7 @@ h2,
 
 	p
 		@include rem(margin-bottom, 30px)
+		font-size: 1rem
 
 	ul
 		margin-left: 0
@@ -380,6 +390,7 @@ h2,
 	@include rem(padding, 0 !important)
 	background-color: $background3
 	text-align: left
+	width: 100%
 
 	@include tablet-small
 		border-radius: 0
@@ -387,7 +398,7 @@ h2,
 	@include tablet-xlarge
 		@include rem(margin-bottom, 20px)
 		display: block
-		max-width: 660px
+		max-width: 900px
 
 	> a
 		@include tablet-xlarge

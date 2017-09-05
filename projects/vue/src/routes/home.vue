@@ -35,17 +35,17 @@
 				@include rel-pos(auto, auto, auto, auto)
 				@include rem(margin-bottom, 10px)
 				color: $text
-				font-size: 400%
+				font-size: 300%
 				letter-spacing: 0
 				margin-left: 0
 				text-shadow: $text-shadow
 				transform: rotate(0deg)
 
 				@include mobile-xsmall
-					font-size: 500%
+					font-size: 400%
 
 				@include phablet
-					font-size: 600%
+					font-size: 500%
 
 			h2
 				@include animation(type 4s steps(60, end))

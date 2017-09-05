@@ -129,7 +129,4 @@
 			&.active
 				color: $anchor-text-hover
 
-	.ui.card
-		width: auto
-
 </style>
