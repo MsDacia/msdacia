@@ -95,9 +95,8 @@
 					&.desktop-only
 						@include rem(margin, 30px 0 0)
 
-						span
-							a
-								@include rem(padding, 0 20px 5px)
+						a
+							@include rem(padding, 0 20px 5px)
 
 				&.attached
 					box-shadow: inherit !important
