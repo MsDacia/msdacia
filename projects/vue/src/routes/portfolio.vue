@@ -61,21 +61,39 @@
 
 	@import '../styles/main.sass'
 
+	p:first-of-type
+		max-width: 900px
+
 	h1
 		left: -98px
 		top: 145px
 
-	.ui[class*="bottom attached"].label
-		background-color: $background-alt-b
-		color: $text
+	.timeline
+		max-width: 700px
 
-	.ui.labels
-		@include rem(margin-top, 10px)
+		.item
+			@include rem(margin-bottom, 20px)
 
-	.ui.segment
-		.ui.image
-			max-height: 150px
-			overflow: hidden
+		.ui[class*="bottom attached"].label
+			background-color: $background-alt-b
+			color: $text
 
+		.ui.labels
+			@include rem(margin-top, 10px)
+
+			@include tablet-small
+				float: right
+				margin-top: 0
+				width: 50%
+
+		.ui.segment
+			.ui.image
+				max-height: 150px
+				max-width: 260px
+				overflow: hidden
+				width: 220px
+
+				@include mobile-xsmall
+					width: 260px
 
 </style>
