@@ -18,19 +18,20 @@
 				</div>
 			</div>
 
-			<div class="ui container">
-				<div class="timeline">
-					<div class="item" :data-text="project.title" v-for="project in content.projects.project" :key="project.id">
-						<div class="content">
-							<img class="image" :src="'assets/images/projects/' + project.image" />
-							<h2 class="title" v-html="project.year"></h2>
-							<div class="ui tag labels">
-								<a class="ui label" v-for="tag in project.tags" :key="tag.id">
-									{{tag}}
-								</a>
-							</div>
-							<h3>{{project.client}}</h3>
-							<h4>{{project.timeline}}</h4>
+			<div class="timeline">
+				<div class="item" :data-text="project.title" v-for="project in content.projects.project" :key="project.id">
+					<div class="ui segment">
+						<h2 class="title" v-html="project.year"></h2>
+						<a :href="project.link" target="_blank" class="ui medium image">
+							<img :src="getImage(project)" />
+							<div class="ui green right ribbon label">{{project.timeline}}</div>
+							<div class="ui bottom attached label">{{project.client}}</div>
+						</a>
+
+						<div class="ui labels">
+							<a class="ui label" v-for="tag in project.tags" :key="tag.id">
+								{{tag}}
+							</a>
 						</div>
 					</div>
 				</div>
@@ -46,6 +47,11 @@
 			return {
 				content: require('../json/static.en-us.json')
 			}
+		},
+		methods: {
+			getImage(project) {
+				return require('../assets/images/projects/' + project.image)
+			}
 		}
 	}
 
@@ -58,5 +64,18 @@
 	h1
 		left: -98px
 		top: 145px
+
+	.ui[class*="bottom attached"].label
+		background-color: $background-alt-b
+		color: $text
+
+	.ui.labels
+		@include rem(margin-top, 10px)
+
+	.ui.segment
+		.ui.image
+			max-height: 150px
+			overflow: hidden
+
 
 </style>
