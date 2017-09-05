@@ -81,6 +81,29 @@ body
 			> th
 				color: $text-alt
 
+		.ui.list,
+		ol.ui.list,
+		ul.ui.list
+			a
+				color: $text4
+
+				&:not(.has-icon)
+					&:before
+						background: $text4
+
+				&:hover,
+				&.active,
+				&.router-link-exact-active
+					color: $text3
+
+					&:before
+						background: $anchor-text-hover-alt
+
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $text4
+
 		.ui.feed > .event
 			.content
 				.date

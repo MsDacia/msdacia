@@ -103,13 +103,13 @@
 		"list": [
 			{
 				"url": "https://github.com/MsDacia",
-				"title": "My GitHub Repositories",
-				"icon": "fab fa-github"
+				"title": "GitHub Repositories",
+				"icon": "github icon"
 			},
 			{
 				"url": "https://jsfiddle.net/user/MsDacia/fiddles/",
-				"title": "My JSFiddle Code Snippets",
-				"icon": "fab fa-jsfiddle"
+				"title": "JSFiddle Code Snippets",
+				"icon": "jsfiddle icon"
 			}
 		],
 		"project": [
@@ -119,7 +119,7 @@
 				"link": "",
 				"external": false,
 				"name": "Valo v2",
-				"tags": ["HTML5", "CSS3", "SASS", "AngularJS", "Azure", "Java", "Thymeleaf", "Grunt", "Web Application", "Responsive"],
+				"tags": ["HTML5", "CSS3", "SASS", "AngularJS", "Azure", "Java", "Thymeleaf", "grunt", "Web Application", "Responsive"],
 				"client": "Innerworkings",
 				"link2": "",
 				"height": "494",
@@ -132,7 +132,7 @@
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
 				"external": true,
 				"name": "ASICS Flytefoam",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Sketch", "Zeplin", "Gulp", "AWS", "Responsive"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Sketch", "Zeplin", "gulp", "AWS", "Responsive"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "494",
@@ -145,7 +145,7 @@
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
 				"external": true,
 				"name": "ASICS Urban Pack",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Sketch", "Zeplin", "Gulp", "AWS", "Responsive"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Sketch", "Zeplin", "gulp", "AWS", "Responsive"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "640",
@@ -158,7 +158,7 @@
 				"link": "https://www.whirlpool.com/",
 				"external": false,
 				"name": "Whirlpool",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "BackboneJS", "Ecommerce", "Grunt", "Responsive", "Adobe AEM"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "backbone.js", "e-commerce", "grunt", "Responsive", "Adobe AEM"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "159",
@@ -171,7 +171,7 @@
 				"link": "https://bankingonmycareer.com/",
 				"external": true,
 				"name": "Financial Services",
-				"tags": ["HTML5", "CSS3", "SASS", "Sketch", "JavaScript", "ES6", "JSON", "React", "Craft CMS", "Grunt", "Twig"],
+				"tags": ["HTML5", "CSS3", "SASS", "Sketch", "JavaScript", "ES6", "JSON", "React", "Craft CMS", "grunt", "Twig"],
 				"client": "SuperHumane",
 				"link2": "",
 				"height": "340",
@@ -197,7 +197,7 @@
 				"link": "http://allstateveterans.com",
 				"external": true,
 				"name": "Allstate Veterans",
-				"tags": ["HTML5", "CSS3", "SASS", "PSD-to-HTML", "jQuery", "Grunt", "PHP", "MySQL", "Responsive"],
+				"tags": ["HTML5", "CSS3", "SASS", "PSD-to-HTML", "jQuery", "grunt", "PHP", "MySQL", "Responsive"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "407",
@@ -210,12 +210,12 @@
 				"link": "",
 				"external": false,
 				"name": "Intel POS",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "AngularJS", "Multi-lingual", "Grunt", "YAML", "OS Application"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "AngularJS", "Multi-lingual", "grunt", "YAML", "OS Application"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "232",
 				"width": "260",
-				"timeline": "Ongoing"
+				"timeline": "6 months"
 			},
 			{
 				"year": "2015",
@@ -254,7 +254,7 @@
 				"link2": "",
 				"height": "321",
 				"width": "260",
-				"timeline": "Ongoing"
+				"timeline": "3 months"
 			},
 			{
 				"year": "2013 - 2015",
@@ -262,7 +262,7 @@
 				"link": "http://stopandshop.com",
 				"external": true,
 				"name": "Stop and Shop",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "backbone.js", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"link2": "",
 				"height": "155",
@@ -275,7 +275,7 @@
 				"link": "http://giantfoods.com",
 				"external": true,
 				"name": "Giant Foods",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "backbone.js", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"link2": "",
 				"height": "194",
@@ -288,7 +288,7 @@
 				"link": "http://giantfoodstores.com",
 				"external": true,
 				"name": "GIANT Foods",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "backbone.js", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"link2": "",
 				"height": "158",
@@ -301,7 +301,7 @@
 				"link": "http://martinfoods.com",
 				"external": true,
 				"name": "Martin Foods",
-				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "BackboneJS", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "CSS3", "SASS", "jQuery", "backbone.js", "Typekit", "Restful APIs", "ADA-compliance", "Oracle database", "Agile", "Jira", "PSD-to-HTML", "Sketch", "grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"link2": "",
 				"height": "157",
@@ -314,7 +314,7 @@
 				"link": "",
 				"external": false,
 				"name": "Ameren",
-				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "NPM", "Restful APIs", "Grunt", "Jira", "Agile", "Mobile Application"],
+				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "NPM", "Restful APIs", "grunt", "Jira", "Agile", "Mobile Application"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "298",
@@ -353,7 +353,7 @@
 				"link": "http://borderstates.com",
 				"external": true,
 				"name": "Border States",
-				"tags": ["QA", "Bugfixes", "Jira"],
+				"tags": ["QA", "bug fixes", "Jira"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "369",
@@ -366,7 +366,7 @@
 				"link": "",
 				"external": false,
 				"name": "Discover Card: Bank Account Activity",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile"],
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "JQM", "PHP", "Mobile"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "542",
@@ -404,7 +404,7 @@
 				"link": "http://frontier.com",
 				"external": true,
 				"name": "Frontier",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "Bugfixes", "Jira"],
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "bug fixes", "Jira"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "352",
@@ -456,7 +456,7 @@
 				"link": "",
 				"external": false,
 				"name": "Wesco",
-				"tags": ["QA", "Bugfixes", "Jira"],
+				"tags": ["QA", "bug fixes", "Jira"],
 				"client": "Undisclosed",
 				"link2": "",
 				"height": "370",
@@ -573,7 +573,7 @@
 				"link": "http://pizzahut.com/",
 				"external": true,
 				"name": "Pizza Hut",
-				"tags": ["HTML", "CSS", "JavaScript", "Bugfixes", "Ecommerce"],
+				"tags": ["HTML", "CSS", "JavaScript", "bug fixes", "Ecommerce"],
 				"client": "QuikOrder",
 				"link2": "",
 				"height": "189",
@@ -791,7 +791,7 @@
 				},
 				{
 					"title": "Javascript",
-					"copy": "jQuery, AJAX, Node, Grunt, Gulp, Bower, Bootstrap, AngularJS, VueJS"
+					"copy": "jQuery, AJAX, node.js, grunt, gulp, Bootstrap, AngularJS, VueJS"
 				},
 				{
 					"title": "Environments",
@@ -868,7 +868,7 @@
 						"Created all coded presentation layer deliverables utilizing HTML5, JavaScript, CSS3, Backbone, SASS, JSON within Adobe AEM / CQ and Hybris",
 						"Converted HTML pages from Sketch / Zeplin to microsites and landing pages for clients",
 						"Worked within agile, SCRUM-based environment on large commerce accounts",
-						"Architected client sites using Grunt / Gulp, setting up project framework and developing single-page applications using AWS"
+						"Architected client sites using grunt / gulp, setting up project framework and developing single-page applications using AWS"
 					]
 				},
 				{
