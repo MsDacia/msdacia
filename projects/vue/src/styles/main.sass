@@ -109,9 +109,7 @@ a
 	text-decoration: none
 	vertical-align: top
 
-	&:not(.tab-title),
-	&:not(.has-icon),
-	&:not(.button-link)
+	&:not(.has-icon)
 		&:before
 			@include abs-pos(auto, 100%, 0, 0)
 			@include transition(all 1s ease-in)
@@ -181,7 +179,6 @@ h2,
 
 	.content
 		margin: 0
-
 
 .ui.definition.table tr,
 .ui.definition.table tr,
@@ -287,7 +284,6 @@ h2,
 			em
 				@include bold()
 				font-style: italic
-
 
 		.summary
 			font-weight: normal

@@ -86,4 +86,13 @@
 				.header:not(.ui)
 					text-shadow: rgb(1, 142, 66) 0px 0px 15px
 
+	body.light
+		.ui.accordion .title:not(.ui),
+		.ui.accordion .accordion .title:not(.ui)
+			box-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0px 0px inset
+
+			.ui.message
+				.header:not(.ui)
+					text-shadow: none
+
 </style>

@@ -8,15 +8,17 @@ body
 			background-color: $background
 			color: $text-alt
 
-		.container
-			filter: invert(0%)
-
 		.overlay
 			background-color: $background-b
 
 		h1, h2, h3,
 		h4, h5, h6
 			a
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-hover-alt
+
 				&:hover,
 				&:focus,
 				&:active
@@ -26,13 +28,71 @@ body
 						color: $anchor-text-hover-alt
 
 		h1
-			color: $text-alt
-			text-shadow: $text-shadow-alt
+			color: $header-text-alt
 
-		.ui.accordion,
-		.ui.accordion .accordion
-			.title:not(.ui)
+		a
+			color: $anchor-text-alt
+
+			&:not(.has-icon)
+				&:before
+					background: $anchor-text-hover-alt
+
+			&:hover,
+			&.active,
+			&.router-link-exact-active
 				color: $text-alt
+
+				&:before
+					background: $anchor-text-hover-alt
+
+			i,
+			.icon,
+			.svg-inline--fa
+				color: $text-alt
+
+		i,
+		.icon,
+		.svg-inline--fa
+			color: $text-alt
+
+			&:hover,
+			&.active
+				color: $anchor-text-hover-alt
+				text-shadow: $text-shadow-hover-alt
+
+		h2,
+		.ui.attached.header
+			text-shadow: none
+
+		.ui.table,
+		.ui.message,
+		.ui.attached.header
+			color: $text-alt
+
+		.ui.definition.table tr,
+		.ui.definition.table tr,
+		.ui.table:not(.unstackable) tr,
+		.ui.table:not(.unstackable) tr
+			box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .3) inset !important
+
+			td.definition,
+			td:first-child:not(.ignored),
+			> td,
+			> th
+				color: $text-alt
+
+		.ui.feed > .event
+			.content
+				.date
+					background: $background-alt-a
+					color: lighten($text2, 20%)
+
+				.summary,
+				.extra.text
+					color: $text-alt
+
+				a
+					color: $anchor-text-alt
 
 		.ui.card,
 		.ui.cards > .card
@@ -49,52 +109,99 @@ body
 				a
 					color: $anchor-text-alt
 
-		a,
-		a:visited,
-		a:link
-			color: $anchor-text-alt
+			.content
+				.date,
+				.time
+					background: $background-alt-a
+					color: lighten($text3, 20%)
 
-			&:not(.tab-title),
-			&:not(.has-icon),
-			&:not(.button-link)
-				&:before
-					background: $anchor-text-hover-alt
+				.header,
+				.meta,
+				.description,
+				.extra.text
+					color: $text-alt
 
-			&:hover,
-			&.active,
-			&.router-link-exact-active
+				a
+					color: $anchor-text-alt
+
+		.ui.accordion,
+		.ui.accordion .accordion
+			.title:not(.ui)
 				color: $text-alt
+				text-shadow: none
 
-				&:before
-					background: $anchor-text-hover-alt
+				&:hover
+					.ui.message,
+					.ui.attached.header
+						color: $text4
+						text-shadow: none
 
-			// &.router-link-exact-active
-			// 	&.current
-			// 		color: $text-alt
+				&.active
+					.ui.message,
+					.ui.attached.header
+						color: $text4
+						text-shadow: none
 
-			// 		&:before
-			// 			background: $anchor-text-hover-alt
+						i,
+						.icon,
+						.svg-inline--fa
+							color: $text4
+							text-shadow: none
 
-			&.has-icon
-				i,
-				.icon,
-				.svg-inline--fa
-					&.fa-chevron-up
-						color: $anchor-text-alt !important
+		.lead
+			text-shadow: $text-shadow-alt
 
-		i,
-		.icon,
-		.svg-inline--fa
-			&:hover,
-			&.active
-				color: $background3
-				text-shadow: $text-shadow-hover-alt
+		.card
+			background-color: transparent
+
+			> a
+				@include tablet-xlarge
+					&:hover
+						border-color: $text-alt
 
 		header
+			.ui.left,
 			.ui.right
+				a
+					color: $text-alt
+
 				.launch
+
 					.item
 						color: $text-alt
 
+						i
+							&.on
+								color: $anchor-text-hover-alt
+
+						em
+							&.active
+								color: $anchor-text-hover-alt
+
 					.menu
 						background: $background
+
+						a
+							&:hover,
+							&.active,
+							&.router-link-exact-active
+								color: $anchor-text-hover-alt
+
+								&:before
+									background: $anchor-text-hover-alt
+
+		footer
+			a
+				color: $text-alt
+				
+				&:hover
+					color: $anchor-text-hover-alt
+
+		main
+			.copy
+				h1
+					color: $text-alt
+
+				h2
+					color: $anchor-text-hover-alt
+					text-shadow: $text-shadow-hover-alt
