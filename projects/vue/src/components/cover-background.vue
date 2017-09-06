@@ -30,8 +30,7 @@
 	.container
 		@include animation(background 60s linear infinite)
 		@include size(100%, auto)
-		background: $background-alt url('../assets/images/dandelion_panel_land.jpg') 50% 50% no-repeat
-		background-size: cover
+		background: $background-alt url('../assets/images/dandelion_panel_land.jpg') 50% 50% no-repeat fixed
 		filter: invert(0%)
 		min-height: 100%
 

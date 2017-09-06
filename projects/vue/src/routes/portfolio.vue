@@ -13,10 +13,18 @@
 			<div class="ui list">
 				<div class="item" v-for="link in content.projects.list" :key="link.id">
 					<div class="content">
-						<a :href="link.url" target="_blank"><i :class="link.icon"></i>{{link.title}}</a>
+						<a :href="link.url">
+							<i :class="link.icon"></i>{{link.title}}
+						</a>
 					</div>
 				</div>
 			</div>
+
+			<p>
+				<ul>
+					<li v-for="tag of sortedTags" :key="tag">{{ tag }} ({{ tagMap.get(tag) }})</li>
+				</ul>
+			</p>
 
 			<div class="timeline">
 				<div class="item" :data-text="project.title" v-for="project in content.projects.project" :key="project.id">
@@ -46,6 +54,25 @@
 		data: function () {
 			return {
 				content: require('../json/static.en-us.json')
+			}
+		},
+		computed: {
+			tagMap: function () {
+				const map = new Map()
+				for (const project of this.content.projects.project) {
+					for (const tag of project.tags) {
+						if (!map.has(tag)) {
+							map.set(tag, 1)
+						} else {
+							const count = map.get(tag)
+							map.set(tag, count + 1)
+						}
+					}
+				}
+				return map
+			},
+			sortedTags: function () {
+				return Array.from(this.tagMap.keys()).sort()
 			}
 		},
 		methods: {
