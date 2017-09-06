@@ -123,4 +123,14 @@
 				@include mobile-xsmall
 					width: 260px
 
+				img
+					@include transition(all 1s ease-in)
+					-webkit-filter: grayscale(100%)
+					filter: grayscale(100%)
+
+				&:hover
+					img
+						-webkit-filter: grayscale(0%)
+						filter: grayscale(0%)
+
 </style>
