@@ -117,6 +117,8 @@
 	"projects": {
 		"title": "Portfolio",
 		"subtitle": "My Links",
+		"subtitle2": "Skill Statistics",
+		"subtitle3": "Project Timeline",
 		"copy": "Please browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
 		"list": [
 			{
@@ -141,7 +143,7 @@
 				"timeline": "9 months (side project)"
 			},
 			{
-				"year": "2004 &ndash; 2017",
+				"year": null,
 				"image": "msdacia.png",
 				"link": "http://msdacia.com",
 				"name": "MsDacia",
@@ -150,16 +152,16 @@
 				"timeline": "ongoing"
 			},
 			{
-				"year": "2017",
+				"year": null,
 				"image": "valo.png",
 				"link": null,
 				"name": "Valo v2",
-				"tags": ["HTML5", "SASS", "AngularJS", "APIs", "Java", "Thymeleaf", "Grunt", "Web Application", "Localization", "Responsive", "Agile", "JIRA"],
+				"tags": ["HTML5", "SASS", "AngularJS", "APIs", "Java", "Thymeleaf", "Grunt", "APP: Web", "Localization", "Responsive", "Agile", "JIRA"],
 				"client": "Innerworkings",
 				"timeline": "ongoing"
 			},
 			{
-				"year": "2017",
+				"year": null,
 				"image": "asics-flytefoam.png",
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
 				"name": "ASICS Flytefoam",
@@ -177,25 +179,25 @@
 				"timeline": "60 hours"
 			},
 			{
-				"year": "2016",
+				"year": null,
 				"image": "whirlpool.png",
 				"link": "https://www.whirlpool.com/",
 				"name": "Whirlpool",
-				"tags": ["HTML5", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "Backbone", "E-commerce", "Grunt", "Responsive", "Localization", "Adobe AEM", "Hybris"],
+				"tags": ["HTML5", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "E-commerce", "Grunt", "Responsive", "Localization", "Adobe AEM", "Hybris"],
 				"client": "Undisclosed",
 				"timeline": "5 months"
 			},
 			{
-				"year": "2016",
+				"year": null,
 				"image": "financial-services.png",
 				"link": "https://bankingonmycareer.com/",
 				"name": "Financial Services",
-				"tags": ["HTML5", "SASS", "Sketch", "JavaScript", "ES6", "JSON", "React", "Craft CMS", "Grunt", "Twig"],
+				"tags": ["HTML5", "SASS", "Sketch", "JavaScript", "JSON", "React", "Craft CMS", "Grunt", "Twig", "Responsive"],
 				"client": "SuperHumane",
 				"timeline": "7 months"
 			},
 			{
-				"year": "2016",
+				"year": null,
 				"image": "advocate-io.png",
 				"link": "http://advocate.io",
 				"name": "Advocate",
@@ -204,7 +206,7 @@
 				"timeline": "8 weeks"
 			},
 			{
-				"year": "2016",
+				"year": null,
 				"image": "allstate-veterans.png",
 				"link": "http://allstateveterans.com",
 				"name": "Allstate Veterans",
@@ -213,25 +215,25 @@
 				"timeline": "6 weeks"
 			},
 			{
-				"year": "2015 &ndash; 2016",
+				"year": "2015",
 				"image": "intel.png",
 				"link": null,
 				"name": "Intel POS",
-				"tags": ["HTML5", "SASS", "jQuery", "AngularJS", "Localization", "Grunt", "YAML", "Desktop Application", "Agile"],
+				"tags": ["HTML5", "SASS", "jQuery", "AngularJS", "Localization", "Grunt", "YAML", "APP: Desktop", "Agile"],
 				"client": "Undisclosed",
-				"timeline": "6 months"
+				"timeline": "7 months"
 			},
 			{
-				"year": "2015",
+				"year": null,
 				"image": "mcdonalds.png",
 				"link": null,
 				"name": "McDonald's",
-				"tags": ["HTML5", "CSS3", "jQuery", "Kiosk"],
+				"tags": ["HTML5", "CSS3", "jQuery", "APP: Kiosk"],
 				"client": "Undisclosed",
 				"timeline": "1 week"
 			},
 			{
-				"year": "2015",
+				"year": null,
 				"image": "czarnowski.png",
 				"link": "http://czarnowski.com",
 				"name": "Czarnowski",
@@ -240,7 +242,7 @@
 				"timeline": "6 weeks"
 			},
 			{
-				"year": "2014 &ndash; 2016",
+				"year": "2014",
 				"image": "ctachronicles.png",
 				"link": "http://ctachronicles.com",
 				"name": "CTA Chronicles",
@@ -249,52 +251,52 @@
 				"timeline": "3 months"
 			},
 			{
-				"year": "2013 &ndash; 2015",
+				"year": "2013",
 				"image": "stopandshop.png",
 				"link": "http://stopandshop.com",
 				"name": "Stop and Shop",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "Typekit", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
-				"timeline": "duration of employment"
+				"timeline": "18 months"
 			},
 			{
-				"year": "2013 &ndash; 2015",
+				"year": null,
 				"image": "giantfoods.png",
 				"link": "http://giantfoods.com",
 				"name": "Giant Foods",
 				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
-				"timeline": "duration of employment"
+				"timeline": "18 months"
 			},
 			{
-				"year": "2013 &ndash; 2015",
+				"year": null,
 				"image": "giant.png",
 				"link": "http://giantfoodstores.com",
 				"name": "GIANT Foods",
 				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
-				"timeline": "duration of employment"
+				"timeline": "18 months"
 			},
 			{
-				"year": "2013 &ndash; 2015",
+				"year": null,
 				"image": "martins.png",
 				"link": "http://martinfoods.com",
 				"name": "Martin Foods",
 				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
-				"timeline": "duration of employment"
+				"timeline": "18 months"
 			},
 			{
-				"year": "2013",
+				"year": null,
 				"image": "ameren.png",
 				"link": null,
 				"name": "Ameren",
-				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "Grunt", "JIRA", "Agile", "Mobile Application"],
+				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "Grunt", "JIRA", "Agile", "APP: Mobile"],
 				"client": "Undisclosed",
 				"timeline": "6 weeks"
 			},
 			{
-				"year": "2013",
+				"year": null,
 				"image": "lincolninternational.png",
 				"link": "http://www.lincolninternational.com",
 				"name": "Lincoln International",
@@ -303,7 +305,7 @@
 				"timeline": "5 weeks"
 			},
 			{
-				"year": "2012 &ndash; 2013",
+				"year": null,
 				"image": "thermofisher.png",
 				"link": null,
 				"name": "Thermofisher",
@@ -321,7 +323,7 @@
 				"timeline": "1 week"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "discover-bank-account-activity-mobile.png",
 				"link": null,
 				"name": "Discover Card: Bank Account Activity",
@@ -330,7 +332,7 @@
 				"timeline": "4 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "evolve.png",
 				"link": "http://agideaforum.com",
 				"name": "Evolve: AG Idea Forum",
@@ -339,7 +341,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "evolve-mobile.png",
 				"link": "http://agideaforum.com/m/index.html",
 				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress", "Mobile"],
@@ -347,7 +349,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "frontier.png",
 				"link": "http://frontier.com",
 				"name": "Frontier",
@@ -355,7 +357,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "mine-safety-applications.png",
 				"link": "http://us.msasafety.com",
 				"name": "MSA Safety",
@@ -364,7 +366,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "tmobile-mobile2.png",
 				"link": null,
 				"name": "T-Mobile",
@@ -373,7 +375,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "unsnowman.png",
 				"link": null,
 				"name": "Unsnowman Competition",
@@ -382,7 +384,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2012",
+				"year": null,
 				"image": "wesco.png",
 				"link": null,
 				"name": "Wesco",
@@ -391,7 +393,7 @@
 				"timeline": "1 week"
 			},
 			{
-				"year": "2011 &ndash; 2012",
+				"year": "2011",
 				"image": "grainger.png",
 				"link": null,
 				"name": "Grainger",
@@ -400,7 +402,7 @@
 				"timeline": "18 months"
 			},
 			{
-				"year": "2010 &ndash; 2011",
+				"year": "2010",
 				"image": "sanford-health.png",
 				"link": "http://www.sanfordhealth.org/",
 				"name": "Sanford Health",
@@ -409,7 +411,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2010",
+				"year": null,
 				"image": "casual-male-dxl.png",
 				"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
 				"name": "Casual Male DXL",
@@ -418,7 +420,7 @@
 				"timeline": "5 weeks"
 			},
 			{
-				"year": "2010",
+				"year": null,
 				"image": "loreal-ysl.png",
 				"link": "http://www.yslbeautyus.com/",
 				"name": "L'Oreal",
@@ -427,7 +429,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2010",
+				"year": null,
 				"image": "ltd-commodities.png",
 				"link": "http://www.ltdcommodities.com/",
 				"name": "LTD Commodities",
@@ -436,7 +438,7 @@
 				"timeline": "4 weeks"
 			},
 			{
-				"year": "2010",
+				"year": null,
 				"image": "iloveny.png",
 				"link": "http://iloveny.com/",
 				"name": "ILOVENY | The Official New York State Tourism Site",
@@ -445,7 +447,7 @@
 				"timeline": "10 weeks"
 			},
 			{
-				"year": "2010",
+				"year": null,
 				"image": "symptom-checker.png",
 				"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
 				"name": "American Academy of Pediatrics: Symptom Checker Tool",
@@ -460,19 +462,19 @@
 				"name": "suntimes.com",
 				"tags": ["HTML", "CSS", "JavaScript"],
 				"client": "STNG",
-				"timeline": "duration of employment"
+				"timeline": "5 weeks"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "pizzahut.png",
 				"link": "http://pizzahut.com/",
 				"name": "Pizza Hut",
 				"tags": ["HTML", "CSS", "JavaScript", "bug fixes", "E-commerce"],
 				"client": "QuikOrder",
-				"timeline": "duration of employment"
+				"timeline": "2 months"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "daa.png",
 				"link": "http://chicagobooth.edu/daa/",
 				"name": "Distinguished Alumni Awards",
@@ -481,7 +483,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "farm-to-fork.png",
 				"link": "http://chicagobooth.edu/food/2009/",
 				"name": "From Farm to Fork Food Conference 2009",
@@ -490,7 +492,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "alumni-celebrations.png",
 				"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
 				"name": "Alumni Celebrations 2009",
@@ -499,7 +501,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "career-path.png",
 				"link": "http://career.chicagobooth.edu/parttime/careerpath/",
 				"name": "Career Paths",
@@ -508,7 +510,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "alumni-reunion.png",
 				"link": "http://chicagobooth.edu/alumni/reunion2009/",
 				"name": "Alumni Reunions 2009",
@@ -517,7 +519,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2009",
+				"year": null,
 				"image": "talent-development.png",
 				"link": "http://www.chicagobooth.edu/recruiting/tdc/2010/",
 				"name": "Talent Development Conference 2010",
@@ -535,7 +537,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "3m.png",
 				"link": null,
 				"name": "3M-Cuno",
@@ -544,7 +546,7 @@
 				"timeline": "4 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "ashley-furniture.png",
 				"link": "http://www.ashleyfurniturehomestore.com",
 				"name": "Ashley Furniture Homestore",
@@ -553,7 +555,7 @@
 				"timeline": "2 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "gordon-food-services.png",
 				"link": "http://www.gfs.com/en",
 				"name": "Gordon Food Services",
@@ -562,7 +564,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "ul-myhome.png",
 				"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
 				"name": "UL &ndash; @MyHome",
@@ -571,7 +573,7 @@
 				"timeline": "4 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "regis-franchise.png",
 				"link": null,
 				"name": "Regis Franchise",
@@ -580,7 +582,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "regis-stylist.png",
 				"link": null,
 				"name": "Regis Stylist",
@@ -589,7 +591,7 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2008",
+				"year": null,
 				"image": "invitrogen.png",
 				"link": null,
 				"name": "Invitrogen Rockfeller",
@@ -598,13 +600,13 @@
 				"timeline": "3 weeks"
 			},
 			{
-				"year": "2006 &ndash; 2008",
+				"year": "2006",
 				"image": "modern-lighting.png",
 				"link": "http://www.modernlighting.com",
 				"name": "Modern Lighting",
 				"tags": ["PSD-to-HTML", "E-commerce", "HTML", "CSS", "AJAX", "JavaScript", "PHP", "MySQL"],
 				"client": "Lightology",
-				"timeline": "duration of employment"
+				"timeline": "18 months"
 			}
 		]
 	},

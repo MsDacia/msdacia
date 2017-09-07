@@ -20,17 +20,23 @@
 				</div>
 			</div>
 
-			<div class="ui statistics">
-				<div class="ui mini inverted statistic" :class="content.common.colors[Math.round(Math.random()*(content.common.colors.length-1))]" v-for="tag of sortedTags" :key="tag">
+			<h2>{{content.projects.subtitle2}}</h2>
+			<div class="ui labels">
+				<a class="ui label" v-for="tag of sortedTags" :key="tag">
+					{{ tagMap.get(tag) }}
+					<div class="detail">{{ tag }}</div>
+				</a>
+				<!-- <div class="ui inverted statistic" v-for="tag of sortedTags" :key="tag">
 					<div class="value">{{ tagMap.get(tag) }}</div>
 					<div class="label">{{ tag }}</div>
-				</div>
+				</div> -->
 			</div>
 
+			<h2>{{content.projects.subtitle3}}</h2>
 			<div class="timeline">
 				<div class="item" :data-text="project.title" v-for="project in content.projects.project" :key="project.id">
 					<div class="ui segment">
-						<h2 class="title" v-html="project.year"></h2>
+						<div class="ui massive label" v-html="project.year"></div>
 						<a :href="project.link" target="_blank" class="ui medium image">
 							<img :src="getImage(project)" />
 							<div class="ui green right ribbon label">{{project.timeline}}</div>
@@ -97,11 +103,21 @@
 		top: 145px
 
 	.ui.statistics
+		@include rem(margin-bottom, 25px)
+
 		> .statistic
 			min-height: 100px
 			min-width: 100px
 			max-width: 100px
 			text-align: center
+
+			.value
+				color: $text2
+				font-size: 3rem !important
+
+			.label
+				color: $text
+				text-transform: none
 
 	.timeline
 		max-width: 700px
@@ -121,7 +137,20 @@
 				margin-top: 0
 				width: 50%
 
+
 		.ui.segment
+			position: relative
+
+			.ui.massive.label,
+			.ui.massive.labels .label
+				@include abs-pos(30px, auto, auto, -90px)
+				background: transparent
+				color: $text
+				font-size: 400%
+				margin: 0
+				padding: 0
+				transform: rotate(-90deg)
+
 			.ui.image
 				max-height: 150px
 				max-width: 260px
