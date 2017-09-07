@@ -4,52 +4,13 @@
 			<div class="nine column centered row">
 				<email-link :local-part="content.common.email.local" :domain="content.common.email.domain" :subject="content.common.email.subject"></email-link>
 				<a
-					:href="content.common.social.linkedin.url"
+					v-for="social in content.common.social"
+					:key="social.id"
+					:href="social.url"
+					:title="social.title"
 					target="_blank"
-					:title="content.common.social.linkedin.title">
-					<i :class="content.common.social.linkedin.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.facebook.url"
-					target="_blank"
-					:title="content.common.social.facebook.title">
-					<i :class="content.common.social.facebook.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.twitter.url"
-					target="_blank"
-					:title="content.common.social.twitter.title">
-					<i :class="content.common.social.twitter.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.instagram.url"
-					target="_blank"
-					:title="content.common.social.instagram.title">
-					<i :class="content.common.social.instagram.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.github.url"
-					target="_blank"
-					:title="content.common.social.github.title">
-					<i :class="content.common.social.github.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.jsfiddle.url"
-					target="_blank"
-					:title="content.common.social.jsfiddle.title">
-					<i :class="content.common.social.jsfiddle.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.skype.url"
-					target="_blank"
-					:title="content.common.social.skype.title">
-					<i :class="content.common.social.skype.icon"></i>
-				</a>
-				<a
-					:href="content.common.social.yelp.url"
-					target="_blank"
-					:title="content.common.social.yelp.title">
-					<i :class="content.common.social.yelp.icon"></i>
+				>
+					<i :class="social.icon"></i>	
 				</a>
 			</div>
 		</div>

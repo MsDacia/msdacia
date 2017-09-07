@@ -20,11 +20,12 @@
 				</div>
 			</div>
 
-			<p>
-				<ul>
-					<li v-for="tag of sortedTags" :key="tag">{{ tag }} ({{ tagMap.get(tag) }})</li>
-				</ul>
-			</p>
+			<div class="ui statistics">
+				<div class="ui mini inverted statistic" :class="content.common.colors[Math.round(Math.random()*(content.common.colors.length-1))]" v-for="tag of sortedTags" :key="tag">
+					<div class="value">{{ tagMap.get(tag) }}</div>
+					<div class="label">{{ tag }}</div>
+				</div>
+			</div>
 
 			<div class="timeline">
 				<div class="item" :data-text="project.title" v-for="project in content.projects.project" :key="project.id">
@@ -94,6 +95,13 @@
 	h1
 		left: -98px
 		top: 145px
+
+	.ui.statistics
+		> .statistic
+			min-height: 100px
+			min-width: 100px
+			max-width: 100px
+			text-align: center
 
 	.timeline
 		max-width: 700px

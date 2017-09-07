@@ -18,48 +18,53 @@
 			"domain": "gmail.com",
 			"subject": "MsDacia.com"
 		},
-		"social": {
-			"facebook": {
+		"social": [
+			{
 				"title": "Facebook",
 				"icon": "fab fa-facebook",
 				"url": "http://www.facebook.com/#!/msdacia"
 			},
-			"linkedin": {
+			{
 				"title": "LinkedIn",
 				"icon": "fab fa-linkedin",
 				"url": "http://www.linkedin.com/in/dessin"
 			},
-			"twitter": {
+			{
 				"title": "Twitter",
 				"icon": "fab fa-twitter",
 				"url": "http://www.twitter.com/MsDaciaJ"
 			},
-			"instagram": {
+			{
 				"title": "Instagram",
 				"icon": "fab fa-instagram",
 				"url": "https://www.instagram.com/msdacia1/"
 			},
-			"github": {
+			{
 				"title": "Github",
 				"icon": "fab fa-github",
 				"url": "https://github.com/MsDacia"
 			},
-			"jsfiddle": {
+			{
 				"title": "JSFiddle",
 				"icon": "fab fa-jsfiddle",
 				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
 			},
-			"skype": {
+			{
+				"title": "Allrecipes.com",
+				"icon": "fa fa-cutlery",
+				"url": "http://allrecipes.com/cook/msdacia/"
+			},
+			{
 				"title": "Skype",
 				"icon": "fab fa-skype",
 				"url": "skype:msdacia1?userinfo"
 			},
-			"yelp": {
+			{
 				"title": "Yelp",
 				"icon": "fab fa-yelp",
 				"url": "http://msdacia.yelp.com/"
 			}
-		},
+		],
 		"copyright": {
 			"icon": "fal fa-copyright",
 			"content": "2004 - 2018 designed, developed by MsDacia"
@@ -85,6 +90,19 @@
 				"item": "portfolio",
 				"url": "/portfolio"
 			}
+		],
+		"colors": [
+			"red",
+			"orange",
+			"yellow",
+			"olive",
+			"green",
+			"teal",
+			"blue",
+			"violet",
+			"purple ",
+			"pink ",
+			"brown"
 		]
 	},
 	"about": {
@@ -93,7 +111,7 @@
 		"subtitle2": "Professionally",
 		"subtitle3": "Personally",
 		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
-		"copy2": "I am a web developer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obssession is VueJS, which is how this site was built. As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. My next steps in my career will probably be as a UI/Front End Architect/Lead Developer. I am not ready to make any moves, but when the time comes, that will be my focus.",
+		"copy2": "I am a web developer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obssession is Vue.js, which is how this site was built. As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. My next steps in my career will probably be as a UI/Front End Architect/Lead Developer. I am not ready to make any moves, but when the time comes, that will be my focus.",
 		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. I have been the commissioner of my own fantasy football league, since 2008. It is so much fun. I have only won one championship, but don't let my record fool you. I have won more game with Jay Cutler as my quarterback than losses. LOL!! I am loyal."
 	},
 	"projects": {
@@ -118,7 +136,7 @@
 				"image": "daviddacia.png",
 				"link": null,
 				"name": "David + Dacia",
-				"tags": ["HTML5", "SASS", "Vue.js", "Webpack", "JSON", "Firebase", "Responsive"],
+				"tags": ["HTML5", "SASS", "Vue.js", "webpack", "JSON", "Firebase", "Responsive"],
 				"client": "MsDacia",
 				"timeline": "9 months (side project)"
 			},
@@ -127,7 +145,7 @@
 				"image": "msdacia.png",
 				"link": "http://msdacia.com",
 				"name": "MsDacia",
-				"tags": ["HTML5", "SASS", "Vue.js", "Webpack", "JSON", "Responsive"],
+				"tags": ["HTML5", "SASS", "Vue.js", "webpack", "JSON", "Responsive"],
 				"client": "MsDacia",
 				"timeline": "ongoing"
 			},
@@ -163,7 +181,7 @@
 				"image": "whirlpool.png",
 				"link": "https://www.whirlpool.com/",
 				"name": "Whirlpool",
-				"tags": ["HTML5", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "backbone.js", "E-commerce", "Grunt", "Responsive", "Localization", "Adobe AEM"],
+				"tags": ["HTML5", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "Backbone", "E-commerce", "Grunt", "Responsive", "Localization", "Adobe AEM", "Hybris"],
 				"client": "Undisclosed",
 				"timeline": "5 months"
 			},
@@ -235,7 +253,7 @@
 				"image": "stopandshop.png",
 				"link": "http://stopandshop.com",
 				"name": "Stop and Shop",
-				"tags": ["HTML5", "SASS", "jQuery", "backbone.js", "Typekit", "APIs", "ADA-compliance", "Oracle database", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "Typekit", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "duration of employment"
 			},
@@ -244,7 +262,7 @@
 				"image": "giantfoods.png",
 				"link": "http://giantfoods.com",
 				"name": "Giant Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "backbone.js", "APIs", "ADA-compliance", "Oracle database", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "duration of employment"
 			},
@@ -253,7 +271,7 @@
 				"image": "giant.png",
 				"link": "http://giantfoodstores.com",
 				"name": "GIANT Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "backbone.js", "APIs", "ADA-compliance", "Oracle database", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "duration of employment"
 			},
@@ -262,7 +280,7 @@
 				"image": "martins.png",
 				"link": "http://martinfoods.com",
 				"name": "Martin Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "backbone.js", "APIs", "ADA-compliance", "Oracle database", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "duration of employment"
 			},
@@ -271,7 +289,7 @@
 				"image": "ameren.png",
 				"link": null,
 				"name": "Ameren",
-				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "NPM", "APIs", "Grunt", "JIRA", "Agile", "Mobile Application"],
+				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "Grunt", "JIRA", "Agile", "Mobile Application"],
 				"client": "Undisclosed",
 				"timeline": "6 weeks"
 			},
@@ -307,7 +325,7 @@
 				"image": "discover-bank-account-activity-mobile.png",
 				"link": null,
 				"name": "Discover Card: Bank Account Activity",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "JQM", "PHP", "Mobile"],
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile"],
 				"client": "Undisclosed",
 				"timeline": "4 weeks"
 			},
@@ -350,7 +368,7 @@
 				"image": "tmobile-mobile2.png",
 				"link": null,
 				"name": "T-Mobile",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "JQMobile", "PHP", "Mobile", "E-commerce"],
+				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile", "E-commerce"],
 				"client": "Undisclosed",
 				"timeline": "2 weeks"
 			},
@@ -458,7 +476,7 @@
 				"image": "daa.png",
 				"link": "http://chicagobooth.edu/daa/",
 				"name": "Distinguished Alumni Awards",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "AJAX", "JavaScript", "jQuery", "XML", "ASP Classic"],
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "AJAX", "JavaScript", "jQuery", "XML/XSLT", "ASP Classic"],
 				"client": "Chicago Booth",
 				"timeline": "3 weeks"
 			},
@@ -494,7 +512,7 @@
 				"image": "alumni-reunion.png",
 				"link": "http://chicagobooth.edu/alumni/reunion2009/",
 				"name": "Alumni Reunions 2009",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX", "XML", "ASP Classic"],
+				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX", "XML/XSLT", "ASP Classic"],
 				"client": "Chicago Booth",
 				"timeline": "3 weeks"
 			},
@@ -600,11 +618,11 @@
 			"categories": [
 				{
 					"title": "Development",
-					"copy": "HTML5, CSS3 (LESS, SASS), XML, JSON, YAML, Twig"
+					"copy": "HTML5, CSS3 (LESS, SASS), XML / XSLT, JSON, YAML, Twig"
 				},
 				{
 					"title": "Javascript",
-					"copy": "jQuery, AJAX, node.js, Grunt, gulp, Bootstrap, AngularJS, VueJS"
+					"copy": "jQuery, AJAX, Node.js, Grunt, gulp, Bootstrap, AngularJS, Vue.js"
 				},
 				{
 					"title": "Environments",
@@ -690,9 +708,9 @@
 					"company": "Peapod",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, JavaScript, backbone.js, XML/XSLT, JSP, API, JSON, and ATG CMS",
+						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, JavaScript, Backbone, XML / XSLT, JSP, API, JSON, and Oracle ATG",
 						"Developed front-end sites and applications, including responsive web design, vanilla JavaScript, RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
-						"Created and maintained the UI toolkit and other internal projects in ATG Business Control Center, the internal CMS",
+						"Created and maintained the UI toolkit and other internal projects in Oracle ATG Business Control Center, the internal CMS",
 						"Developed in agile development environment, including scrums, backlog grooming, sprint development timelines",
 						"Handled the deployment process for the end of sprint code release to production, along with documentation of our process"
 					]
