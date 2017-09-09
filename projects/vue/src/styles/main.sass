@@ -27,7 +27,7 @@ html
 
 body
 	background-color: $background-alt
-	background: $background-alt url('../assets/images/pilsen_train_station.jpg') 50% 0% no-repeat
+	background: $background-alt url('../assets/images/pilsen_train_station.jpg') 50% 42% no-repeat
 	background-attachment: fixed
 	filter: invert(0%)
 	color: $text
@@ -446,6 +446,7 @@ address
 	font-style: normal
 
 .horizontal-scroll
+	@include rem(margin-bottom, 30px)
 	background: $background-alt-c
 	height: 130px
 	max-width: 900px

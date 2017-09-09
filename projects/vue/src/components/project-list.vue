@@ -26,8 +26,8 @@
 
 	@import '../styles/main.sass'
 
-	.ui.list,
-	.horizontal-scroll
+	.ui.list .list,
+	.ui.list
 		@include rem(margin-bottom, 30px)
 
 </style>
