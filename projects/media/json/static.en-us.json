@@ -207,6 +207,24 @@
 			},
 			{
 				"year": null,
+				"image": "cavalry.png",
+				"link": "http://advocate.io",
+				"name": "Cavalry",
+				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "Squarespace"],
+				"client": "Undisclosed",
+				"timeline": "6 weeks"
+			},
+			{
+				"year": null,
+				"image": "resqbiz.png",
+				"link": "http://resqbiz.com",
+				"name": "RESQ",
+				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
+				"client": "Undisclosed",
+				"timeline": "2 weeks"
+			},
+			{
+				"year": null,
 				"image": "allstate-veterans.png",
 				"link": "http://allstateveterans.com",
 				"name": "Allstate Veterans",
@@ -255,7 +273,7 @@
 				"image": "stopandshop.png",
 				"link": "http://stopandshop.com",
 				"name": "Stop and Shop",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -264,7 +282,7 @@
 				"image": "giantfoods.png",
 				"link": "http://giantfoods.com",
 				"name": "Giant Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -273,7 +291,7 @@
 				"image": "giant.png",
 				"link": "http://giantfoodstores.com",
 				"name": "GIANT Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -282,7 +300,7 @@
 				"image": "martins.png",
 				"link": "http://martinfoods.com",
 				"name": "Martin Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -632,7 +650,7 @@
 				},
 				{
 					"title": "DevOps",
-					"copy": "Jenkins, Splunk, Jira"
+					"copy": "Jenkins, Splunk, Jira, Bamboo"
 				}
 			]
 		},
@@ -653,7 +671,7 @@
 				},
 				{
 					"title": "Portfolio",
-					"url": "/portfolio"
+					"url": "/#/portfolio"
 				}
 			]
 		},

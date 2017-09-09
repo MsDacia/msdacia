@@ -15,10 +15,6 @@
 			<div class="ui attached segment">
 				<skills></skills>
 			</div>
-			<h2 class="ui attached header">{{content.resume.links.title}}</h2>
-			<div class="ui attached segment">
-				<links></links>
-			</div>
 			<h2 class="ui attached header">{{content.resume.objective.title}}</h2>
 			<div class="ui attached segment">
 				<objective></objective>

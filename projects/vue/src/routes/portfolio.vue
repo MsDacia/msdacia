@@ -8,9 +8,6 @@
 		<div class="fourteen wide column">	
 			<p v-html="content.projects.copy"></p>
 
-			<h2>{{content.projects.subtitle}}</h2>
-			<project-list></project-list>
-
 			<h2>{{content.projects.subtitle2}}</h2>
 			<project-stats></project-stats>
 
