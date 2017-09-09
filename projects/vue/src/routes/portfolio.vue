@@ -107,11 +107,11 @@
 	.ui.statistics
 		> .statistic
 			@include rem(margin, 0 10px)
-			@include rem(padding, 5px)
+			@include rem(padding, 5px 0)
 			cursor: default
-			max-width: 100px
+			max-width: 105px
 			min-height: 100px
-			min-width: 100px
+			min-width: 105px
 			text-align: center
 			white-space: normal
 

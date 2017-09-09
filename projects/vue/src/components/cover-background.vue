@@ -28,9 +28,10 @@
 	@import '../styles/main.sass'
 
 	.container
-		@include animation(background 60s linear infinite)
 		@include size(100%, auto)
-		background: $background-alt url('../assets/images/dandelion_panel_land.jpg') 50% 50% no-repeat fixed
+		background: $background-alt url('../assets/images/pilsen_train_station.jpg') 50% 50% no-repeat fixed
+		background-position: center
+		background-size: cover
 		filter: invert(0%)
 		min-height: 100%
 
