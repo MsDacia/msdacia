@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" :style="computedStyle">
 		<div class="overlay"></div>
 		<site-header></site-header>
 		<main>
@@ -18,6 +18,62 @@
 		components: {
 			SiteFooter,
 			SiteHeader
+		},
+		props: {
+			'background-x': { type: String, default: '50%' },
+			'background-y': { type: String, default: '0%' },
+			'speed': { type: Number, default: 0.7 }
+		},
+		data: function () {
+			return {
+				offset: 0
+			}
+		},
+		computed: {
+			computedStyle: function () {
+				return {
+					backgroundPosition: `${this.backgroundX} calc(${this.backgroundY} + ${this.offset}px)`
+				}
+			}
+		},
+		methods: {
+			onScroll() {
+				this.offset = window.pageYOffset * this.speed
+			}
+		},
+		mounted() {
+			window.addEventListener('scroll', throttle(this.onScroll, 10))
+		},
+		destroy() {
+			window.removeEventListener('scroll', this.onScroll)
+		}
+	}
+
+	function debounce(fn, delay) {
+		let timer = null
+
+		return function() {
+			const context = this
+			const args = arguments
+
+			clearTimeout(timer)
+			timer = setTimeout(function() {
+				fn.apply(context, args)
+			}, delay)
+		}
+	}
+
+	function throttle(fn, delay) {
+		let lastCalled = 0
+
+		return function() {
+			const context = this
+			const args = arguments
+
+			if ((Date.now() - lastCalled) >= delay) {
+				fn.apply(context, args)
+				lastCalled = Date.now()
+			}
 		}
 	}
 
@@ -29,10 +85,6 @@
 
 	.container
 		@include size(100%, auto)
-		background: $background-alt url('../assets/images/pilsen_train_station.jpg') 50% 50% no-repeat fixed
-		background-position: center
-		background-size: cover
-		filter: invert(0%)
 		min-height: 100%
 
 		main,
