@@ -438,6 +438,21 @@ h2,
 address
 	font-style: normal
 
+.horizontal-scroll
+	background: $background-alt-c
+	height: 120px
+	max-width: 900px
+	overflow-x: scroll
+	overflow-y: hidden
+	white-space: nowrap
+
+	.scroll
+		@include rem(margin, 2px)
+		@include rem(padding-top, 2.5px)
+		cursor: pointer
+		display: inline-block
+		max-height: 100px
+
 .nowrap
 	white-space: nowrap
 

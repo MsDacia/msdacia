@@ -21,15 +21,13 @@
 			</div>
 
 			<h2>{{content.projects.subtitle2}}</h2>
-			<div class="ui labels">
-				<a class="ui label" v-for="tag of sortedTags" :key="tag">
-					{{ tagMap.get(tag) }}
-					<div class="detail">{{ tag }}</div>
-				</a>
-				<!-- <div class="ui inverted statistic" v-for="tag of sortedTags" :key="tag">
-					<div class="value">{{ tagMap.get(tag) }}</div>
-					<div class="label">{{ tag }}</div>
-				</div> -->
+			<div class="horizontal-scroll">
+				<div class="ui statistics scroll">
+					<div class="ui inverted statistic" v-for="tag of sortedTags" :key="tag">
+						<div class="value">{{ tagMap.get(tag) }}</div>
+						<div class="label">{{ tag }}</div>
+					</div>
+				</div>
 			</div>
 
 			<h2>{{content.projects.subtitle3}}</h2>
@@ -102,14 +100,20 @@
 		left: -98px
 		top: 145px
 
-	.ui.statistics
-		@include rem(margin-bottom, 25px)
+	.ui.list,
+	.horizontal-scroll
+		@include rem(margin-bottom, 30px)
 
+	.ui.statistics
 		> .statistic
+			@include rem(margin, 0 10px)
+			@include rem(padding, 5px)
+			cursor: default
+			max-width: 100px
 			min-height: 100px
 			min-width: 100px
-			max-width: 100px
 			text-align: center
+			white-space: normal
 
 			.value
 				color: $text2

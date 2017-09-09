@@ -117,7 +117,7 @@
 	"projects": {
 		"title": "Portfolio",
 		"subtitle": "My Links",
-		"subtitle2": "Skill Statistics",
+		"subtitle2": "Project Statistics",
 		"subtitle3": "Project Timeline",
 		"copy": "Please browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
 		"list": [
@@ -255,7 +255,7 @@
 				"image": "stopandshop.png",
 				"link": "http://stopandshop.com",
 				"name": "Stop and Shop",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -264,7 +264,7 @@
 				"image": "giantfoods.png",
 				"link": "http://giantfoods.com",
 				"name": "Giant Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -273,7 +273,7 @@
 				"image": "giant.png",
 				"link": "http://giantfoodstores.com",
 				"name": "GIANT Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
@@ -282,7 +282,7 @@
 				"image": "martins.png",
 				"link": "http://martinfoods.com",
 				"name": "Martin Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA-compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
+				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo"],
 				"client": "Peapod/Ahold",
 				"timeline": "18 months"
 			},
