@@ -141,6 +141,8 @@
 				margin-top: 0
 				width: 50%
 
+			.ui.label
+				cursor: default
 
 		.ui.segment
 			position: relative

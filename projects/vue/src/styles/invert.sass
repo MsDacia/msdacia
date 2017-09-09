@@ -9,7 +9,7 @@ body
 			color: $text-alt
 
 		.overlay
-			background-color: $background-b
+			background-color: $background-a
 
 		h1, h2, h3,
 		h4, h5, h6
@@ -185,6 +185,15 @@ body
 				@include tablet-xlarge
 					&:hover
 						border-color: $text-alt
+		.timeline
+			.ui[class*="bottom attached"].label
+				background-color: $background-alt-b
+				color: $text
+
+			.ui.segment
+				.ui.massive.label,
+				.ui.massive.labels .label
+					color: $text-alt
 
 		address ~ p
 			a

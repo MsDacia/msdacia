@@ -153,6 +153,7 @@
 							display: block
 
 						a
+							@mixin bold()
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
 
