@@ -6,7 +6,7 @@
 				<a :href="project.link" target="_blank" class="ui medium image">
 					<img :src="getImage(project)" />
 					<div class="ui green right ribbon label">{{project.timeline}}</div>
-					<div class="ui bottom attached label">{{project.client}}</div>
+					<div class="ui bottom attached label">{{project.name}}</div>
 				</a>
 
 				<div class="ui labels">

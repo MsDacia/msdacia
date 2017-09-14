@@ -246,6 +246,47 @@ h2,
 		p
 			font-size: 1.4rem
 
+.ui.statistics
+	> .statistic
+		@include rem(margin, 0 10px)
+		@include rem(padding, 5px 0)
+		cursor: default
+		max-width: 105px
+		min-height: 100px
+		min-width: 105px
+		text-align: center
+		white-space: normal
+
+		.value
+			color: $text2
+			font-size: 3rem !important
+
+		.label
+			color: $text
+			text-transform: none
+
+.ui.message,
+.ui.banner
+	&.ad
+		@include rem(margin, 20px 0 40px)
+		@include rem(padding, 15px 15px 15px 25px)
+		background: $background-alt-a
+		border-left: 4px solid $background5
+		width: 100%
+
+		.header
+			@include bold()
+			font-size: 1.6rem
+			margin-bottom: 0
+			text-shadow: $text-shadow
+
+		p
+			font-size: 1.1rem
+
+		.icon
+			color: $text5
+			font-size: 5rem !important
+
 .ui.label
 	background-color: $background-b
 	color: $text-alt

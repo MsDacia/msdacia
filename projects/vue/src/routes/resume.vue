@@ -6,6 +6,7 @@
 			</div>
 		</div>
 		<div class="fourteen wide column">
+			<ad-work></ad-work>
 			<address>{{content.resume.address}}</address>
 			<p><a :href="content.resume.resumeUrl" target="_blank" class="has-icon">
 				<i class="inverted file pdf outline icon"></i>
@@ -33,6 +34,7 @@
 
 <script>
 
+	import AdWork from '../components/ad-work.vue'
 	import Skills from '../components/skills.vue'
 	import Links from '../components/links.vue'
 	import Objective from '../components/objective.vue'
@@ -41,6 +43,7 @@
 
 	export default {
 		components: {
+			AdWork,
 			Skills,
 			Links,
 			Objective,

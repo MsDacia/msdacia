@@ -2,6 +2,7 @@
 	"common": {
 		"global": {
 			"title": "MsDacia",
+			"tagline": "I am here. This is who I am. I am Dacia.",
 			"urlTitle": "msdacia.com",
 			"url": "http://msdacia.com",
 			"fullName": "Dacia James",
@@ -103,7 +104,13 @@
 			"purple ",
 			"pink ",
 			"brown"
-		]
+		],
+		"ad": {
+			"work": {
+				"title" : "For Hire",
+				"copy": "VueJS, AngularJS, CraftCMS, and WordPress Developer...always looking for SIDE projects to help showcase my skills"
+			}
+		}
 	},
 	"about": {
 		"title": "WYSIWYG",
@@ -494,7 +501,7 @@
 			{
 				"year": null,
 				"image": "daa.png",
-				"link": "http://chicagobooth.edu/daa/",
+				"link": null,
 				"name": "Distinguished Alumni Awards",
 				"tags": ["PSD-to-HTML", "HTML", "CSS", "AJAX", "JavaScript", "jQuery", "XML/XSLT", "ASP Classic"],
 				"client": "Chicago Booth",
@@ -539,7 +546,7 @@
 			{
 				"year": null,
 				"image": "talent-development.png",
-				"link": "http://www.chicagobooth.edu/recruiting/tdc/2010/",
+				"link": null,
 				"name": "Talent Development Conference 2010",
 				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "ASP Classic"],
 				"client": "Chicago Booth",

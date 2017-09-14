@@ -44,23 +44,4 @@
 
 	@import '../styles/main.sass'
 
-	.ui.statistics
-		> .statistic
-			@include rem(margin, 0 10px)
-			@include rem(padding, 5px 0)
-			cursor: default
-			max-width: 105px
-			min-height: 100px
-			min-width: 105px
-			text-align: center
-			white-space: normal
-
-			.value
-				color: $text2
-				font-size: 3rem !important
-
-			.label
-				color: $text
-				text-transform: none
-
 </style>

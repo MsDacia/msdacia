@@ -5,7 +5,8 @@
 				<h1>{{content.projects.title}}</h1>
 			</div>
 		</div>
-		<div class="fourteen wide column">	
+		<div class="fourteen wide column">
+			<ad-work></ad-work>
 			<p v-html="content.projects.copy"></p>
 
 			<h2>{{content.projects.subtitle2}}</h2>
@@ -20,12 +21,14 @@
 
 <script>
 
+	import AdWork from '../components/ad-work.vue'
 	import ProjectList from '../components/project-list.vue'
 	import ProjectStats from '../components/project-stats.vue'
 	import ProjectTimeline from '../components/project-timeline.vue'
 
 	export default {
 		components: {
+			AdWork,
 			ProjectList,
 			ProjectStats,
 			ProjectTimeline

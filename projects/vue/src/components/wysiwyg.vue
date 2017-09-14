@@ -74,6 +74,7 @@
 				margin-bottom: 0
 				text-shadow: rgb(255, 255, 255) 0px 0px 15px
 
+		&:hover,
 		&.active
 			.ui.message
 				.header:not(.ui)
