@@ -1,6 +1,6 @@
 <template>
 	<div class="timeline">
-		<div class="item" :data-text="project.title" v-for="project in content.projects.project" :key="project.id">
+		<div class="item" :data-text="project.title" v-for="project in projects" :key="project.id">
 			<div class="ui segment">
 				<div class="ui massive label" v-html="project.year"></div>
 				<a :href="project.link" target="_blank" class="ui medium image">
@@ -22,10 +22,8 @@
 <script>
 
 	export default {
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
+		props: {
+			projects: Array
 		},
 		methods: {
 			getImage(project) {

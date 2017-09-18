@@ -121,7 +121,7 @@
 		"copy2": "I am a web developer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obssession is Vue.js, which is how this site was built. As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. My next steps in my career will probably be as a UI/Front End Architect/Lead Developer. I am not ready to make any moves, but when the time comes, that will be my focus.",
 		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. I have been the commissioner of my own fantasy football league, since 2008. It is so much fun. I have only won one championship, but don't let my record fool you. I have won more game with Jay Cutler as my quarterback than losses. LOL!! I am loyal."
 	},
-	"projects": {
+	"portfolio": {
 		"title": "Portfolio",
 		"subtitle": "My Links",
 		"subtitle2": "Project Statistics",
@@ -139,7 +139,7 @@
 				"icon": "jsfiddle icon"
 			}
 		],
-		"project": [
+		"projects": [
 			{
 				"year": "2017",
 				"image": "daviddacia.png",

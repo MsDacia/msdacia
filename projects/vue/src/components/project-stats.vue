@@ -20,7 +20,7 @@
 		computed: {
 			tagMap: function () {
 				const map = new Map()
-				for (const project of this.content.projects.project) {
+				for (const project of this.content.portfolio.projects) {
 					for (const tag of project.tags) {
 						if (!map.has(tag)) {
 							map.set(tag, 1)

@@ -2,18 +2,18 @@
 	<div class="ui grid">
 		<div class="two wide column">
 			<div class="block">
-				<h1>{{content.projects.title}}</h1>
+				<h1>{{content.portfolio.title}}</h1>
 			</div>
 		</div>
 		<div class="fourteen wide column">
 			<ad-work></ad-work>
-			<p v-html="content.projects.copy"></p>
+			<p v-html="content.portfolio.copy"></p>
 
-			<h2>{{content.projects.subtitle2}}</h2>
+			<h2>{{content.portfolio.subtitle2}}</h2>
 			<project-stats></project-stats>
 
-			<h2>{{content.projects.subtitle3}}</h2>
-			<project-timeline></project-timeline>
+			<h2>{{content.portfolio.subtitle3}}</h2>
+			<project-timeline :projects="content.portfolio.projects"></project-timeline>
 			
 		</div>
 	</div>
@@ -22,20 +22,19 @@
 <script>
 
 	import AdWork from '../components/ad-work.vue'
-	import ProjectList from '../components/project-list.vue'
 	import ProjectStats from '../components/project-stats.vue'
 	import ProjectTimeline from '../components/project-timeline.vue'
 
 	export default {
 		components: {
 			AdWork,
-			ProjectList,
 			ProjectStats,
 			ProjectTimeline
 		},
 		data: function () {
 			return {
-				content: require('../json/static.en-us.json')
+				content: require('../json/static.en-us.json'),
+				tag: undefined
 			}
 		}
 	}
