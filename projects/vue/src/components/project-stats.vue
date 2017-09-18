@@ -1,10 +1,8 @@
 <template>
-	<div class="horizontal-scroll">
-		<div class="ui statistics scroll">
-			<div class="ui inverted statistic" v-for="tag of sortedTags" :key="tag">
-				<div class="value">{{ tagMap.get(tag) }}</div>
-				<div class="label">{{ tag }}</div>
-			</div>
+	<div class="ui statistics">
+		<div class="ui inverted statistic" v-for="t of sortedTags" :key="t" @click="selectTag(t)" :class="{ selected: t == tag }">
+			<div class="value">{{ tagMap.get(t) }}</div>
+			<div class="label">{{ t }}</div>
 		</div>
 	</div>
 </template>
@@ -12,9 +10,13 @@
 <script>
 
 	export default {
+		props: {
+			onTagSelected: Function
+		},
 		data: function () {
 			return {
-				content: require('../json/static.en-us.json')
+				content: require('../json/static.en-us.json'),
+				tag: undefined
 			}
 		},
 		computed: {
@@ -34,6 +36,12 @@
 			},
 			sortedTags: function () {
 				return Array.from(this.tagMap.keys()).sort()
+			}
+		},
+		methods: {
+			selectTag(tag) {
+				this.tag = tag
+				this.onTagSelected(tag)
 			}
 		}
 	}

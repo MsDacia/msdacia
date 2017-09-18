@@ -10,11 +10,11 @@
 			<p v-html="content.portfolio.copy"></p>
 
 			<h2>{{content.portfolio.subtitle2}}</h2>
-			<project-stats></project-stats>
+			<project-stats :on-tag-selected="onTagSelected"></project-stats>
 
 			<h2>{{content.portfolio.subtitle3}}</h2>
-			<project-timeline :projects="content.portfolio.projects"></project-timeline>
-			
+			<project-timeline :projects="filteredProjects"></project-timeline>
+
 		</div>
 	</div>
 </template>
@@ -35,6 +35,22 @@
 			return {
 				content: require('../json/static.en-us.json'),
 				tag: undefined
+			}
+		},
+		computed: {
+			filteredProjects: function () {
+				let projects = this.content.portfolio.projects
+
+				if (this.tag) {
+					projects = projects.filter(project => project.tags.includes(this.tag))
+				}
+
+				return projects.sort((a, b) => b.year - a.year)
+			}
+		},
+		methods: {
+			onTagSelected(tag) {
+				this.tag = tag
 			}
 		}
 	}

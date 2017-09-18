@@ -247,23 +247,32 @@ h2,
 			font-size: 1.4rem
 
 .ui.statistics
+	@include rem(margin-bottom, 40px)
+
 	> .statistic
 		@include rem(margin, 0 10px)
 		@include rem(padding, 5px 0)
 		cursor: default
-		max-width: 105px
-		min-height: 100px
-		min-width: 105px
+		max-width: 70px
+		min-height: 80px
+		min-width: 70px
 		text-align: center
 		white-space: normal
 
 		.value
 			color: $text2
-			font-size: 3rem !important
+			font-size: 2rem !important
 
 		.label
 			color: $text
+			font-size: .75rem
 			text-transform: none
+
+		&.selected
+			.value,
+			.label
+				@include bold()
+				color: $text4
 
 .ui.message,
 .ui.banner
@@ -290,7 +299,7 @@ h2,
 .ui.label
 	background-color: $background-b
 	color: $text-alt
-	
+
 .ui.list .list,
 .ui.list
 	> .item
@@ -558,7 +567,7 @@ address
 	100% { opacity: 0; transform: translateY(0) }
 
 @keyframes type
-	from { width: 0 } 
+	from { width: 0 }
 
 @keyframes background
 	0% { background-position: 0 0 }

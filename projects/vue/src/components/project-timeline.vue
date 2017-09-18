@@ -1,8 +1,8 @@
 <template>
 	<div class="timeline">
-		<div class="item" :data-text="project.title" v-for="project in projects" :key="project.id">
+		<div class="item" :data-text="project.title" v-for="(project, index) in projects" :key="project.id">
 			<div class="ui segment">
-				<div class="ui massive label" v-html="project.year"></div>
+				<div class="ui massive label" v-if="index === 0 || projects[index - 1].year !== project.year">{{project.year}}</div>
 				<a :href="project.link" target="_blank" class="ui medium image">
 					<img :src="getImage(project)" />
 					<div class="ui green right ribbon label">{{project.timeline}}</div>
