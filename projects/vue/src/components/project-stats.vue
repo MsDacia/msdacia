@@ -1,8 +1,9 @@
 <template>
-	<div class="ui statistics">
-		<div class="ui inverted statistic" v-for="t of sortedTags" :key="t" @click="selectTag(t)" :class="{ selected: t == tag }">
-			<div class="value">{{ tagMap.get(t) }}</div>
-			<div class="label">{{ t }}</div>
+	<div class="statistics">
+		<div class="ui labels">
+			<a class="ui label" v-for="t of sortedTags" :key="t" @click="selectTag(t)" :class="{ selected: t == tag }">
+				<span>{{ tagMap.get(t) }}</span> {{t}}
+			</a>
 		</div>
 	</div>
 </template>
@@ -35,7 +36,12 @@
 				return map
 			},
 			sortedTags: function () {
-				return Array.from(this.tagMap.keys()).sort()
+				return Array.from(this.tagMap.keys()).sort((a, b) => {
+					const countA = this.tagMap.get(a)
+					const countB = this.tagMap.get(b)
+
+					return countB - countA
+				})
 			}
 		},
 		methods: {
