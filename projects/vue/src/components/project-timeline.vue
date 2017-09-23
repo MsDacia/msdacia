@@ -34,9 +34,7 @@
 
 </script>
 
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	.timeline
 		max-width: 700px

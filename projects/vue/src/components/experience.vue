@@ -46,11 +46,17 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style scoped lang="sass">
 
-	@import '../styles/main.sass'
+	.ui.message
+		padding-bottom: 0
+		padding-top: 0
 
-	.ui.message .header:not(.ui)
-		margin-bottom: 0
+		.header:not(.ui)
+			margin-bottom: 0
+
+	.ui.card
+		.content
+			padding-top: 0
 
 </style>

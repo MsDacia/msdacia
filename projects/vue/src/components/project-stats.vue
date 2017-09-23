@@ -53,19 +53,13 @@
 			},
 			hideLabels: function () {
 				const labels = document.getElementsByClassName('labels')[0]
-				labels.className += ' transition'
+				labels.className += ' activated'
 			},
 			showLabels: function () {
 				const labels = document.getElementsByClassName('labels')[0]
-				labels.className = labels.replace('transition', '')
+				labels.className = 'ui labels'
 			}
 		}
 	}
 
 </script>
-
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
-
-</style>

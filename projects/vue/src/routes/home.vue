@@ -19,9 +19,7 @@
 
 </script>
 
-<style lang="sass">
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	main
 		display: flex

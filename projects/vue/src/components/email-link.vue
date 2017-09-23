@@ -43,9 +43,7 @@
 
 </script>
 
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	footer
 		@include rem(margin-top, 20px)

@@ -10,11 +10,11 @@
 					:title="social.title"
 					target="_blank"
 				>
-					<i :class="social.icon"></i>	
+					<i :class="social.icon"></i>
 				</a>
 			</div>
 		</div>
-		
+
 		<p class="copyright">
 			<i :class="content.common.copyright.icon"></i>
 			{{content.common.copyright.content}}
@@ -51,9 +51,7 @@
 
 </script>
 
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	footer
 		text-align: center

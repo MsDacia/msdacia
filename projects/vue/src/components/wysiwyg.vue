@@ -52,15 +52,13 @@
 
 </script>
 
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	.ui.accordion .title:not(.ui),
 	.ui.accordion .accordion .title:not(.ui)
 		@include rem(margin-bottom, 15px)
 		@include rem(padding, 0 0 15px)
-		box-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px 0px inset
+		box-shadow: $background-c 0px -1px 0px 0px inset
 
 		.ui.message
 			font-size: 1.5rem
@@ -72,7 +70,7 @@
 
 			.header:not(.ui)
 				margin-bottom: 0
-				text-shadow: rgb(255, 255, 255) 0px 0px 15px
+				text-shadow: $background 0px 0px 15px
 
 		&:hover,
 		&.active

@@ -57,9 +57,7 @@
 
 </script>
 
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	p:first-of-type
 		max-width: 900px

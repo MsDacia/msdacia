@@ -26,9 +26,3 @@
 	}
 
 </script>
-
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
-
-</style>

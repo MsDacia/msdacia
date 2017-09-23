@@ -12,19 +12,36 @@
 				<i class="inverted file pdf outline icon"></i>
 				{{content.resume.resumeTitle}}
 			</a></p>
-			<h2 class="ui top attached header">{{content.resume.skills.title}}</h2>
+
+			<h2 class="ui horizontal divider header">
+				<i class="keyboard icon"></i>
+				{{content.resume.skills.title}}
+			</h2>
 			<div class="ui attached segment">
 				<skills></skills>
 			</div>
-			<h2 class="ui attached header">{{content.resume.objective.title}}</h2>
+
+			<h2 class="ui horizontal divider header">
+				<i class="id badge icon"></i>
+				{{content.resume.objective.title}}
+			</h2>
 			<div class="ui attached segment">
 				<objective></objective>
 			</div>
-			<h2 class="ui attached header">{{content.resume.experiences.title}}</h2>
+
+			<h2 class="ui horizontal divider header">
+				<i class="desktop icon"></i>
+				{{content.resume.experiences.title}}
+			</h2>
 			<div class="ui attached segment">
 				<experience></experience>
 			</div>
-			<h2 class="ui attached header">{{content.resume.education.title}}</h2>
+
+			<h2 class="ui horizontal divider header">
+				<i class="university icon"></i>
+				{{content.resume.education.title}}
+			</h2>
+
 			<div class="ui attached segment">
 				<education></education>
 			</div>
@@ -59,9 +76,7 @@
 
 </script>
 
-<style lang="sass" scoped>
-
-	@import '../styles/main.sass'
+<style scoped lang="sass">
 
 	h1
 		left: -86px

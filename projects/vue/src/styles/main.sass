@@ -177,6 +177,10 @@ h2,
 	background: transparent
 	color: $text
 
+.ui.attached:not(.top):not(.bottom).header
+	padding-bottom: 0
+	padding-top: 0
+
 .ui.table,
 .ui.feed > .event,
 .ui.message
@@ -195,7 +199,7 @@ h2,
 .ui.definition.table tr,
 .ui.table:not(.unstackable) tr,
 .ui.table:not(.unstackable) tr
-	box-shadow: 0 -1px 0 0 rgba(255, 255, 255, .3) inset !important
+	box-shadow: 0 -1px 0 0 $background-c inset !important
 
 	td.definition,
 	td:first-child:not(.ignored),
@@ -277,6 +281,15 @@ h2,
 
 			&:hover
 				cursor: pointer
+
+		&.activated
+			@include transition(all 1s ease-in)
+
+			.ui.label
+				opacity: 0
+
+				&.selected
+					opacity: 1
 
 .ui.message,
 .ui.banner
@@ -399,8 +412,14 @@ h2,
 	font-size: inherit
 
 	&.attached
-		@include rem(margin-bottom, 15px)
-		padding: 0
+		@include rem(margin-bottom, 45.5px)
+		@include rem(padding, 0 32.5px)
+
+.ui.horizontal.divider
+	color: $text
+
+	> .icon
+		color: $text
 
 .ui.accordion,
 .ui.accordion .accordion

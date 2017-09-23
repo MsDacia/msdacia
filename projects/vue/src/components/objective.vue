@@ -20,8 +20,10 @@
 
 </script>
 
-<style lang="sass" scoped>
+<style scoped lang="sass">
 
-	@import '../styles/main.sass'
+	.ui.card
+		.content
+			padding-top: 0
 
 </style>

@@ -145,7 +145,7 @@
 				"image": "daviddacia.png",
 				"link": null,
 				"name": "David + Dacia",
-				"tags": ["HTML5", "SASS", "Vue.js", "webpack", "JSON", "Firebase", "Responsive"],
+				"tags": ["HTML5", "SASS", "Vue.js", "Semantic UI", "webpack", "JSON", "Firebase", "Responsive", "SPA"],
 				"client": "MsDacia",
 				"timeline": "9 months (side project)"
 			},
@@ -154,7 +154,7 @@
 				"image": "msdacia.png",
 				"link": "http://msdacia.com",
 				"name": "MsDacia",
-				"tags": ["HTML5", "SASS", "Vue.js", "webpack", "JSON", "Responsive"],
+				"tags": ["HTML5", "SASS", "Vue.js", "Semantic UI", "webpack", "JSON", "Responsive", "SPA"],
 				"client": "MsDacia",
 				"timeline": "ongoing"
 			},
@@ -316,7 +316,7 @@
 				"image": "ameren.png",
 				"link": null,
 				"name": "Ameren",
-				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "Grunt", "JIRA", "Agile", "APP: Mobile"],
+				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "SPA", "Grunt", "JIRA", "Agile", "APP: Mobile"],
 				"client": "Undisclosed",
 				"timeline": "6 weeks"
 			},
@@ -641,11 +641,11 @@
 		"resumeTitle": "View/Download",
 		"resumeUrl": "https://drive.google.com/open?id=0B6qUzqJO-1jzbGtvVEYtZDVVbU0",
 		"skills": {
-			"title": "Skills and Competencies",
+			"title": "Skills",
 			"categories": [
 				{
 					"title": "Development",
-					"copy": "HTML5, CSS3 (LESS, SASS), XML / XSLT, JSON, YAML, Twig"
+					"copy": "HTML5, CSS3 (LESS, SASS, Semantic UI), XML / XSLT, JSON, YAML, Twig"
 				},
 				{
 					"title": "Javascript",
@@ -683,11 +683,11 @@
 			]
 		},
 		"objective": {
-			"title": "Career Objective",
+			"title": "Objective",
 			"copy": "13+ year of front-end web developer experience working with diverse clients and projects, showcasing my strong development and leadership skills. I have expert-level knowledge of W3C standards, cross-browser / platform development, accessibility, and a solid understanding of the principles of information architecture. I have the ability to quickly hand-code clean HTML / CSS from Photoshop / Sketch / Zeplin mock-ups, functional specs and use cases, with understanding of interaction design and user-centered design methods and practices. I have experience in refactoring existing codebase and in understanding existing implementations to decide to refactor or rewrite. I enjoy working in Agile development and am extremely comfortable with SCRUM process."
 		},
 		"experiences": {
-			"title": "Work Experiences",
+			"title": "Experience",
 			"job": [
 				{
 					"title": "Applications Developer",
