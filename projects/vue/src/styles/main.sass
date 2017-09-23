@@ -252,28 +252,31 @@ h2,
 	.ui.labels
 		.ui.label
 			@include rem(margin, 0 10px)
-			@include rem(padding, 5px 0)
+			@include rem(padding, 5px 10px 10px)
+			background: $background-alt-b
+			color: $text
 			cursor: default
-			max-width: 70px
-			min-height: 80px
-			min-width: 70px
+			font-size: .75rem
+			position: relative
 			text-align: center
+			text-transform: none
 			white-space: normal
 
-			.value
+			span
+				@include rem(padding, 0 5.5px)
 				color: $text2
-				font-size: 2rem !important
+				font-size: 2rem
 
-			.label
-				color: $text
-				font-size: .75rem
-				text-transform: none
+			.icon
+				@include abs-pos(30%, auto, auto, 5px)
 
-		&.selected
-			.value,
-			.label
+			&.selected,
+			&.selected span
 				@include bold()
 				color: $text4
+
+			&:hover
+				cursor: pointer
 
 .ui.message,
 .ui.banner

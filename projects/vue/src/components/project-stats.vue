@@ -1,8 +1,9 @@
 <template>
 	<div class="statistics">
 		<div class="ui labels">
-			<a class="ui label" v-for="t of sortedTags" :key="t" @click="selectTag(t)" :class="{ selected: t == tag }">
+			<a class="ui label" v-for="t of sortedTags" :key="t" @click="selectTag(t), hideLabels()" :class="{ selected: t == tag }">
 				<span>{{ tagMap.get(t) }}</span> {{t}}
+				<i v-if="t == tag" class="remove icon" @click.stop="selectTag(undefined), showLabels()"></i>
 			</a>
 		</div>
 	</div>
@@ -11,9 +12,6 @@
 <script>
 
 	export default {
-		props: {
-			onTagSelected: Function
-		},
 		data: function () {
 			return {
 				content: require('../json/static.en-us.json'),
@@ -40,14 +38,26 @@
 					const countA = this.tagMap.get(a)
 					const countB = this.tagMap.get(b)
 
-					return countB - countA
+					if (countA === countB) {
+						return a.localeCompare(b)
+					} else {
+						return countB - countA
+					}
 				})
 			}
 		},
 		methods: {
 			selectTag(tag) {
 				this.tag = tag
-				this.onTagSelected(tag)
+				this.$emit('tag-selected', tag)
+			},
+			hideLabels: function () {
+				const labels = document.getElementsByClassName('labels')[0]
+				labels.className += ' transition'
+			},
+			showLabels: function () {
+				const labels = document.getElementsByClassName('labels')[0]
+				labels.className = labels.replace('transition', '')
 			}
 		}
 	}

@@ -10,7 +10,7 @@
 			<p v-html="content.portfolio.copy"></p>
 
 			<h2>{{content.portfolio.subtitle2}}</h2>
-			<project-stats :on-tag-selected="onTagSelected"></project-stats>
+			<project-stats @tag-selected="onTagSelected"></project-stats>
 
 			<h2>{{content.portfolio.subtitle3}}</h2>
 			<project-timeline :projects="filteredProjects"></project-timeline>
