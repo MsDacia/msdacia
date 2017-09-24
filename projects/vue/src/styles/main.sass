@@ -51,10 +51,10 @@ body
 	z-index: 2
 
 main
-	font-size: 1.75rem
+	font-size: 1.25em
 
 	.ui.grid
-		font-size: 1.25rem
+		font-size: 1.05em
 
 .block
 	position: relative
@@ -147,7 +147,6 @@ a
 i,
 .icon,
 .svg-inline--fa
-	@include rem(font-size, 18px)
 	@include rem(margin-right, 5px)
 	display: inline-block
 	font-size: 18px
@@ -190,7 +189,7 @@ h2,
 	padding-right: 0
 
 	&.icon > .icon:not(.close)
-		font-size: 2rem
+		font-size: 1.2em
 
 	.content
 		margin: 0
@@ -224,21 +223,24 @@ h2,
 			margin-left: 0
 
 			a
-				font-size: 1.75rem
+				font-size: 1.25em
 
 .ui.feed > .event
 	.content
-		font-size: 1.4rem
+		@include rem(margin-bottom, 20px)
 
 		.date
 			@include bold()
-			@include rem(padding-left, 5px)
-			background: $background-a
+			@include rem(margin-bottom, 15px)
+			@include rem(padding, 5px 8px)
+			background: $background-alt-b
 			color: lighten($text3, 20%)
+			font-size: 1em
 
 		.summary,
 		.extra.text
 			color: $text
+			font-size: 1.3em
 			max-width: none
 
 		.summary
@@ -248,7 +250,7 @@ h2,
 			color: $anchor-text
 
 		p
-			font-size: 1.4rem
+			font-size: 1.4em
 
 .statistics
 	@include rem(margin-bottom, 40px)
@@ -260,7 +262,7 @@ h2,
 			background: $background-alt-b
 			color: $text
 			cursor: default
-			font-size: .75rem
+			font-size: .75em
 			position: relative
 			text-align: center
 			text-transform: none
@@ -269,7 +271,7 @@ h2,
 			span
 				@include rem(padding, 0 5.5px)
 				color: $text2
-				font-size: 2rem
+				font-size: 2em
 
 			.icon
 				@include abs-pos(30%, auto, auto, 5px)
@@ -302,16 +304,16 @@ h2,
 
 		.header
 			@include bold()
-			font-size: 1.6rem
+			font-size: 1.6em
 			margin-bottom: 0
 			text-shadow: $text-shadow
 
 		p
-			font-size: 1.1rem
+			font-size: 1.1em
 
 		.icon
 			color: $text5
-			font-size: 5rem !important
+			font-size: 3em !important
 
 .ui.label
 	background-color: $background-b
@@ -357,11 +359,11 @@ h2,
 		.date,
 		.time
 			@include bold()
-			@include rem(font-size, 10px)
 			@include rem(margin-bottom, 15px)
-			@include rem(padding, 0 5px)
-			background: $background-a
+			@include rem(padding, 2px 8px)
+			background: $background-alt-b
 			color: lighten($text3, 20%)
+			font-size: .8em
 			width: 100%
 
 		.header,
@@ -373,7 +375,14 @@ h2,
 
 			em
 				@include bold()
+				font-size: .65em
 				font-style: italic
+
+		.description
+			@include rem(padding, 0 32.5px)
+
+			p
+				font-size: .9em
 
 		.summary
 			font-weight: normal
@@ -390,7 +399,6 @@ h2,
 
 	p
 		@include rem(margin-bottom, 30px)
-		font-size: 1.4rem
 
 	ul
 		margin-left: 0
@@ -439,21 +447,6 @@ h2,
 	&:not(.styled) .accordion .title~.content:not(.ui),
 	&:not(.styled) .title~.content:not(.ui)
 		margin-left: 0
-
-		p
-			@include phablet
-				font-size: 1.75rem
-
-.lead
-	@include black()
-	@include rem(margin-top, 10px)
-	font-size: 64px
-	line-height: 1
-	margin-bottom: 0
-	text-shadow: $text-shadow
-
-	@include tablet
-		@include rem(margin-bottom, 10px)
 
 .nowrap
 	white-space: nowrap

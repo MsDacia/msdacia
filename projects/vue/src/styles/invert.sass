@@ -1,11 +1,10 @@
 body
 	&.light
-		background: $background
+		background-color: $background
 		color: $text-alt
 
 		.container,
 		.wrapper
-			background-color: $background
 			color: $text-alt
 
 		.overlay
@@ -85,6 +84,12 @@ body
 			background-color: $background-alt-b
 			color: $text
 
+		.ui.horizontal.divider
+			color: $text-alt
+
+			> .icon
+				color: $text-alt
+
 		.ui.list,
 		ol.ui.list,
 		ul.ui.list
@@ -145,7 +150,7 @@ body
 				.date,
 				.time
 					background: $background-alt-a
-					color: lighten($text3, 20%)
+					color: lighten($text2, 20%)
 
 				.header,
 				.meta,
@@ -179,9 +184,6 @@ body
 						.svg-inline--fa
 							color: $text4
 							text-shadow: none
-
-		.lead
-			text-shadow: $text-shadow-alt
 
 		.card
 			background-color: transparent
@@ -242,7 +244,7 @@ body
 		footer
 			a
 				color: $text-alt
-				
+
 				&:hover
 					color: $anchor-text-hover-alt
 

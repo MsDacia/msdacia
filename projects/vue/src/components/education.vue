@@ -7,9 +7,9 @@
 				<div class="category">{{content.resume.education.degree}}</div>
 			</div>
 			<div class="description">
-				<p><em>Major:</em> {{content.resume.education.major}}</p>
-				<p><em>Minor:</em> {{content.resume.education.minor}}</p>
-				<p><em>Specialization:</em> {{content.resume.education.specialization}}</p>
+				<p>{{content.resume.education.major}}<br /><em>Major</em></p>
+				<p>{{content.resume.education.minor}}<br /><em>Minor</em></p>
+				<p>{{content.resume.education.specialization}}<br /><em>Specialization</em></p>
 			</div>
 		</div>
 	</div>

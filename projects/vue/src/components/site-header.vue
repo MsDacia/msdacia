@@ -104,7 +104,7 @@
 					color: $text
 					cursor: pointer
 					display: inline-block
-					font: normal 2rem/1.6 $font-stack-serif
+					font: normal 2em/1.6 $font-stack-serif
 					letter-spacing: .5px
 
 					&:before

@@ -55,6 +55,10 @@
 				width: 50%
 
 			.ui.label
+				@include rem(padding-bottom, 8px)
+				@include rem(padding-top, 8px)
+				background-color: $background-alt-a
+				color: $text
 				cursor: default
 
 		.ui.segment
