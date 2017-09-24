@@ -256,6 +256,8 @@ h2,
 	@include rem(margin-bottom, 40px)
 
 	.ui.labels
+		position: relative
+
 		.ui.label
 			@include rem(margin, 0 10px)
 			@include rem(padding, 5px 10px 10px)
@@ -286,11 +288,13 @@ h2,
 
 		&.activated
 			@include transition(all 1s ease-in)
+			height: 56px
 
 			.ui.label
 				opacity: 0
 
 				&.selected
+					@include abs-pos(0, auto, auto, 0)
 					opacity: 1
 
 .ui.message,

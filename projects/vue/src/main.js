@@ -3,6 +3,7 @@ import BootstrapVue from 'bootstrap-vue'
 import * as VueFire from 'vuefire'
 import VueVirtualScroller from 'vue-virtual-scroller'
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
+import 'hover.css/css/hover-min.css'
 import VueRouter from 'vue-router'
 
 import routes from './routes'

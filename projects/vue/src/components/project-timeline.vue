@@ -66,7 +66,7 @@
 
 			.ui.massive.label,
 			.ui.massive.labels .label
-				@include abs-pos(30px, auto, auto, -90px)
+				@include abs-pos(60px, auto, auto, -100px)
 				background: transparent
 				color: $text
 				font-size: 400%

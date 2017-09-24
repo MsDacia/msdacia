@@ -1,7 +1,7 @@
 <template>
 	<div class="statistics">
 		<div class="ui labels">
-			<a class="ui label" v-for="t of sortedTags" :key="t" @click="selectTag(t), hideLabels()" :class="{ selected: t == tag }">
+			<a class="ui label hvr-grow-shadow" v-for="t of sortedTags" :key="t" @click="selectTag(t), hideLabels()" :class="{ selected: t == tag }">
 				<span>{{ tagMap.get(t) }}</span> {{t}}
 				<i v-if="t == tag" class="remove icon" @click.stop="selectTag(undefined), showLabels()"></i>
 			</a>
