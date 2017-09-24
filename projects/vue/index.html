@@ -34,6 +34,70 @@
 		<meta http-equiv="Cache-Control" content="no-cache">
 
 		<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700" rel="stylesheet">
+		<style type="text/css">
+			body {
+				background: #000;
+				color: #fff;
+			}
+
+			noscript .container {
+				font: 1em Lato,'Helvetica Neue', Arial, Helvetica, sans-serif;
+				margin: 2em auto;
+				max-width: 700px;
+				padding: 2em 0em;
+				position: relative;
+			}
+
+			noscript .container h1 {
+				font-size: 3em;
+				-webkit-margin-after: 0;
+			}
+
+			noscript .container h2 {
+				font-size: 2em;
+				-webkit-margin-before: 0;
+			}
+
+			noscript .container p {
+				-webkit-margin-after: 0;
+				-webkit-margin-before: 0;
+			}
+
+			noscript .container .ui.message {
+				-webkit-transition: opacity .1s ease,color .1s ease, background .1s ease, box-shadow .1s ease;
+				background-color: #000;
+				border-radius: .28571429rem;
+				box-shadow: 0 0 0 1px #181515 inset, 0 0 0 0 transparent;
+				color: #fff;
+				line-height: 1.4285em;
+				margin: 2em auto 0;
+				min-height: 1em;
+				padding: 1em 1.5em;
+				position: relative;
+				transition: opacity .1s ease,color .1s ease, background .1s ease, box-shadow .1s ease;
+			}
+
+			noscript .container .ui.negative.message {
+				box-shadow: 0 0 0 1px #e0b4b4 inset, 0 0 0 0 transparent;
+				background-color: #fff6f6;
+				color: #9f3a38;
+			}
+
+			noscript .container .ui.message .header {
+				color: #3BC088;
+				font-size: 2rem;
+				font-weight: 700;
+			}
+
+			noscript .container .ui.negative.message .header {
+				color: #912d2b;
+			}
+
+			noscript .container .ui.message p {
+				margin: .5em 0 .75em;
+				opacity: .85;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="app">
@@ -41,4 +105,17 @@
 		</div>
 	</body>
 	<script src="https://use.fontawesome.com/727101c457.js"></script>
+	<noscript>
+		<div class="container">
+			<h1>MsDacia</h1>
+			<p><em>pronounced</em></p>
+			<h2>day-shuh</h2>
+			<p>I am here. This is who I am. I am Dacia.</p>
+
+			<div class="ui negative message">
+				<div class="header">Not sure what else to tell you, but&hellip;</div>
+				<p>This website pretty much doesn't work without javascript enabled.</p>
+			</div>
+		</div>
+	</noscript>
 </html>
