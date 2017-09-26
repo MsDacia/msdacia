@@ -119,26 +119,25 @@
 						-webkit-filter: grayscale(0%)
 						filter: grayscale(0%)
 
-		.ui.modal
-			> .content
-				@include rem(margin-left, 100px)
-				@include rem(margin-top, -30px)
+		> .content
+			@include rem(margin-left, 100px)
+			@include rem(margin-top, -30px)
 
-				.ui.small.image,
-				.ui.small.images .image,
-				.ui.small.images img,
-				.ui.small.images svg
-					max-width: 80%
-					width: 80%
+			.ui.small.image,
+			.ui.small.images .image,
+			.ui.small.images img,
+			.ui.small.images svg
+				max-width: 80%
+				width: 80%
 
-				.ui.labels
-					@include rem(margin-top, 20px)
-					float: none
-					width: 100%
+			.ui.labels
+				@include rem(margin-top, 20px)
+				float: none
+				width: 100%
 
-					.ui.label,
-					.label
-						font-size: 1.75em
+				.ui.label,
+				.label
+					font-size: 1.75em
 
 		.ui.header
 			.ui.massive.label,
