@@ -1,8 +1,9 @@
 <template>
 	<div class="statistics">
 		<div class="ui labels">
-			<a class="ui label hvr-grow-shadow" v-for="t of sortedTags" :key="t" @click="selectTag(t), hideLabels()" :class="{ selected: t == tag }">
-				<span>{{ tagMap.get(t) }}</span> {{t}}
+			<a class="ui label hvr-grow-shadow" v-for="t of sortedTags" :key="t" @click="selectTag(t), hideLabels(), scrollToTop()" :class="{ selected: t == tag }">
+				<span>{{ tagMap.get(t) }}</span>
+				<br />{{t}}
 				<i v-if="t == tag" class="remove icon" @click.stop="selectTag(undefined), showLabels()"></i>
 			</a>
 		</div>
@@ -58,6 +59,10 @@
 			showLabels: function () {
 				const labels = document.getElementsByClassName('labels')[0]
 				labels.className = 'ui labels'
+			},
+			scrollToTop: function () {
+				const timeline = document.getElementById('timeline')
+				timeline.scrollIntoView()
 			}
 		}
 	}

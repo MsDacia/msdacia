@@ -259,16 +259,17 @@ h2,
 		position: relative
 
 		.ui.label
-			@include rem(margin, 0 10px)
 			@include rem(padding, 5px 10px 10px)
 			background: $background-alt-b
 			color: $text
 			cursor: default
-			font-size: .75em
+			font-size: .6em
+			margin: 0
 			position: relative
 			text-align: center
 			text-transform: none
 			white-space: normal
+			width: 100%
 
 			span
 				@include rem(padding, 0 5.5px)
@@ -276,7 +277,8 @@ h2,
 				font-size: 2em
 
 			.icon
-				@include abs-pos(30%, auto, auto, 5px)
+				@include abs-pos(10%, auto, auto, 5px)
+				font-size: 1.3em
 
 			&.selected,
 			&.selected span
@@ -288,13 +290,14 @@ h2,
 
 		&.activated
 			@include transition(all 1s ease-in)
-			height: 56px
 
 			.ui.label
+				height: 0
 				opacity: 0
 
 				&.selected
 					@include abs-pos(0, auto, auto, 0)
+					height: inherit
 					opacity: 1
 
 .ui.message,

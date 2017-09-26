@@ -124,8 +124,8 @@
 	"portfolio": {
 		"title": "Portfolio",
 		"subtitle": "My Links",
-		"subtitle2": "Project Statistics",
-		"subtitle3": "Project Timeline",
+		"subtitle2": "Stats",
+		"subtitle3": "Timeline",
 		"copy": "Browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
 		"list": [
 			{

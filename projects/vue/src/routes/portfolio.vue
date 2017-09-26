@@ -9,12 +9,16 @@
 			<ad-work></ad-work>
 			<p v-html="content.portfolio.copy"></p>
 
-			<h2>{{content.portfolio.subtitle2}}</h2>
-			<project-stats @tag-selected="onTagSelected"></project-stats>
-
-			<h2>{{content.portfolio.subtitle3}}</h2>
-			<project-timeline :projects="filteredProjects"></project-timeline>
-
+			<div class="ui grid">
+				<div class="two wide column">
+					<h2>{{content.portfolio.subtitle2}}</h2>
+					<project-stats @tag-selected="onTagSelected"></project-stats>
+				</div>
+				<div id="timeline" class="fourteen wide column">
+					<h2>{{content.portfolio.subtitle3}}</h2>
+					<project-timeline :projects="filteredProjects"></project-timeline>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
