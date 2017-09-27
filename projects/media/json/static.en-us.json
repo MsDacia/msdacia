@@ -141,6 +141,7 @@
 		],
 		"projects": [
 			{
+				"unique": "daviddacia",
 				"year": "2017",
 				"image": "daviddacia.png",
 				"link": null,
@@ -150,6 +151,7 @@
 				"timeline": "9 months (side project)"
 			},
 			{
+				"unique": "msdacia",
 				"year": "2017",
 				"image": "msdacia.png",
 				"link": "http://msdacia.com",
@@ -159,6 +161,7 @@
 				"timeline": "ongoing"
 			},
 			{
+				"unique": "valo",
 				"year": "2017",
 				"image": "valo.png",
 				"link": null,
@@ -168,6 +171,7 @@
 				"timeline": "ongoing"
 			},
 			{
+				"unique": "asicsf",
 				"year": "2017",
 				"image": "asics-flytefoam.png",
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
@@ -177,6 +181,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "asicsup",
 				"year": "2016",
 				"image": "asics-urban-pack.png",
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
@@ -186,6 +191,7 @@
 				"timeline": "60 hours"
 			},
 			{
+				"unique": "whirlpool",
 				"year": "2016",
 				"image": "whirlpool.png",
 				"link": "https://www.whirlpool.com/",
@@ -195,6 +201,7 @@
 				"timeline": "5 months"
 			},
 			{
+				"unique": "fs",
 				"year": "2016",
 				"image": "financial-services.png",
 				"link": "https://bankingonmycareer.com/",
@@ -204,6 +211,7 @@
 				"timeline": "7 months"
 			},
 			{
+				"unique": "advocate",
 				"year": "2016",
 				"image": "advocate-io.png",
 				"link": "http://advocate.io",
@@ -213,6 +221,7 @@
 				"timeline": "8 weeks"
 			},
 			{
+				"unique": "cavalry",
 				"year": "2016",
 				"image": "cavalry.png",
 				"link": "http://advocate.io",
@@ -222,6 +231,7 @@
 				"timeline": "6 weeks"
 			},
 			{
+				"unique": "resq",
 				"year": "2016",
 				"image": "resqbiz.png",
 				"link": "http://resqbiz.com",
@@ -231,6 +241,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "allstate",
 				"year": "2016",
 				"image": "allstate-veterans.png",
 				"link": "http://allstateveterans.com",
@@ -240,6 +251,7 @@
 				"timeline": "6 weeks"
 			},
 			{
+				"unique": "intel",
 				"year": "2015",
 				"image": "intel.png",
 				"link": null,
@@ -249,6 +261,7 @@
 				"timeline": "7 months"
 			},
 			{
+				"unique": "mcd",
 				"year": "2015",
 				"image": "mcdonalds.png",
 				"link": null,
@@ -258,6 +271,7 @@
 				"timeline": "1 week"
 			},
 			{
+				"unique": "czar",
 				"year": "2015",
 				"image": "czarnowski.png",
 				"link": "http://czarnowski.com",
@@ -267,6 +281,7 @@
 				"timeline": "6 weeks"
 			},
 			{
+				"unique": "ctachronicles",
 				"year": "2014",
 				"image": "ctachronicles.png",
 				"link": "http://ctachronicles.com",
@@ -276,6 +291,7 @@
 				"timeline": "3 months"
 			},
 			{
+				"unique": "stop",
 				"year": "2013",
 				"image": "stopandshop.png",
 				"link": "http://stopandshop.com",
@@ -285,6 +301,7 @@
 				"timeline": "18 months"
 			},
 			{
+				"unique": "giants",
 				"year": "2013",
 				"image": "giantfoods.png",
 				"link": "http://giantfoods.com",
@@ -294,6 +311,7 @@
 				"timeline": "18 months"
 			},
 			{
+				"unique": "giant",
 				"year": "2013",
 				"image": "giant.png",
 				"link": "http://giantfoodstores.com",
@@ -303,6 +321,7 @@
 				"timeline": "18 months"
 			},
 			{
+				"unique": "martins",
 				"year": "2013",
 				"image": "martins.png",
 				"link": "http://martinfoods.com",
@@ -312,6 +331,7 @@
 				"timeline": "18 months"
 			},
 			{
+				"unique": "ame",
 				"year": "2013",
 				"image": "ameren.png",
 				"link": null,
@@ -321,6 +341,7 @@
 				"timeline": "6 weeks"
 			},
 			{
+				"unique": "lincoln",
 				"year": "2013",
 				"image": "lincolninternational.png",
 				"link": "http://www.lincolninternational.com",
@@ -330,6 +351,7 @@
 				"timeline": "5 weeks"
 			},
 			{
+				"unique": "thermo",
 				"year": "2013",
 				"image": "thermofisher.png",
 				"link": null,
@@ -339,6 +361,7 @@
 				"timeline": "8 weeks"
 			},
 			{
+				"unique": "border",
 				"year": "2012",
 				"image": "border-states.png",
 				"link": "http://borderstates.com",
@@ -348,6 +371,7 @@
 				"timeline": "1 week"
 			},
 			{
+				"unique": "discoverbank",
 				"year": "2012",
 				"image": "discover-bank-account-activity-mobile.png",
 				"link": null,
@@ -357,6 +381,7 @@
 				"timeline": "4 weeks"
 			},
 			{
+				"unique": "evolve",
 				"year": "2012",
 				"image": "evolve.png",
 				"link": "http://agideaforum.com",
@@ -366,6 +391,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "evolvem",
 				"year": "2012",
 				"image": "evolve-mobile.png",
 				"link": "http://agideaforum.com/m/index.html",
@@ -374,6 +400,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "front",
 				"year": "2012",
 				"image": "frontier.png",
 				"link": "http://frontier.com",
@@ -382,6 +409,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "mine",
 				"year": "2012",
 				"image": "mine-safety-applications.png",
 				"link": "http://us.msasafety.com",
@@ -391,6 +419,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "tmobile",
 				"year": "2012",
 				"image": "tmobile-mobile.png",
 				"link": null,
@@ -400,6 +429,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "unsnowmen",
 				"year": "2012",
 				"image": "unsnowman.png",
 				"link": null,
@@ -409,6 +439,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "wes",
 				"year": "2012",
 				"image": "wesco.png",
 				"link": null,
@@ -418,6 +449,7 @@
 				"timeline": "1 week"
 			},
 			{
+				"unique": "grain",
 				"year": "2011",
 				"image": "grainger.png",
 				"link": null,
@@ -427,6 +459,7 @@
 				"timeline": "18 months"
 			},
 			{
+				"unique": "sanford",
 				"year": "2010",
 				"image": "sanford-health.png",
 				"link": "http://www.sanfordhealth.org/",
@@ -436,6 +469,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "casual",
 				"year": "2010",
 				"image": "casual-male-dxl.png",
 				"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
@@ -445,6 +479,7 @@
 				"timeline": "5 weeks"
 			},
 			{
+				"unique": "loreal",
 				"year": "2010",
 				"image": "loreal-ysl.png",
 				"link": "http://www.yslbeautyus.com/",
@@ -454,6 +489,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "ltd",
 				"year": "2010",
 				"image": "ltd-commodities.png",
 				"link": "http://www.ltdcommodities.com/",
@@ -463,6 +499,7 @@
 				"timeline": "4 weeks"
 			},
 			{
+				"unique": "ny",
 				"year": "2010",
 				"image": "iloveny.png",
 				"link": "http://iloveny.com/",
@@ -472,6 +509,7 @@
 				"timeline": "10 weeks"
 			},
 			{
+				"unique": "symptom",
 				"year": "2010",
 				"image": "symptom-checker.png",
 				"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
@@ -481,6 +519,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "sun",
 				"year": "2009",
 				"image": "suntimes.png",
 				"link": "http://suntimes.com/",
@@ -490,6 +529,7 @@
 				"timeline": "5 weeks"
 			},
 			{
+				"unique": "pizza",
 				"year": "2009",
 				"image": "pizzahut.png",
 				"link": "http://pizzahut.com/",
@@ -499,6 +539,7 @@
 				"timeline": "2 months"
 			},
 			{
+				"unique": "daa",
 				"year": "2009",
 				"image": "daa.png",
 				"link": null,
@@ -508,6 +549,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "farm",
 				"year": "2009",
 				"image": "farm-to-fork.png",
 				"link": "http://chicagobooth.edu/food/2009/",
@@ -517,6 +559,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "alumni",
 				"year": "2009",
 				"image": "alumni-celebrations.png",
 				"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
@@ -526,6 +569,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "career",
 				"year": "2009",
 				"image": "career-path.png",
 				"link": "http://career.chicagobooth.edu/parttime/careerpath/",
@@ -535,6 +579,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "reunion",
 				"year": "2009",
 				"image": "alumni-reunion.png",
 				"link": "http://chicagobooth.edu/alumni/reunion2009/",
@@ -544,6 +589,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "talent",
 				"year": "2009",
 				"image": "talent-development.png",
 				"link": null,
@@ -553,6 +599,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "discovercard",
 				"year": "2008",
 				"image": "discover-find-my-offer-mobile.png",
 				"link": null,
@@ -562,6 +609,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "cuno",
 				"year": "2008",
 				"image": "3m.png",
 				"link": null,
@@ -571,6 +619,7 @@
 				"timeline": "4 weeks"
 			},
 			{
+				"unique": "ashley",
 				"year": "2008",
 				"image": "ashley-furniture.png",
 				"link": "http://www.ashleyfurniturehomestore.com",
@@ -580,6 +629,7 @@
 				"timeline": "2 weeks"
 			},
 			{
+				"unique": "gordon",
 				"year": "2008",
 				"image": "gordon-food-services.png",
 				"link": "http://www.gfs.com/en",
@@ -589,6 +639,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "ul",
 				"year": "2008",
 				"image": "ul-myhome.png",
 				"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
@@ -598,6 +649,7 @@
 				"timeline": "4 weeks"
 			},
 			{
+				"unique": "regis",
 				"year": "2008",
 				"image": "regis-franchise.png",
 				"link": null,
@@ -607,6 +659,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "regiss",
 				"year": "2008",
 				"image": "regis-stylist.png",
 				"link": null,
@@ -616,6 +669,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "invitro",
 				"year": "2008",
 				"image": "invitrogen.png",
 				"link": null,
@@ -625,6 +679,7 @@
 				"timeline": "3 weeks"
 			},
 			{
+				"unique": "modern",
 				"year": "2006",
 				"image": "modern-lighting.png",
 				"link": "http://www.modernlighting.com",

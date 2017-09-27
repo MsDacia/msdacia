@@ -5,18 +5,15 @@
 				<div class="item">
 					<div class="ui segment">
 						<div class="ui massive label" v-if="index === 0 || projects[index - 1].year !== project.year">{{project.year}}</div>
-						<a class="ui small image project">
+						<a :id="'project-' + project.unique + '-link'" class="ui small image project hvr-grow-shadow" :data-modal="'project-' + project.unique">
 							<img :src="getImage(project)" :alt="project.name" />
 							<div class="ui green right ribbon label">{{project.timeline}}</div>
 							<div class="ui bottom attached label">{{project.name}}</div>
 						</a>
 
-						<div class="ui basic modal" :id="project.id">
+						<div class="ui basic modal" :id="'project-' + project.unique">
 							<div class="actions">
-								<div class="ui red basic cancel inverted button">
-									<i class="remove icon"></i>
-									Close
-								</div>
+								<i class="close icon cancel"></i>
 							</div>
 							<div class="ui header">
 								<div class="ui massive label">{{project.year}}</div>
@@ -53,7 +50,13 @@
 			}
 		},
 		mounted() {
-			$('.ui.basic.modal').modal('attach events', '.ui.image.project', 'show')
+			const projects = $('[data-modal]')
+
+			projects.each(function(){
+				let project = $(this).attr('data-modal')
+				console.log(project)
+				$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
+			})
 		}
 	}
 
@@ -85,7 +88,6 @@
 				background-color: $background-alt-a
 				color: $text
 				cursor: default
-
 
 		.ui.header,
 		.ui.segment
@@ -119,16 +121,19 @@
 						-webkit-filter: grayscale(0%)
 						filter: grayscale(0%)
 
-		> .content
+		.content
 			@include rem(margin-left, 100px)
 			@include rem(margin-top, -30px)
 
-			.ui.small.image,
-			.ui.small.images .image,
-			.ui.small.images img,
-			.ui.small.images svg
+			.ui.image,
+			.ui.images .image
 				max-width: 80%
 				width: 80%
+
+			.ui.image img,
+			.ui.image svg
+				max-width: 100%
+				width: 100%
 
 			.ui.labels
 				@include rem(margin-top, 20px)
