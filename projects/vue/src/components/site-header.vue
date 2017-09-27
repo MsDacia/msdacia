@@ -112,7 +112,7 @@
 
 				.launch
 					background: transparent
-					font-size: 15px
+					font-size: 1.5em
 					pointer-events: all
 
 					.item

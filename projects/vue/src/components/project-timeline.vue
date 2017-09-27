@@ -23,7 +23,6 @@
 								<span class="ui small image">
 									<img :src="getImage(project)" :alt="project.name" />
 									<div class="ui green right ribbon label">{{project.timeline}}</div>
-									<div class="ui bottom attached label">{{project.name}}</div>
 								</span>
 								<div class="ui labels">
 									<span class="ui label" v-for="tag in project.tags" :key="tag.id">

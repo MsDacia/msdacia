@@ -75,24 +75,19 @@
 			i,
 			.icon,
 			.svg-inline--fa
-				font-size: 36px
+				font-size: 3.2em
 				margin-right: 0
-
-				@include phablet
-					font-size: 48px
 
 		p
 			font-size: $base-font-size
 
 			&.copyright
-				font-size: 11px
-
 				@include phablet
 					@include rem(margin-top, 10px)
 
 				i,
 				.icon,
 				.svg-inline--fa
-					font-size: 11px
+					font-size: 1.1em
 
 </style>
