@@ -19,15 +19,16 @@
 								<div class="ui massive label">{{project.year}}</div>
 							</div>
 							<div class="content">
-								<a :href="project.link" target="_blank" class="ui small image">
+								<h3><a :href="project.link" target="_blank">{{project.name}}</a></h3>
+								<span class="ui small image">
 									<img :src="getImage(project)" :alt="project.name" />
 									<div class="ui green right ribbon label">{{project.timeline}}</div>
 									<div class="ui bottom attached label">{{project.name}}</div>
-								</a>
+								</span>
 								<div class="ui labels">
-									<a class="ui label" v-for="tag in project.tags" :key="tag.id">
+									<span class="ui label" v-for="tag in project.tags" :key="tag.id">
 										{{tag}}
-									</a>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -124,6 +125,10 @@
 		.content
 			@include rem(margin-left, 100px)
 			@include rem(margin-top, -30px)
+
+			h3
+				@include black()
+				font-size: 300%
 
 			.ui.image,
 			.ui.images .image
