@@ -1,5 +1,5 @@
 <template>
-	<a :href="href" @click.prevent="open" v-html="obfuscatedText"></a>
+	<a :title="title" :href="href" @click.prevent="open" v-html="obfuscatedText"></a>
 </template>
 
 <script>
@@ -25,6 +25,10 @@
 				}
 
 				return uri
+			},
+			title: function() {
+				let ref = `Email`
+				return ref
 			},
 			obfuscatedText: function () {
 				return '<i class="far fa-at" style="font-size: 3.2em;"></i>'
