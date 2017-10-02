@@ -1,7 +1,5 @@
 # MsDacia :: AngularJS
 
-MsDacia :: AngularJS
-
 ## Installation
 Open your command line and type the following commands:
 
@@ -39,7 +37,7 @@ $ gulp watch
 
 ## Project Expectations
 
-For libraries, we are using:
-* [JQuery v3.1.1](https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js") for the JQuery plugins
+For libraries, I am using:
+* [JQuery v3.1.1](https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js) for the JQuery plugins
 * [Bootstrap v3.3.7](https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js) for the JS components.
 * [AngularJS](https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js) for Angular
