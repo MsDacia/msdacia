@@ -2,6 +2,8 @@
 
 > MsDacia's Personal Site
 
+**Note:** My partner, David Rodrigue (guru@eugirdor.com) handled the architecture of the site, including setting up webpack, firebase, and the tests. Everything else, I handled on my own, include the UI and UX design.
+
 ## Build Setup
 
 ``` bash
