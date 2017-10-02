@@ -59,7 +59,9 @@ module.exports = function (config) {
 		frameworks: ['mocha', 'sinon-chai'],
 		reporters: ['spec', 'coverage'],
 		files: ['./index.js'],
-		//exclude: ['../src/vendor'],
+		colors: true,
+		logLevel: config.LOG_INFO,
+		autoWatch: true,
 		preprocessors: {
 			'./index.js': ['webpack', 'sourcemap']
 		},
