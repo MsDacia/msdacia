@@ -1,7 +1,9 @@
 <template>
 	<div class="wrapper">
 		<cover-background>
-			<router-view class="main-content"></router-view>
+			<transition name="zoom">
+				<router-view class="main-content"></router-view>
+			</transition>
 		</cover-background>
 	</div>
 </template>
