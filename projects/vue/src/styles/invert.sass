@@ -30,19 +30,17 @@ body
 			color: $header-text-alt
 
 		a
-			color: $anchor-text-alt
-
-			&:not(.has-icon)
-				&:before
-					background: $anchor-text-hover-alt
+			color: $text4
 
 			&:hover,
 			&.active,
 			&.router-link-exact-active
-				color: $text-alt
+				color: $anchor-text-hover-alt
 
-				&:before
-					background: $anchor-text-hover-alt
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-hover-alt
 
 			i,
 			.icon,
@@ -53,11 +51,12 @@ body
 		.icon,
 		.svg-inline--fa
 			color: $text-alt
+			text-shadow: none
 
 			&:hover,
 			&.active
 				color: $anchor-text-hover-alt
-				text-shadow: $text-shadow-hover-alt
+				text-shadow: none
 
 		h2,
 		.ui.attached.header
@@ -67,6 +66,7 @@ body
 		.ui.message,
 		.ui.attached.header
 			color: $text-alt
+			text-shadow: none
 
 		.ui.definition.table tr,
 		.ui.definition.table tr,
@@ -96,10 +96,6 @@ body
 			a
 				color: $text4
 
-				&:not(.has-icon)
-					&:before
-						background: $text4
-
 				&:hover,
 				&.active,
 				&.router-link-exact-active
@@ -116,20 +112,23 @@ body
 		.ui.message,
 		.ui.banner
 			&.ad
-				background: $background-alt-c
+				background: $background-b
+
+				.header
+					text-shadow: none
 
 		.ui.feed > .event
 			.content
 				.date
-					background: $background-alt-a
-					color: lighten($text2, 20%)
+					color: $text4
+					text-shadow: none
 
 				.summary,
 				.extra.text
 					color: $text-alt
 
 				a
-					color: $anchor-text-alt
+					color: $text4
 
 		.ui.card,
 		.ui.cards > .card
@@ -149,8 +148,7 @@ body
 			.content
 				.date,
 				.time
-					background: $background-alt-a
-					color: lighten($text2, 20%)
+					color: $text3
 
 				.header,
 				.meta,
@@ -160,6 +158,18 @@ body
 
 				a
 					color: $anchor-text-alt
+
+		.ui.accordion .title:not(.ui),
+		.ui.accordion .accordion .title:not(.ui)
+			.ui.message
+				.header:not(.ui)
+					text-shadow: none
+
+			&:hover,
+			&.active
+				.ui.message
+					.header:not(.ui)
+						text-shadow: none
 
 		.ui.accordion,
 		.ui.accordion .accordion
@@ -229,12 +239,27 @@ body
 			.ui.left,
 			.ui.right
 				a
-					color: $text-alt
+					@include black()
+					color: $anchor-text-alt
+
+					&:hover,
+					&.active,
+					&.router-link-exact-active
+						color: $text3
+
+						i,
+						.icon,
+						.svg-inline--fa
+							color: $text3
+
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-alt
 
 				.launch
-
 					.item
-						color: $text-alt
+						color: $anchor-text-alt
 
 						i
 							&.on

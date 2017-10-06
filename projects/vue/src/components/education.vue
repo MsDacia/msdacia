@@ -3,8 +3,10 @@
 		<div class="content">
 			<div class="header">{{content.resume.education.school}}</div>
 			<div class="meta">
-				<div class="time">{{content.resume.education.date}}</div>
-				<div class="category">{{content.resume.education.degree}}</div>
+				<div class="category">
+					{{content.resume.education.degree}},
+					<span class="time">{{content.resume.education.date}}</span>
+				</div>
 			</div>
 			<div class="description">
 				<p>{{content.resume.education.major}}<br /><em>Major</em></p>

@@ -9,7 +9,7 @@ module.exports = {
 			.url(devServerURL + '#/resume')
 			.waitForElementVisible('#app', 5000)
 
-		browser.expect.element('a.nav-link.active').text.to.equal('Resume')
+		browser.expect.element('a.nav-link.current').text.to.equal('Resume')
 
 		browser.end()
 	}

@@ -13,12 +13,15 @@
 				<div class="ui feed">
 					<div class="event">
 						<div class="content">
-							<div class="date">{{job.date}}</div>
-							<div class="summary"><strong>{{job.company}}</strong>, {{job.location}}</div>
+							<div class="summary">
+								<strong>{{job.company}}</strong>,
+								{{job.location}},
+								<span class="date">{{job.date}}</span>
+							</div>
 							<div class="extra text">
 								<div class="ui middle aligned divided list" v-for="point in job.points" :key="point.id">
 									<div class="item">
-										<i class="small circle icon"></i>
+										<i class="tiny circle icon"></i>
 										<div class="content" v-html="point"></div>
 									</div>
 								</div>

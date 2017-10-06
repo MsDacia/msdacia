@@ -9,7 +9,7 @@ module.exports = {
 			.url(devServerURL)
 			.waitForElementVisible('#app', 5000)
 
-		browser.expect.element('a.nav-link.active').text.to.equal('Home')
+		browser.expect.element('a.nav-link.current').text.to.equal('Home')
 
 		browser.end()
 	}

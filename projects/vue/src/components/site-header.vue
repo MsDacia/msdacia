@@ -10,18 +10,16 @@
 				</div>
 
 				<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
-					<span v-for="headerNav in content.common.navigation" :key="headerNav.id">
-						<router-link class="nav-link" :to="headerNav.url" @click.native="showMenu = false">
-							{{headerNav.title}}
-						</router-link>
-					</span>
+					<router-link class="nav-link"  v-for="headerNav in content.common.navigation" :key="headerNav.id" :to="headerNav.url" @click.native="showMenu = false">
+						<i class="terminal icon"></i> {{headerNav.title}}
+					</router-link>
 				</div>
 			</div>
 		</div>
 
 		<div class="desktop-only ui right floated main menu">
 			<router-link class="nav-link" :to="headerNav.url" v-for="headerNav in content.common.navigation" :key="headerNav.id">
-				{{headerNav.title}}
+				<i class="terminal icon"></i>  {{headerNav.title}}
 			</router-link>
 		</div>
 	</header>
@@ -70,6 +68,7 @@
 
 						a
 							@include rem(padding, 0 20px 5px)
+							text-align: right
 
 				&.attached
 					box-shadow: inherit !important
@@ -81,9 +80,28 @@
 					display: inline-block
 					font: normal 2em/1.6 $font-stack-serif
 					letter-spacing: .5px
+					text-align: left
+					text-decoration: none
 
-					&:before
-						@include transition(all 1s ease-out)
+					.icon
+						@include black()
+						@include transition(visibility 1s ease-out)
+						font-size: .75em
+						margin-right: 0
+						visibility: hidden
+
+					&.active,
+					&.router-link-exact-active
+						.icon
+							@include animation(blink 2s steps(5, start) infinite)
+
+					&:hover,
+					&.active,
+					&.router-link-exact-active
+						color: $anchor-text-hover
+
+						.icon
+							visibility: visible
 
 				.launch
 					background: transparent
@@ -122,23 +140,16 @@
 						text-align: center
 						z-index: 1500
 
-						span
-							display: block
-
 						a
 							@mixin bold()
 							@include rem(margin, 0 15px 10px)
 							@include rem(padding-bottom, 5px)
+							display: block
 
 							&:hover,
 							&.active,
 							&.router-link-exact-active
 								color: $anchor-text-hover
 								cursor: pointer
-
-								&:before
-									background: $anchor-text-hover
-									height: 3px
-									right: 0
 
 </style>
