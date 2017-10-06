@@ -562,10 +562,10 @@ address
 		display: inline-block !important
 
 .zoom-enter-active
-    @include animation(2s zoomInUp both)
+	@include animation(1.5s zoomIn both)
 
 .zoom-leave-active
-    @include animation(2s zoomOutDown both)
+	@include animation(1s zoomOut both)
 
 @-webkit-keyframes fadeIn
 	0% { opacity: 0; transform: translateY(50px) }
@@ -595,12 +595,12 @@ address
 
 	100% { opacity: 0; transform: translateY(0) }
 
-@keyframes zoomInUp
-    from { opacity: 0; transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0); animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190) }
+@-webkit-keyframes zoomIn
+	from { opacity: 0; transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0); animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190) }
 
-    60% { opacity: 1; transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0); animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1) }
+	to { opacity: 1; transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0); animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1) }
 
-@keyframes zoomOutDown
-    40% { opacity: 1; transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0); animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190) }
+@-webkit-keyframes zoomOut
+	from { opacity: 1; transform: scale3d(.475, .475, .475) translate3d(0, 1000px, 0); animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1) }
 
-    to { opacity: 0; transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0); transform-origin: center bottom; animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1) }
+	to { opacity: 0; transform: scale3d(.1, .1, .1) translate3d(0, 0, 0); animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190) }
