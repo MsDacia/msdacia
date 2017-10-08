@@ -1,3 +1,12 @@
+$header-text: $text2
+$anchor-text: $text7
+$anchor-text-hover: $text9
+
+$text-shadow: 0 0 15px $text-alt
+$text-shadow-hover: 0 0 15px $anchor-text-hover-alt
+
+$border: $background9
+
 body
 	&.light
 		background-color: $background
@@ -16,7 +25,7 @@ body
 				i,
 				.icon,
 				.svg-inline--fa
-					color: $anchor-text-hover-alt
+					color: $anchor-text-hover
 
 				&:hover,
 				&:focus,
@@ -24,23 +33,23 @@ body
 					i,
 					.icon,
 					.svg-inline--fa
-						color: $anchor-text-hover-alt
+						color: $anchor-text-hover
 
 		h1
-			color: $header-text-alt
+			color: $header-text
 
 		a
-			color: $text4
+			color: $anchor-text
 
 			&:hover,
 			&.active,
 			&.router-link-exact-active
-				color: $anchor-text-hover-alt
+				color: $anchor-text-hover
 
 				i,
 				.icon,
 				.svg-inline--fa
-					color: $anchor-text-hover-alt
+					color: $anchor-text-hover
 
 			i,
 			.icon,
@@ -55,7 +64,7 @@ body
 
 			&:hover,
 			&.active
-				color: $anchor-text-hover-alt
+				color: $anchor-text-hover
 				text-shadow: none
 
 		h2,
@@ -94,33 +103,37 @@ body
 		ol.ui.list,
 		ul.ui.list
 			a
-				color: $text4
+				color: $anchor-text
 
 				&:hover,
 				&.active,
 				&.router-link-exact-active
-					color: $text3
+					color: $anchor-text-hover
 
 					&:before
-						background: $anchor-text-hover-alt
+						background: $anchor-text-hover
 
 				i,
 				.icon,
 				.svg-inline--fa
-					color: $text4
+					color: $anchor-text
 
 		.ui.message,
 		.ui.banner
 			&.ad
 				background: $background-b
+				border-color: $border
 
 				.header
 					text-shadow: none
 
+				.icon
+					color: $anchor-text-hover
+
 		.ui.feed > .event
 			.content
 				.date
-					color: $text4
+					color: $text9
 					text-shadow: none
 
 				.summary,
@@ -128,7 +141,7 @@ body
 					color: $text-alt
 
 				a
-					color: $text4
+					color: $anchor-text
 
 		.ui.card,
 		.ui.cards > .card
@@ -143,12 +156,12 @@ body
 
 			.extra
 				a
-					color: $anchor-text-alt
+					color: $anchor-text
 
 			.content
 				.date,
 				.time
-					color: $text3
+					color: $text9
 
 				.header,
 				.meta,
@@ -157,7 +170,7 @@ body
 					color: $text-alt
 
 				a
-					color: $anchor-text-alt
+					color: $anchor-text
 
 		.ui.accordion .title:not(.ui),
 		.ui.accordion .accordion .title:not(.ui)
@@ -180,19 +193,19 @@ body
 				&:hover
 					.ui.message,
 					.ui.attached.header
-						color: $text4
+						color: $anchor-text-hover
 						text-shadow: none
 
 				&.active
 					.ui.message,
 					.ui.attached.header
-						color: $text4
+						color: $anchor-text-hover
 						text-shadow: none
 
 						i,
 						.icon,
 						.svg-inline--fa
-							color: $text4
+							color: $anchor-text-hover
 							text-shadow: none
 
 		.card
@@ -210,17 +223,38 @@ body
 					background: $background-b
 					color: $text-alt
 
+		.ui.modal,
 		.timeline
 			.ui[class*="bottom attached"].label
 				background-color: $background-alt-b
 				color: $text
 
+			.ui.labels
+				.ui.label
+					background-color: $background-alt-a
+					color: $text
+
+			.ui.header,
 			.ui.segment
 				.ui.massive.label,
 				.ui.massive.labels .label
-					color: $text-alt
+					color: $text
 
-		.ui.modal
+			.ui.header
+				.ui.massive.label,
+				.ui.massive.labels .label
+					font-size: 7em
+					left: -100px
+
+			.content
+				h3
+					a
+						color: $text
+
+						&:hover,
+						&.active
+							color: $text4
+
 			.actions
 				i,
 				.icon,
@@ -233,41 +267,41 @@ body
 
 				&:hover,
 				&.active
-					color: $anchor-text-hover-alt
+					color: $anchor-text-hover
 
 		header
 			.ui.left,
 			.ui.right
 				a
 					@include black()
-					color: $anchor-text-alt
+					color: $anchor-text
 
 					&:hover,
 					&.active,
 					&.router-link-exact-active
-						color: $text3
+						color: $anchor-text-hover
 
 						i,
 						.icon,
 						.svg-inline--fa
-							color: $text3
+							color: $anchor-text-hover
 
 				i,
 				.icon,
 				.svg-inline--fa
-					color: $anchor-text-alt
+					color: $anchor-text
 
 				.launch
 					.item
-						color: $anchor-text-alt
+						color: $anchor-text
 
 						i
 							&.on
-								color: $anchor-text-hover-alt
+								color: $anchor-text-hover
 
 						em
 							&.active
-								color: $anchor-text-hover-alt
+								color: $anchor-text-hover
 
 					.menu
 						background: $background
@@ -276,17 +310,22 @@ body
 							&:hover,
 							&.active,
 							&.router-link-exact-active
-								color: $anchor-text-hover-alt
+								color: $anchor-text-hover
 
 								&:before
-									background: $anchor-text-hover-alt
+									background: $anchor-text-hover
 
 		footer
 			a
 				color: $text-alt
 
 				&:hover
-					color: $anchor-text-hover-alt
+					color: $anchor-text-hover
+
+		.ui.green.label,
+		.ui.green.labels .label
+			background-color: $anchor-text-hover !important
+			border-color: $anchor-text-hover !important
 
 		main
 			.copy
@@ -294,5 +333,5 @@ body
 					color: $text-alt
 
 				h2
-					color: $anchor-text-hover-alt
-					text-shadow: $text-shadow-hover-alt
+					color: $anchor-text-hover
+					text-shadow: $text-shadow-hover

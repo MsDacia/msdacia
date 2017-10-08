@@ -293,7 +293,7 @@ h2,
 		@include rem(margin, 20px 0 40px)
 		@include rem(padding, 15px 15px 15px 25px)
 		background: $background-alt-a
-		border-left: 4px solid $background5
+		border-left: 4px solid $border
 		width: 100%
 
 		.header
@@ -373,7 +373,7 @@ h2,
 
 		.description
 			@include rem(padding, 10px 32.5px 10px 24.5px)
-			border-left: 8px solid $background5
+			border-left: 8px solid $border
 
 			p
 				font-size: .9em
@@ -520,6 +520,96 @@ address
 		cursor: pointer
 		display: inline-block
 		max-height: 100px
+
+.ui.modal,
+.timeline
+	.item
+		@include rem(margin-bottom, 20px)
+		min-height: 180px
+
+	.ui[class*="bottom attached"].label
+		background-color: $background-alt-b
+		color: $text
+
+	.ui.labels
+		@include rem(margin-top, 10px)
+
+		@include tablet-small
+			float: right
+			margin-top: 0
+			width: 50%
+
+		.ui.label
+			@include rem(padding-bottom, 8px)
+			@include rem(padding-top, 8px)
+			background-color: $background-alt-a
+			color: $text
+			cursor: default
+
+	.ui.header,
+	.ui.segment
+		@include rem(padding, 10px 10px 10px 30px)
+		position: relative
+
+		.ui.massive.label,
+		.ui.massive.labels .label
+			@include abs-pos(69px, auto, auto, -50px)
+			background: transparent
+			color: $text
+			font-size: 300%
+			margin: 0
+			opacity: .6
+			padding: 0
+			transform: rotate(90deg)
+
+		.ui.image
+			max-height: 130px
+			max-width: 260px
+			overflow: hidden
+			width: 260px
+
+			img
+				@include transition(all 1s ease-in)
+				-webkit-filter: grayscale(100%)
+				filter: grayscale(100%)
+
+			&:hover
+				img
+					-webkit-filter: grayscale(0%)
+					filter: grayscale(0%)
+
+	.content
+		@include rem(margin-left, 100px)
+		@include rem(margin-top, -30px)
+
+		h3
+			@include black()
+			font-size: 300%
+
+		.ui.image,
+		.ui.images .image
+			max-width: 80%
+			width: 80%
+
+		.ui.image img,
+		.ui.image svg
+			max-width: 100%
+			width: 100%
+
+		.ui.labels
+			@include rem(margin-top, 20px)
+			float: none
+			width: 100%
+
+			.ui.label,
+			.label
+				font-size: 1.75em
+
+	.ui.header
+		.ui.massive.label,
+		.ui.massive.labels .label
+			font-size: 7em
+			left: -100px
 
 .nowrap
 	white-space: nowrap
