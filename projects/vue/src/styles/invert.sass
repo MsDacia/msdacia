@@ -2,8 +2,8 @@ body
 	&.light
 
 		$header-text: $text2
-		$anchor-text: $text8
-		$anchor-text-hover: $text9
+		$anchor-text: $text9
+		$anchor-text-hover: $text8
 		$text-shadow: 0 0 15px $text-alt
 		$border: $background9
 
@@ -18,27 +18,39 @@ body
 			background-color: $background-a
 
 		header
+			.eyedropper
+				&:hover
+					color: $anchor-text
+
 			.menu
 				a
 					@include black()
-					color: $anchor-text
+					color: $text-alt
+
+					&.active,
+					&.router-link-exact-active
+						.icon
+							color: $anchor-text
 
 					&:hover,
 					&.active,
 					&.router-link-exact-active
-						color: $anchor-text-hover
+						color: $anchor-text
+
+						.icon
+							color: $anchor-text
 
 		footer
 			a
 				color: $text-alt
 
 				&:hover
-					color: $anchor-text-hover
+					color: $anchor-text
 
 					i,
 					.icon,
 					.svg-inline--fa
-						color: $anchor-text-hover
+						color: $anchor-text
 
 		h1, h2, h3,
 		h4, h5, h6
@@ -78,11 +90,12 @@ body
 			&:hover,
 			&.active
 				color: $anchor-text-hover
-				//text-shadow: none
+
+			&.inverted.icon
+				color: $text-alt
 
 		h2,
 		.ui.attached.header
-			//text-shadow: none
 
 		.ui.table,
 		.ui.message,
@@ -141,7 +154,7 @@ body
 					text-shadow: none
 
 				.icon
-					color: $anchor-text-hover
+					color: $anchor-text
 
 		.ui.feed > .event
 			.content
@@ -182,44 +195,20 @@ body
 				.extra.text
 					color: $text-alt
 
+				.description
+					border-left-color: $border
+
 				a
 					color: $anchor-text
-
-		.ui.accordion .title:not(.ui),
-		.ui.accordion .accordion .title:not(.ui)
-			.ui.message
-				.header:not(.ui)
-					//text-shadow: none
-
-			&:hover,
-			&.active
-				.ui.message
-					.header:not(.ui)
-						//text-shadow: none
 
 		.ui.accordion,
 		.ui.accordion .accordion
 			.title:not(.ui)
-				//color: $text-alt
-				//text-shadow: none
-
-				&:hover
-					.ui.message,
-					.ui.attached.header
-						//color: $anchor-text-hover
-						//text-shadow: none
-
+				&:hover,
 				&.active
-					.ui.message,
-					.ui.attached.header
-						color: $anchor-text-hover
+					.ui.message *
+						color: $anchor-text
 						text-shadow: none
-
-						i,
-						.icon,
-						.svg-inline--fa
-							color: $anchor-text-hover
-							text-shadow: none
 
 		.card
 			background-color: transparent
@@ -293,5 +282,5 @@ body
 					color: $text-alt
 
 				h2
-					color: $anchor-text-hover
+					color: $anchor-text
 					text-shadow: $text-shadow
