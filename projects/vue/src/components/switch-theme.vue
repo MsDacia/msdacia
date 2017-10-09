@@ -47,4 +47,8 @@
 					@include rem(right, 10px)
 					left: auto
 
+				&:hover
+					color: $anchor-text-hover2
+					cursor: pointer
+
 </style>

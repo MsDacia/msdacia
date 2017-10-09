@@ -48,11 +48,11 @@
 
 			h2
 				@include animation(type 4s steps(60, end))
-				color: $anchor-text-hover
+				color: $anchor-text
 				font-size: 180%
 				margin: 0
 				overflow: hidden
-				text-shadow: $text-shadow-hover
+				text-shadow: $text-shadow
 				white-space: nowrap
 				width: 100%
 

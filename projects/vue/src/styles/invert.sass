@@ -5,7 +5,6 @@ body
 		$anchor-text: $text8
 		$anchor-text-hover: $text9
 		$text-shadow: 0 0 15px $text-alt
-		$text-shadow-hover: 0 0 15px $anchor-text-hover
 		$border: $background9
 
 		background-color: $background
@@ -22,7 +21,7 @@ body
 			.menu
 				a
 					@include black()
-					color: $anchor-text-hover
+					color: $anchor-text
 
 					&:hover,
 					&.active,
@@ -35,6 +34,11 @@ body
 
 				&:hover
 					color: $anchor-text-hover
+
+					i,
+					.icon,
+					.svg-inline--fa
+						color: $anchor-text-hover
 
 		h1, h2, h3,
 		h4, h5, h6
@@ -68,17 +72,9 @@ body
 				.svg-inline--fa
 					color: $anchor-text-hover
 
-			i,
-			.icon,
-			.svg-inline--fa
-				color: $text-alt
-
 		i,
 		.icon,
 		.svg-inline--fa
-			color: $text-alt
-			//text-shadow: none
-
 			&:hover,
 			&.active
 				color: $anchor-text-hover
@@ -193,25 +189,25 @@ body
 		.ui.accordion .accordion .title:not(.ui)
 			.ui.message
 				.header:not(.ui)
-					text-shadow: none
+					//text-shadow: none
 
 			&:hover,
 			&.active
 				.ui.message
 					.header:not(.ui)
-						text-shadow: none
+						//text-shadow: none
 
 		.ui.accordion,
 		.ui.accordion .accordion
 			.title:not(.ui)
-				color: $text-alt
-				text-shadow: none
+				//color: $text-alt
+				//text-shadow: none
 
 				&:hover
 					.ui.message,
 					.ui.attached.header
-						color: $anchor-text-hover
-						text-shadow: none
+						//color: $anchor-text-hover
+						//text-shadow: none
 
 				&.active
 					.ui.message,
@@ -298,4 +294,4 @@ body
 
 				h2
 					color: $anchor-text-hover
-					text-shadow: $text-shadow-hover
+					text-shadow: $text-shadow

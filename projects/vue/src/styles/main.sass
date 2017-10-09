@@ -135,11 +135,6 @@ i,
 	display: inline-block
 	font-size: 18px
 
-	&:hover,
-	&.active
-		color: $anchor-text-hover
-		text-shadow: $text-shadow-hover
-
 ul
 	list-style-position: inside
 
@@ -418,17 +413,24 @@ h2,
 .ui.accordion,
 .ui.accordion .accordion
 	.title:not(.ui)
-		color: $text
+		@include rem(margin-bottom, 15px)
+		@include rem(padding, 0 0 15px)
+		box-shadow: $background-c 0px -1px 0px 0px inset
 
-		&:hover
-			.ui.message,
-			.ui.attached.header
-				color: lighten($text3, 20%)
-
+		&:hover,
 		&.active
-			.ui.message,
-			.ui.attached.header
-				color: lighten($text3, 30%)
+			.ui.message *
+				color: $anchor-text
+				text-shadow: $text-shadow
+
+		.ui.message
+			font-size: 1.2em
+			margin: 0
+			padding: 0
+
+			.icon,
+			.header:not(.ui)
+				margin-bottom: 0
 
 	&:not(.styled) .accordion .title~.content:not(.ui),
 	&:not(.styled) .title~.content:not(.ui)

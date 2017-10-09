@@ -66,19 +66,14 @@
 				width: 64px
 
 			&:hover
-				color: $anchor-text-hover
+				color: $anchor-text-hover2
 				cursor: pointer
-
-				&:before
-					background: $anchor-text-hover
-					height: 3px
-					right: 0
 
 				i,
 				.far,
 				.icon,
 				.svg-inline--fa
-					color: $anchor-text-hover
+					color: $anchor-text-hover2
 
 			i,
 			.far,
@@ -86,5 +81,8 @@
 			.svg-inline--fa
 				font-size: 3.6em
 				margin-right: 0
+
+				&:hover
+					color: $anchor-text-hover2
 
 </style>

@@ -119,13 +119,15 @@
 					&.router-link-exact-active
 						.icon
 							@include animation(blink 2s steps(5, start) infinite)
+							color: $anchor-text-hover2
 
 					&:hover,
 					&.active,
 					&.router-link-exact-active
-						color: $anchor-text-hover
+						color: $anchor-text-hover2
 
 						.icon
+							color: $anchor-text-hover2
 							visibility: visible
 
 					.icon

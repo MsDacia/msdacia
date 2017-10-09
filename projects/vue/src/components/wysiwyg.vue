@@ -51,28 +51,3 @@
 	}
 
 </script>
-
-<style scoped lang="sass">
-
-	.ui.accordion .title:not(.ui),
-	.ui.accordion .accordion .title:not(.ui)
-		@include rem(margin-bottom, 15px)
-		@include rem(padding, 0 0 15px)
-		box-shadow: $background-c 0px -1px 0px 0px inset
-
-		.ui.message
-			font-size: 1.2em
-			margin: 0
-			padding: 0
-
-			.header:not(.ui)
-				margin-bottom: 0
-				text-shadow: $background 0px 0px 15px
-
-		&:hover,
-		&.active
-			.ui.message
-				.header:not(.ui)
-					text-shadow: rgb(1, 142, 66) 0px 0px 15px
-
-</style>

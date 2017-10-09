@@ -69,14 +69,22 @@
 				width: 64px
 
 			&:hover
-				color: $anchor-text-hover
+				color: $anchor-text-hover2
 				cursor: pointer
+
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-hover2
 
 			i,
 			.icon,
 			.svg-inline--fa
 				font-size: 3.2em
 				margin-right: 0
+
+				&:hover
+					color: $anchor-text-hover2
 
 		p
 			font-size: $base-font-size
