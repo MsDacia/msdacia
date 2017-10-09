@@ -319,14 +319,6 @@ h2,
 		> i.icon
 			@include rem(padding-top, 5px)
 
-.ui.menu
-	background: transparent
-	border: 0
-	box-shadow: unset
-
-.ui.dropdown .menu
-	background: transparent
-
 .ui.card,
 .ui.cards > .card
 	background-color: transparent
@@ -623,8 +615,14 @@ address
 .hide-content
 	display: none !important
 
+	&.icon
+		display: none !important
+
 .show-content
 	display: block !important
+
+	&.icon
+		display: inline-block !important
 
 .mobile-only
 	display: inline-block !important

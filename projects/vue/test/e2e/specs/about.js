@@ -9,8 +9,6 @@ module.exports = {
 			.url(devServerURL + '#/about')
 			.waitForElementVisible('#app', 5000)
 
-		browser.expect.element('a.nav-link.active').text.to.equal('About')
-
 		browser.end()
 	}
 }
