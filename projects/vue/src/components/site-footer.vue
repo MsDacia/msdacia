@@ -17,7 +17,7 @@
 
 		<p class="copyright">
 			<i :class="content.common.copyright.icon"></i>
-			{{content.common.copyright.content}}
+			{{content.common.copyright.content}} <a :href="content.common.global.url">{{content.common.global.title}}</a>
 		</p>
 	</footer>
 </template>
@@ -87,11 +87,14 @@
 					color: $anchor-text-hover2
 
 		p
-			font-size: $base-font-size
+			font-size: ($base-font-size - 2px)
 
 			&.copyright
 				@include phablet
 					@include rem(margin-top, 10px)
+
+				a
+					width: auto
 
 				i,
 				.icon,

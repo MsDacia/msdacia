@@ -8,7 +8,7 @@ module.exports = {
 		browser
 			.url(devServerURL)
 			.waitForElementVisible('#app', 5000)
-			.assert.containsText('a.nav-link.current', 'Home')
+
 			.end()
 	}
 }

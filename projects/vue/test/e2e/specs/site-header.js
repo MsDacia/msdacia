@@ -9,7 +9,10 @@ module.exports = {
 			.url(devServerURL)
 			.waitForElementVisible('#app', 5000)
 
-		browser.expect.element('.wrapper .container header .main a:first-child')
+		browser.expect.element('.container header .menu a:first-child').text.to.equal('Home')
+		browser.expect.element('.container header .menu a:nth-child(2)').text.to.equal('About')
+		browser.expect.element('.container header .menu a:nth-child(3)').text.to.equal('Resume')
+		browser.expect.element('.container header .menu a:nth-child(4)').text.to.equal('Portfolio')
 
 		browser.end()
 	}
