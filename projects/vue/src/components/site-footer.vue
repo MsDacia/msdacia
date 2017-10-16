@@ -61,12 +61,10 @@
 
 		a
 			@include rem(margin-bottom, 5px)
-			@include size(54px, 54px)
+			@include size(64px, 64px)
 			color: $text
 			text-align: center
-
-			@include phablet
-				width: 64px
+			text-decoration: none
 
 			&:hover
 				color: $anchor-text-hover2
@@ -80,7 +78,7 @@
 			i,
 			.icon,
 			.svg-inline--fa
-				font-size: 3.2em
+				font-size: 2.8em
 				margin-right: 0
 
 				&:hover
@@ -94,7 +92,12 @@
 					@include rem(margin-top, 10px)
 
 				a
+					color: $text5
+					text-decoration: underline
 					width: auto
+
+					&:hover
+						color: $text2
 
 				i,
 				.icon,

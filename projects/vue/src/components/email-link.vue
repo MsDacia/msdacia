@@ -1,5 +1,5 @@
 <template>
-	<a :title="title" :href="href" @click.prevent="open" v-html="obfuscatedText"></a>
+	<a class="email-icon" :title="title" :href="href" @click.prevent="open" v-html="obfuscatedText"></a>
 </template>
 
 <script>
@@ -31,7 +31,7 @@
 				return ref
 			},
 			obfuscatedText: function () {
-				return '<i class="far fa-at" style="font-size: 3.2em;"></i>'
+				return '<i class="mail icon" style="font-size: 2.6em;"></i>'
 			}
 		},
 		methods: {
@@ -53,33 +53,25 @@
 		@include rem(margin-top, 20px)
 		text-align: center
 
-		a
+		a.email-icon
 			@include rem(margin-bottom, 5px)
-			@include size(54px, 54px)
+			@include size(64px, 64px)
 			box-shadow: 0 0 1px transparent
 			color: $text
 			overflow: hidden
 			padding-bottom: 3px
 			text-align: center
 
-			@include phablet
-				width: 64px
-
 			&:hover
 				color: $anchor-text-hover2
 				cursor: pointer
 
-				i,
-				.far,
-				.icon,
-				.svg-inline--fa
+				i.icon
 					color: $anchor-text-hover2
 
-			i,
-			.far,
-			.icon,
-			.svg-inline--fa
-				font-size: 3.6em
+
+			i.icon
+				font-size: 2.6em
 				margin-right: 0
 
 				&:hover
