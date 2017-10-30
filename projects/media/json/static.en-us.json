@@ -113,7 +113,7 @@
 		"ad": {
 			"work": {
 				"title" : "For Hire",
-				"copy": "VueJS, AngularJS, CraftCMS, and WordPress Developer...always looking for SIDE projects to help showcase my skills"
+				"copy": "VueJS, AngularJS, React, CraftCMS, and WordPress Developer...always looking for SIDE projects to help showcase my skills"
 			}
 		}
 	},
@@ -709,7 +709,11 @@
 				},
 				{
 					"title": "Javascript",
-					"copy": "jQuery, AJAX, Node.js, Grunt, gulp, Bootstrap, AngularJS, Vue.js"
+					"copy": "AngularJS, React, Vue.js, Grunt, Gulp, webpack"
+				},
+				{
+					"title": "Testing",
+					"copy": "Karma, Jasmine, Mocha"
 				},
 				{
 					"title": "Environments",
@@ -744,7 +748,7 @@
 		},
 		"objective": {
 			"title": "Objective",
-			"copy": "13+ year of front-end web developer experience working with diverse clients and projects, showcasing my strong development and leadership skills. I have expert-level knowledge of W3C standards, cross-browser / platform development, accessibility, and a solid understanding of the principles of information architecture. I have the ability to quickly hand-code clean HTML / CSS from Photoshop / Sketch / Zeplin mock-ups, functional specs and use cases, with understanding of interaction design and user-centered design methods and practices. I have experience in refactoring existing codebase and in understanding existing implementations to decide to refactor or rewrite. I enjoy working in Agile development and am extremely comfortable with SCRUM process."
+			"copy": "13+ years of front-end web developer experience working with diverse clients and projects, showcasing strong development and leadership skills within an agile environment. Passionate about new technologies, user experience, coding practices, test driven development, mobile-first responsive web design, accessiblity and performance."
 		},
 		"experiences": {
 			"title": "Experience",
