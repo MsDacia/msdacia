@@ -9,7 +9,9 @@ describe('SwitchTheme', () => {
 			render: (h) => h(SwitchTheme)
 		})
 
-		vm.colorsInverted()
-		console.log('body', document.getElementsByTagName('body'))
+		//vm.colorsInverted()
+		expect(vm.$el.element('body'))
+			.to.have.attribute('class')
+			.which.contains('light')
 	})
 })

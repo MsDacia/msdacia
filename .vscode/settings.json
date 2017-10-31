@@ -1,0 +1,17 @@
+{
+	"eslint.autoFixOnSave": true,
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"html",
+		"vue"
+	],
+	"files.exclude": {
+		"dist": true,
+		"node_modules": true,
+		"test/e2e/**/reports": true,
+		"test/unit/**/coverage": true
+	},
+	"files.trimTrailingWhitespace": true,
+	"workbench.colorTheme": "Fresh Material - Pink"
+}
