@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
-			<router-link class="nav-link" v-for="headerNav in content.common.navigation" :key="headerNav.id" :to="headerNav.url" @click.native="showMenu = false">
+			<router-link class="nav-link" v-for="headerNav in content.common.navigation" :key="headerNav.id" :to="'/' + headerNav.item" @click.native="showMenu = false">
 				<i class="terminal icon"></i> {{headerNav.title}}
 			</router-link>
 		</div>
@@ -96,11 +96,11 @@
 				a
 					@mixin bold()
 					@include rem(margin, 30px 0 0)
-					@include rem(padding, 0 20px 5px)
+					@include rem(padding, 0 10px 5px)
 					color: $text
 					cursor: pointer
 					display: inline-block
-					font: normal 2em/1.6 $font-stack-serif
+					font: normal 1.6em/1.6 $font-stack-serif
 					letter-spacing: .5px
 					text-align: left
 					text-decoration: none

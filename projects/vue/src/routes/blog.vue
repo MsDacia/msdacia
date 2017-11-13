@@ -6,7 +6,9 @@
 			</div>
 		</div>
 		<div class="fourteen wide column">
-			<wysiwyg></wysiwyg>
+			<blog-nav></blog-nav>
+			<blog-feed></blog-feed>
+			<blog-post></blog-post>
 		</div>
 	</div>
 </template>
@@ -14,7 +16,7 @@
 <script>
 
 	import BlogFeed from '../components/blog-feed.vue'
-	import BlogNav from '..components/blog-nav.vue'
+	import BlogNav from '../components/blog-nav.vue'
 	import BlogPost from '../components/blog-post.vue'
 
 	export default {
