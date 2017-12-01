@@ -1,5 +1,4 @@
 import About from './about'
-import Blog from './blog'
 import Home from './home'
 import Portfolio from './portfolio'
 import Resume from './resume'
@@ -21,10 +20,6 @@ export default [
 			{
 				component: About,
 				path: '/about'
-			},
-			{
-				component: Blog,
-				path: '/blog'
 			},
 			{
 				component: Portfolio,
