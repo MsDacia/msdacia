@@ -25,5 +25,11 @@ Vue.use(VueRouter)
 
 
 // set up router and app
-const router = new VueRouter({ routes, linkActiveClass: 'current' })
+const router = new VueRouter(
+	{
+		routes,
+		mode: 'history',
+		linkActiveClass: 'current'
+	}
+)
 const app = new Vue({ router }).$mount('#app')
