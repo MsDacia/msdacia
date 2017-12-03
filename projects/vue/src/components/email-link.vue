@@ -1,5 +1,5 @@
 <template>
-	<a class="email-icon" :title="title" :href="href" @click.prevent="open" v-html="obfuscatedText"></a>
+	<a class="email-icon" :title="title" :href="href" @click.prevent="open, ga('Email MsDacia', 'click', 'Email msdacia')" v-html="obfuscatedText"></a>
 </template>
 
 <script>

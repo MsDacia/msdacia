@@ -5,7 +5,7 @@
 				<div class="item">
 					<div class="ui segment">
 						<div class="ui massive label" v-if="index === 0 || projects[index - 1].year !== project.year">{{project.year}}</div>
-						<a :id="'project-' + project.unique + '-link'" class="ui small image project hvr-grow-shadow" :data-modal="'project-' + project.unique">
+						<a :id="'project-' + project.unique + '-link'" class="ui small image project hvr-grow-shadow" :data-modal="'project-' + project.unique" @click="ga('Project Modal', 'click', project.unique)">
 							<img :src="getImage(project)" :alt="project.name" />
 							<div class="ui green right ribbon label">{{project.timeline}}</div>
 							<div class="ui bottom attached label">{{project.name}}</div>
@@ -54,7 +54,6 @@
 
 			projects.each(function(){
 				let project = $(this).attr('data-modal')
-				console.log(project)
 				$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
 			})
 		}

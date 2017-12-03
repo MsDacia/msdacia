@@ -41,6 +41,9 @@
 				tag: undefined
 			}
 		},
+		mounted() {
+			this.$ga.page(this.$router)
+		},
 		computed: {
 			filteredProjects: function () {
 				let projects = this.content.portfolio.projects

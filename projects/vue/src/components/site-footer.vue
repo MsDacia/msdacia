@@ -9,6 +9,7 @@
 					:href="social.url"
 					:title="social.title"
 					target="_blank"
+					@click="ga('Social Media', 'click', social.title)"
 				>
 					<i :class="social.icon"></i>
 				</a>
@@ -17,7 +18,7 @@
 
 		<p class="copyright">
 			<i :class="content.common.copyright.icon"></i>
-			{{content.common.copyright.content}} <a :href="content.common.global.url">{{content.common.global.title}}</a>
+			{{content.common.copyright.content}} <a :href="content.common.global.url" @click="ga('Home', 'click', content.common.global.title)">{{content.common.global.title}}</a>
 		</p>
 	</footer>
 </template>
