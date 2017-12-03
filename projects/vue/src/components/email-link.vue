@@ -1,5 +1,5 @@
 <template>
-	<a class="email-icon" :title="title" :href="href" @click.prevent="open, ga('Email MsDacia', 'click', 'Email msdacia')" v-html="obfuscatedText"></a>
+	<a class="email-icon" :title="title" :href="href" @click.prevent="open, runAnalytics('email MsDacia')" v-html="obfuscatedText"></a>
 </template>
 
 <script>
@@ -37,6 +37,9 @@
 		methods: {
 			open() {
 				window.open(this.href, '_self')
+			},
+			runAnalytics(title) {
+				this.$ga.event('Email MsDacia', 'click', title)
 			}
 		}
 	}

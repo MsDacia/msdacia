@@ -9,7 +9,7 @@
 			<ad-work></ad-work>
 			<address>{{content.resume.address}}</address>
 			<p>
-				<a :href="content.resume.resumeUrl" target="_blank" @click="ga('Resume', 'click', 'download resume')">
+				<a :href="content.resume.resumeUrl" target="_blank" @click="runAnalytics('download resume')">
 					<i class="inverted file pdf outline icon"></i>
 					{{content.resume.resumeTitle}}
 				</a>
@@ -76,6 +76,11 @@
 		},
 		mounted() {
 			this.$ga.page(this.$router)
+		},
+		methods: {
+			runAnalytics(title) {
+				this.$ga.event('Resume', 'click', title)
+			}
 		}
 	}
 
