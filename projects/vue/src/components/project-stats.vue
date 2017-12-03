@@ -51,6 +51,7 @@
 			selectTag(tag) {
 				this.tag = tag
 				this.$emit('tag-selected', tag)
+				this.$ga.event('Tag', 'click', tag)
 			},
 			hideLabels: function () {
 				const labels = document.getElementsByClassName('labels')[0]

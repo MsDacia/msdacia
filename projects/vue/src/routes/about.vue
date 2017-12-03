@@ -23,6 +23,9 @@
 			return {
 				content: require('../json/static.en-us.json')
 			}
+		},
+		mounted() {
+			this.$ga.page(this.$router)
 		}
 	}
 

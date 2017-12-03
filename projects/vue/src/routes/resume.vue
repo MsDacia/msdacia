@@ -9,7 +9,7 @@
 			<ad-work></ad-work>
 			<address>{{content.resume.address}}</address>
 			<p>
-				<a :href="content.resume.resumeUrl" target="_blank">
+				<a :href="content.resume.resumeUrl" target="_blank" @click="ga('Resume', 'click', 'download resume')">
 					<i class="inverted file pdf outline icon"></i>
 					{{content.resume.resumeTitle}}
 				</a>
@@ -73,6 +73,9 @@
 			return {
 				content: require('../json/static.en-us.json')
 			}
+		},
+		mounted() {
+			this.$ga.page(this.$router)
 		}
 	}
 
