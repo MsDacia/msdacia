@@ -9,7 +9,7 @@
 					:href="social.url"
 					:title="social.title"
 					target="_blank"
-					@click="ga('Social Media', 'click', social.title)"
+					@click="runAnalytics(social.title)"
 				>
 					<i :class="social.icon"></i>
 				</a>
@@ -48,7 +48,7 @@
 				window.open( this.href, '_self' ).scrollTo( 0, 0 )
 			},
 			runAnalytics(title) {
-				this.$ga.event('Home', 'click', title)
+				this.$ga.event('Footer', 'click', title)
 			}
 		}
 	}
