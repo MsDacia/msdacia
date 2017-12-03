@@ -13,7 +13,7 @@
 		methods: {
 			colorsInverted: function () {
 				const bodyTag = document.getElementsByTagName("body")[0]
-				this.$ga.event('Theme', 'click', 'theme switch', 1)
+				this.$ga.event('Theme', 'click', 'theme switch')
 				this.invertColors = !this.invertColors
 
 				if (this.invertColors) {

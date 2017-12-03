@@ -5,7 +5,7 @@
 				<div class="item">
 					<div class="ui segment">
 						<div class="ui massive label" v-if="index === 0 || projects[index - 1].year !== project.year">{{project.year}}</div>
-						<a :id="'project-' + project.unique + '-link'" class="ui small image project hvr-grow-shadow" :data-modal="'project-' + project.unique" @click="ga('Project Modal', 'click', project.unique)">
+						<a :id="'project-' + project.unique + '-link'" class="ui small image project hvr-grow-shadow" :data-modal="'project-' + project.unique" @click="runAnalytics(project.unique)">
 							<img :src="getImage(project)" :alt="project.name" />
 							<div class="ui green right ribbon label">{{project.timeline}}</div>
 							<div class="ui bottom attached label">{{project.name}}</div>
@@ -47,6 +47,9 @@
 		methods: {
 			getImage(project) {
 				return require('../assets/images/projects/' + project.image)
+			},
+			runAnalytics(title) {
+				this.$ga.event('Resume Links', 'click', title)
 			}
 		},
 		mounted() {

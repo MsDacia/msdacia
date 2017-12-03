@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="menu" :class="[ showMenu ? 'show-content' : 'hide-content' ]">
-			<router-link class="nav-link" v-for="headerNav in content.common.navigation" :key="headerNav.id" :to="'/' + headerNav.item" @click.native="showMenu = false, ga('Navigation', 'click', headerNav.title)">
+			<router-link class="nav-link" v-for="headerNav in content.common.navigation" :key="headerNav.id" :to="'/' + headerNav.item" @click.native="showMenu = false, runAnalytics(headerNav.title)">
 				<i class="terminal icon"></i> {{headerNav.title}}
 			</router-link>
 		</div>
@@ -27,6 +27,11 @@
 			return {
 				content: require('../json/static.en-us.json'),
 				showMenu: false
+			}
+		},
+		methods: {
+			runAnalytics(title) {
+				this.$ga.event('Navigation', 'click', title)
 			}
 		}
 	}
