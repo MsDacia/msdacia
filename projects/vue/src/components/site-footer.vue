@@ -1,22 +1,20 @@
 <template>
 	<footer>
-		<div class="ui one column centered grid">
-			<div class="nine column centered row">
-				<email-link :local-part="content.common.email.local" :domain="content.common.email.domain" :subject="content.common.email.subject"></email-link>
-				<a
-					v-for="social in content.common.social"
-					:key="social.id"
-					:href="social.url"
-					:title="social.title"
-					target="_blank"
-					@click="runAnalytics(social.title)"
-				>
-					<i :class="social.icon"></i>
-				</a>
-			</div>
+		<div id="social-media">
+			<email-link :local-part="content.common.email.local" :domain="content.common.email.domain" :subject="content.common.email.subject"></email-link>
+			<a
+				v-for="social in content.common.social"
+				:key="social.id"
+				:href="social.url"
+				:title="social.title"
+				target="_blank"
+				@click="runAnalytics(social.title)"
+			>
+				<i :class="social.icon"></i>
+			</a>
 		</div>
 
-		<p class="copyright">
+		<p id="copyright">
 			<i :class="content.common.copyright.icon"></i>
 			{{content.common.copyright.content}} <a :href="content.common.global.url" @click="runAnalytics( content.common.global.title)">{{content.common.global.title}}</a>
 		</p>
@@ -58,14 +56,25 @@
 <style scoped lang="sass">
 
 	footer
+		@include rem(margin, 40px auto 0)
+		@include rem(padding, 10px 15px 15px)
+		max-width: 980px
+		position: relative
 		text-align: center
+		width: 100%
+		z-index: 2
 
-		.ui.centered.grid > .row
-			@include rem(padding, 0 5px)
+		#social-media
+			align-content: center
+			display: flex
+			display: grid
+			flex-wrap: wrap
+			grid-template-columns: repeat(auto-fill,minmax(60px, 1fr))
+			grid-gap: 20px
+			justify-content: center
 
 		a
 			@include rem(margin-bottom, 5px)
-			@include size(64px, 64px)
 			color: $text
 			text-align: center
 			text-decoration: none
@@ -91,14 +100,13 @@
 		p
 			font-size: ($base-font-size - 2px)
 
-			&.copyright
+			&#copyright
 				@include phablet
 					@include rem(margin-top, 10px)
 
 				a
 					color: $text5
 					text-decoration: underline
-					width: auto
 
 					&:hover
 						color: $text2
