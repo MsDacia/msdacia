@@ -109,7 +109,7 @@
 		"ad": {
 			"work": {
 				"title" : "For Hire",
-				"copy": "VueJS, AngularJS, React, CraftCMS, and WordPress Developer...always looking for SIDE projects to help showcase my skills"
+				"copy": "VueJS, AngularJS, React, and CraftCMS/Twig Developer...always looking for SIDE projects to help showcase my skills"
 			}
 		}
 	},
@@ -755,7 +755,8 @@
 					"company": "Lyons Consulting Group",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Developing websites and applications for B2B and B2C clients using HTML5, CSS3, jQuery, JSPs in Hybris"
+						"Developing responsive websites for B2B and B2C clients using HTML5, CSS3, and jQuery from Zeplin design files",
+						"Integrating front end code into JSP templates using JSTL and Hybris"
 					]
 				},
 				{
