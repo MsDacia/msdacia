@@ -19,7 +19,12 @@
 								<div class="ui massive label">{{project.year}}</div>
 							</div>
 							<div class="content">
-								<h3><a :href="project.link" target="_blank">{{project.name}}</a></h3>
+								<h3>
+									<a v-if="project.link" :href="project.link" target="_blank">
+										{{project.name}}
+									</a>
+									<span v-if="!project.link">{{project.name}}</span>
+								</h3>
 								<span class="ui small image">
 									<img :src="getImage(project)" :alt="project.name" />
 									<div class="ui green right ribbon label">{{project.timeline}}</div>
