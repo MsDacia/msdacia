@@ -215,7 +215,7 @@
 				"unique": "advocate",
 				"year": "2016",
 				"image": "advocate-io.png",
-				"link": "https://about.advocate.io/home/citizens/",
+				"link": null,
 				"name": "Advocate",
 				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
 				"client": "Advocate",
@@ -746,7 +746,7 @@
 					"points": [
 						"Developing websites and applications for various clients with a need for short-term, one-off developers",
 						"Working on a variety of projects that could include responsive web design using technologies including but not limited to AJAX, JavaScript (jquery, Bootstrap, and AngularJS), XML, API, and JSON / Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
-						"Designing and maintaining a variety of single and multi-page websites for clients, including Hyatt Special Event (Adobe CQ), Intel POS (multi-platform), McDonalds, <a href=\"http://allstateveterans.com\" target=\"_blank\">Allstate Veterans</a>, <a href=\"https://cavalry.squarespace.com/\" target=\"_blank\">Cavalry</a> (Squarespace), <a href=\"http://czarnowski.com\" target=\"_blank\">Czarnowski</a> (WordPress), <a href=\"http://resqbiz.com\" target=\"_blank\">Resq</a> (WordPress), <a href=\"http://advocate.io\" target=\"_blank\">Advocate</a> (WordPress)",
+						"Designing and maintaining a variety of single and multi-page websites for clients, including Hyatt Special Event (Adobe CQ), Intel POS (multi-platform), McDonalds, <a href=\"http://allstateveterans.com\" target=\"_blank\">Allstate Veterans</a>, <a href=\"https://cavalry.squarespace.com/\" target=\"_blank\">Cavalry</a> (Squarespace), <a href=\"http://czarnowski.com\" target=\"_blank\">Czarnowski</a> (WordPress), <a href=\"http://resqbiz.com\" target=\"_blank\">Resq</a> (WordPress), Advocate (WordPress)",
 						"Participating in daily stand-up meetings, sprint planning meetings, and retrospective via Google Hangouts",
 						"Executing cross-browser QA testing/debugging along with web standards and ensuring accessibility and W3C compliance",
 						"Producing web assets, by slicing and editing images in Photoshop / Sketch / Zeplin and page layout",
