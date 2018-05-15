@@ -789,6 +789,18 @@
 					]
 				},
 				{
+					"title": "React Front-End Web Developer (Independent Contractor)",
+					"date": "05/2016 to 11/2016",
+					"company": "SuperHumane",
+					"location": "Remote",
+					"points": [
+						"Built client-side templates using JSON/Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
+						"Tested website for functionality for cross-browser and cross-platform issues and enforced coding W3C standards",
+						"Designed JSON API within Craft CMS",
+						"Participated in daily stand-up meetings, sprint planning meetings, and retrospective via Google Hangouts"
+					]
+				},
+				{
 					"title": "Senior Front-End Web Developer",
 					"date": "12/2013 to 06/2015",
 					"company": "Peapod",
