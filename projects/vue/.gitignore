@@ -7,3 +7,4 @@ src/vendor/
 .DS_Store
 npm-debug.log
 selenium-debug.log
+datastore.js
