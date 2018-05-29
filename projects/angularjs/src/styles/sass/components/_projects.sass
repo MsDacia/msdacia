@@ -1,0 +1,113 @@
+#masonry
+	@include rem(margin, 15px 0)
+	@include rem(padding, 0)
+	-ms-column-count: 2
+	-ms-column-gap: 2em
+	-ms-column-width: 43%
+	-webkit-column-count: 2
+	-webkit-column-gap: 2em
+	-webkit-column-width: 43%
+	column-count: 2
+	column-gap: 2em
+	column-width: 43%
+	max-width: 713px
+	width: 100%
+
+	&::after
+		clear: both
+		content: ''
+		display: table
+
+	dl
+		@include rem(font-size, 12.5px)
+		@include rem(margin, 0 6px 10px 0)
+		@include rem(padding, 6px 6px 4pm)
+		box-shadow: $box-shadow
+		display: inline-block
+		position: relative
+
+		.overlay
+			@include abs-pos(0, auto, auto, 0)
+			@include size(100%, 100%)
+			background-color: $text4
+			z-index: 10
+
+		dd,
+		dt
+			float: left
+			position: relative
+
+		dt
+			@include rem(margin, 0 auto)
+			text-align: right
+
+			span
+				@include rem(margin-bottom, 6px)
+				@include size(260px, auto)
+				display: inline-block
+				font: 1.25rem $font-stack-cursive
+				line-height: 1
+
+			img
+				@include size(260px, auto)
+				display: inline-block
+
+		dd
+			@include abs-pos(6px, auto, auto, 6px)
+			@include size(260px, 87%)
+			display: none
+			z-index: 20
+
+			p
+				@include rem(padding, 5px)
+				position: relative
+
+				&::first-child
+					margin-bottom: 0
+					padding-bottom: 0
+
+					&::hover
+						a
+							color: $text4
+
+				a,
+				&::first-child
+					em
+						color: $text3
+						font: normal 0.9rem $font-stack-sans-serif-extra-bold
+
+				&::first-child
+					em
+						@include rem(font-size, 11.5px)
+						float: none
+						text-align: left
+
+				a
+					&::hover
+						text-decoration: none
+
+					&.link
+						@include rem(margin, 5px 0 5px 5px)
+						float: left
+
+						&::hover
+							border-bottom-width: 0
+							padding-bottom: 0
+							text-decoration: none
+
+					span
+						@include rem(margin-left, 10px)
+						color: $text3
+						font: normal 0.75rem $font-stack-monospace
+
+				span
+					@include rem(padding, 7.5px)
+					display: inline-block
+					font: 0.83333rem $font-stack-sans-serif-medium-italic
+
+				em
+					@include rem(margin-right, 5px)
+					@include rem(margin-top, 5px)
+					float: right
+					font: normal 0.95833rem $font-stack-monospace
+					text-align: right
