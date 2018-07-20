@@ -142,6 +142,42 @@
 		],
 		"projects": [
 			{
+				"unique": "undisclosedoe",
+				"year": "2018",
+				"image": "undisclosed-oe.png",
+				"link": null,
+				"name": "Undisclosed Client",
+				"tags": [
+					"HTML5",
+					"Less",
+					"Hybris",
+					"JQuery",
+					"Responsive",
+					"JSTL",
+					"JSP"
+				],
+				"client": "Undisclosed",
+				"timeline": "3 months"
+			},
+			{
+				"unique": "undisclosedml",
+				"year": "2018",
+				"image": "undisclosed-ml.png",
+				"link": null,
+				"name": "Undisclosed Client",
+				"tags": [
+					"HTML5",
+					"Less",
+					"Hybris",
+					"JQuery",
+					"Responsive",
+					"JSTL",
+					"JSP"
+				],
+				"client": "Undisclosed",
+				"timeline": "3 weeks"
+			},
+			{
 				"unique": "daviddacia",
 				"year": "2017",
 				"image": "daviddacia.png",
@@ -737,7 +773,15 @@
 		"experiences": {
 			"title": "Experience",
 			"job": [
-
+				{
+					"title": "VueJS Software Engineer",
+					"date": "05/2018 to present",
+					"company": "GrayMeta",
+					"location": "Remote",
+					"points": [
+						"SaaS development using VueJS, Vuex, HTML5, and SASS."
+					]
+				},
 				{
 					"title": "Remote/Part-Time Web Developer",
 					"date": "02/2004 to present",
@@ -757,7 +801,7 @@
 				},
 				{
 					"title": "Applications Engineer - Hybris",
-					"date": "12/2017 to present",
+					"date": "12/2017 to 06/2018",
 					"company": "Lyons Consulting Group",
 					"location": "Chicago, Illinois",
 					"points": [
