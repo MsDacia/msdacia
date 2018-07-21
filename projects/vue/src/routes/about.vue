@@ -13,20 +13,20 @@
 
 <script>
 
-	import Wysiwyg from '../components/wysiwyg.vue'
+import Wysiwyg from '../components/wysiwyg.vue'
 
-	export default {
-		components: {
-			Wysiwyg
-		},
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
-		},
-		mounted() {
-			this.$ga.page(this.$router)
+export default {
+	components: {
+		Wysiwyg,
+	},
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
 		}
-	}
+	},
+	mounted() {
+		this.$ga.page(this.$router)
+	},
+}
 
 </script>

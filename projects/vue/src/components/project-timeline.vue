@@ -45,26 +45,26 @@
 
 <script>
 
-	export default {
-		props: {
-			projects: Array
+export default {
+	props: {
+		projects: Array,
+	},
+	methods: {
+		getImage(project) {
+			return require('../assets/images/projects/' + project.image)
 		},
-		methods: {
-			getImage(project) {
-				return require('../assets/images/projects/' + project.image)
-			},
-			runAnalytics(title) {
-				this.$ga.event('Resume Links', 'click', title)
-			}
+		runAnalytics(title) {
+			this.$ga.event('Resume Links', 'click', title)
 		},
-		mounted() {
-			const projects = $('[data-modal]')
+	},
+	mounted() {
+		const projects = $('[data-modal]')
 
-			projects.each(function(){
-				let project = $(this).attr('data-modal')
-				$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
-			})
-		}
-	}
+		projects.each(() => {
+			const project = $(this).attr('data-modal')
+			$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
+		})
+	},
+}
 
 </script>

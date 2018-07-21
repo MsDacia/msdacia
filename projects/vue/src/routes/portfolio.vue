@@ -25,42 +25,42 @@
 
 <script>
 
-	import AdWork from '../components/ad-work.vue'
-	import ProjectStats from '../components/project-stats.vue'
-	import ProjectTimeline from '../components/project-timeline.vue'
+import AdWork from '../components/ad-work.vue'
+import ProjectStats from '../components/project-stats.vue'
+import ProjectTimeline from '../components/project-timeline.vue'
 
-	export default {
-		components: {
-			AdWork,
-			ProjectStats,
-			ProjectTimeline
-		},
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json'),
-				tag: undefined
-			}
-		},
-		mounted() {
-			this.$ga.page(this.$router)
-		},
-		computed: {
-			filteredProjects: function () {
-				let projects = this.content.portfolio.projects
-
-				if (this.tag) {
-					projects = projects.filter(project => project.tags.includes(this.tag))
-				}
-
-				return projects.sort((a, b) => b.year - a.year)
-			}
-		},
-		methods: {
-			onTagSelected(tag) {
-				this.tag = tag
-			}
+export default {
+	components: {
+		AdWork,
+		ProjectStats,
+		ProjectTimeline,
+	},
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
+			tag: undefined,
 		}
-	}
+	},
+	mounted() {
+		this.$ga.page(this.$router)
+	},
+	computed: {
+		filteredProjects() {
+			let projects = this.content.portfolio.projects
+
+			if (this.tag) {
+				projects = projects.filter((project) => project.tags.includes(this.tag))
+			}
+
+			return projects.sort((a, b) => b.year - a.year)
+		},
+	},
+	methods: {
+		onTagSelected(tag) {
+			this.tag = tag
+		},
+	},
+}
 
 </script>
 

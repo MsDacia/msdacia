@@ -10,19 +10,12 @@
 
 <script>
 
-	import CoverBackground from '../components/cover-background.vue'
+import CoverBackground from '../components/cover-background.vue'
 
-	export default {
-
-		components: {
-			CoverBackground
-		}
-	}
+export default {
+	components: {
+		CoverBackground,
+	},
+}
 
 </script>
-
-<style lang="sass">
-
-	@import '../styles/main.sass'
-
-</style>

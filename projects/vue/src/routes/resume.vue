@@ -53,51 +53,53 @@
 
 <script>
 
-	import AdWork from '../components/ad-work.vue'
-	import Skills from '../components/skills.vue'
-	import Links from '../components/links.vue'
-	import Objective from '../components/objective.vue'
-	import Experience from '../components/experience.vue'
-	import Education from '../components/education.vue'
+import AdWork from '../components/ad-work.vue'
+import Skills from '../components/skills.vue'
+import Links from '../components/links.vue'
+import Objective from '../components/objective.vue'
+import Experience from '../components/experience.vue'
+import Education from '../components/education.vue'
 
-	export default {
-		components: {
-			AdWork,
-			Skills,
-			Links,
-			Objective,
-			Experience,
-			Education
-		},
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
-		},
-		mounted() {
-			this.$ga.page(this.$router)
-		},
-		methods: {
-			runAnalytics(title) {
-				this.$ga.event('Resume', 'click', title)
-			}
+export default {
+	components: {
+		AdWork,
+		Skills,
+		Links,
+		Objective,
+		Experience,
+		Education,
+	},
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
 		}
-	}
+	},
+	mounted() {
+		this.$ga.page(this.$router)
+	},
+	methods: {
+		runAnalytics(title) {
+			this.$ga.event('Resume', 'click', title)
+		},
+	},
+}
 
 </script>
 
 <style scoped lang="sass">
 
-	h1
-		left: -86px
-		top: 145px
+@import '@/styles/variables.sass'
 
-	address ~ p
-		a
-			color: $text
+h1
+	left: -86px
+	top: 145px
 
-			&:hover,
-			&.active
-				color: $anchor-text-hover
+address ~ p
+	a
+		color: $text
+
+		&:hover,
+		&.active
+			color: $anchor-text-hover
 
 </style>

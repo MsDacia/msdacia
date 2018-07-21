@@ -12,60 +12,60 @@
 
 <script>
 
-	export default {
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json'),
-				tag: undefined
-			}
-		},
-		computed: {
-			tagMap: function () {
-				const map = new Map()
-				for (const project of this.content.portfolio.projects) {
-					for (const tag of project.tags) {
-						if (!map.has(tag)) {
-							map.set(tag, 1)
-						} else {
-							const count = map.get(tag)
-							map.set(tag, count + 1)
-						}
+export default {
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
+			tag: undefined,
+		}
+	},
+	computed: {
+		tagMap() {
+			const map = new Map()
+			for (const project of this.content.portfolio.projects) {
+				for (const tag of project.tags) {
+					if (!map.has(tag)) {
+						map.set(tag, 1)
+					} else {
+						const count = map.get(tag)
+						map.set(tag, count + 1)
 					}
 				}
-				return map
-			},
-			sortedTags: function () {
-				return Array.from(this.tagMap.keys()).sort((a, b) => {
-					const countA = this.tagMap.get(a)
-					const countB = this.tagMap.get(b)
-
-					if (countA === countB) {
-						return a.localeCompare(b)
-					} else {
-						return countB - countA
-					}
-				})
 			}
+			return map
 		},
-		methods: {
-			selectTag(tag) {
-				this.tag = tag
-				this.$emit('tag-selected', tag)
-				this.$ga.event('Tag', 'click', tag)
-			},
-			hideLabels: function () {
-				const labels = document.getElementsByClassName('labels')[0]
-				labels.className += ' activated'
-			},
-			showLabels: function () {
-				const labels = document.getElementsByClassName('labels')[0]
-				labels.className = 'ui labels'
-			},
-			scrollToTop: function () {
-				const timeline = document.getElementById('timeline')
-				timeline.scrollIntoView()
-			}
-		}
-	}
+		sortedTags() {
+			return Array.from(this.tagMap.keys()).sort((a, b) => {
+				const countA = this.tagMap.get(a)
+				const countB = this.tagMap.get(b)
+
+				if (countA === countB) {
+					return a.localeCompare(b)
+				} else {
+					return countB - countA
+				}
+			})
+		},
+	},
+	methods: {
+		selectTag(tag) {
+			this.tag = tag
+			this.$emit('tag-selected', tag)
+			this.$ga.event('Tag', 'click', tag)
+		},
+		hideLabels() {
+			const labels = document.getElementsByClassName('labels')[0]
+			labels.className += ' activated'
+		},
+		showLabels() {
+			const labels = document.getElementsByClassName('labels')[0]
+			labels.className = 'ui labels'
+		},
+		scrollToTop() {
+			const timeline = document.getElementById('timeline')
+			timeline.scrollIntoView()
+		},
+	},
+}
 
 </script>

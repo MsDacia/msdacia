@@ -12,17 +12,17 @@
 
 <script>
 
-	export default {
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
-		},
-		methods: {
-			runAnalytics(title) {
-				this.$ga.event('Resume Links', 'click', title)
-			}
+export default {
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
 		}
-	}
+	},
+	methods: {
+		runAnalytics(title) {
+			this.$ga.event('Resume Links', 'click', title)
+		},
+	},
+}
 
 </script>

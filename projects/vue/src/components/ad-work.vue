@@ -10,12 +10,12 @@
 
 <script>
 
-	export default {
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
+export default {
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
 		}
-	}
+	},
+}
 
 </script>

@@ -36,16 +36,16 @@
 
 <script>
 
-	export default {
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
-		},
-		mounted() {
-			$('.ui.accordion').accordion()
+export default {
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
 		}
-	}
+	},
+	mounted() {
+		$('.ui.accordion').accordion()
+	},
+}
 
 </script>
 

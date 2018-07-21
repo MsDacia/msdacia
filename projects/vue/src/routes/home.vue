@@ -9,57 +9,59 @@
 
 <script>
 
-	export default {
-		data: function () {
-			return {
-				content: require('../json/static.en-us.json')
-			}
-		},
-		mounted() {
-			this.$ga.page(this.$router)
+export default {
+	data() {
+		return {
+			content: require('../json/static.en-us.json'),
 		}
-	}
+	},
+	mounted() {
+		this.$ga.page(this.$router)
+	},
+}
 
 </script>
 
 <style scoped lang="sass">
 
-	main
-		display: flex
-		flex-direction: column
-		justify-content: center
+@import '@/styles/tools.mixins.sass'
 
-		.copy
-			text-align: right
-			z-index: 3
+main
+	display: flex
+	flex-direction: column
+	justify-content: center
 
-			h1
-				@include rel-pos(auto, auto, auto, auto)
-				@include rem(margin-bottom, 10px)
-				color: $text
-				font-size: 300%
-				letter-spacing: 0
-				margin-left: 0
-				text-shadow: $text-shadow
-				transform: rotate(0deg)
+	.copy
+		text-align: right
+		z-index: 3
 
-				@include mobile-xsmall
-					font-size: 400%
+		h1
+			@include rel-pos(auto, auto, auto, auto)
+			@include rem(margin-bottom, 10px)
+			color: $text
+			font-size: 300%
+			letter-spacing: 0
+			margin-left: 0
+			text-shadow: $text-shadow
+			transform: rotate(0deg)
 
-				@include phablet
-					font-size: 500%
+			@include mobile-xsmall
+				font-size: 400%
 
-			h2
-				@include animation(type 4s steps(60, end))
-				color: $anchor-text
-				font-size: 180%
-				margin: 0
-				overflow: hidden
-				text-shadow: $text-shadow
-				white-space: nowrap
-				width: 100%
+			@include phablet
+				font-size: 500%
 
-			p
-				margin-bottom: 0
+		h2
+			@include animation(type 4s steps(60, end))
+			color: $anchor-text
+			font-size: 180%
+			margin: 0
+			overflow: hidden
+			text-shadow: $text-shadow
+			white-space: nowrap
+			width: 100%
+
+		p
+			margin-bottom: 0
 
 </style>
