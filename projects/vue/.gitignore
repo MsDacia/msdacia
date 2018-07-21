@@ -1,5 +1,6 @@
 dist/
 node_modules/
+semantic/
 test/e2e/reports/
 test/unit/coverage/
 src/vendor/
