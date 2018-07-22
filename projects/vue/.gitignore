@@ -9,6 +9,7 @@ node_modules
 npm-debug.log
 selenium-debug.log
 datastore.js
+datastore.ts
 
 # local env files
 .env.local
