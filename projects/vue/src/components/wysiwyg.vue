@@ -1,5 +1,5 @@
 <template>
-	<div class="ui accordion">
+	<div class="ui accordion" v-if="!loading">
 		<div class="active title">
 			<div class="ui icon message">
 				<i class="heartbeat icon"></i>
@@ -39,15 +39,29 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 	mounted() {
 		$('.ui.accordion').accordion()
 	},
+
 }
 
 </script>

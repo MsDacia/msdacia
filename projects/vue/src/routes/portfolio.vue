@@ -1,5 +1,5 @@
 <template>
-	<div class="ui grid">
+	<div class="ui grid" v-if="!loading">
 		<div class="two wide column">
 			<div class="block">
 				<h1>{{content.portfolio.title}}</h1>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
 
 import AdWork from '../components/ad-work.vue'
 import ProjectStats from '../components/project-stats.vue'
@@ -35,15 +37,7 @@ export default {
 		ProjectStats,
 		ProjectTimeline,
 	},
-	data() {
-		return {
-			content: require('../json/static.en-us.json'),
-			tag: undefined,
-		}
-	},
-	mounted() {
-		this.$ga.page(this.$router)
-	},
+
 	computed: {
 		filteredProjects() {
 			let projects = this.content.portfolio.projects
@@ -55,11 +49,32 @@ export default {
 			return projects.sort((a, b) => b.year - a.year)
 		},
 	},
+
+	data() {
+		return {
+			loading: true,
+			tag: undefined,
+		}
+	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
+	mounted() {
+		this.$ga.page(this.$router)
+	},
+
 	methods: {
 		onTagSelected(tag) {
 			this.tag = tag
 		},
 	},
+
 }
 
 </script>

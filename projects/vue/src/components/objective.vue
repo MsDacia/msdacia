@@ -1,5 +1,5 @@
 <template>
-	<div class="ui card">
+	<div class="ui card" v-if="!loading">
 		<div class="content">
 			<div class="description">
 				<p>{{content.resume.objective.copy}}</p>
@@ -10,12 +10,25 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 }
 
 </script>

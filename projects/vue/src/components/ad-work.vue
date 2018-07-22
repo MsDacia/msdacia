@@ -1,5 +1,5 @@
 <template>
-	<div class="ui icon ad message">
+	<div class="ui icon ad message" v-if="!loading">
 		<i class="laptop icon"></i>
 		<div class="content">
 			<div class="header">{{ content.common.ad.work.title }}</div>
@@ -10,12 +10,25 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 }
 
 </script>

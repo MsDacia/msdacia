@@ -1,5 +1,5 @@
 <template>
-	<div class="statistics">
+	<div class="statistics" v-if="!loading">
 		<div class="ui labels">
 			<a class="ui label hvr-grow-shadow" v-for="t of sortedTags" :key="t" @click="selectTag(t), hideLabels(), scrollToTop()" :class="{ selected: t == tag }">
 				<span>{{ tagMap.get(t) }}</span>
@@ -12,14 +12,25 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
-	data() {
-		return {
-			content: require('../json/static.en-us.json'),
-			tag: undefined,
-		}
-	},
+
 	computed: {
+		sortedTags() {
+			return Array.from(this.tagMap.keys()).sort((a, b) => {
+				const countA = this.tagMap.get(a)
+				const countB = this.tagMap.get(b)
+
+				if (countA === countB) {
+					return a.localeCompare(b)
+				} else {
+					return countB - countA
+				}
+			})
+		},
+
 		tagMap() {
 			const map = new Map()
 			for (const project of this.content.portfolio.projects) {
@@ -34,36 +45,43 @@ export default {
 			}
 			return map
 		},
-		sortedTags() {
-			return Array.from(this.tagMap.keys()).sort((a, b) => {
-				const countA = this.tagMap.get(a)
-				const countB = this.tagMap.get(b)
+	},
 
-				if (countA === countB) {
-					return a.localeCompare(b)
-				} else {
-					return countB - countA
-				}
-			})
+	data() {
+		return {
+			loading: true,
+			tag: undefined
+		}
+	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
 		},
 	},
+
 	methods: {
+		hideLabels() {
+			const labels = document.getElementsByClassName('labels')[0]
+			labels.className += ' activated'
+		},
+
+		scrollToTop() {
+			const timeline = document.getElementById('timeline')
+			timeline.scrollIntoView()
+		},
+
 		selectTag(tag) {
 			this.tag = tag
 			this.$emit('tag-selected', tag)
 			this.$ga.event('Tag', 'click', tag)
 		},
-		hideLabels() {
-			const labels = document.getElementsByClassName('labels')[0]
-			labels.className += ' activated'
-		},
+
 		showLabels() {
 			const labels = document.getElementsByClassName('labels')[0]
 			labels.className = 'ui labels'
-		},
-		scrollToTop() {
-			const timeline = document.getElementById('timeline')
-			timeline.scrollIntoView()
 		},
 	},
 }

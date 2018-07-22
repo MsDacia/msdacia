@@ -180,14 +180,17 @@ h2,
 .ui.definition.table tr,
 .ui.table:not(.unstackable) tr,
 .ui.table:not(.unstackable) tr
-	box-shadow: 0 -1px 0 0 $background-c inset !important
+	box-shadow: unset !important
 
 	td.definition,
 	td:first-child:not(.ignored),
 	> td,
 	> th
 		color: $text
-		padding: 0 10px 0 0 !important
+		padding: 0 40px 20px 0 !important
+
+		&:last-of-type
+			padding-right: 0 !important
 
 .ui.horizontal.list
 	width: 100%
@@ -208,14 +211,9 @@ h2,
 				font-size: 1.25em
 
 .ui.feed > .event
+	> .content,
 	.content
 		@include rem(margin-bottom, 20px)
-
-		.date
-			@include bold()
-			@include rem(padding, 0 8px 0)
-			color: lighten($text3, 20%)
-			font-size: .85em
 
 		.summary,
 		.extra.text
@@ -229,6 +227,12 @@ h2,
 
 		.summary
 			font-weight: normal
+
+			.date
+				@include bold()
+				color: $text
+				font-size: .75em
+				padding: 0
 
 		a
 			color: $anchor-text
@@ -338,14 +342,14 @@ h2,
 			color: $anchor-text
 
 	.content
-		@include rem(padding, 15px 0)
+		@include rem(padding, 15px 0 0)
 
 		.date,
 		.time
 			@include bold()
 			@include rem(margin-bottom, 0)
 			@include rem(padding, 2px 8px 0)
-			color: lighten($text3, 20%)
+			color: lighten($text, 50%)
 			font-size: .7em
 			width: 100%
 
@@ -405,7 +409,7 @@ h2,
 
 	&.attached
 		@include rem(margin-bottom, 45.5px)
-		@include rem(padding, 0 32.5px)
+		@include rem(padding, 16.5px 12.5px)
 
 .ui.horizontal.divider
 	color: $text

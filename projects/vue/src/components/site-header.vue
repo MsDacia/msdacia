@@ -1,5 +1,5 @@
 <template>
-	<header>
+	<header v-if="!loading">
 		<switch-theme></switch-theme>
 		<div class="item" @click="showMenu = !showMenu">
 			<i class="toggle off icon" :class="[ showMenu ? 'hide-content' : 'show-content' ]"></i>
@@ -17,23 +17,37 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
 import SwitchTheme from '../components/switch-theme.vue'
 
 export default {
+
 	components: {
 		SwitchTheme,
 	},
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true,
 			showMenu: false,
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 	methods: {
 		runAnalytics(title) {
 			this.$ga.event('Navigation', 'click', title)
 		},
 	},
+
 }
 
 </script>

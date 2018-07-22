@@ -1,5 +1,5 @@
 <template>
-	<div class="ui card">
+	<div class="ui card" v-if="!loading">
 		<div class="content">
 			<div class="header">{{content.resume.education.school}}</div>
 			<div class="meta">
@@ -19,12 +19,25 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 }
 
 </script>

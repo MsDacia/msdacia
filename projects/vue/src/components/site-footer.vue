@@ -1,5 +1,5 @@
 <template>
-	<footer>
+	<footer v-if="!loading">
 		<div id="social-media">
 			<email-link :local-part="content.common.email.local" :domain="content.common.email.domain" :subject="content.common.email.subject"></email-link>
 			<a
@@ -23,17 +23,16 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
 import EmailLink from '../components/email-link.vue'
 
 export default {
+
 	components: {
 		EmailLink,
 	},
-	data() {
-		return {
-			content: require('../json/static.en-us.json'),
-		}
-	},
+
 	computed: {
 		href() {
 			const uri = `/home`
@@ -41,6 +40,21 @@ export default {
 			return uri
 		},
 	},
+
+	data() {
+		return {
+			loading: true
+		}
+	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 	methods: {
 		open() {
 			window.open( this.href, '_self' ).scrollTo( 0, 0 )
@@ -49,6 +63,7 @@ export default {
 			this.$ga.event('Footer', 'click', title)
 		},
 	},
+
 }
 
 </script>

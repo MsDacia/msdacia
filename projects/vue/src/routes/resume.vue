@@ -1,5 +1,5 @@
 <template>
-	<div class="ui grid">
+	<div class="ui grid" v-if="!loading">
 		<div class="two wide column">
 			<div class="block">
 				<h1>{{content.resume.title}}</h1>
@@ -53,6 +53,9 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 import AdWork from '../components/ad-work.vue'
 import Skills from '../components/skills.vue'
 import Links from '../components/links.vue'
@@ -61,6 +64,7 @@ import Experience from '../components/experience.vue'
 import Education from '../components/education.vue'
 
 export default {
+
 	components: {
 		AdWork,
 		Skills,
@@ -69,19 +73,31 @@ export default {
 		Experience,
 		Education,
 	},
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
-	mounted() {
-		this.$ga.page(this.$router)
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
 	},
+
 	methods: {
 		runAnalytics(title) {
 			this.$ga.event('Resume', 'click', title)
 		},
 	},
+
+	mounted() {
+		this.$ga.page(this.$router)
+	},
+
 }
 
 </script>
@@ -101,5 +117,12 @@ address ~ p
 		&:hover,
 		&.active
 			color: $anchor-text-hover
+
+.ui.segment
+	.ui.card
+		width: 100%
+
+		> .content
+			padding-bottom: 0
 
 </style>

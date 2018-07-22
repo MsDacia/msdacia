@@ -1,5 +1,5 @@
 <template>
-	<div class="ui accordion">
+	<div class="ui accordion" v-if="!loading">
 		<span v-for="job in content.resume.experiences.job" :key="job.id">
 			<div class="title">
 				<div class="ui icon message">
@@ -36,12 +36,25 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 	mounted() {
 		$('.ui.accordion').accordion()
 	},
@@ -51,16 +64,28 @@ export default {
 
 <style scoped lang="sass">
 
-	.ui.message
-		padding-bottom: 0
+@import '@/styles/tools.mixins.sass'
+
+.ui.message
+	padding-bottom: 0
+	padding-top: 0
+
+	.header:not(.ui)
+		margin-bottom: 0
+		font-size: .875em
+
+.ui.card
+	.content
 		padding-top: 0
 
-		.header:not(.ui)
-			margin-bottom: 0
-			font-size: .875em
+.ui.accordion:not(.styled) .title~.content:not(.ui):last-child
+	@include rem(margin-left, 50px)
+	padding-top: 0
+	width: 90%
 
-	.ui.card
-		.content
-			padding-top: 0
+.ui.accordion .title:not(.ui),
+.ui.accordion .accordion .title:not(.ui)
+	box-shadow: none
+	padding-bottom: 0
 
 </style>

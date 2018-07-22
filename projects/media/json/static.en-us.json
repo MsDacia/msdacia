@@ -1,890 +1,943 @@
 {
-	"common": {
-		"global": {
-			"title": "MsDacia",
-			"tagline": "I am here. This is who I am. I am Dacia.",
-			"urlTitle": "msdacia.com",
-			"url": "http://msdacia.com",
-			"fullName": "Dacia James",
-			"name": "Dacia",
-			"prefix": "Ms",
-			"copy": "pronounced",
-			"copy2": "day-shuh",
-			"menu": "Menu"
-		},
-		"email": {
-			"title": "Email",
-			"icon": "mail icon",
-			"local": "msdessin",
-			"domain": "gmail.com",
-			"subject": "MsDacia.com"
-		},
-		"social": [
-			{
-				"title": "Facebook",
-				"icon": "facebook icon",
-				"url": "http://www.facebook.com/#!/msdacia"
-			},
-			{
-				"title": "LinkedIn",
-				"icon": "linkedin icon",
-				"url": "http://www.linkedin.com/in/dessin"
-			},
-			{
-				"title": "Twitter",
-				"icon": "twitter icon",
-				"url": "http://www.twitter.com/MsDaciaJ"
-			},
-			{
-				"title": "Instagram",
-				"icon": "instagram icon",
-				"url": "https://www.instagram.com/msdacia1/"
-			},
-			{
-				"title": "Github",
-				"icon": "github icon",
-				"url": "https://github.com/MsDacia"
-			},
-			{
-				"title": "BitBucket",
-				"icon": "bitbucket icon",
-				"url": "https://bitbucket.org/davidanddacia/"
-			},
-			{
-				"title": "JSFiddle",
-				"icon": "jsfiddle icon",
-				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
-			},
-			{
-				"title": "Allrecipes.com",
-				"icon": "food icon",
-				"url": "http://allrecipes.com/cook/msdacia/"
-			},
-			{
-				"title": "Skype",
-				"icon": "skype icon",
-				"url": "skype:msdacia1?userinfo"
-			},
-			{
-				"title": "Yelp",
-				"icon": "yelp icon",
-				"url": "http://msdacia.yelp.com/"
-			}
-		],
-		"copyright": {
-			"icon": "fal fa-copyright",
-			"content": "2004 - 2018 designed, developed by"
-		},
-		"navigation": [
-			{
-				"title": "Home",
-				"item": "home"
-			},
-			{
-				"title": "About",
-				"item": "about"
-			},
-			{
-				"title": "Resume",
-				"item": "resume"
-			},
-			{
-				"title": "Portfolio",
-				"item": "portfolio"
-			}
-		],
-		"colors": [
-			"red",
-			"orange",
-			"yellow",
-			"olive",
-			"green",
-			"teal",
-			"blue",
-			"violet",
-			"purple ",
-			"pink ",
-			"brown"
-		],
-		"ad": {
-			"work": {
-				"title" : "For Hire",
-				"copy": "VueJS and CraftCMS/Twig Developer currently looking for projects to help showcase my skills"
-			}
-		}
-	},
-	"about": {
-		"title": "WYSIWYG",
-		"subtitle": "Foundation",
-		"subtitle2": "Professionally",
-		"subtitle3": "Personally",
-		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
-		"copy2": "I am a web developer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue.js, which is how this site was built. I also have two additional sites I am building with my beau, our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a> and our grocery list app (which is still in development). As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. My next steps in my career will probably be as a UI/Front End Architect/Lead Developer.",
-		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. I have been the commissioner of my own fantasy football league, since 2008. It is so much fun. I have only won one championship, but don't let my record fool you. I have won more game with Jay Cutler as my quarterback than losses. LOL!! I am loyal."
-	},
-	"notFound": {
-		"subtitle": "Looks like you are trying to reach a page that doesn't exist.",
-		"title": "Uhh...how did you find me??"
-	},
-	"portfolio": {
-		"title": "Portfolio",
-		"subtitle": "My Links",
-		"subtitle2": "Stats",
-		"subtitle3": "Timeline",
-		"copy": "Browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
-		"list": [
-			{
-				"url": "https://github.com/MsDacia",
-				"title": "GitHub Repositories",
-				"icon": "github icon"
-			},
-			{
-				"url": "https://jsfiddle.net/user/MsDacia/fiddles/",
-				"title": "JSFiddle Code Snippets",
-				"icon": "jsfiddle icon"
-			}
-		],
-		"projects": [
-			{
-				"unique": "undisclosedoe",
-				"year": "2018",
-				"image": "undisclosed-oe.png",
-				"link": null,
-				"name": "Undisclosed Client",
-				"tags": [
-					"HTML5",
-					"Less",
-					"Hybris",
-					"JQuery",
-					"Responsive",
-					"JSTL",
-					"JSP"
-				],
-				"client": "Undisclosed",
-				"timeline": "3 months"
-			},
-			{
-				"unique": "undisclosedml",
-				"year": "2018",
-				"image": "undisclosed-ml.png",
-				"link": null,
-				"name": "Undisclosed Client",
-				"tags": [
-					"HTML5",
-					"Less",
-					"Hybris",
-					"JQuery",
-					"Responsive",
-					"JSTL",
-					"JSP"
-				],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "daviddacia",
-				"year": "2017",
-				"image": "daviddacia.png",
-				"link": "http://davidanddacia.com",
-				"name": "David + Dacia",
-				"tags": ["HTML5", "SASS", "Vue.js", "Semantic UI", "webpack", "JSON", "Firebase", "Responsive", "SPA"],
-				"client": "MsDacia",
-				"timeline": "ongoing"
-			},
-			{
-				"unique": "msdacia",
-				"year": "2017",
-				"image": "msdacia.png",
-				"link": "http://msdacia.com",
-				"name": "MsDacia",
-				"tags": ["HTML5", "SASS", "Vue.js", "Semantic UI", "webpack", "JSON", "Responsive", "SPA"],
-				"client": "MsDacia",
-				"timeline": "ongoing"
-			},
-			{
-				"unique": "valo",
-				"year": "2017",
-				"image": "valo.png",
-				"link": null,
-				"name": "Valo v2",
-				"tags": ["HTML5", "SASS", "AngularJS", "APIs", "Java", "Thymeleaf", "Grunt", "APP: Web", "Localization", "Responsive", "Agile", "JIRA"],
-				"client": "Innerworkings",
-				"timeline": "9 months"
-			},
-			{
-				"unique": "asicsf",
-				"year": "2017",
-				"image": "asics-flytefoam.png",
-				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
-				"name": "ASICS Flytefoam",
-				"tags": ["HTML5", "SASS", "jQuery", "Sketch", "Zeplin", "gulp", "AWS", "Responsive"],
-				"client": "Undisclosed",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "asicsup",
-				"year": "2016",
-				"image": "asics-urban-pack.png",
-				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
-				"name": "ASICS Urban Pack",
-				"tags": ["HTML5", "SASS", "jQuery", "Sketch", "Zeplin", "gulp", "AWS", "Responsive"],
-				"client": "Undisclosed",
-				"timeline": "60 hours"
-			},
-			{
-				"unique": "whirlpool",
-				"year": "2016",
-				"image": "whirlpool.png",
-				"link": "https://www.whirlpool.com/",
-				"name": "Whirlpool",
-				"tags": ["HTML5", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "E-commerce", "Grunt", "Responsive", "Localization", "Adobe AEM", "Hybris"],
-				"client": "Undisclosed",
-				"timeline": "5 months"
-			},
-			{
-				"unique": "fs",
-				"year": "2016",
-				"image": "financial-services.png",
-				"link": "https://bankingonmycareer.com/",
-				"name": "Financial Services",
-				"tags": ["HTML5", "SASS", "Sketch", "JavaScript", "JSON", "React", "Craft CMS", "Grunt", "Twig", "Responsive"],
-				"client": "SuperHumane",
-				"timeline": "7 months"
-			},
-			{
-				"unique": "advocate",
-				"year": "2016",
-				"image": "advocate-io.png",
-				"link": null,
-				"name": "Advocate",
-				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
-				"client": "Advocate",
-				"timeline": "8 weeks"
-			},
-			{
-				"unique": "cavalry",
-				"year": "2016",
-				"image": "cavalry.png",
-				"link": "http://cavalryagency.com/",
-				"name": "Cavalry",
-				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "Squarespace"],
-				"client": "Undisclosed",
-				"timeline": "6 weeks"
-			},
-			{
-				"unique": "resq",
-				"year": "2016",
-				"image": "resqbiz.png",
-				"link": "http://resqbiz.com",
-				"name": "RESQ",
-				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
-				"client": "Undisclosed",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "allstate",
-				"year": "2016",
-				"image": "allstate-veterans.png",
-				"link": "http://allstateveterans.com",
-				"name": "Allstate Veterans",
-				"tags": ["HTML5", "SASS", "PSD-to-HTML", "jQuery", "Grunt", "PHP", "MySQL", "Responsive"],
-				"client": "Undisclosed",
-				"timeline": "6 weeks"
-			},
-			{
-				"unique": "intel",
-				"year": "2015",
-				"image": "intel.png",
-				"link": null,
-				"name": "Intel POS",
-				"tags": ["HTML5", "SASS", "jQuery", "AngularJS", "Localization", "Grunt", "YAML", "APP: Desktop", "Agile"],
-				"client": "Undisclosed",
-				"timeline": "7 months"
-			},
-			{
-				"unique": "mcd",
-				"year": "2015",
-				"image": "mcdonalds.png",
-				"link": null,
-				"name": "McDonald's",
-				"tags": ["HTML5", "CSS3", "jQuery", "APP: Kiosk"],
-				"client": "Undisclosed",
-				"timeline": "1 week"
-			},
-			{
-				"unique": "czar",
-				"year": "2015",
-				"image": "czarnowski.png",
-				"link": "http://czarnowski.com",
-				"name": "Czarnowski",
-				"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL"],
-				"client": "Symbiont Group, LLC",
-				"timeline": "6 weeks"
-			},
-			{
-				"unique": "ctachronicles",
-				"year": "2014",
-				"image": "ctachronicles.png",
-				"link": null,
-				"name": "CTA Chronicles",
-				"tags": ["HTML5", "CSS3", "jQuery", "WordPress", "PHP", "MySQL", "Responsive"],
-				"client": "MsDacia",
-				"timeline": "3 months"
-			},
-			{
-				"unique": "stop",
-				"year": "2013",
-				"image": "stopandshop.png",
-				"link": "http://stopandshop.com",
-				"name": "Stop and Shop",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
-				"client": "Peapod/Ahold",
-				"timeline": "18 months"
-			},
-			{
-				"unique": "giants",
-				"year": "2013",
-				"image": "giantfoods.png",
-				"link": "http://giantfoods.com",
-				"name": "Giant Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
-				"client": "Peapod/Ahold",
-				"timeline": "18 months"
-			},
-			{
-				"unique": "giant",
-				"year": "2013",
-				"image": "giant.png",
-				"link": "http://giantfoodstores.com",
-				"name": "GIANT Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
-				"client": "Peapod/Ahold",
-				"timeline": "18 months"
-			},
-			{
-				"unique": "martins",
-				"year": "2013",
-				"image": "martins.png",
-				"link": "http://martinfoods.com",
-				"name": "Martin Foods",
-				"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
-				"client": "Peapod/Ahold",
-				"timeline": "18 months"
-			},
-			{
-				"unique": "ame",
-				"year": "2013",
-				"image": "ameren.png",
-				"link": null,
-				"name": "Ameren",
-				"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "SPA", "Grunt", "JIRA", "Agile", "APP: Mobile"],
-				"client": "Undisclosed",
-				"timeline": "6 weeks"
-			},
-			{
-				"unique": "lincoln",
-				"year": "2013",
-				"image": "lincolninternational.png",
-				"link": "http://www.lincolninternational.com",
-				"name": "Lincoln International",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "JavaScript", "Responsive", "WordPress", "Localization"],
-				"client": "Undisclosed",
-				"timeline": "5 weeks"
-			},
-			{
-				"unique": "thermo",
-				"year": "2013",
-				"image": "thermofisher.png",
-				"link": null,
-				"name": "Thermofisher",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "Adobe CQ", "JIRA", "Agile", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "8 weeks"
-			},
-			{
-				"unique": "border",
-				"year": "2012",
-				"image": "border-states.png",
-				"link": "http://borderstates.com",
-				"name": "Border States",
-				"tags": ["QA", "bug fixes", "JIRA"],
-				"client": "Undisclosed",
-				"timeline": "1 week"
-			},
-			{
-				"unique": "discoverbank",
-				"year": "2012",
-				"image": "discover-bank-account-activity-mobile.png",
-				"link": null,
-				"name": "Discover Card: Bank Account Activity",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile"],
-				"client": "Undisclosed",
-				"timeline": "4 weeks"
-			},
-			{
-				"unique": "evolve",
-				"year": "2012",
-				"image": "evolve.png",
-				"link": null,
-				"name": "Evolve: AG Idea Forum",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress"],
-				"client": "Internal",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "evolvem",
-				"year": "2012",
-				"image": "evolve-mobile.png",
-				"link": null,
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress", "Mobile"],
-				"client": "Internal",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "front",
-				"year": "2012",
-				"image": "frontier.png",
-				"link": "http://frontier.com",
-				"name": "Frontier",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "bug fixes", "JIRA"],
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "mine",
-				"year": "2012",
-				"image": "mine-safety-applications.png",
-				"link": "http://us.msasafety.com",
-				"name": "MSA Safety",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "tmobile",
-				"year": "2012",
-				"image": "tmobile-mobile.png",
-				"link": null,
-				"name": "T-Mobile",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "unsnowmen",
-				"year": "2012",
-				"image": "unsnowman.png",
-				"link": null,
-				"name": "Unsnowman Competition",
-				"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "MySQL"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "wes",
-				"year": "2012",
-				"image": "wesco.png",
-				"link": null,
-				"name": "Wesco",
-				"tags": ["QA", "bug fixes", "JIRA"],
-				"client": "Undisclosed",
-				"timeline": "1 week"
-			},
-			{
-				"unique": "grain",
-				"year": "2011",
-				"image": "grainger.png",
-				"link": null,
-				"name": "Grainger",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "DOJO", "JIRA", "Hybris", "Agile", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "18 months"
-			},
-			{
-				"unique": "sanford",
-				"year": "2010",
-				"image": "sanford-health.png",
-				"link": "http://www.sanfordhealth.org/",
-				"name": "Sanford Health",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
-				"client": "Undisclosed",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "casual",
-				"year": "2010",
-				"image": "casual-male-dxl.png",
-				"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
-				"name": "Casual Male DXL",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "5 weeks"
-			},
-			{
-				"unique": "loreal",
-				"year": "2010",
-				"image": "loreal-ysl.png",
-				"link": "http://www.yslbeautyus.com/",
-				"name": "L'Oreal",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "ltd",
-				"year": "2010",
-				"image": "ltd-commodities.png",
-				"link": "http://www.ltdcommodities.com/",
-				"name": "LTD Commodities",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "4 weeks"
-			},
-			{
-				"unique": "ny",
-				"year": "2010",
-				"image": "iloveny.png",
-				"link": "http://iloveny.com/",
-				"name": "ILOVENY | The Official New York State Tourism Site",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX"],
-				"client": "Whittman Hart",
-				"timeline": "10 weeks"
-			},
-			{
-				"unique": "symptom",
-				"year": "2010",
-				"image": "symptom-checker.png",
-				"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
-				"name": "American Academy of Pediatrics: Symptom Checker Tool",
-				"tags": ["HTML", "CSS", "jQuery"],
-				"client": "Manifest Digital",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "sun",
-				"year": "2009",
-				"image": "suntimes.png",
-				"link": "http://suntimes.com/",
-				"name": "suntimes.com",
-				"tags": ["HTML", "CSS", "JavaScript"],
-				"client": "STNG",
-				"timeline": "5 weeks"
-			},
-			{
-				"unique": "pizza",
-				"year": "2009",
-				"image": "pizzahut.png",
-				"link": "http://pizzahut.com/",
-				"name": "Pizza Hut",
-				"tags": ["HTML", "CSS", "JavaScript", "bug fixes", "E-commerce"],
-				"client": "QuikOrder",
-				"timeline": "2 months"
-			},
-			{
-				"unique": "daa",
-				"year": "2009",
-				"image": "daa.png",
-				"link": null,
-				"name": "Distinguished Alumni Awards",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "AJAX", "JavaScript", "jQuery", "XML/XSLT", "ASP Classic"],
-				"client": "Chicago Booth",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "farm",
-				"year": "2009",
-				"image": "farm-to-fork.png",
-				"link": "http://chicagobooth.edu/food/2009/",
-				"name": "From Farm to Fork Food Conference 2009",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript"],
-				"client": "Chicago Booth",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "alumni",
-				"year": "2009",
-				"image": "alumni-celebrations.png",
-				"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
-				"name": "Alumni Celebrations 2009",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript"],
-				"client": "Chicago Booth",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "career",
-				"year": "2009",
-				"image": "career-path.png",
-				"link": "http://career.chicagobooth.edu/parttime/careerpath/",
-				"name": "Career Paths",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "ASP Classic"],
-				"client": "Chicago Booth",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "reunion",
-				"year": "2009",
-				"image": "alumni-reunion.png",
-				"link": "http://chicagobooth.edu/alumni/reunion2009/",
-				"name": "Alumni Reunions 2009",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX", "XML/XSLT", "ASP Classic"],
-				"client": "Chicago Booth",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "talent",
-				"year": "2009",
-				"image": "talent-development.png",
-				"link": null,
-				"name": "Talent Development Conference 2010",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "ASP Classic"],
-				"client": "Chicago Booth",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "discovercard",
-				"year": "2008",
-				"image": "discover-find-my-offer-mobile.png",
-				"link": null,
-				"name": "Discover Card: Find My Offer (Mobile)",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "Mobile"],
-				"client": "Undisclosed",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "cuno",
-				"year": "2008",
-				"image": "3m.png",
-				"link": null,
-				"name": "3M-Cuno",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
-				"client": "Undisclosed",
-				"timeline": "4 weeks"
-			},
-			{
-				"unique": "ashley",
-				"year": "2008",
-				"image": "ashley-furniture.png",
-				"link": "http://www.ashleyfurniturehomestore.com",
-				"name": "Ashley Furniture Homestore",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "E-commerce"],
-				"client": "Undisclosed",
-				"timeline": "2 weeks"
-			},
-			{
-				"unique": "gordon",
-				"year": "2008",
-				"image": "gordon-food-services.png",
-				"link": "http://www.gfs.com/en",
-				"name": "Gordon Food Services",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "ul",
-				"year": "2008",
-				"image": "ul-myhome.png",
-				"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
-				"name": "UL &ndash; @MyHome",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
-				"client": "Undisclosed",
-				"timeline": "4 weeks"
-			},
-			{
-				"unique": "regis",
-				"year": "2008",
-				"image": "regis-franchise.png",
-				"link": null,
-				"name": "Regis Franchise",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "regiss",
-				"year": "2008",
-				"image": "regis-stylist.png",
-				"link": null,
-				"name": "Regis Stylist",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "invitro",
-				"year": "2008",
-				"image": "invitrogen.png",
-				"link": null,
-				"name": "Invitrogen Rockfeller",
-				"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
-				"client": "Undisclosed",
-				"timeline": "3 weeks"
-			},
-			{
-				"unique": "modern",
-				"year": "2006",
-				"image": "modern-lighting.png",
-				"link": "http://www.modernlighting.com",
-				"name": "Modern Lighting",
-				"tags": ["PSD-to-HTML", "E-commerce", "HTML", "CSS", "AJAX", "JavaScript", "PHP", "MySQL"],
-				"client": "Lightology",
-				"timeline": "18 months"
-			}
-		]
-	},
-	"resume": {
-		"title": "Resume",
-		"address": "Chicago, Illinois",
-		"resumeTitle": "View/Download",
-		"resumeUrl": "https://www.dropbox.com/s/nbedzq4w3npyauu/Dacia%20James%20Resume%20All.pdf?dl=0",
-		"skills": {
-			"title": "Skills",
-			"categories": [
+	"content": {
+		"common": {
+			"global": {
+				"title": "MsDacia",
+				"tagline": "I am here. This is who I am. I am Dacia.",
+				"urlTitle": "msdacia.com",
+				"url": "http://msdacia.com",
+				"fullName": "Dacia James",
+				"name": "Dacia",
+				"prefix": "Ms",
+				"copy": "pronounced",
+				"copy2": "day-shuh",
+				"menu": "Menu"
+			},
+			"email": {
+				"title": "Email",
+				"icon": "mail icon",
+				"local": "msdessin",
+				"domain": "gmail.com",
+				"subject": "MsDacia.com"
+			},
+			"social": [
 				{
-					"title": "Development",
-					"copy": "VueJS, HTML5, CSS3 (LESS, SASS), XML, Firebase, JSON, YAML, Twig"
+					"title": "Facebook",
+					"icon": "facebook icon",
+					"url": "http://www.facebook.com/#!/msdacia"
 				},
 				{
-					"title": "Coding Environment/CMS/DevOps",
-					"copy": "Grunt, Gulp, webpack, SPA, WordPress, Craft CMS, Squarespace, Jenkins, Splunk, Jira, Bamboo"
-				}
-			]
-		},
-		"links": {
-			"title": "Links",
-			"categories": [
-				{
 					"title": "LinkedIn",
+					"icon": "linkedin icon",
 					"url": "http://www.linkedin.com/in/dessin"
 				},
 				{
-					"title": "GitHub",
+					"title": "Twitter",
+					"icon": "twitter icon",
+					"url": "http://www.twitter.com/MsDaciaJ"
+				},
+				{
+					"title": "Instagram",
+					"icon": "instagram icon",
+					"url": "https://www.instagram.com/msdacia1/"
+				},
+				{
+					"title": "Github",
+					"icon": "github icon",
 					"url": "https://github.com/MsDacia"
 				},
 				{
-					"title": "Personal",
-					"url": "/"
+					"title": "BitBucket",
+					"icon": "bitbucket icon",
+					"url": "https://bitbucket.org/davidanddacia/"
+				},
+				{
+					"title": "JSFiddle",
+					"icon": "jsfiddle icon",
+					"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
+				},
+				{
+					"title": "Allrecipes.com",
+					"icon": "food icon",
+					"url": "http://allrecipes.com/cook/msdacia/"
+				},
+				{
+					"title": "Skype",
+					"icon": "skype icon",
+					"url": "skype:msdacia1?userinfo"
+				},
+				{
+					"title": "Yelp",
+					"icon": "yelp icon",
+					"url": "http://msdacia.yelp.com/"
+				}
+			],
+			"copyright": {
+				"icon": "fal fa-copyright",
+				"content": "2004 - 2018 designed, developed by"
+			},
+			"navigation": [
+				{
+					"title": "Home",
+					"item": "home"
+				},
+				{
+					"title": "About",
+					"item": "about"
+				},
+				{
+					"title": "Resume",
+					"item": "resume"
 				},
 				{
 					"title": "Portfolio",
-					"url": "/#/portfolio"
+					"item": "portfolio"
+				}
+			],
+			"colors": [
+				"red",
+				"orange",
+				"yellow",
+				"olive",
+				"green",
+				"teal",
+				"blue",
+				"violet",
+				"purple ",
+				"pink ",
+				"brown"
+			],
+			"ad": {
+				"work": {
+					"title" : "For Hire",
+					"copy": "VueJS and CraftCMS/Twig Developer currently looking for projects to help showcase my skills"
+				}
+			}
+		},
+		"about": {
+			"title": "WYSIWYG",
+			"subtitle": "Foundation",
+			"subtitle2": "Professionally",
+			"subtitle3": "Personally",
+			"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
+			"copy2": "I am a web developer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue.js, which is how this site was built. I also have two additional sites I am building with my beau, our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a> and our grocery list app (which is still in development). As a detail-oriented, maybe a bit anal, person being a web developer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. My next steps in my career will probably be as a UI/Front End Architect/Lead Developer.",
+			"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. I have been the commissioner of my own fantasy football league, since 2008. It is so much fun. I have only won one championship, but don't let my record fool you. I have won more game with Jay Cutler as my quarterback than losses. LOL!! I am loyal."
+		},
+		"notFound": {
+			"subtitle": "Looks like you are trying to reach a page that doesn't exist.",
+			"title": "Uhh...how did you find me??"
+		},
+		"portfolio": {
+			"title": "Portfolio",
+			"subtitle": "My Links",
+			"subtitle2": "Stats",
+			"subtitle3": "Timeline",
+			"copy": "Browse my gallery of projects. If you are using touch screen, simply tap/hold on the screenshot, otherwise, hover over the screenshot to view more details about my roles and responsibility for each project. In addition to my roles and responsibilities, there is a link to either a staging version or live version of the site. Live versions have the external icon to the right of the link. In some cases, both links are provided, and when that happens, you will see the link icon at the bottom right of the container for the live version. Unfortunately, a lot of my client work is proprietary, so I will not share code.",
+			"list": [
+				{
+					"url": "https://github.com/MsDacia",
+					"title": "GitHub Repositories",
+					"icon": "github icon"
+				},
+				{
+					"url": "https://jsfiddle.net/user/MsDacia/fiddles/",
+					"title": "JSFiddle Code Snippets",
+					"icon": "jsfiddle icon"
+				}
+			],
+			"projects": [
+				{
+					"unique": "GrayMeta-curio",
+					"year": "2018",
+					"image": "curio.png",
+					"link": null,
+					"name": "Curio",
+					"tags": [
+						"SaaS",
+						"SASS",
+						"Vue.js",
+						"vuex",
+						"Elements UI"
+					],
+					"client": "GrayMeta",
+					"timeline": "current"
+				},
+				{
+					"unique": "GrayMeta",
+					"year": "2018",
+					"image": "graymeta.png",
+					"link": null,
+					"name": "GrayMeta Platform",
+					"tags": [
+						"SaaS",
+						"SASS",
+						"Vue.js",
+						"vuex",
+						"Elements UI"
+					],
+					"client": "GrayMeta",
+					"timeline": "current"
+				},
+				{
+					"unique": "daviddacia",
+					"year": "2018",
+					"image": "daviddacia.png",
+					"link": "http://davidanddacia.com",
+					"name": "David + Dacia",
+					"tags": [
+						"HTML5",
+						"SASS",
+						"Vue.js",
+						"Semantic UI",
+						"vue-cli",
+						"Firebase",
+						"Responsive",
+						"SPA"
+					],
+					"client": "MsDacia",
+					"timeline": "ongoing"
+				},
+				{
+					"unique": "msdacia",
+					"year": "2018",
+					"image": "msdacia.png",
+					"link": "http://msdacia.com",
+					"name": "MsDacia",
+					"tags": [
+						"HTML5",
+						"SASS",
+						"Vue.js",
+						"Semantic UI",
+						"vue-cli",
+						"Firebase",
+						"SPA"
+					],
+					"client": "MsDacia",
+					"timeline": "ongoing"
+				},
+				{
+					"unique": "undisclosedoe",
+					"year": "2018",
+					"image": "undisclosed-oe.png",
+					"link": null,
+					"name": "Undisclosed Client",
+					"tags": [
+						"HTML5",
+						"LESS",
+						"Hybris",
+						"JQuery",
+						"Responsive",
+						"JSTL",
+						"JSP",
+						"Sketch"
+					],
+					"client": "Undisclosed",
+					"timeline": "3 months"
+				},
+				{
+					"unique": "undisclosedml",
+					"year": "2018",
+					"image": "undisclosed-ml.png",
+					"link": null,
+					"name": "Undisclosed Client",
+					"tags": [
+						"HTML5",
+						"LESS",
+						"Hybris",
+						"JQuery",
+						"Responsive",
+						"JSTL",
+						"JSP",
+						"Sketch"
+					],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "valo",
+					"year": "2017",
+					"image": "valo.png",
+					"link": null,
+					"name": "Valo v2",
+					"tags": ["HTML5", "SASS", "AngularJS", "APIs", "Java", "Bootstrap", "Thymeleaf", "Grunt", "APP: Web", "Localization", "Responsive", "Agile", "JIRA"],
+					"client": "Innerworkings",
+					"timeline": "9 months"
+				},
+				{
+					"unique": "asicsf",
+					"year": "2017",
+					"image": "asics-flytefoam.png",
+					"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
+					"name": "ASICS Flytefoam",
+					"tags": ["HTML5", "SASS", "jQuery", "Sketch", "Zeplin", "gulp", "AWS", "Responsive"],
+					"client": "Undisclosed",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "asicsup",
+					"year": "2016",
+					"image": "asics-urban-pack.png",
+					"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
+					"name": "ASICS Urban Pack",
+					"tags": ["HTML5", "SASS", "jQuery", "Sketch", "Zeplin", "gulp", "AWS", "Responsive"],
+					"client": "Undisclosed",
+					"timeline": "60 hours"
+				},
+				{
+					"unique": "whirlpool",
+					"year": "2016",
+					"image": "whirlpool.png",
+					"link": "https://www.whirlpool.com/",
+					"name": "Whirlpool",
+					"tags": ["HTML5", "SASS", "jQuery", "Bootstrap", "JSON", "Handlebars", "E-commerce", "Grunt", "Responsive", "Localization", "Adobe AEM", "Hybris"],
+					"client": "Undisclosed",
+					"timeline": "5 months"
+				},
+				{
+					"unique": "fs",
+					"year": "2016",
+					"image": "financial-services.png",
+					"link": "https://bankingonmycareer.com/",
+					"name": "Financial Services",
+					"tags": ["HTML5", "SASS", "Sketch", "JavaScript", "JSON", "React", "Craft CMS", "Grunt", "Twig", "Responsive"],
+					"client": "SuperHumane",
+					"timeline": "7 months"
+				},
+				{
+					"unique": "advocate",
+					"year": "2016",
+					"image": "advocate-io.png",
+					"link": null,
+					"name": "Advocate",
+					"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
+					"client": "Advocate",
+					"timeline": "8 weeks"
+				},
+				{
+					"unique": "cavalry",
+					"year": "2016",
+					"image": "cavalry.png",
+					"link": "http://cavalryagency.com/",
+					"name": "Cavalry",
+					"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "Squarespace"],
+					"client": "Undisclosed",
+					"timeline": "6 weeks"
+				},
+				{
+					"unique": "resq",
+					"year": "2016",
+					"image": "resqbiz.png",
+					"link": "http://resqbiz.com",
+					"name": "RESQ",
+					"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL", "Responsive"],
+					"client": "Undisclosed",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "allstate",
+					"year": "2016",
+					"image": "allstate-veterans.png",
+					"link": "http://allstateveterans.com",
+					"name": "Allstate Veterans",
+					"tags": ["HTML5", "SASS", "PSD-to-HTML", "jQuery", "Grunt", "PHP", "MySQL", "Responsive"],
+					"client": "Undisclosed",
+					"timeline": "6 weeks"
+				},
+				{
+					"unique": "intel",
+					"year": "2015",
+					"image": "intel.png",
+					"link": null,
+					"name": "Intel POS",
+					"tags": ["HTML5", "SASS", "jQuery", "AngularJS", "Localization", "Grunt", "YAML", "APP: Desktop", "Agile"],
+					"client": "Undisclosed",
+					"timeline": "7 months"
+				},
+				{
+					"unique": "mcd",
+					"year": "2015",
+					"image": "mcdonalds.png",
+					"link": null,
+					"name": "McDonald's",
+					"tags": ["HTML5", "CSS3", "jQuery", "APP: Kiosk"],
+					"client": "Undisclosed",
+					"timeline": "1 week"
+				},
+				{
+					"unique": "czar",
+					"year": "2015",
+					"image": "czarnowski.png",
+					"link": "http://czarnowski.com",
+					"name": "Czarnowski",
+					"tags": ["HTML5", "CSS3", "jQuery", "PSD-to-HTML", "WordPress", "PHP", "MySQL"],
+					"client": "Symbiont Group, LLC",
+					"timeline": "6 weeks"
+				},
+				{
+					"unique": "ctachronicles",
+					"year": "2014",
+					"image": "ctachronicles.png",
+					"link": null,
+					"name": "CTA Chronicles",
+					"tags": ["HTML5", "CSS3", "jQuery", "WordPress", "PHP", "MySQL", "Responsive"],
+					"client": "MsDacia",
+					"timeline": "3 months"
+				},
+				{
+					"unique": "stop",
+					"year": "2013",
+					"image": "stopandshop.png",
+					"link": "http://stopandshop.com",
+					"name": "Stop and Shop",
+					"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
+					"client": "Peapod/Ahold",
+					"timeline": "18 months"
+				},
+				{
+					"unique": "giants",
+					"year": "2013",
+					"image": "giantfoods.png",
+					"link": "http://giantfoods.com",
+					"name": "Giant Foods",
+					"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
+					"client": "Peapod/Ahold",
+					"timeline": "18 months"
+				},
+				{
+					"unique": "giant",
+					"year": "2013",
+					"image": "giant.png",
+					"link": "http://giantfoodstores.com",
+					"name": "GIANT Foods",
+					"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
+					"client": "Peapod/Ahold",
+					"timeline": "18 months"
+				},
+				{
+					"unique": "martins",
+					"year": "2013",
+					"image": "martins.png",
+					"link": "http://martinfoods.com",
+					"name": "Martin Foods",
+					"tags": ["HTML5", "SASS", "jQuery", "Backbone", "APIs", "ADA Compliance", "Oracle ATG", "Agile", "JIRA", "PSD-to-HTML", "Sketch", "Grunt", "Jenkins", "Bamboo", "Splunk"],
+					"client": "Peapod/Ahold",
+					"timeline": "18 months"
+				},
+				{
+					"unique": "ame",
+					"year": "2013",
+					"image": "ameren.png",
+					"link": null,
+					"name": "Ameren",
+					"tags": ["PSD-to-HTML", "HTML", "Jade", "CSS3", "LESS", "AngularJS", "APIs", "SPA", "Grunt", "JIRA", "Agile", "APP: Mobile"],
+					"client": "Undisclosed",
+					"timeline": "6 weeks"
+				},
+				{
+					"unique": "lincoln",
+					"year": "2013",
+					"image": "lincolninternational.png",
+					"link": "http://www.lincolninternational.com",
+					"name": "Lincoln International",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "JavaScript", "Responsive", "WordPress", "Localization"],
+					"client": "Undisclosed",
+					"timeline": "5 weeks"
+				},
+				{
+					"unique": "thermo",
+					"year": "2013",
+					"image": "thermofisher.png",
+					"link": null,
+					"name": "Thermofisher",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "Adobe CQ", "JIRA", "Agile", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "8 weeks"
+				},
+				{
+					"unique": "border",
+					"year": "2012",
+					"image": "border-states.png",
+					"link": "http://borderstates.com",
+					"name": "Border States",
+					"tags": ["QA", "bug fixes", "JIRA"],
+					"client": "Undisclosed",
+					"timeline": "1 week"
+				},
+				{
+					"unique": "discoverbank",
+					"year": "2012",
+					"image": "discover-bank-account-activity-mobile.png",
+					"link": null,
+					"name": "Discover Card: Bank Account Activity",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile"],
+					"client": "Undisclosed",
+					"timeline": "4 weeks"
+				},
+				{
+					"unique": "evolve",
+					"year": "2012",
+					"image": "evolve.png",
+					"link": null,
+					"name": "Evolve: AG Idea Forum",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress"],
+					"client": "Internal",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "evolvem",
+					"year": "2012",
+					"image": "evolve-mobile.png",
+					"link": null,
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "WordPress", "Mobile"],
+					"client": "Internal",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "front",
+					"year": "2012",
+					"image": "frontier.png",
+					"link": "http://frontier.com",
+					"name": "Frontier",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "bug fixes", "JIRA"],
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "mine",
+					"year": "2012",
+					"image": "mine-safety-applications.png",
+					"link": "http://us.msasafety.com",
+					"name": "MSA Safety",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "tmobile",
+					"year": "2012",
+					"image": "tmobile-mobile.png",
+					"link": null,
+					"name": "T-Mobile",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "jQuery Mobile", "PHP", "Mobile", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "unsnowmen",
+					"year": "2012",
+					"image": "unsnowman.png",
+					"link": null,
+					"name": "Unsnowman Competition",
+					"tags": ["PSD-to-HTML", "HTML", "CSS3", "jQuery", "PHP", "MySQL"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "wes",
+					"year": "2012",
+					"image": "wesco.png",
+					"link": null,
+					"name": "Wesco",
+					"tags": ["QA", "bug fixes", "JIRA"],
+					"client": "Undisclosed",
+					"timeline": "1 week"
+				},
+				{
+					"unique": "grain",
+					"year": "2011",
+					"image": "grainger.png",
+					"link": null,
+					"name": "Grainger",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "DOJO", "JIRA", "Hybris", "Agile", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "18 months"
+				},
+				{
+					"unique": "sanford",
+					"year": "2010",
+					"image": "sanford-health.png",
+					"link": "http://www.sanfordhealth.org/",
+					"name": "Sanford Health",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
+					"client": "Undisclosed",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "casual",
+					"year": "2010",
+					"image": "casual-male-dxl.png",
+					"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
+					"name": "Casual Male DXL",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "5 weeks"
+				},
+				{
+					"unique": "loreal",
+					"year": "2010",
+					"image": "loreal-ysl.png",
+					"link": "http://www.yslbeautyus.com/",
+					"name": "L'Oreal",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "ltd",
+					"year": "2010",
+					"image": "ltd-commodities.png",
+					"link": "http://www.ltdcommodities.com/",
+					"name": "LTD Commodities",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "4 weeks"
+				},
+				{
+					"unique": "ny",
+					"year": "2010",
+					"image": "iloveny.png",
+					"link": "http://iloveny.com/",
+					"name": "ILOVENY | The Official New York State Tourism Site",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX"],
+					"client": "Whittman Hart",
+					"timeline": "10 weeks"
+				},
+				{
+					"unique": "symptom",
+					"year": "2010",
+					"image": "symptom-checker.png",
+					"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
+					"name": "American Academy of Pediatrics: Symptom Checker Tool",
+					"tags": ["HTML", "CSS", "jQuery"],
+					"client": "Manifest Digital",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "sun",
+					"year": "2009",
+					"image": "suntimes.png",
+					"link": "http://suntimes.com/",
+					"name": "suntimes.com",
+					"tags": ["HTML", "CSS", "JavaScript"],
+					"client": "STNG",
+					"timeline": "5 weeks"
+				},
+				{
+					"unique": "pizza",
+					"year": "2009",
+					"image": "pizzahut.png",
+					"link": "http://pizzahut.com/",
+					"name": "Pizza Hut",
+					"tags": ["HTML", "CSS", "JavaScript", "bug fixes", "E-commerce"],
+					"client": "QuikOrder",
+					"timeline": "2 months"
+				},
+				{
+					"unique": "daa",
+					"year": "2009",
+					"image": "daa.png",
+					"link": null,
+					"name": "Distinguished Alumni Awards",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "AJAX", "JavaScript", "jQuery", "XML/XSLT", "ASP Classic"],
+					"client": "Chicago Booth",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "farm",
+					"year": "2009",
+					"image": "farm-to-fork.png",
+					"link": "http://chicagobooth.edu/food/2009/",
+					"name": "From Farm to Fork Food Conference 2009",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript"],
+					"client": "Chicago Booth",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "alumni",
+					"year": "2009",
+					"image": "alumni-celebrations.png",
+					"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
+					"name": "Alumni Celebrations 2009",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript"],
+					"client": "Chicago Booth",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "career",
+					"year": "2009",
+					"image": "career-path.png",
+					"link": "http://career.chicagobooth.edu/parttime/careerpath/",
+					"name": "Career Paths",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "ASP Classic"],
+					"client": "Chicago Booth",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "reunion",
+					"year": "2009",
+					"image": "alumni-reunion.png",
+					"link": "http://chicagobooth.edu/alumni/reunion2009/",
+					"name": "Alumni Reunions 2009",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "AJAX", "XML/XSLT", "ASP Classic"],
+					"client": "Chicago Booth",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "talent",
+					"year": "2009",
+					"image": "talent-development.png",
+					"link": null,
+					"name": "Talent Development Conference 2010",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "JavaScript", "jQuery", "ASP Classic"],
+					"client": "Chicago Booth",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "discovercard",
+					"year": "2008",
+					"image": "discover-find-my-offer-mobile.png",
+					"link": null,
+					"name": "Discover Card: Find My Offer (Mobile)",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "Mobile"],
+					"client": "Undisclosed",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "cuno",
+					"year": "2008",
+					"image": "3m.png",
+					"link": null,
+					"name": "3M-Cuno",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
+					"client": "Undisclosed",
+					"timeline": "4 weeks"
+				},
+				{
+					"unique": "ashley",
+					"year": "2008",
+					"image": "ashley-furniture.png",
+					"link": "http://www.ashleyfurniturehomestore.com",
+					"name": "Ashley Furniture Homestore",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP", "E-commerce"],
+					"client": "Undisclosed",
+					"timeline": "2 weeks"
+				},
+				{
+					"unique": "gordon",
+					"year": "2008",
+					"image": "gordon-food-services.png",
+					"link": "http://www.gfs.com/en",
+					"name": "Gordon Food Services",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery", "PHP"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "ul",
+					"year": "2008",
+					"image": "ul-myhome.png",
+					"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
+					"name": "UL &ndash; @MyHome",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+					"client": "Undisclosed",
+					"timeline": "4 weeks"
+				},
+				{
+					"unique": "regis",
+					"year": "2008",
+					"image": "regis-franchise.png",
+					"link": null,
+					"name": "Regis Franchise",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "regiss",
+					"year": "2008",
+					"image": "regis-stylist.png",
+					"link": null,
+					"name": "Regis Stylist",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "invitro",
+					"year": "2008",
+					"image": "invitrogen.png",
+					"link": null,
+					"name": "Invitrogen Rockfeller",
+					"tags": ["PSD-to-HTML", "HTML", "CSS", "jQuery"],
+					"client": "Undisclosed",
+					"timeline": "3 weeks"
+				},
+				{
+					"unique": "modern",
+					"year": "2006",
+					"image": "modern-lighting.png",
+					"link": "http://www.modernlighting.com",
+					"name": "Modern Lighting",
+					"tags": ["PSD-to-HTML", "E-commerce", "HTML", "CSS", "AJAX", "JavaScript", "PHP", "MySQL"],
+					"client": "Lightology",
+					"timeline": "18 months"
 				}
 			]
 		},
-		"objective": {
-			"title": "Objective",
-			"copy": "14+ years of front-end web developer experience working with diverse clients and projects, showcasing strong development and leadership skills within an agile environment. Passionate about new technologies, user experience, coding practices, test driven development, mobile-first responsive web design, accessibility and performance."
-		},
-		"experiences": {
-			"title": "Experience",
-			"job": [
-				{
-					"title": "VueJS Software Engineer",
-					"date": "05/2018 to present",
-					"company": "GrayMeta",
-					"location": "Remote",
-					"points": [
-						"SaaS development using VueJS, Vuex, HTML5, and SASS."
-					]
-				},
-				{
-					"title": "Remote/Part-Time Web Developer",
-					"date": "02/2004 to present",
-					"company": "Independent Contractor",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Developing websites and applications for various clients with a need for short-term, one-off developers",
-						"Working on a variety of projects that could include responsive web design using technologies including but not limited to AJAX, JavaScript (jquery, Bootstrap, and AngularJS), XML, API, and JSON / Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
-						"Designing and maintaining a variety of single and multi-page websites for clients, including Hyatt Special Event (Adobe CQ), Intel POS (multi-platform), McDonalds, <a href=\"http://allstateveterans.com\" target=\"_blank\">Allstate Veterans</a>, <a href=\"https://cavalry.squarespace.com/\" target=\"_blank\">Cavalry</a> (Squarespace), <a href=\"http://czarnowski.com\" target=\"_blank\">Czarnowski</a> (WordPress), <a href=\"http://resqbiz.com\" target=\"_blank\">Resq</a> (WordPress), Advocate (WordPress)",
-						"Participating in daily stand-up meetings, sprint planning meetings, and retrospective via Google Hangouts",
-						"Executing cross-browser QA testing/debugging along with web standards and ensuring accessibility and W3C compliance",
-						"Producing web assets, by slicing and editing images in Photoshop / Sketch / Zeplin and page layout",
-						"Utilizing experience and judgment to plan around milestone schedules in order to manage multiple deadline driven projects",
-						"Monitoring status and progress of websites with Google Analytics and fixed server- and client-side errors generated",
-						"Testing website for functionality for cross-browser and cross-platform issues and enforced coding W3C standards"
-					]
-				},
-				{
-					"title": "Applications Engineer - Hybris",
-					"date": "12/2017 to 06/2018",
-					"company": "Lyons Consulting Group",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Focusing on the browser interaction side of things, using jQuery, HTML5 and LESS techniques to implement the layout and user experience specified in wireframes and PSDs delivered by Information Architects and Creative Designers",
-						"Using Hybris CMS, including customizing templates and components via Impex files based on JSP templates using JSTL"
-					]
-				},
-				{
-					"title": "Application Developer",
-					"date": "03/2017 to 12/2017",
-					"company": "Innerworkings",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Developed web-based application for B2B clients using HTML5, CSS3, JavaScript, AngularJS, and Java",
-						"Debugged defects in application environment, including SQL scripts, API callback",
-						"Generated on-demand PDFs from application based on user’s requirements"
-					]
-				},
-				{
-					"title": "Senior Presentation Layer Developer",
-					"date": "05/2016 to 02/2017",
-					"company": "Razorfish Commerce",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Created all coded presentation layer deliverables utilizing HTML5, JavaScript, CSS3, Backbone, SASS, JSON within Adobe AEM / CQ and Hybris",
-						"Converted HTML pages from Sketch / Zeplin to microsites and landing pages for clients",
-						"Worked within agile, SCRUM-based environment on large commerce accounts",
-						"Architected client sites using Grunt / gulp, setting up project framework and developing single-page applications using AWS"
-					]
-				},
-				{
-					"title": "React Front-End Web Developer (Independent Contractor)",
-					"date": "05/2016 to 11/2016",
-					"company": "SuperHumane",
-					"location": "Remote",
-					"points": [
-						"Built client-side templates using JSON/Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
-						"Tested website for functionality for cross-browser and cross-platform issues and enforced coding W3C standards",
-						"Designed JSON API within Craft CMS",
-						"Participated in daily stand-up meetings, sprint planning meetings, and retrospective via Google Hangouts"
-					]
-				},
-				{
-					"title": "Senior Front-End Web Developer",
-					"date": "12/2013 to 06/2015",
-					"company": "Peapod",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, JavaScript, Backbone, XML / XSLT, JSP, API, JSON, and Oracle ATG",
-						"Developed front-end sites and applications, including responsive web design, vanilla JavaScript, RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
-						"Created and maintained the UI toolkit and other internal projects in Oracle ATG Business Control Center, the internal CMS",
-						"Developed in agile development environment, including scrums, backlog grooming, sprint development timelines",
-						"Handled the deployment process for the end of sprint code release to production, along with documentation of our process"
-					]
-				},
-				{
-					"title": "Senior Front-End Web Developer",
-					"date": "06/2008 to 12/2013",
-					"company": "Acquity Group",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Expertise in producing HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including but not limited to CSS, HTML, AJAX, JavaScript, XML / XSLT, JSP, PHP, API, JSON, and CMS’ such as Adobe CQ and Hybris",
-						"Expertise coaching front-end developers in standards, compliant methodologies, repeatable processes, cross browser, and cross platform website and application development, including building out our formal QA process",
-						"Architected and developed front-end sites and applications, including responsive web design, JavaScript (both jQuery and dojo frameworks), RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
-						"Provided appropriate guidance and oversight to team members to ensure quality of deliverables, mentoring college hires",
-						"Provided estimates on project deliverables based on level of effort, resources, and requirements"
-					]
-				}
-			]
-		},
-		"education": {
-			"title": "Education",
-			"school": "Illinois Institute of Technology",
-			"location": "Chicago, Illinois",
-			"date": "08/1997 to 05/2002",
-			"degree": "Bachelor of Science Degree",
-			"major": "Professional and Technical Communications",
-			"minor": "Management",
-			"specialization": "CAD & Graphics Design for Non-Engineers"
+		"resume": {
+			"title": "Resume",
+			"address": "Chicago, Illinois",
+			"resumeTitle": "View/Download",
+			"resumeUrl": "https://www.dropbox.com/s/nbedzq4w3npyauu/Dacia%20James%20Resume%20All.pdf?dl=0",
+			"skills": {
+				"title": "Skills",
+				"categories": [
+					{
+						"title": "Development",
+						"copy": "Vue.js, vuex, HTML5, CSS3 (LESS, SASS), XML, Firebase, JSON, YAML, Twig, TypeScript"
+					},
+					{
+						"title": "Coding Environment/CMS/DevOps",
+						"copy": "Grunt, Gulp, webpack, vue-cli, SPA, WordPress, Craft CMS, Squarespace, Jenkins, Splunk, Jira, Bamboo"
+					}
+				]
+			},
+			"links": {
+				"title": "Links",
+				"categories": [
+					{
+						"title": "LinkedIn",
+						"url": "http://www.linkedin.com/in/dessin"
+					},
+					{
+						"title": "GitHub",
+						"url": "https://github.com/MsDacia"
+					},
+					{
+						"title": "Personal",
+						"url": "/"
+					},
+					{
+						"title": "Portfolio",
+						"url": "/#/portfolio"
+					}
+				]
+			},
+			"objective": {
+				"title": "Objective",
+				"copy": "14+ years of front-end web developer experience working with diverse clients and projects, showcasing strong development and leadership skills within an agile environment. Passionate about new technologies, user experience, coding practices, test driven development, mobile-first responsive web design, accessibility and performance."
+			},
+			"experiences": {
+				"title": "Experience",
+				"job": [
+					{
+						"title": "Vue.js Software Engineer",
+						"date": "05/2018 to present",
+						"company": "GrayMeta",
+						"location": "Remote",
+						"points": [
+							"SaaS development using Vue.js, vuex, HTML5, SASS, and Elements UI."
+						]
+					},
+					{
+						"title": "Remote/Part-Time Web Developer",
+						"date": "02/2004 to present",
+						"company": "Independent Contractor",
+						"location": "Chicago, Illinois",
+						"points": [
+							"Developing websites and applications for various clients with a need for short-term, one-off developers",
+							"Working on a variety of projects that could include responsive web design using technologies including but not limited to AJAX, JavaScript (jquery, Bootstrap, and AngularJS), XML, API, and JSON / Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
+							"Designing and maintaining a variety of single and multi-page websites for clients, including Hyatt Special Event (Adobe CQ), Intel POS (multi-platform), McDonalds, <a href=\"http://allstateveterans.com\" target=\"_blank\">Allstate Veterans</a>, <a href=\"https://cavalry.squarespace.com/\" target=\"_blank\">Cavalry</a> (Squarespace), <a href=\"http://czarnowski.com\" target=\"_blank\">Czarnowski</a> (WordPress), <a href=\"http://resqbiz.com\" target=\"_blank\">Resq</a> (WordPress), Advocate (WordPress)",
+							"Participating in daily stand-up meetings, sprint planning meetings, and retrospective via Google Hangouts",
+							"Executing cross-browser QA testing/debugging along with web standards and ensuring accessibility and W3C compliance",
+							"Producing web assets, by slicing and editing images in Photoshop / Sketch / Zeplin and page layout",
+							"Utilizing experience and judgment to plan around milestone schedules in order to manage multiple deadline driven projects",
+							"Monitoring status and progress of websites with Google Analytics and fixed server- and client-side errors generated",
+							"Testing website for functionality for cross-browser and cross-platform issues and enforced coding W3C standards"
+						]
+					},
+					{
+						"title": "Applications Engineer - Hybris",
+						"date": "12/2017 to 06/2018",
+						"company": "Lyons Consulting Group",
+						"location": "Chicago, Illinois",
+						"points": [
+							"Focusing on the browser interaction side of things, using jQuery, HTML5 and LESS techniques to implement the layout and user experience specified in wireframes and PSDs delivered by Information Architects and Creative Designers",
+							"Using Hybris CMS, including customizing templates and components via Impex files based on JSP templates using JSTL"
+						]
+					},
+					{
+						"title": "Application Developer",
+						"date": "03/2017 to 12/2017",
+						"company": "Innerworkings",
+						"location": "Chicago, Illinois",
+						"points": [
+							"Developed web-based application for B2B clients using HTML5, CSS3, JavaScript, AngularJS, and Java",
+							"Debugged defects in application environment, including SQL scripts, API callback",
+							"Generated on-demand PDFs from application based on user’s requirements"
+						]
+					},
+					{
+						"title": "Senior Presentation Layer Developer",
+						"date": "05/2016 to 02/2017",
+						"company": "Razorfish Commerce",
+						"location": "Chicago, Illinois",
+						"points": [
+							"Created all coded presentation layer deliverables utilizing HTML5, JavaScript, CSS3, Backbone, SASS, JSON within Adobe AEM / CQ and Hybris",
+							"Converted HTML pages from Sketch / Zeplin to microsites and landing pages for clients",
+							"Worked within agile, SCRUM-based environment on large commerce accounts",
+							"Architected client sites using Grunt / gulp, setting up project framework and developing single-page applications using AWS"
+						]
+					},
+					{
+						"title": "React Front-End Web Developer (Independent Contractor)",
+						"date": "05/2016 to 11/2016",
+						"company": "SuperHumane",
+						"location": "Remote",
+						"points": [
+							"Built client-side templates using JSON/Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
+							"Tested website for functionality for cross-browser and cross-platform issues and enforced coding W3C standards",
+							"Designed JSON API within Craft CMS",
+							"Participated in daily stand-up meetings, sprint planning meetings, and retrospective via Google Hangouts"
+						]
+					},
+					{
+						"title": "Senior Front-End Web Developer",
+						"date": "12/2013 to 06/2015",
+						"company": "Peapod",
+						"location": "Chicago, Illinois",
+						"points": [
+							"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, JavaScript, Backbone, XML / XSLT, JSP, API, JSON, and Oracle ATG",
+							"Developed front-end sites and applications, including responsive web design, vanilla JavaScript, RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
+							"Created and maintained the UI toolkit and other internal projects in Oracle ATG Business Control Center, the internal CMS",
+							"Developed in agile development environment, including scrums, backlog grooming, sprint development timelines",
+							"Handled the deployment process for the end of sprint code release to production, along with documentation of our process"
+						]
+					},
+					{
+						"title": "Senior Front-End Web Developer",
+						"date": "06/2008 to 12/2013",
+						"company": "Acquity Group",
+						"location": "Chicago, Illinois",
+						"points": [
+							"Expertise in producing HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including but not limited to CSS, HTML, AJAX, JavaScript, XML / XSLT, JSP, PHP, API, JSON, and CMS’ such as Adobe CQ and Hybris",
+							"Expertise coaching front-end developers in standards, compliant methodologies, repeatable processes, cross browser, and cross platform website and application development, including building out our formal QA process",
+							"Architected and developed front-end sites and applications, including responsive web design, JavaScript (both jQuery and dojo frameworks), RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
+							"Provided appropriate guidance and oversight to team members to ensure quality of deliverables, mentoring college hires",
+							"Provided estimates on project deliverables based on level of effort, resources, and requirements"
+						]
+					}
+				]
+			},
+			"education": {
+				"title": "Education",
+				"school": "Illinois Institute of Technology",
+				"location": "Chicago, Illinois",
+				"date": "08/1997 to 05/2002",
+				"degree": "Bachelor of Science Degree",
+				"major": "Professional and Technical Communications",
+				"minor": "Management",
+				"specialization": "CAD & Graphics Design for Non-Engineers"
+			}
 		}
 	}
 }

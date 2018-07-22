@@ -1,6 +1,6 @@
 <template>
 
-<div class="copy">
+<div class="copy" v-if="!loading">
 	<h1>{{content.notFound.title}}</h1>
 	<p>{{content.notFound.subtitle}}</p>
 </div>
@@ -9,12 +9,25 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
+
 	data() {
 		return {
-			content: require('../json/static.en-us.json'),
+			loading: true
 		}
 	},
+
+	firebase: {
+		content: {
+			source: contentRef,
+			asObject: true,
+			readyCallback: function () { this.loading = false }
+		},
+	},
+
 	mounted() {
 		this.$ga.page(this.$router)
 	},

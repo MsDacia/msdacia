@@ -45,10 +45,11 @@
 
 <script>
 
+import firebase from 'firebase/app'
+import { db, contentRef } from '@/datastore'
+
 export default {
-	props: {
-		projects: Array,
-	},
+
 	methods: {
 		getImage(project) {
 			return require('../assets/images/projects/' + project.image)
@@ -56,7 +57,8 @@ export default {
 		runAnalytics(title) {
 			this.$ga.event('Resume Links', 'click', title)
 		},
-	},
+	}
+	,
 	mounted() {
 		const projects = $('[data-modal]')
 
@@ -65,6 +67,11 @@ export default {
 			$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
 		})
 	},
+
+	props: {
+		projects: Array,
+	},
+
 }
 
 </script>
