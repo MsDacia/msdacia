@@ -2,7 +2,6 @@ dist/
 node_modules/
 test/e2e/reports/
 test/unit/coverage/
-src/vendor/
 
 .DS_Store
 npm-debug.log

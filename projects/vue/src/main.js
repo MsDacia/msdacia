@@ -9,11 +9,11 @@ import VueRouter from 'vue-router'
 
 import routes from './routes'
 
-import './vendor/font-awesome/css/font-awesome-core.css'
-import './vendor/font-awesome/css/font-awesome-brands.css'
-import './vendor/font-awesome/css/font-awesome-light.css'
-import './vendor/font-awesome/css/font-awesome-regular.css'
-import './vendor/font-awesome/css/font-awesome-solid.css'
+import './vendor/font-awesome/css/fontawesome.css'
+import './vendor/font-awesome/css/brands.css'
+import './vendor/font-awesome/css/light.css'
+import './vendor/font-awesome/css/regular.css'
+import './vendor/font-awesome/css/solid.css'
 
 import '../node_modules/semantic-ui/dist/semantic.min.css'
 import '../node_modules/semantic-ui/dist/semantic.min.js'

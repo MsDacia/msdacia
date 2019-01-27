@@ -7,7 +7,7 @@ const projectRoot = path.resolve(__dirname, '../')
 
 const env = process.env.NODE_ENV
 
-// check env & config/index.js to decide weither to enable CSS Sourcemaps for the
+// check env & config/index.js to decide whether to enable CSS Sourcemaps for the
 // various preprocessor loaders added to vue-loader at the end of this file
 const cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 const cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
