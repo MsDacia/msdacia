@@ -22,6 +22,16 @@ import '../node_modules/semantic-ui/dist/semantic.min.js'
 Vue.use(BootstrapVue)
 Vue.use(VueVirtualScroller)
 Vue.use(VueFire)
+Vue.use(VueRouter)
+
+// set up router and app
+const router = new VueRouter(
+	{
+		routes,
+		linkActiveClass: 'current'
+	}
+)
+
 Vue.use(VueAnalytics, {
 	id: 'UA-110464609-1',
 	checkDuplicatedScript: true,
@@ -41,14 +51,5 @@ Vue.use(VueAnalytics, {
 		}
 	}
 })
-Vue.use(VueRouter)
 
-
-// set up router and app
-const router = new VueRouter(
-	{
-		routes,
-		linkActiveClass: 'current'
-	}
-)
 const app = new Vue({ router }).$mount('#app')

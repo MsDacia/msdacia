@@ -44,7 +44,6 @@ jspm_packages
 **/.sass-cache
 .htaccess
 **/.htaccess
-**/.babelrc
 .DS_Store
 **/.DS_Store*
 .svn

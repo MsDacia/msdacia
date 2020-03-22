@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
 	<meta charset="utf-8">
-	<meta name="keywords" content="Dacia James, Dacia, Ms. Dacia, msdacia, msdacia80, msdessin, daciaj, Chicago, FED, front end developer, front end development, html, html5, jade, css, sass, less, xml, xslt, jquery, dojo, jquery mobile, jqm, ajax, api, mobile development, mobile web optimization, rich media, hybris, adobe cq, jira, github, phonegap, php, frameworks, node.js, grunt, bower, vuejs, Bootstrap, angular.js, backbone.js, PHP, SQL, WordPress, SiteCore, Hybris, Adobe CQ" />
+	<meta name="keywords" content="Dacia Rodrigue, Dacia, Ms. Dacia, msdacia, msdacia80, msdessin, daciaj, Chicago, FED, front end developer, front end development, html, html5, jade, css, sass, less, xml, xslt, TypeScript, vuex, VueJs, reactjs, Javascript developer, jquery, dojo, jquery mobile, api, mobile development, mobile web optimization, rich media, jira, github, bitbucket, node.js, grunt, Bootstrap, WordPress, Squarespace" />
 	<meta name="description" content="" />
 	<meta http-equiv="x-ua-compatible"	content="IE=Edge; IE=11;">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

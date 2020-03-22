@@ -1,8 +1,8 @@
 /*
 --------------------------------------------------
 standard.js
-Dacia James [msdessin@gmail.com]
-Copyright © 2016 msdacia.com
+Dacia Rodrigue [msdessin@gmail.com]
+Copyright © 2020 msdacia.com
 --------------------------------------------------
 */
 
