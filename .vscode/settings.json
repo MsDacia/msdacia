@@ -13,5 +13,8 @@
 		"test/unit/**/coverage": true
 	},
 	"files.trimTrailingWhitespace": true,
-	"workbench.colorTheme": "Fresh Material - Pink"
+	"workbench.colorTheme": "Fresh Material - Pink",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
 }
