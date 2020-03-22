@@ -2,7 +2,7 @@
 
 > MsDacia's Personal Site - Vue2
 
-**Note:** My partner, David Rodrigue (guru@eugirdor.com) handled the architecture of the site, including setting up webpack, firebase, and the tests. Everything else, I handled on my own, including the UI and UX design. I also incorporates some ADA-compliance, but there is room for improvement. This is my first VueJS, unit, e2e, and SemanticUI project.
+**Note:** My husband, David Rodrigue (guru@eugirdor.com) handled the architecture of the site, including setting up webpack, firebase, and the tests. Everything else, I handled on my own, including the UI and UX design. I also incorporates some ADA-compliance, but there is room for improvement. This is my first VueJS, unit, e2e, and SemanticUI project.
 
 ## Build Setup
 
