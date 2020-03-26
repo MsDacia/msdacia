@@ -60,7 +60,7 @@
 		mounted() {
 			const projects = $('[data-modal]')
 
-			projects.each(function(){
+			projects.each(function () {
 				let project = $(this).attr('data-modal')
 				$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
 			})

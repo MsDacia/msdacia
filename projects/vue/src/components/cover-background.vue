@@ -25,28 +25,36 @@
 
 <style scoped lang="sass">
 
+	main
+		grid-area: main
+		overflow-y: auto
+		position: relative
+
+	header
+		grid-area: header
+
+	footer
+		grid-area: footer
+
 	.container
-		@include size(100%, auto)
-		min-height: 100%
+		@include rem(margin, 0)
+		@include rem(padding, 0)
+		@include size(100vw, 100vh)
+		display: grid;
+		grid-gap: 1em;
+		grid-template-areas: "header" "main" "footer"
+		grid-template-rows: 50px auto 80px
+		overflow: hidden
+		position: relative
 
 		main,
-		header
+		header,
+		footer
 			@include rem(margin-bottom, 15px)
-			@include rem(padding, 10px 25px 15px)
+			@include rem(padding, 0 20px)
 			margin: 0 auto
 			max-width: 1440px
 			position: relative
-			width: 100%
+			width: 100vw
 			z-index: 2
-
-		main
-			height: 75%
-			margin-bottom: 0
-			min-height: 420px
-
-			@include phablet
-				@include rem(padding-left, 35px)
-				@include rem(padding-right, 35px)
-				min-height: 600px
-
 </style>

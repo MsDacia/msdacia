@@ -39,14 +39,14 @@ Vue.use(VueAnalytics, {
 	autotracking: {
 		untracked: true,
 		pageviewOnLoad: true,
-		pageviewTemplate (route) {
+		pageviewTemplate(route) {
 			return {
 			  page: route.path,
 			  title: document.title,
 			  location: window.location.href
 			}
 		},
-		shouldRouterUpdate (to, from) {
+		shouldRouterUpdate(to, from) {
 			return to.path !== from.path
 		}
 	}

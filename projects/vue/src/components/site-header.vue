@@ -42,17 +42,15 @@
 
 	.container
 		header
-			min-height: 60px
 			padding-bottom: 0
 			position: relative
 			z-index: 3
 
 			@include phablet
 				@include rem(padding-right, 15px)
-				min-height: 120px
 
 			.item
-				@include abs-pos(40px, 30px, auto, auto)
+				@include abs-pos(15px, 30px, auto, auto)
 				@include transform(1px, 0)
 				@include transition(all 1s)
 				overflow: hidden
@@ -87,12 +85,11 @@
 
 				@include phablet
 					@include rel-pos(auto, auto, auto, auto)
-					@include rem(margin, 0 50px)
+					@include rem(margin, 0 20px)
 					@include rem(padding, 0)
 					background: transparent
-					width: 80%
+					width: 90%
 					z-index: inherit
-
 
 				&.hide-content
 					@include phablet
@@ -111,7 +108,7 @@
 					text-decoration: none
 
 					@include phablet
-						@include rem(margin, 0 15px 10px)
+						@include rem(margin, 0 0 10px)
 						@include rem(padding-bottom, 5px)
 						text-align: right
 

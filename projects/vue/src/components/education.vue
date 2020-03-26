@@ -4,8 +4,7 @@
 			<div class="header">{{content.resume.education.school}}</div>
 			<div class="meta">
 				<div class="category">
-					{{content.resume.education.degree}},
-					<span class="time">{{content.resume.education.date}}</span>
+					{{content.resume.education.degree}}
 				</div>
 			</div>
 			<div class="description">

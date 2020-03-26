@@ -17,21 +17,21 @@
 			'subject': String
 		},
 		computed: {
-			href: function () {
-				let uri = `mailto:${this.localPart}@${this.domain}`
+			href() {
+				let uri = 'mailto:${this.localPart}@${this.domain}'
 
 				if (this.subject) {
-					uri += `?subject=${encodeURIComponent(this.subject)}`
+					uri += '?subject=${encodeURIComponent(this.subject)}'
 				}
 
 				return uri
 			},
-			title: function() {
-				let ref = `Email`
+			title() {
+				let ref = 'Email'
 				return ref
 			},
-			obfuscatedText: function () {
-				return '<i class="mail icon" style="font-size: 2.6em;"></i>'
+			obfuscatedText() {
+				return '<i class="mail icon" style="font-size: 1.3em;"></i>'
 			}
 		},
 		methods: {
@@ -58,9 +58,10 @@
 
 		a.email-icon
 			@include rem(margin-bottom, 5px)
-			@include size(64px, 64px)
+			@include size(24px, 24px)
 			box-shadow: 0 0 1px transparent
 			color: $text
+			margin-right: 0.5rem
 			overflow: hidden
 			padding-bottom: 3px
 			text-align: center
@@ -72,10 +73,9 @@
 				i.icon
 					color: $anchor-text-hover2
 
-
 			i.icon
-				font-size: 2.6em
-				margin-right: 0
+				font-size: 1.2rem
+				margin-right: 0.5rem
 
 				&:hover
 					color: $anchor-text-hover2
