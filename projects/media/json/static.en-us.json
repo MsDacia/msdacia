@@ -194,7 +194,8 @@
 					"vue-cli",
 					"Firebase",
 					"Responsive",
-					"SPA"
+					"SPA",
+					"TypeScript"
 				],
 				"timeline": "1 year",
 				"unique": "daviddacia",
