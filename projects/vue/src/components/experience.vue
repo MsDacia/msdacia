@@ -57,7 +57,7 @@
 
 		.header:not(.ui)
 			margin-bottom: 0
-			font-size: .875em
+			font-size: 1rem
 
 	.ui.card
 		.content

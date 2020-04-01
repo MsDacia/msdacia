@@ -1,7 +1,7 @@
 {
 	"about": {
 		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
-		"copy2": "I am a front end software engineer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue.js, which is how this site was built. I also have 3 additional sites/apps I am building/have built with my husband: our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a>, our multi-person, offline mode supported grocery list app (which is still in development), and our food rating app. As a detail-oriented, maybe a bit anal, person being a software engineer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. Right now, I am quite content with my current career path.",
+		"copy2": "I am a front end software engineer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue, which is how this site was built. I also have 3 additional sites/apps I am building/have built with my husband: our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a>, our multi-person, offline mode supported grocery list app (which is still in development), and our food rating app. As a detail-oriented, maybe a bit anal, person being a software engineer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. Right now, I am quite content with my current career path.",
 		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. My husband and I had the honor of having our wedding at Soldier Field, November 1, 2018. Visit our site <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a> to see the video. I have been the commissioner of my own fantasy football league since 2008. It is so much fun. I have only won one championship, but don't let my record fool you. I have won more game with Jay Cutler as my quarterback than losses. LOL!! I am loyal.",
 		"subtitle": "Foundation",
 		"subtitle2": "Professionally",
@@ -11,7 +11,7 @@
 	"common": {
 		"ad": {
 			"work": {
-				"copy": "VueJS/ReactJS/Javascript Software Engineer and CraftCMS/Twig Developer currently looking for a full-time remote role to help showcase my skills",
+				"copy": "Vue/ReactJS/Javascript Software Engineer and CraftCMS/Twig Developer currently looking for a full-time remote role to help showcase my skills",
 				"title": "For Hire"
 			}
 		},
@@ -135,6 +135,11 @@
 				"url": "https://github.com/MsDacia"
 			},
 			{
+				"icon": "bitbucket icon",
+				"title": "Bitbucket Repositories",
+				"url":"https://bitbucket.org/MsDacia1/msdacia/src/master/"
+			},
+			{
 				"icon": "jsfiddle icon",
 				"title": "JSFiddle Code Snippets",
 				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
@@ -149,16 +154,14 @@
 					"SaaS",
 					"SASS",
 					"LESS",
-					"Vue.js",
+					"Vue",
 					"vuex",
 					"Elements UI",
-					"jest",
-					"unit tests",
 					"Scrum Master"
 				],
-				"timeline": "2 years",
-				"unique": "GrayMeta-curio",
-				"year": "2018"
+				"timeline": "2 months",
+				"unique": "curio",
+				"year": "2019"
 			},
 			{
 				"client": "GrayMeta",
@@ -167,7 +170,7 @@
 				"tags": [
 					"SaaS",
 					"LESS",
-					"Vue.js",
+					"Vue",
 					"vuex",
 					"Elements UI",
 					"jest",
@@ -175,7 +178,7 @@
 					"Scrum Master"
 				],
 				"timeline": "2 years",
-				"unique": "GrayMeta",
+				"unique": "graymeta",
 				"year": "2018"
 			},
 			{
@@ -186,7 +189,7 @@
 				"tags": [
 					"HTML5",
 					"SASS",
-					"Vue.js",
+					"Vue",
 					"Semantic UI",
 					"vue-cli",
 					"Firebase",
@@ -205,7 +208,7 @@
 				"tags": [
 					"HTML5",
 					"SASS",
-					"Vue.js",
+					"Vue",
 					"Semantic UI",
 					"vue-cli",
 					"Firebase",
@@ -216,8 +219,26 @@
 				"year": "2018"
 			},
 			{
+				"client": "Grocery List Web Application",
+				"image": "grocery-list.png",
+				"name": "Personal Grocery List Web Application",
+				"tags": [
+					"HTML5",
+					"Vue",
+					"Semantic UI",
+					"vue-cli",
+					"TypeScript",
+					"Firebase",
+					"SPA"
+				],
+				"timeline": "ongoing",
+				"unique": "grocery",
+				"year": "2019"
+			},
+			{
 				"client": "American Back Center",
-				"image": null,
+				"image": "american-back-center.png",
+				"link": "https://www.americanbackcenter.org/",
 				"name": "American Back Center",
 				"tags": [
 					"WordPress",
@@ -356,7 +377,7 @@
 					"HTML5",
 					"SASS",
 					"Sketch",
-					"JavaScript",
+					"Javascript",
 					"JSON",
 					"React",
 					"Craft CMS",
@@ -643,7 +664,7 @@
 					"PSD-to-HTML",
 					"HTML",
 					"CSS3",
-					"JavaScript",
+					"Javascript",
 					"Responsive",
 					"WordPress",
 					"Localization"
@@ -905,7 +926,7 @@
 					"PSD-to-HTML",
 					"HTML",
 					"CSS",
-					"JavaScript",
+					"Javascript",
 					"jQuery",
 					"AJAX"
 				],
@@ -935,7 +956,7 @@
 				"tags": [
 					"HTML",
 					"CSS",
-					"JavaScript"
+					"Javascript"
 				],
 				"timeline": "5 weeks",
 				"unique": "sun",
@@ -949,7 +970,7 @@
 				"tags": [
 					"HTML",
 					"CSS",
-					"JavaScript",
+					"Javascript",
 					"bug fixes",
 					"E-commerce"
 				],
@@ -966,7 +987,7 @@
 					"HTML",
 					"CSS",
 					"AJAX",
-					"JavaScript",
+					"Javascript",
 					"jQuery",
 					"XML/XSLT",
 					"ASP Classic"
@@ -984,7 +1005,7 @@
 					"PSD-to-HTML",
 					"HTML",
 					"CSS",
-					"JavaScript"
+					"Javascript"
 				],
 				"timeline": "3 weeks",
 				"unique": "farm",
@@ -999,7 +1020,7 @@
 					"PSD-to-HTML",
 					"HTML",
 					"CSS",
-					"JavaScript"
+					"Javascript"
 				],
 				"timeline": "3 weeks",
 				"unique": "alumni",
@@ -1029,7 +1050,7 @@
 					"PSD-to-HTML",
 					"HTML",
 					"CSS",
-					"JavaScript",
+					"Javascript",
 					"jQuery",
 					"AJAX",
 					"XML/XSLT",
@@ -1047,7 +1068,7 @@
 					"PSD-to-HTML",
 					"HTML",
 					"CSS",
-					"JavaScript",
+					"Javascript",
 					"jQuery",
 					"ASP Classic"
 				],
@@ -1185,7 +1206,7 @@
 					"HTML",
 					"CSS",
 					"AJAX",
-					"JavaScript",
+					"Javascript",
 					"PHP",
 					"MySQL"
 				],
@@ -1219,7 +1240,7 @@
 					"location": "Remote",
 					"points": [
 						"Gathered business logic from product owners, which allowed for determining if either the \"client side\" or \"server side\" approach is appropriate and educated teams on this",
-						"Architected, developed, tested, refactored, and scaled new and existing reusable cross-platform components for optimal user workflow experiences for GrayMeta’s SaaS cloud-based application using VueJS, vuex, unit tests, and LESS in a GoLang environment",
+						"Architected, developed, tested, refactored, and scaled new and existing reusable cross-platform components for optimal user workflow experiences for GrayMeta’s SaaS cloud-based application using Vue, vuex, unit tests, and LESS in a GoLang environment",
 						"Integrated and maintained state management for complex API-driven data models utilizing vuex",
 						"Created page and feature designs for developer consumption in Adobe XD, exported to Zeplin",
 						"Participated in code reviews providing thoughtfully constructive feedback",
@@ -1245,7 +1266,7 @@
 					"date": "03/2017 to 12/2017",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Developed web-based application for B2B clients using HTML5, CSS3, JavaScript, AngularJS, and Java",
+						"Developed web-based application for B2B clients using HTML5, CSS3, Javascript, AngularJS, and Java",
 						"Debugged defects in application environment, including SQL scripts, API callback",
 						"Generated on-demand PDFs from application based on user’s requirementss"
 					],
@@ -1256,7 +1277,7 @@
 					"date": "05/2016 to 02/2017",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Architected all coded presentation layer deliverables utilizing HTML5, JavaScript, CSS3, Backbone, SASS, JSON, D3 within Adobe AEM/CQ and Hybris",
+						"Architected all coded presentation layer deliverables utilizing HTML5, Javascript, CSS3, Backbone, SASS, JSON, D3 within Adobe AEM/CQ and Hybris",
 						"Converted HTML pages from Sketch/Zeplin to microsites and landing pages for clients",
 						"Worked within agile, SCRUM-based environment on large commerce accounts",
 						"Architected client sites using Grunt/Gulp and developed single-page applications using AWS",
@@ -1282,8 +1303,8 @@
 					"date": "12/2013 to 06/2015",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, JavaScript, backbone.js, XML/XSLT, JSP, API, JSON, and ATG CMS",
-						"Developed front-end sites and applications, including responsive web design, vanilla JavaScript, RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
+						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, Javascript, backbone.js, XML/XSLT, JSP, API, JSON, and ATG CMS",
+						"Developed front-end sites and applications, including responsive web design, vanilla Javascript, RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
 						"Created and maintained the UI toolkit and other internal projects in ATG Business Control Center CMS",
 						"Developed in agile development environment, including scrums, backlog grooming, and sprint planning",
 						"Handled and documented the deployment process for the end of sprint code release to production"
@@ -1295,9 +1316,9 @@
 					"date": "06/2008 to 12/2013",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including but not limited to CSS, HTML, AJAX, JavaScript, XML/XSLT, JSP, PHP, API, JSON, and CMS’ such as Adobe CQ and Hybris",
+						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including but not limited to CSS, HTML, AJAX, Javascript, XML/XSLT, JSP, PHP, API, JSON, and CMS’ such as Adobe CQ and Hybris",
 						"Coached front-end developers in standards, compliant methodologies, repeatable processes, cross browser, and cross platform website and application development, including building out our formal QA process",
-						"Architected and developed front-end sites and applications, including responsive web design, JavaScript (both jQuery and dojo frameworks), RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
+						"Architected and developed front-end sites and applications, including responsive web design, Javascript (both jQuery and dojo frameworks), RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
 						"Utilized experience and judgment to plan around milestone schedules in order to manage multiple deadline driven projects",
 						"Provided appropriate guidance and oversight to team members to ensure quality of deliverables, mentoring college hires"
 					],
@@ -1328,15 +1349,15 @@
 			"title": "Links"
 		},
 		"objective": {
-			"copy": "16+ years of front-end web engineering experience working with diverse clients and projects while collaborating with product owners, UI/UX designers, back-end engineers, and QA engineers. As a team member, I showcase strong leadership skills within an agile environment, while bringing my passion about new technologies, industry coding standards, and clean, reusable code, while keeping in mind the end-user experience with the application.",
+			"copy": "Continuing with my front-end web engineering experience working with diverse clients and projects while collaborating with product owners, UI/UX designers, back-end engineers, and QA engineers. As a team member, I showcase strong leadership skills within an agile environment, while bringing my passion about new technologies, industry coding standards, and clean, reusable code, while keeping in mind the end-user experience with the application.",
 			"title": "Objective"
 		},
 		"resumeTitle": "View/Download",
-		"resumeUrl": "https://www.dropbox.com/s/5oil41ocjmsvutw/Dacia%20Rodrigue%20Resume%20All.pdf?dl=0",
+		"resumeUrl": "https://www.dropbox.com/s/034ssmryv09c92h/Dacia%20Rodrigue%20Resume%20All.pdf?dl=0",
 		"skills": {
 			"categories": [
 				{
-					"copy": "VueJS/vuex, ReactJS/redux, TypeScript, HTML5, LESS/SASS, API integration, JSON, YAML, Twig",
+					"copy": "Vue/vuex, ReactJS/redux, TypeScript, HTML5, LESS/SASS, API integration, JSON, YAML, Twig",
 					"title": "Development"
 				},
 				{

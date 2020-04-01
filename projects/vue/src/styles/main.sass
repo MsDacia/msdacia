@@ -22,7 +22,7 @@ body,
 
 html
 	box-sizing: border-box
-	font-size: 90%
+	font-size: 95%
 	line-height: 1.5
 
 body
@@ -51,10 +51,10 @@ body
 	z-index: 2
 
 main
-	font-size: 1.25em
+	font-size: 1.25rem
 
 	.ui.grid
-		font-size: 1.05em
+		font-size: 1.05rem
 
 .block
 	position: relative
@@ -171,7 +171,7 @@ h2,
 	padding-right: 0
 
 	&.icon > .icon:not(.close)
-		font-size: 1.2em
+		font-size: 1.2rem
 
 	.content
 		margin: 0
@@ -205,7 +205,7 @@ h2,
 			margin-left: 0
 
 			a
-				font-size: 1.25em
+				font-size: 1.25rem
 
 .ui.feed > .event
 	.content
@@ -215,17 +215,18 @@ h2,
 			@include bold()
 			@include rem(padding, 0 8px 0)
 			color: lighten($text3, 20%)
-			font-size: .85em
+			font-size: .85rem
 
 		.summary,
 		.extra.text
 			color: $text
-			font-size: 1.3em
+			font-size: 1.3rem
 			max-width: none
 
 		.extra.text
 			.content
-				font-size: .9em
+				font-size: .95rem
+				line-height: 1.4
 
 		.summary
 			font-weight: normal
@@ -234,7 +235,7 @@ h2,
 			color: $anchor-text
 
 		p
-			font-size: 1.4em
+			font-size: 1.4rem
 
 .statistics
 	@include rem(margin-bottom, 40px)
@@ -247,7 +248,7 @@ h2,
 			background: $background-alt-b
 			color: $text
 			cursor: default
-			font-size: .6em
+			font-size: .6rem
 			margin: 0
 			position: relative
 			text-align: center
@@ -259,11 +260,11 @@ h2,
 			span
 				@include rem(padding, 0 5.5px)
 				color: $text2
-				font-size: 2em
+				font-size: 2rem
 
 			.icon
 				@include abs-pos(10%, auto, auto, 5px)
-				font-size: 1.3em
+				font-size: 1.3rem
 
 			&.selected,
 			&.selected span
@@ -296,16 +297,16 @@ h2,
 
 		.header
 			@include bold()
-			font-size: 1.6em
+			font-size: 1.6rem
 			margin-bottom: 0
 			text-shadow: $text-shadow
 
 		p
-			font-size: 1.1em
+			font-size: 1.1rem
 
 		.icon
 			color: $text5
-			font-size: 3em !important
+			font-size: 3rem !important
 
 .ui.label
 	background-color: $background-b
@@ -346,7 +347,7 @@ h2,
 			@include rem(margin-bottom, 0)
 			@include rem(padding, 2px 8px 0)
 			color: lighten($text3, 20%)
-			font-size: .7em
+			font-size: .8rem
 			width: 100%
 
 		.header,
@@ -358,7 +359,7 @@ h2,
 
 			em
 				@include bold()
-				font-size: .65em
+				font-size: .8em
 				font-style: italic
 
 		.description
@@ -366,7 +367,7 @@ h2,
 			border-left: 8px solid $border
 
 			p
-				font-size: .9em
+				font-size: 1.1rem
 
 		.summary
 			font-weight: normal
@@ -427,7 +428,7 @@ h2,
 				text-shadow: $text-shadow
 
 		.ui.message
-			font-size: 1.2em
+			font-size: 1.2rem
 			margin: 0
 			padding: 0
 
@@ -600,12 +601,12 @@ address
 
 			.ui.label,
 			.label
-				font-size: 1.75em
+				font-size: 1.75rem
 
 	.ui.header
 		.ui.massive.label,
 		.ui.massive.labels .label
-			font-size: 7em
+			font-size: 7rem
 			left: -100px
 
 .nowrap

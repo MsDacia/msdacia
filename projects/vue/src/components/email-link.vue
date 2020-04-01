@@ -31,7 +31,7 @@
 				return ref
 			},
 			obfuscatedText() {
-				return '<i class="mail icon" style="font-size: 1.3em;"></i>'
+				return '<i class="mail icon" style="font-size: 1.3rem;"></i>'
 			}
 		},
 		methods: {

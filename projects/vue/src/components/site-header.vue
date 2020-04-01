@@ -135,7 +135,7 @@
 					.icon
 						@include black()
 						@include transition(visibility 1s ease-out)
-						font-size: .75em
+						font-size: .75rem
 						margin-right: 0
 						visibility: hidden
 
