@@ -101,24 +101,9 @@
 				"url": "https://bitbucket.org/davidanddacia/"
 			},
 			{
-				"icon": "jsfiddle icon",
-				"title": "JSFiddle",
-				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
-			},
-			{
-				"icon": "food icon",
-				"title": "Allrecipes.com",
-				"url": "http://allrecipes.com/cook/msdacia/"
-			},
-			{
 				"icon": "skype icon",
 				"title": "Skype",
 				"url": "skype:msdacia1?userinfo"
-			},
-			{
-				"icon": "yelp icon",
-				"title": "Yelp",
-				"url": "http://msdacia.yelp.com/"
 			}
 		]
 	},
@@ -138,11 +123,6 @@
 				"icon": "bitbucket icon",
 				"title": "Bitbucket Repositories",
 				"url":"https://bitbucket.org/MsDacia1/msdacia/src/master/"
-			},
-			{
-				"icon": "jsfiddle icon",
-				"title": "JSFiddle Code Snippets",
-				"url": "https://jsfiddle.net/user/MsDacia/fiddles/"
 			}
 		],
 		"projects": [
