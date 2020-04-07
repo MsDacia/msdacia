@@ -1,0 +1,294 @@
+body
+	&.light
+
+		$header-text: $text2
+		$anchor-text: $text9
+		$anchor-text-hover: $text8
+		$text-shadow: 0 0 15px $text-alt
+		$border: $background9
+
+		background-color: $background
+		color: $text-alt
+
+		.container,
+		.wrapper
+			color: $text-alt
+
+		.overlay
+			background-color: $background-a
+
+		header
+			.eyedropper
+				&:hover
+					color: $anchor-text
+
+			.menu
+				a
+					@include black()
+					color: $text-alt
+
+					&.active,
+					&.router-link-exact-active
+						.icon
+							color: $anchor-text
+
+					&:hover,
+					&.active,
+					&.router-link-exact-active
+						color: $anchor-text
+
+						.icon
+							color: $anchor-text
+
+		footer
+			a
+				color: $text-alt
+
+				&:hover
+					color: $anchor-text
+
+					i,
+					.icon,
+					.svg-inline--fa
+						color: $anchor-text
+
+			p
+				&.copyright
+					a
+						color: $anchor-text
+
+						&:hover
+							color: $anchor-text-hover
+
+		h1, h2, h3,
+		h4, h5, h6
+			a
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-hover
+
+				&:hover,
+				&:focus,
+				&:active
+					i,
+					.icon,
+					.svg-inline--fa
+						color: $anchor-text-hover
+
+		h1
+			color: $header-text
+
+		a
+			color: $anchor-text
+
+			&:hover,
+			&.active,
+			&.router-link-exact-active
+				color: $anchor-text-hover
+
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text-hover
+
+		i,
+		.icon,
+		.svg-inline--fa
+			&:hover,
+			&.active
+				color: $anchor-text-hover
+
+			&.inverted.icon
+				color: $text-alt
+
+		h2,
+		.ui.attached.header
+
+		.ui.table,
+		.ui.message,
+		.ui.attached.header
+			color: $text-alt
+			text-shadow: none
+
+		.ui.definition.table tr,
+		.ui.definition.table tr,
+		.ui.table:not(.unstackable) tr,
+		.ui.table:not(.unstackable) tr
+			box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .3) inset !important
+
+			td.definition,
+			td:first-child:not(.ignored),
+			> td,
+			> th
+				color: $text-alt
+
+		.ui.label
+			background-color: $background-alt-b
+			color: $text
+
+		.ui.horizontal.divider
+			color: $text-alt
+
+			> .icon
+				color: $text-alt
+
+		.ui.list,
+		ol.ui.list,
+		ul.ui.list
+			a
+				color: $anchor-text
+
+				&:hover,
+				&.active,
+				&.router-link-exact-active
+					color: $anchor-text-hover
+
+					&:before
+						background: $anchor-text-hover
+
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $anchor-text
+
+		.ui.message,
+		.ui.banner
+			&.ad
+				background: $background-b
+				border-color: $border
+
+				.header
+					text-shadow: none
+
+				.icon
+					color: $anchor-text
+
+		.ui.feed > .event
+			.content
+				.date
+					color: $text9
+					text-shadow: none
+
+				.summary,
+				.extra.text
+					color: $text-alt
+
+				a
+					color: $anchor-text
+
+		.ui.card,
+		.ui.cards > .card
+			> .extra a:not(.ui):hover,
+			> .card >.extra a:not(.ui):hover
+				color: $text-alt
+
+			.description,
+			p,
+			.header
+				color: $text-alt
+
+			.extra
+				a
+					color: $anchor-text
+
+			.content
+				.date,
+				.time
+					color: $text9
+
+				.header,
+				.meta,
+				.description,
+				.extra.text
+					color: $text-alt
+
+				.description
+					border-left-color: $border
+
+				a
+					color: $anchor-text
+
+		.ui.accordion,
+		.ui.accordion .accordion
+			.title:not(.ui)
+				&:hover,
+				&.active
+					.ui.message *
+						color: $anchor-text
+						text-shadow: none
+
+		.card
+			background-color: transparent
+
+			> a
+				@include tablet-xlarge
+					&:hover
+						border-color: $text-alt
+
+
+		.statistics
+			.ui.labels
+				.ui.label
+					background: $background-b
+					color: $text-alt
+
+		.ui.modal,
+		.timeline
+			.ui[class*="bottom attached"].label
+				background-color: $background-alt-b
+				color: $text
+
+			.ui.labels
+				.ui.label
+					background-color: $background-alt-a
+					color: $text
+
+			.ui.header,
+			.ui.segment
+				.ui.massive.label,
+				.ui.massive.labels .label
+					color: $text
+
+			.ui.header
+				.ui.massive.label,
+				.ui.massive.labels .label
+					font-size: 7rem
+					left: -100px
+
+			.content
+				h3
+					a
+						color: $text
+
+						&:hover,
+						&.active
+							color: $text4
+
+			.actions
+				i,
+				.icon,
+				.svg-inline--fa
+					color: $text
+
+		address ~ p
+			a
+				color: $text-alt
+
+				&:hover,
+				&.active
+					color: $anchor-text-hover
+
+		.ui.green.label,
+		.ui.green.labels .label
+			background-color: $anchor-text-hover !important
+			border-color: $anchor-text-hover !important
+
+		main
+			.copy
+				h1
+					color: $text-alt
+
+				h2
+					color: $anchor-text
+					text-shadow: $text-shadow
