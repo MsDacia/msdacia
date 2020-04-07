@@ -54,18 +54,22 @@
 		"navigation": [
 			{
 				"item": "home",
+				"path": "/",
 				"title": "Home"
 			},
 			{
 				"item": "about",
+				"path": "/about",
 				"title": "About"
 			},
 			{
 				"item": "resume",
+				"path": "/resume",
 				"title": "Resume"
 			},
 			{
 				"item": "portfolio",
+				"path": "/portfolio",
 				"title": "Portfolio"
 			}
 		],
@@ -127,6 +131,7 @@
 		],
 		"projects": [
 			{
+				"id": 61,
 				"client": "GrayMeta",
 				"image": "curio.png",
 				"name": "Curio",
@@ -136,6 +141,7 @@
 					"LESS",
 					"Vue",
 					"vuex",
+					"Cloud-based Application",
 					"Elements UI",
 					"Scrum Master"
 				],
@@ -144,6 +150,7 @@
 				"year": "2019"
 			},
 			{
+				"id": 60,
 				"client": "GrayMeta",
 				"image": "graymeta.png",
 				"name": "Curio GrayMeta Platform",
@@ -162,6 +169,7 @@
 				"year": "2018"
 			},
 			{
+				"id": 59,
 				"client": "MsDacia",
 				"image": "daviddacia.png",
 				"link": "http://davidanddacia.com",
@@ -182,6 +190,7 @@
 				"year": "2018"
 			},
 			{
+				"id": 58,
 				"client": "MsDacia",
 				"image": "msdacia.png",
 				"link": "http://msdacia.com",
@@ -200,14 +209,16 @@
 				"year": "2018"
 			},
 			{
-				"client": "Grocery List Web Application",
+				"id": 57,
+				"client": "Grocery List",
 				"image": "grocery-list.png",
-				"name": "Personal Grocery List Web Application",
+				"name": "Personal Grocery List",
 				"tags": [
 					"HTML5",
 					"Vue",
 					"Semantic UI",
 					"vue-cli",
+					"Web Application",
 					"TypeScript",
 					"Firebase",
 					"SPA"
@@ -217,6 +228,7 @@
 				"year": "2019"
 			},
 			{
+				"id": 56,
 				"client": "American Back Center",
 				"image": "american-back-center.png",
 				"link": "https://www.americanbackcenter.org/",
@@ -230,6 +242,7 @@
 				"year": "2018"
 			},
 			{
+				"id": 55,
 				"client": "Undisclosed",
 				"image": "undisclosed-oe.png",
 				"name": "Undisclosed Client",
@@ -248,6 +261,7 @@
 				"year": "2018"
 			},
 			{
+				"id": 54,
 				"client": "Undisclosed",
 				"image": "undisclosed-ml.png",
 				"name": "Undisclosed Client",
@@ -266,6 +280,7 @@
 				"year": "2018"
 			},
 			{
+				"id": 53,
 				"client": "Innerworkings",
 				"image": "valo.png",
 				"name": "Valo v2",
@@ -278,7 +293,7 @@
 					"Bootstrap",
 					"Thymeleaf",
 					"Grunt",
-					"APP: Web",
+					"Web Application",
 					"Localization",
 					"Responsive",
 					"Agile",
@@ -289,6 +304,7 @@
 				"year": "2017"
 			},
 			{
+				"id": 52,
 				"client": "Undisclosed",
 				"image": "asics-flytefoam.png",
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
@@ -308,6 +324,7 @@
 				"year": "2017"
 			},
 			{
+				"id": 51,
 				"client": "Undisclosed",
 				"image": "asics-urban-pack.png",
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
@@ -327,6 +344,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 50,
 				"client": "Undisclosed",
 				"image": "whirlpool.png",
 				"link": "https://www.whirlpool.com/",
@@ -350,6 +368,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 49,
 				"client": "SuperHumane",
 				"image": "financial-services.png",
 				"link": "https://bankingonmycareer.com/",
@@ -371,6 +390,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 48,
 				"client": "Advocate",
 				"image": "advocate-io.png",
 				"name": "Advocate",
@@ -389,6 +409,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 47,
 				"client": "Undisclosed",
 				"image": "cavalry.png",
 				"link": "http://cavalryagency.com/",
@@ -405,6 +426,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 46,
 				"client": "Undisclosed",
 				"image": "resqbiz.png",
 				"link": "http://resqbiz.com",
@@ -424,6 +446,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 45,
 				"client": "Undisclosed",
 				"image": "allstate-veterans.png",
 				"link": "http://allstateveterans.com",
@@ -443,6 +466,7 @@
 				"year": "2016"
 			},
 			{
+				"id": 44,
 				"client": "Undisclosed",
 				"image": "intel.png",
 				"name": "Intel POS",
@@ -462,6 +486,7 @@
 				"year": "2015"
 			},
 			{
+				"id": 43,
 				"client": "Undisclosed",
 				"image": "mcdonalds.png",
 				"name": "McDonald's",
@@ -476,6 +501,7 @@
 				"year": "2015"
 			},
 			{
+				"id": 42,
 				"client": "Symbiont Group, LLC",
 				"image": "czarnowski.png",
 				"link": "http://czarnowski.com",
@@ -494,6 +520,7 @@
 				"year": "2015"
 			},
 			{
+				"id": 41,
 				"client": "MsDacia",
 				"image": "ctachronicles.png",
 				"name": "CTA Chronicles",
@@ -511,6 +538,7 @@
 				"year": "2014"
 			},
 			{
+				"id": 40,
 				"client": "Peapod/Ahold",
 				"image": "stopandshop.png",
 				"link": "http://stopandshop.com",
@@ -537,6 +565,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 39,
 				"client": "Peapod/Ahold",
 				"image": "giantfoods.png",
 				"link": "http://giantfoods.com",
@@ -563,6 +592,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 38,
 				"client": "Peapod/Ahold",
 				"image": "giant.png",
 				"link": "http://giantfoodstores.com",
@@ -589,6 +619,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 37,
 				"client": "Peapod/Ahold",
 				"image": "martins.png",
 				"link": "http://martinfoods.com",
@@ -615,6 +646,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 36,
 				"client": "Undisclosed",
 				"image": "ameren.png",
 				"name": "Ameren",
@@ -637,6 +669,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 35,
 				"client": "Undisclosed",
 				"image": "lincolninternational.png",
 				"link": "http://www.lincolninternational.com",
@@ -655,6 +688,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 34,
 				"client": "Undisclosed",
 				"image": "thermofisher.png",
 				"name": "Thermofisher",
@@ -673,6 +707,7 @@
 				"year": "2013"
 			},
 			{
+				"id": 33,
 				"client": "Undisclosed",
 				"image": "border-states.png",
 				"link": "http://borderstates.com",
@@ -687,6 +722,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 32,
 				"client": "Undisclosed",
 				"image": "discover-bank-account-activity-mobile.png",
 				"name": "Discover Card: Bank Account Activity",
@@ -704,6 +740,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 31,
 				"client": "Internal",
 				"image": "evolve.png",
 				"name": "Evolve: AG Idea Forum",
@@ -720,6 +757,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 30,
 				"client": "Internal",
 				"image": "evolve-mobile.png",
 				"tags": [
@@ -736,6 +774,8 @@
 				"year": "2012"
 			},
 			{
+				"id": 29,
+				"client": "Undisclosed",
 				"image": "frontier.png",
 				"link": "http://frontier.com",
 				"name": "Frontier",
@@ -752,6 +792,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 28,
 				"client": "Undisclosed",
 				"image": "mine-safety-applications.png",
 				"link": "http://us.msasafety.com",
@@ -768,6 +809,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 27,
 				"client": "Undisclosed",
 				"image": "tmobile-mobile.png",
 				"name": "T-Mobile",
@@ -786,6 +828,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 26,
 				"client": "Undisclosed",
 				"image": "unsnowman.png",
 				"name": "Unsnowman Competition",
@@ -802,6 +845,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 25,
 				"client": "Undisclosed",
 				"image": "wesco.png",
 				"name": "Wesco",
@@ -815,6 +859,7 @@
 				"year": "2012"
 			},
 			{
+				"id": 24,
 				"client": "Undisclosed",
 				"image": "grainger.png",
 				"name": "Grainger",
@@ -833,6 +878,7 @@
 				"year": "2011"
 			},
 			{
+				"id": 23,
 				"client": "Undisclosed",
 				"image": "sanford-health.png",
 				"link": "http://www.sanfordhealth.org/",
@@ -849,6 +895,7 @@
 				"year": "2010"
 			},
 			{
+				"id": 22,
 				"client": "Undisclosed",
 				"image": "casual-male-dxl.png",
 				"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
@@ -866,6 +913,7 @@
 				"year": "2010"
 			},
 			{
+				"id": 21,
 				"client": "Undisclosed",
 				"image": "loreal-ysl.png",
 				"link": "http://www.yslbeautyus.com/",
@@ -882,6 +930,7 @@
 				"year": "2010"
 			},
 			{
+				"id": 20,
 				"client": "Undisclosed",
 				"image": "ltd-commodities.png",
 				"link": "http://www.ltdcommodities.com/",
@@ -899,6 +948,7 @@
 				"year": "2010"
 			},
 			{
+				"id": 19,
 				"client": "Whittman Hart",
 				"image": "iloveny.png",
 				"link": "http://iloveny.com/",
@@ -916,6 +966,7 @@
 				"year": "2010"
 			},
 			{
+				"id": 18,
 				"client": "Manifest Digital",
 				"image": "symptom-checker.png",
 				"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
@@ -930,6 +981,7 @@
 				"year": "2010"
 			},
 			{
+				"id": 17,
 				"client": "STNG",
 				"image": "suntimes.png",
 				"link": "http://suntimes.com/",
@@ -944,6 +996,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 16,
 				"client": "QuikOrder",
 				"image": "pizzahut.png",
 				"link": "http://pizzahut.com/",
@@ -960,6 +1013,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 15,
 				"client": "Chicago Booth",
 				"image": "daa.png",
 				"name": "Distinguished Alumni Awards",
@@ -978,6 +1032,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 14,
 				"client": "Chicago Booth",
 				"image": "farm-to-fork.png",
 				"link": "http://chicagobooth.edu/food/2009/",
@@ -993,6 +1048,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 13,
 				"client": "Chicago Booth",
 				"image": "alumni-celebrations.png",
 				"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
@@ -1008,6 +1064,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 12,
 				"client": "Chicago Booth",
 				"image": "career-path.png",
 				"link": "http://career.chicagobooth.edu/parttime/careerpath/",
@@ -1023,6 +1080,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 11,
 				"client": "Chicago Booth",
 				"image": "alumni-reunion.png",
 				"link": "http://chicagobooth.edu/alumni/reunion2009/",
@@ -1042,6 +1100,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 10,
 				"client": "Chicago Booth",
 				"image": "talent-development.png",
 				"name": "Talent Development Conference 2010",
@@ -1058,6 +1117,7 @@
 				"year": "2009"
 			},
 			{
+				"id": 9,
 				"client": "Undisclosed",
 				"image": "discover-find-my-offer-mobile.png",
 				"name": "Discover Card: Find My Offer (Mobile)",
@@ -1072,6 +1132,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 8,
 				"client": "Undisclosed",
 				"image": "3m.png",
 				"name": "3M-Cuno",
@@ -1087,6 +1148,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 7,
 				"client": "Undisclosed",
 				"image": "ashley-furniture.png",
 				"link": "http://www.ashleyfurniturehomestore.com",
@@ -1104,6 +1166,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 6,
 				"client": "Undisclosed",
 				"image": "gordon-food-services.png",
 				"link": "http://www.gfs.com/en",
@@ -1120,6 +1183,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 5,
 				"client": "Undisclosed",
 				"image": "ul-myhome.png",
 				"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
@@ -1135,6 +1199,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 4,
 				"client": "Undisclosed",
 				"image": "regis-franchise.png",
 				"name": "Regis Franchise",
@@ -1149,6 +1214,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 3,
 				"client": "Undisclosed",
 				"image": "regis-stylist.png",
 				"name": "Regis Stylist",
@@ -1163,6 +1229,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 2,
 				"client": "Undisclosed",
 				"image": "invitrogen.png",
 				"name": "Invitrogen Rockfeller",
@@ -1177,6 +1244,7 @@
 				"year": "2008"
 			},
 			{
+				"id": 1,
 				"client": "Lightology",
 				"image": "modern-lighting.png",
 				"link": "http://www.modernlighting.com",

@@ -1,9 +1,31 @@
-dist/
-node_modules/
+.DS_Store
+coverage
+node_modules
+dist
 test/e2e/reports/
 test/unit/coverage/
+vendor
+media
 
-.DS_Store
-npm-debug.log
-selenium-debug.log
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+firestore-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# production
+/build
+
 datastore.js

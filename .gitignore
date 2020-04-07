@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 !/log/.keep
+firestore-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Runtime data
 pids
@@ -14,6 +17,8 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+test/e2e/reports/
+test/unit/coverage/
 
 # nyc test coverage
 .nyc_output
@@ -49,3 +54,22 @@ jspm_packages
 .svn
 public
 temp
+dist
+vendor
+media
+
+# local env files
+.env.local
+.env.*.local
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# production
+/build
+datastore.js
