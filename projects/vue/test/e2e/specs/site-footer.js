@@ -9,10 +9,6 @@ module.exports = {
 			.url(devServerURL)
 			.waitForElementVisible('#app', 5000)
 
-		browser.expect.element('footer .grid .row a:first-child')
-			.to.have.attribute('href').equals('mailto:msdessin@gmail.com?subject=MsDacia.com')
-			.to.have.attribute('title').equals('Email')
-
 		browser.expect.element('footer .grid .row a:nth-child(2)')
 			.to.have.attribute('href').equals('http://www.facebook.com/#!/msdacia')
 			.to.have.attribute('title').equals('Facebook')
