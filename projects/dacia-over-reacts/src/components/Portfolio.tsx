@@ -11,7 +11,7 @@ export default function Portfolio() {
 			</div>
 			<div className="fourteen wide column">
 				{/* <ad-work></ad-work> */}
-				<p v-html="content.portfolio.copy"></p>
+				<p dangerouslySetInnerHTML={{ __html: content.portfolio.copy }}></p>
 
 				<div className="ui grid">
 					<div className="two wide column">

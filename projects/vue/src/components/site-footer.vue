@@ -1,11 +1,6 @@
 <template>
   <footer>
     <div id="social-media">
-      <email-link
-        :local-part="content.common.email.local"
-        :domain="content.common.email.domain"
-        :subject="content.common.email.subject"
-      ></email-link>
       <a
         v-for="social in content.common.social"
         :key="social.id"
@@ -30,12 +25,7 @@
 </template>
 
 <script>
-import EmailLink from '../components/email-link.vue'
-
 export default {
-  components: {
-    EmailLink
-  },
   data() {
     return {
       content: require('../json/static.en-us.json')
