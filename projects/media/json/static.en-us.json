@@ -11,8 +11,8 @@
 	"common": {
 		"ad": {
 			"work": {
-				"copy": "Vue/ReactJS/Javascript Software Engineer and CraftCMS/Twig Developer currently looking for a full-time remote role to help showcase my skills",
-				"title": "For Hire"
+				"copy": "Not currently on the market",
+				"title": "Not For Hire"
 			}
 		},
 		"colors": [
@@ -1284,6 +1284,7 @@
 		"experiences": {
 			"job": [
 				{
+					"id": 7,
 					"company": "GrayMeta",
 					"date": "05/2018 to 03/2020",
 					"location": "Remote",
@@ -1300,6 +1301,7 @@
 					"title": "Front-End Software Engineer"
 				},
 				{
+					"id": 6,
 					"company": "Lyons Consulting Group",
 					"date": "12/2017 to 06/2018",
 					"location": "Chicago, Illinois",
@@ -1311,6 +1313,7 @@
 					"title": "Applications Engineer - Hybris"
 				},
 				{
+					"id": 5,
 					"company": "Innerworkings",
 					"date": "03/2017 to 12/2017",
 					"location": "Chicago, Illinois",
@@ -1322,6 +1325,7 @@
 					"title": "Application Developer"
 				},
 				{
+					"id": 4,
 					"company": "Razorfish Commerce",
 					"date": "05/2016 to 02/2017",
 					"location": "Chicago, Illinois",
@@ -1336,6 +1340,7 @@
 					"title": "Senior Presentation Layer Developer"
 				},
 				{
+					"id": 3,
 					"company": "SuperHumane",
 					"date": "05/2016 to 11/2016",
 					"location": "Remote",
@@ -1348,6 +1353,7 @@
 					"title": "React Front-End Web Developer (Independent Contractor)"
 				},
 				{
+					"id": 2,
 					"company": "Peapod",
 					"date": "12/2013 to 06/2015",
 					"location": "Chicago, Illinois",
@@ -1361,6 +1367,7 @@
 					"title": "Senior Front-End Web Developer"
 				},
 				{
+					"id": 1,
 					"company": "Acquity Group",
 					"date": "06/2008 to 12/2013",
 					"location": "Chicago, Illinois",
@@ -1383,10 +1390,6 @@
 					"url": "http://www.linkedin.com/in/dessin"
 				},
 				{
-					"title": "GitHub",
-					"url": "https://github.com/MsDacia"
-				},
-				{
 					"title": "Personal",
 					"url": "/"
 				},
@@ -1402,7 +1405,7 @@
 			"title": "Objective"
 		},
 		"resumeTitle": "View/Download",
-		"resumeUrl": "https://www.dropbox.com/s/034ssmryv09c92h/Dacia%20Rodrigue%20Resume%20All.pdf?dl=0",
+		"resumeUrl": "https://drive.google.com/file/d/1iOClgvHzZfglfjzdLpA8FNdtHC60Onbn/view?usp=sharing",
 		"skills": {
 			"categories": [
 				{

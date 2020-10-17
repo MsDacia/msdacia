@@ -1,4 +1,5 @@
 import React from 'react'
+import Ad from './ad-work'
 import content from '../json/static.en-us.json'
 
 export default function Portfolio() {
@@ -10,7 +11,7 @@ export default function Portfolio() {
 				</div>
 			</div>
 			<div className="fourteen wide column">
-				{/* <ad-work></ad-work> */}
+				<Ad />
 				<p dangerouslySetInnerHTML={{ __html: content.portfolio.copy }}></p>
 
 				<div className="ui grid">

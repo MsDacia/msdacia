@@ -43,7 +43,7 @@ export default function Footer(props: MenuProps) {
 
       <div className={showMenu ? 'menu show-content' : 'menu hide-content'}>
         {props.items.map(nav =>
-          <a href={nav.path} onClick={hideMenu}>
+          <a href={nav.path} key={nav.item} onClick={hideMenu}>
             <i className="terminal icon"></i> {nav.title}
           </a>
         )}
@@ -57,6 +57,7 @@ export interface MenuProps {
 }
 
 export interface MenuItem {
+  item: string
   path: string
   title: string
 }

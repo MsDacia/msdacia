@@ -1,4 +1,9 @@
 import React from 'react'
+import Ad from './ad-work'
+import Education from './education'
+import Experience from './experience'
+import Objective from './objective'
+import Skills from './skills'
 import content from '../json/static.en-us.json'
 
 export default function Resume() {
@@ -10,8 +15,8 @@ export default function Resume() {
 				</div>
 			</div>
 			<div className="fourteen wide column">
-				{/* <ad-work></ad-work>
-				<address>{content.resume.address}</address> */}
+				<Ad />
+				<address>{content.resume.address}</address>
 				<p>
 					<a
 						href={content.resume.resumeUrl}
@@ -28,7 +33,7 @@ export default function Resume() {
 					{content.resume.skills.title}
 				</h2>
 				<div className="ui attached segment">
-					{/* <skills></skills> */}
+					<Skills />
 				</div>
 
 				<h2 className="ui horizontal divider header">
@@ -36,7 +41,7 @@ export default function Resume() {
 					{content.resume.objective.title}
 				</h2>
 				<div className="ui attached segment">
-					{/* <objective></objective> */}
+					<Objective />
 				</div>
 
 				<h2 className="ui horizontal divider header">
@@ -44,7 +49,7 @@ export default function Resume() {
 					{content.resume.experiences.title}
 				</h2>
 				<div className="ui attached segment">
-					{/* <experience></experience> */}
+					<Experience />
 				</div>
 
 				<h2 className="ui horizontal divider header">
@@ -53,7 +58,7 @@ export default function Resume() {
 				</h2>
 
 				<div className="ui attached segment">
-					{/* <education></education> */}
+					<Education />
 				</div>
 			</div>
 		</div>

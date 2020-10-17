@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import content from './json/static.en-us.json'
+import './styles/scss/main.scss'
 
 import About from './components/About'
 import Footer from './components/Footer'

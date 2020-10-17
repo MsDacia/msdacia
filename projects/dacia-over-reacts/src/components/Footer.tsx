@@ -9,6 +9,7 @@ export default function Footer() {
 					<a
 						href={social.url}
 						title={social.title}
+						key={social.title}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
