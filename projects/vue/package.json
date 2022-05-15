@@ -48,7 +48,7 @@
     "inquirer": "6.0.0",
     "lint-staged": "6.0.0",
     "listr": "0.14.1",
-    "node-sass": "4.9.2",
+    "node-sass": "7.0.0",
     "recursive-readdir": "2.2.2",
     "sass-loader": "7.0.3",
     "ssh2-sftp-client": "2.2.1",
