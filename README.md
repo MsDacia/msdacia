@@ -20,5 +20,5 @@
 
 
 ###For Hire
-I am currently looking for projects in Typescript, using Vue or React [Resume](https://drive.google.com/file/d/1iOClgvHzZfglfjzdLpA8FNdtHC60Onbn/view?usp=sharing). I always looking for SIDE projects to help showcase my skills.
+[Resume](https://drive.google.com/file/d/1iOClgvHzZfglfjzdLpA8FNdtHC60Onbn/view?usp=sharing): I am currently looking for projects in Typescript, using Vue or React. I always looking for SIDE projects to help showcase my skills.
 
