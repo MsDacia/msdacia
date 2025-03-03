@@ -1,5 +1,4 @@
-import React from 'react'
-import Wysiwyg from './wysiwyg'
+import Wysiwyg from '../components/wysiwyg'
 import content from '../json/static.en-us.json'
 
 export default function About() {
@@ -10,6 +9,7 @@ export default function About() {
 					<h1>{content.about.title}</h1>
 				</div>
 			</div>
+
 			<div className="fourteen wide column">
 				<Wysiwyg />
 			</div>

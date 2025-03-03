@@ -1,4 +1,3 @@
-import React from 'react'
 import content from '../json/static.en-us.json'
 
 let invertColors = false
@@ -33,23 +32,24 @@ function toggleMenu(): void {
 }
 
 export default function Footer(props: MenuProps) {
-	return (
+  return (
     <header>
-      <i className="eyedropper icon" onClick={colorsInverted}></i>
+      <i className="eyedropper icon" onClick={colorsInverted} />
+
       <div className="item" onClick={toggleMenu}>
-        <i className={showMenuClassName}></i>
+        <i className={showMenuClassName} />
         <em className={showMenu ? 'active' : ''}>{content.common.global.menu}</em>
-		  </div>
+      </div>
 
       <div className={showMenu ? 'menu show-content' : 'menu hide-content'}>
         {props.items.map(nav =>
           <a href={nav.path} key={nav.item} onClick={hideMenu}>
-            <i className="terminal icon"></i> {nav.title}
+            <i className="terminal icon" /> {nav.title}
           </a>
         )}
-		  </div>
-	  </header>
-	)
+      </div>
+    </header>
+  )
 }
 
 export interface MenuProps {
@@ -61,4 +61,3 @@ export interface MenuItem {
   path: string
   title: string
 }
-

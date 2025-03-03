@@ -30,20 +30,24 @@ export default function Timeline() {
 
 								<div className="ui basic modal" id={`project-${project.unique}`}>
 									<div className="actions">
-										<i className="close icon cancel"></i>
+										<i className="close icon cancel" />
 									</div>
+
 									<div className="ui header">
 										<div className="ui massive label">{project.year}</div>
 									</div>
+
 									<div className="content">
 										<h3>
 											<a v-if="project.link" href={project.link} target="_blank" rel="noopener noreferrer">{project.name}</a>
 											<span v-if="!project.link">{project.name}</span>
 										</h3>
+
 										<span className="ui small image">
 											<img src={getImage(project.image)} alt={project.name} />
 											<div className="ui green right ribbon label">{project.timeline}</div>
 										</span>
+
 										<div className="ui labels">
 											{project.tags.map((tag, index) =>
 												<span className="ui label" key={index}>{tag}</span>

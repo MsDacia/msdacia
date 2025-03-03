@@ -1,4 +1,3 @@
-import React from 'react'
 import content from '../json/static.en-us.json'
 
 export default function Skills() {

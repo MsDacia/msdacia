@@ -1,47 +1,65 @@
 {
-  "name": "dacia-over-reacts",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "4.2.4",
-    "@testing-library/react": "9.5.0",
-    "@testing-library/user-event": "7.2.1",
-    "@types/jest": "24.9.1",
-    "@types/node": "12.12.34",
-    "@types/react": "16.9.32",
-    "@types/react-dom": "16.9.6",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-router": "5.1.2",
-    "react-scripts": "3.4.1",
-    "semantic-ui-react": "^0.88.2",
-    "typescript": "3.7.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react-router-dom": "5.1.3",
-    "jquery": "3.5.0",
-    "node-sass": "4.13.1",
-    "react-router-dom": "5.1.2"
-  }
+	"name": "dacia-over-reacts",
+	"version": "0.1.0",
+	"private": true,
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "1.9.7",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-redux": "8.1.2",
+		"react-router": "7.0.2",
+		"sass": "1.74.1",
+		"semantic-ui-css": "2.5.0",
+		"semantic-ui-react": "2.1.5",
+		"vite": "4.4.9"
+	},
+	"devDependencies": {
+		"@playwright/test": "1.50.1",
+		"@testing-library/jest-dom": "6.3.0",
+		"@testing-library/react": "14.0.0",
+		"@types/jest": "29.5.14",
+		"@types/node": "22.13.8",
+		"@types/react": "18.0.0",
+		"@types/react-dom": "18.0.0",
+		"@types/react-router-dom": "5.3.3",
+		"@vitejs/plugin-react": "4.0.3",
+		"cssnano": "6.1.2",
+		"husky": "9.1.7",
+		"jquery": "3.7.1",
+		"postcss": "8.5.1",
+		"postcss-import": "16.1.0",
+		"postcss-preset-env": "9.6.0",
+		"postcss-scss": "4.0.9",
+		"react-router-dom": "7.0.2",
+		"typescript": "5.8.2",
+		"vitest": "1.1.3"
+	},
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite",
+		"e2e:debug": "playwright test --debug",
+		"e2e:headed": "playwright test --headed",
+		"e2e:report": "playwright show-report",
+		"e2e": "playwright test",
+		"format": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
+		"lint": "eslint --ext .ts,.tsx src/",
+		"prepare": "chmod +x .husky/*",
+		"preview": "vite preview",
+		"test:coverage": "vitest --coverage",
+		"test:ui": "vitest --ui",
+		"test:watch": "vitest --watch",
+		"test": "vitest"
+	}
 }

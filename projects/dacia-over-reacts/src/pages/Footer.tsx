@@ -1,4 +1,3 @@
-import React from 'react'
 import content from '../json/static.en-us.json'
 
 export default function Footer() {
@@ -13,16 +12,16 @@ export default function Footer() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<i className={social.icon}></i>
-      		</a>
+						<i className={social.icon} />
+					</a>
 				)}
-    	</div>
+			</div>
 
 			<p id="copyright">
-				<i className={content.common.copyright.icon}></i>
+				<i className={content.common.copyright.icon} />
 				{content.common.copyright.content}
 				<a href={content.common.global.url}>{content.common.global.title}</a>
 			</p>
-  </footer>
+		</footer>
 	)
 }
