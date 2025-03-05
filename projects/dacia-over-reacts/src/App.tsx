@@ -1,6 +1,6 @@
 import content from './json/static.en-us.json'
 import 'semantic-ui-css/semantic.min.css'
-import './styles/scss/main.scss'
+import './styles/main.scss'
 
 import Footer from './pages/Footer'
 import Header, { MenuItem } from './pages/Header'
