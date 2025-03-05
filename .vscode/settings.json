@@ -14,7 +14,7 @@
 	"files.trimTrailingWhitespace": true,
 	"workbench.colorTheme": "Fresh Material - Pink",
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true
+		"source.fixAll.eslint": "explicit"
 	},
 	"vetur.format.enable": false
 }
