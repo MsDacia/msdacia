@@ -1,10 +1,10 @@
-import content from '../json/static.en-us.json'
+import content from '../media/json/static.en-us.json'
 
 export default function Footer() {
 	return (
 		<footer>
 			<div id="social-media">
-				{content.common.social.map(social =>
+				{content.common.social?.map(social => (
 					<a
 						href={social.url}
 						title={social.title}
@@ -14,13 +14,13 @@ export default function Footer() {
 					>
 						<i className={social.icon} />
 					</a>
-				)}
+				))}
 			</div>
 
 			<p id="copyright">
-				<i className={content.common.copyright.icon} />
-				{content.common.copyright.content}
-				<a href={content.common.global.url}>{content.common.global.title}</a>
+				<i className={content.common.copyright?.icon} />
+				{content.common.copyright?.content}{' '}
+				<a href={content.common.global?.url}>{content.common.global?.title}</a>
 			</p>
 		</footer>
 	)

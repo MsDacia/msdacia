@@ -1,63 +1,55 @@
-import content from '../json/static.en-us.json'
+import { useState, useEffect } from 'react'
+import content from '../media/json/static.en-us.json'
 
-let invertColors = false
-let showMenu = false
-let showMenuClassName = showMenu ? 'toggle off icon hide-content' : 'toggle on icon show-content'
+export default function Footer({ items }: MenuProps) {
+	const [invertColors, setInvertColors] = useState(false)
+	const [showMenu, setShowMenu] = useState(false)
 
-function colorsInverted(): void {
-  const bodyTag = document.getElementsByTagName('body')[0]
-  invertColors = !invertColors
+	useEffect(() => {
+		const bodyTag = document.body
 
-  if (invertColors) {
-    if (bodyTag.classList) {
-      bodyTag.classList.add('light')
-    } else {
-      bodyTag.className += ' light'
-    }
-  } else {
-    if (bodyTag.classList) {
-      bodyTag.classList.remove('light')
-    } else {
-      bodyTag.className = bodyTag.className.replace(new RegExp('(^|\\b)' + 'light'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
-    }
-  }
-}
+		if (invertColors) {
+			bodyTag.classList.add('light')
+		} else {
+			bodyTag.classList.remove('light')
+		}
+	}, [invertColors])
 
-function hideMenu(): void {
-  showMenu = false
-}
+	return (
+		<header>
+			<i
+				className="eyedropper icon"
+				onClick={() => setInvertColors((prev) => !prev)}
+			/>
 
-function toggleMenu(): void {
-  showMenu = !showMenu
-}
+			<div className="item" onClick={() => setShowMenu((prev) => !prev)}>
+				<i
+					className={`toggle ${showMenu ? "off" : "on"} icon ${showMenu ? "hide-content" : "show-content"
+						}`}
+				/>
 
-export default function Footer(props: MenuProps) {
-  return (
-    <header>
-      <i className="eyedropper icon" onClick={colorsInverted} />
+				<em className={showMenu ? "active" : ""}>
+					{content.common.global.menu}
+				</em>
+			</div>
 
-      <div className="item" onClick={toggleMenu}>
-        <i className={showMenuClassName} />
-        <em className={showMenu ? 'active' : ''}>{content.common.global.menu}</em>
-      </div>
-
-      <div className={showMenu ? 'menu show-content' : 'menu hide-content'}>
-        {props.items.map(nav =>
-          <a href={nav.path} key={nav.item} onClick={hideMenu}>
-            <i className="terminal icon" /> {nav.title}
-          </a>
-        )}
-      </div>
-    </header>
-  )
+			<div className={showMenu ? "menu show-content" : "menu hide-content"}>
+				{items.map((nav) => (
+					<a href={nav.path} key={nav.item} onClick={() => setShowMenu(false)}>
+						<i className="terminal icon" /> {nav.title}
+					</a>
+				))}
+			</div>
+		</header>
+	)
 }
 
 export interface MenuProps {
-  items: MenuItem[]
+	items: MenuItem[]
 }
 
 export interface MenuItem {
-  item: string
-  path: string
-  title: string
+	item: string
+	path: string
+	title: string
 }

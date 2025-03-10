@@ -1,4 +1,4 @@
-import content from '../json/static.en-us.json'
+import content from '../media/json/static.en-us.json'
 
 export default function Experience() {
 	return (

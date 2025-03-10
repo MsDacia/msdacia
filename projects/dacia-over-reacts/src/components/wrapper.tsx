@@ -6,9 +6,9 @@ export default function AdWork() {
 			<i className="laptop icon" />
 
 			<div className="content">
-				<div className="header">{content.common?.ad?.work?.title ?? 'Work'}</div>
-				<p>{content.common?.ad?.work?.copy ?? ''}</p>
+				<div className="header">{content.common.ad.work.title}</div>
+				<p>{content.common.ad.work.copy}</p>
 			</div>
 		</div>
-	);
+	)
 }

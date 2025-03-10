@@ -1,9 +1,11 @@
-import Ad from '../components/ad-work'
-import content from '../json/static.en-us.json'
+import content from '../media/json/static.en-us.json'
+import AdWork from '../components/ad-work'
+import ProjectStats from '../components/stats'
+import ProjectTimeline from '../components/timeline'
 
 export default function Portfolio() {
 	return (
-		<div className="ui grid">
+		<div className="portfolio ui grid">
 			<div className="two wide column">
 				<div className="block">
 					<h1>{content.portfolio.title}</h1>
@@ -11,18 +13,19 @@ export default function Portfolio() {
 			</div>
 
 			<div className="fourteen wide column">
-				<Ad />
-				<p dangerouslySetInnerHTML={{ __html: content.portfolio.copy }} />
+				<AdWork />
+
+				<p dangerouslySetInnerHTML={{ __html: content.portfolio.copy }}></p>
 
 				<div className="ui grid">
 					<div className="two wide column">
 						<h2>{content.portfolio.subtitle2}</h2>
-						{/* <project-stats @tag-selected="onTagSelected"></project-stats> */}
+						<ProjectStats />
 					</div>
 
 					<div id="timeline" className="fourteen wide column">
 						<h2>{content.portfolio.subtitle3}</h2>
-						{/* <project-timeline :projects="filteredProjects"></project-timeline> */}
+						<ProjectTimeline />
 					</div>
 				</div>
 			</div>

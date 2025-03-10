@@ -1,38 +1,39 @@
+import Links from '../components/links'
 import Ad from '../components/ad-work'
 import Education from '../components/education'
 import Experience from '../components/experience'
 import Objective from '../components/objective'
 import Skills from '../components/skills'
-import content from '../json/static.en-us.json'
+import content from '../media/json/static.en-us.json'
 
 export default function Resume() {
 	return (
-		<div>
+		<div className="ui grid resume">
 			<div className="two wide column">
 				<div className="block">
-					<h1>{content.resume.title}</h1>
+					<h1>{content.resume?.title ?? 'Resume'}</h1>
 				</div>
 			</div>
 
 			<div className="fourteen wide column">
 				<Ad />
 
-				<address>{content.resume.address}</address>
+				<address>{content.resume?.address ?? 'Address not available'}</address>
 
 				<p>
 					<a
-						href={content.resume.resumeUrl}
+						href={content.resume?.resumeUrl ?? '#'}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<i className="inverted file pdf outline icon" />
-						{content.resume.resumeTitle}
+						{content.resume?.resumeTitle ?? 'Download Resume'}
 					</a>
 				</p>
 
 				<h2 className="ui horizontal divider header">
 					<i className="keyboard icon" />
-					{content.resume.skills.title}
+					{content.resume?.skills?.title ?? 'Skills'}
 				</h2>
 
 				<div className="ui attached segment">
@@ -41,7 +42,7 @@ export default function Resume() {
 
 				<h2 className="ui horizontal divider header">
 					<i className="id badge icon" />
-					{content.resume.objective.title}
+					{content.resume?.objective?.title ?? 'Objective'}
 				</h2>
 
 				<div className="ui attached segment">
@@ -50,7 +51,7 @@ export default function Resume() {
 
 				<h2 className="ui horizontal divider header">
 					<i className="desktop icon" />
-					{content.resume.experiences.title}
+					{content.resume?.experiences?.title ?? 'Experience'}
 				</h2>
 
 				<div className="ui attached segment">
@@ -59,11 +60,20 @@ export default function Resume() {
 
 				<h2 className="ui horizontal divider header">
 					<i className="university icon" />
-					{content.resume.education.title}
+					{content.resume?.education?.title ?? 'Education'}
 				</h2>
 
 				<div className="ui attached segment">
 					<Education />
+				</div>
+
+				<h2 className="ui horizontal divider header">
+					<i className="desktop icon" />
+					{content.resume?.links?.title ?? 'Links'}
+				</h2>
+
+				<div className="ui attached segment">
+					<Links />
 				</div>
 			</div>
 		</div>

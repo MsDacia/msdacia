@@ -1,4 +1,5 @@
-import content from '../json/static.en-us.json'
+import 'semantic-ui-css/semantic.min.css'
+import content from '../media/json/static.en-us.json'
 
 export default function Wysiwyg() {
 	return (
@@ -6,7 +7,6 @@ export default function Wysiwyg() {
 			<div className="active title">
 				<div className="ui icon message">
 					<i className="heartbeat icon" />
-
 					<div className="content">
 						<div className="header">{content.about.subtitle}</div>
 					</div>
@@ -20,7 +20,6 @@ export default function Wysiwyg() {
 			<div className="title">
 				<div className="ui icon message">
 					<i className="desktop icon" />
-
 					<div className="content">
 						<div className="header">{content.about.subtitle2}</div>
 					</div>
@@ -34,7 +33,6 @@ export default function Wysiwyg() {
 			<div className="title">
 				<div className="ui icon message">
 					<i className="diamond icon" />
-
 					<div className="content">
 						<div className="header">{content.about.subtitle3}</div>
 					</div>

@@ -1,32 +1,26 @@
-import React from 'react'
-// import content from '../json/static.en-us.json'
-
-// function getImage(image): string {
-// 	return require('../assets/images/projects/' + image)
-// }
-
-// function showModal(project): void {
-// 	return //$('#' + project + '.modal').modal('attach events', '#' + project + '-link', 'show')
-// }
+import content from '../media/json/static.en-us.json'
 
 export default function Timeline() {
 	return (
 		<div className="timeline">
 			<div className="ui grid">
 				<div className="five wide column">
-					{/* {content.portfolio.projects.map((project, index) =>
-						<div className="item" key={index}>
+					{content.portfolio.projects.map((project, index) => (
+						<div key={index} className="item">
 							<div className="ui segment">
-								<div className="ui massive label" v-if="index === 0 || projects[index - 1].year !== project.year">{project.year}</div>
-								<span
+								{index === 0 || content.portfolio.projects[index - 1].year !== project.year && (
+									<div className="ui massive label">{project.year}</div>
+								)}
+
+								<a
 									id={`project-${project.unique}-link`}
 									className="ui small image project hvr-grow-shadow"
-									onClick={showModal(project)}
+									data-modal={`project-${project.unique}`}
 								>
-									<img src={getImage(project.image)} alt={project.name} />
+									<img src={`../media/assets/images/projects/${project.image}`} alt={project.name} />
 									<div className="ui green right ribbon label">{project.timeline}</div>
 									<div className="ui bottom attached label">{project.name}</div>
-								</span>
+								</a>
 
 								<div className="ui basic modal" id={`project-${project.unique}`}>
 									<div className="actions">
@@ -39,27 +33,46 @@ export default function Timeline() {
 
 									<div className="content">
 										<h3>
-											<a v-if="project.link" href={project.link} target="_blank" rel="noopener noreferrer">{project.name}</a>
-											<span v-if="!project.link">{project.name}</span>
+											{project.link ? (
+												<a href={project.link} target="_blank">
+													{project.name}
+												</a>
+											) : (
+												<span>{project.name}</span>
+											)}
 										</h3>
 
 										<span className="ui small image">
-											<img src={getImage(project.image)} alt={project.name} />
+											<img src={`../media/assets/images/projects/${project.image}`} alt={project.name} />
 											<div className="ui green right ribbon label">{project.timeline}</div>
 										</span>
 
 										<div className="ui labels">
-											{project.tags.map((tag, index) =>
-												<span className="ui label" key={index}>{tag}</span>
-											)}
+											{project.tags.map((tag, index) => (
+												<span className="ui label" key={index}>
+													{tag}
+												</span>
+											))}
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					)} */}
+					))}
 				</div>
 			</div>
 		</div>
 	)
+}
+
+export interface Project {
+	id: number
+	client: string
+	image: string
+	link?: string
+	name: string
+	tags: string[]
+	timeline: string
+	unique: string
+	year: string
 }
