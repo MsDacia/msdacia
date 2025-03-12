@@ -2,6 +2,7 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
+	useLocation
 } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -19,26 +20,36 @@ const menuItems: MenuItem[] = content.common.navigation ?? []
 function App() {
 	return (
 		<Router>
-			<div className="wrapper">
-				<div className="container">
-					<div className="overlay"></div>
-					<Header items={menuItems} />
-
-					<main>
-						<div className="main-content">
-							<Routes>
-								<Route path="/about" element={<About />} />
-								<Route path="/resume" element={<Resume />} />
-								<Route path="/portfolio" element={<Portfolio />} />
-								<Route path="/" element={<Home />} />
-							</Routes>
-						</div>
-					</main>
-
-					<Footer />
-				</div>
-			</div>
+			<AppContent />
 		</Router>
+	)
+}
+
+const AppContent = () => {
+	const location = useLocation()
+	const routeClass = location.pathname === '/' ? 'home' : location.pathname.replace('/', '')
+	console.log({ routeClass })
+
+	return (
+		<div className="wrapper">
+			<div className="container">
+				<div className="overlay"></div>
+				<Header items={menuItems} />
+
+				<main>
+					<div className={`main-content ${routeClass}`}>
+						<Routes>
+							<Route path="/about" element={<About />} />
+							<Route path="/resume" element={<Resume />} />
+							<Route path="/portfolio" element={<Portfolio />} />
+							<Route path="/" element={<Home />} />
+						</Routes>
+					</div>
+				</main>
+
+				<Footer />
+			</div>
+		</div>
 	)
 }
 

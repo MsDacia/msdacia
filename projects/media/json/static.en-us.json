@@ -1,8 +1,8 @@
 {
 	"about": {
 		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
-		"copy2": "I am a front end software engineer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue, which is how this site was built. I also have 3 additional sites/apps I am building/have built with my husband: our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a>, our multi-person, offline mode supported grocery list app (which is still in development), and our food rating app. As a detail-oriented, maybe a bit anal, person being a software engineer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. Right now, I am quite content with my current career path.",
-		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. My husband and I had the honor of having our wedding at Soldier Field, November 1, 2018. Visit our site <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a> to see the video. I have been the commissioner of my own fantasy football league since 2008. It is so much fun. I have only won one championship, but don't let my record fool you. I have won more game with Jay Cutler as my quarterback than losses. LOL!! I am loyal.",
+		"copy2": "I am a front end software engineer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue, which is how this site was originally built, but I have taken the Vue code and converted it to React. I also have 3 additional sites/apps I am building/have built with my husband: our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a>, our multi-person, offline mode supported grocery list app, and my personal closet app, called a href=\"http://daciascloset.com\" target=\"_blank\">dacia's closet</a>. As a detail-oriented, person being a software engineer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. Right now, I am quite content with my current career path.",
+		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. My husband and I had the honor of having our wedding at Soldier Field, November 1, 2018. Visit our site <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a> to see the video.",
 		"subtitle": "Foundation",
 		"subtitle2": "Professionally",
 		"subtitle3": "Personally",
@@ -29,7 +29,7 @@
 			"brown"
 		],
 		"copyright": {
-			"content": "2020 designed, developed by",
+			"content": "2020 designed, 2025 developed by",
 			"icon": "fal fa-copyright"
 		},
 		"email": {
@@ -41,7 +41,7 @@
 		},
 		"global": {
 			"copy": "pronounced",
-			"copy2": "day-shuh",
+			"copy2": "day-sha",
 			"fullName": "Dacia Rodrigue",
 			"menu": "Menu",
 			"name": "Dacia",
@@ -103,11 +103,6 @@
 				"icon": "bitbucket icon",
 				"title": "BitBucket",
 				"url": "https://bitbucket.org/davidanddacia/"
-			},
-			{
-				"icon": "skype icon",
-				"title": "Skype",
-				"url": "skype:msdacia1?userinfo"
 			}
 		]
 	},
@@ -126,24 +121,87 @@
 			{
 				"icon": "bitbucket icon",
 				"title": "Bitbucket Repositories",
-				"url":"https://bitbucket.org/MsDacia1/msdacia/src/master/"
+				"url": "https://bitbucket.org/MsDacia1/msdacia/src/master/"
 			}
 		],
 		"projects": [
+			{
+				"id": 63,
+				"client": "CareAcademy",
+				"image": "careacademy.png",
+				"name": "CareAcademy",
+				"tags": [
+					"Asana",
+					"Axios",
+					"BrowserStack",
+					"BugSnag",
+					"Cypress",
+					"date-fns",
+					"eslint",
+					"Figma",
+					"GitHub Copilot",
+					"GitHub",
+					"Heroku",
+					"i18next",
+					"Internationalization",
+					"Jira",
+					"Playwright",
+					"SaaS",
+					"SASS",
+					"Sketch",
+					"Stripe",
+					"Tailwind",
+					"Typescript",
+					"vite",
+					"vitest",
+					"Vue 2",
+					"Vue 3",
+					"Vue Router",
+					"Vue Test Utils"
+				],
+				"timeline": "ongoing",
+				"unique": "careacademy",
+				"year": "2020"
+			},
+			{
+				"id": 62,
+				"client": "MsDacia",
+				"image": "daciascloset.png",
+				"name": "Dacia's Closet",
+				"tags": [
+					"buefy",
+					"eslint",
+					"Firebase",
+					"Github",
+					"SASS",
+					"Typescript",
+					"Typestyle",
+					"vite",
+					"vitest",
+					"Vue 2",
+					"Vue 3",
+					"Vue Router",
+					"Vue Test Utils"
+				],
+				"timeline": "ongoing",
+				"unique": "daciascloset",
+				"year": "2021"
+			},
 			{
 				"id": 61,
 				"client": "GrayMeta",
 				"image": "curio.png",
 				"name": "Curio",
 				"tags": [
-					"SaaS",
-					"SASS",
-					"LESS",
-					"Vue",
-					"vuex",
 					"Cloud-based Application",
 					"Elements UI",
-					"Scrum Master"
+					"Jira",
+					"LESS",
+					"SaaS",
+					"SASS",
+					"Scrum Master",
+					"Vue",
+					"vuex"
 				],
 				"timeline": "2 months",
 				"unique": "curio",
@@ -155,14 +213,14 @@
 				"image": "graymeta.png",
 				"name": "Curio GrayMeta Platform",
 				"tags": [
-					"SaaS",
-					"LESS",
-					"Vue",
-					"vuex",
 					"Elements UI",
 					"jest",
+					"LESS",
+					"SaaS",
+					"Scrum Master",
 					"unit tests",
-					"Scrum Master"
+					"Vue",
+					"vuex"
 				],
 				"timeline": "2 years",
 				"unique": "graymeta",
@@ -175,15 +233,16 @@
 				"link": "http://davidanddacia.com",
 				"name": "David + Dacia",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"Vue",
-					"Semantic UI",
-					"vue-cli",
+					"date-fns",
 					"Firebase",
+					"HTML5",
 					"Responsive",
+					"SASS",
+					"Semantic UI",
 					"SPA",
-					"TypeScript"
+					"Typescript",
+					"vue-cli",
+					"Vue"
 				],
 				"timeline": "1 year",
 				"unique": "daviddacia",
@@ -196,13 +255,19 @@
 				"link": "http://msdacia.com",
 				"name": "MsDacia",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"Vue",
-					"Semantic UI",
-					"vue-cli",
+					"Cypress",
 					"Firebase",
-					"SPA"
+					"HTML5",
+					"jQuery",
+					"React",
+					"Redux",
+					"SASS",
+					"Semantic UI",
+					"SPA",
+					"vite",
+					"vue-cli",
+					"Vue 2",
+					"vuex"
 				],
 				"timeline": "ongoing",
 				"unique": "msdacia",
@@ -210,18 +275,18 @@
 			},
 			{
 				"id": 57,
-				"client": "Grocery List",
+				"client": "David + Dacia",
 				"image": "grocery-list.png",
 				"name": "Personal Grocery List",
 				"tags": [
-					"HTML5",
-					"Vue",
-					"Semantic UI",
-					"vue-cli",
-					"Web Application",
-					"TypeScript",
 					"Firebase",
-					"SPA"
+					"HTML5",
+					"Semantic UI",
+					"SPA",
+					"Typescript",
+					"vue-cli",
+					"Vue",
+					"Web Application"
 				],
 				"timeline": "ongoing",
 				"unique": "grocery",
@@ -234,8 +299,8 @@
 				"link": "https://www.americanbackcenter.org/",
 				"name": "American Back Center",
 				"tags": [
-					"WordPress",
-					"Responsive"
+					"Responsive",
+					"WordPress"
 				],
 				"timeline": "2 months",
 				"unique": "abc",
@@ -248,12 +313,13 @@
 				"name": "Undisclosed Client",
 				"tags": [
 					"HTML5",
-					"LESS",
 					"Hybris",
-					"JQuery",
-					"Responsive",
-					"JSTL",
+					"i18next",
+					"jQuery",
 					"JSP",
+					"JSTL",
+					"LESS",
+					"Responsive",
 					"Sketch"
 				],
 				"timeline": "3 months",
@@ -267,12 +333,12 @@
 				"name": "Undisclosed Client",
 				"tags": [
 					"HTML5",
-					"LESS",
 					"Hybris",
-					"JQuery",
-					"Responsive",
-					"JSTL",
+					"jQuery",
 					"JSP",
+					"JSTL",
+					"LESS",
+					"Responsive",
 					"Sketch"
 				],
 				"timeline": "3 weeks",
@@ -285,19 +351,20 @@
 				"image": "valo.png",
 				"name": "Valo v2",
 				"tags": [
-					"HTML5",
-					"SASS",
+					"Agile",
 					"AngularJS",
 					"APIs",
-					"Java",
 					"Bootstrap",
-					"Thymeleaf",
 					"Grunt",
-					"Web Application",
-					"Localization",
+					"HTML5",
+					"i18next",
+					"Internationalization",
+					"Java",
+					"JIRA",
 					"Responsive",
-					"Agile",
-					"JIRA"
+					"SASS",
+					"Thymeleaf",
+					"Web Application"
 				],
 				"timeline": "9 months",
 				"unique": "valo",
@@ -310,14 +377,14 @@
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/flytefoam/",
 				"name": "ASICS Flytefoam",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
-					"Sketch",
-					"Zeplin",
-					"gulp",
 					"AWS",
-					"Responsive"
+					"gulp",
+					"HTML5",
+					"jQuery",
+					"Responsive",
+					"SASS",
+					"Sketch",
+					"Zeplin"
 				],
 				"timeline": "2 weeks",
 				"unique": "asicsf",
@@ -330,14 +397,14 @@
 				"link": "http://asics-pld.s3-website-us-east-1.amazonaws.com/urban-pack/",
 				"name": "ASICS Urban Pack",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
-					"Sketch",
-					"Zeplin",
-					"gulp",
 					"AWS",
-					"Responsive"
+					"gulp",
+					"HTML5",
+					"jQuery",
+					"Responsive",
+					"SASS",
+					"Sketch",
+					"Zeplin"
 				],
 				"timeline": "60 hours",
 				"unique": "asicsup",
@@ -350,18 +417,18 @@
 				"link": "https://www.whirlpool.com/",
 				"name": "Whirlpool",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
+					"Adobe AEM",
 					"Bootstrap",
-					"JSON",
-					"Handlebars",
 					"E-commerce",
 					"Grunt",
+					"Handlebars",
+					"HTML5",
+					"Hybris",
+					"Internationalization",
+					"jQuery",
+					"JSON",
 					"Responsive",
-					"Localization",
-					"Adobe AEM",
-					"Hybris"
+					"SASS"
 				],
 				"timeline": "5 months",
 				"unique": "whirlpool",
@@ -374,16 +441,17 @@
 				"link": "https://bankingonmycareer.com/",
 				"name": "Financial Services",
 				"tags": [
+					"Craft CMS",
+					"Grunt",
 					"HTML5",
-					"SASS",
-					"Sketch",
 					"Javascript",
 					"JSON",
 					"React",
-					"Craft CMS",
-					"Grunt",
+					"Responsive",
+					"SASS",
+					"Sketch",
 					"Twig",
-					"Responsive"
+					"Typescript"
 				],
 				"timeline": "7 months",
 				"unique": "fs",
@@ -395,14 +463,14 @@
 				"image": "advocate-io.png",
 				"name": "Advocate",
 				"tags": [
-					"HTML5",
 					"CSS3",
+					"HTML5",
 					"jQuery",
-					"PSD-to-HTML",
-					"WordPress",
-					"PHP",
 					"MySQL",
-					"Responsive"
+					"PHP",
+					"PSD-to-HTML",
+					"Responsive",
+					"WordPress"
 				],
 				"timeline": "8 weeks",
 				"unique": "advocate",
@@ -415,8 +483,8 @@
 				"link": "http://cavalryagency.com/",
 				"name": "Cavalry",
 				"tags": [
-					"HTML5",
 					"CSS3",
+					"HTML5",
 					"jQuery",
 					"PSD-to-HTML",
 					"Squarespace"
@@ -432,14 +500,14 @@
 				"link": "http://resqbiz.com",
 				"name": "RESQ",
 				"tags": [
-					"HTML5",
 					"CSS3",
+					"HTML5",
 					"jQuery",
-					"PSD-to-HTML",
-					"WordPress",
-					"PHP",
 					"MySQL",
-					"Responsive"
+					"PHP",
+					"PSD-to-HTML",
+					"Responsive",
+					"WordPress"
 				],
 				"timeline": "2 weeks",
 				"unique": "resq",
@@ -452,14 +520,14 @@
 				"link": "http://allstateveterans.com",
 				"name": "Allstate Veterans",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"PSD-to-HTML",
-					"jQuery",
 					"Grunt",
-					"PHP",
+					"HTML5",
+					"jQuery",
 					"MySQL",
-					"Responsive"
+					"PHP",
+					"PSD-to-HTML",
+					"Responsive",
+					"SASS"
 				],
 				"timeline": "6 weeks",
 				"unique": "allstate",
@@ -471,15 +539,15 @@
 				"image": "intel.png",
 				"name": "Intel POS",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
+					"Agile",
 					"AngularJS",
-					"Localization",
+					"Desktop",
 					"Grunt",
-					"YAML",
-					"APP: Desktop",
-					"Agile"
+					"HTML5",
+					"Internationalization",
+					"jQuery",
+					"SASS",
+					"YAML"
 				],
 				"timeline": "7 months",
 				"unique": "intel",
@@ -491,10 +559,10 @@
 				"image": "mcdonalds.png",
 				"name": "McDonald's",
 				"tags": [
-					"HTML5",
 					"CSS3",
+					"HTML5",
 					"jQuery",
-					"APP: Kiosk"
+					"Kiosk"
 				],
 				"timeline": "1 week",
 				"unique": "mcd",
@@ -507,13 +575,13 @@
 				"link": "http://czarnowski.com",
 				"name": "Czarnowski",
 				"tags": [
-					"HTML5",
 					"CSS3",
+					"HTML5",
 					"jQuery",
-					"PSD-to-HTML",
-					"WordPress",
+					"MySQL",
 					"PHP",
-					"MySQL"
+					"PSD-to-HTML",
+					"WordPress"
 				],
 				"timeline": "6 weeks",
 				"unique": "czar",
@@ -525,13 +593,13 @@
 				"image": "ctachronicles.png",
 				"name": "CTA Chronicles",
 				"tags": [
-					"HTML5",
 					"CSS3",
+					"HTML5",
 					"jQuery",
-					"WordPress",
-					"PHP",
 					"MySQL",
-					"Responsive"
+					"PHP",
+					"Responsive",
+					"WordPress"
 				],
 				"timeline": "3 months",
 				"unique": "ctachronicles",
@@ -544,20 +612,20 @@
 				"link": "http://stopandshop.com",
 				"name": "Stop and Shop",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
-					"Backbone",
-					"APIs",
 					"ADA Compliance",
-					"Oracle ATG",
 					"Agile",
-					"JIRA",
-					"PSD-to-HTML",
-					"Sketch",
-					"Grunt",
-					"Jenkins",
+					"APIs",
+					"Backbone",
 					"Bamboo",
+					"Grunt",
+					"HTML5",
+					"Jenkins",
+					"JIRA",
+					"jQuery",
+					"Oracle ATG",
+					"PSD-to-HTML",
+					"SASS",
+					"Sketch",
 					"Splunk"
 				],
 				"timeline": "18 months",
@@ -571,20 +639,20 @@
 				"link": "http://giantfoods.com",
 				"name": "Giant Foods",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
-					"Backbone",
-					"APIs",
 					"ADA Compliance",
-					"Oracle ATG",
 					"Agile",
-					"JIRA",
-					"PSD-to-HTML",
-					"Sketch",
-					"Grunt",
-					"Jenkins",
+					"APIs",
+					"Backbone",
 					"Bamboo",
+					"Grunt",
+					"HTML5",
+					"Jenkins",
+					"JIRA",
+					"jQuery",
+					"Oracle ATG",
+					"PSD-to-HTML",
+					"SASS",
+					"Sketch",
 					"Splunk"
 				],
 				"timeline": "18 months",
@@ -598,20 +666,20 @@
 				"link": "http://giantfoodstores.com",
 				"name": "GIANT Foods",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
-					"Backbone",
-					"APIs",
 					"ADA Compliance",
-					"Oracle ATG",
 					"Agile",
-					"JIRA",
-					"PSD-to-HTML",
-					"Sketch",
-					"Grunt",
-					"Jenkins",
+					"APIs",
+					"Backbone",
 					"Bamboo",
+					"Grunt",
+					"HTML5",
+					"Jenkins",
+					"JIRA",
+					"jQuery",
+					"Oracle ATG",
+					"PSD-to-HTML",
+					"SASS",
+					"Sketch",
 					"Splunk"
 				],
 				"timeline": "18 months",
@@ -625,20 +693,20 @@
 				"link": "http://martinfoods.com",
 				"name": "Martin Foods",
 				"tags": [
-					"HTML5",
-					"SASS",
-					"jQuery",
-					"Backbone",
-					"APIs",
 					"ADA Compliance",
-					"Oracle ATG",
 					"Agile",
-					"JIRA",
-					"PSD-to-HTML",
-					"Sketch",
-					"Grunt",
-					"Jenkins",
+					"APIs",
+					"Backbone",
 					"Bamboo",
+					"Grunt",
+					"HTML5",
+					"Jenkins",
+					"JIRA",
+					"jQuery",
+					"Oracle ATG",
+					"PSD-to-HTML",
+					"SASS",
+					"Sketch",
 					"Splunk"
 				],
 				"timeline": "18 months",
@@ -651,18 +719,18 @@
 				"image": "ameren.png",
 				"name": "Ameren",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
-					"Jade",
-					"CSS3",
-					"LESS",
+					"Agile",
 					"AngularJS",
 					"APIs",
-					"SPA",
+					"CSS3",
 					"Grunt",
+					"HTML",
+					"Jade",
 					"JIRA",
-					"Agile",
-					"APP: Mobile"
+					"LESS",
+					"Mobile",
+					"PSD-to-HTML",
+					"SPA"
 				],
 				"timeline": "6 weeks",
 				"unique": "ame",
@@ -675,13 +743,13 @@
 				"link": "http://www.lincolninternational.com",
 				"name": "Lincoln International",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
+					"HTML",
+					"Internationalization",
 					"Javascript",
+					"PSD-to-HTML",
 					"Responsive",
-					"WordPress",
-					"Localization"
+					"WordPress"
 				],
 				"timeline": "5 weeks",
 				"unique": "lincoln",
@@ -693,14 +761,14 @@
 				"image": "thermofisher.png",
 				"name": "Thermofisher",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
-					"CSS3",
-					"jQuery",
 					"Adobe CQ",
-					"JIRA",
 					"Agile",
-					"E-commerce"
+					"CSS3",
+					"E-commerce",
+					"HTML",
+					"JIRA",
+					"jQuery",
+					"PSD-to-HTML"
 				],
 				"timeline": "8 weeks",
 				"unique": "thermo",
@@ -713,9 +781,9 @@
 				"link": "http://borderstates.com",
 				"name": "Border States",
 				"tags": [
-					"QA",
 					"bug fixes",
-					"JIRA"
+					"JIRA",
+					"QA"
 				],
 				"timeline": "1 week",
 				"unique": "border",
@@ -727,13 +795,13 @@
 				"image": "discover-bank-account-activity-mobile.png",
 				"name": "Discover Card: Bank Account Activity",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
-					"jQuery",
+					"HTML",
 					"jQuery Mobile",
+					"jQuery",
+					"Mobile",
 					"PHP",
-					"Mobile"
+					"PSD-to-HTML"
 				],
 				"timeline": "4 weeks",
 				"unique": "discoverbank",
@@ -745,11 +813,11 @@
 				"image": "evolve.png",
 				"name": "Evolve: AG Idea Forum",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
+					"HTML",
 					"jQuery",
 					"PHP",
+					"PSD-to-HTML",
 					"WordPress"
 				],
 				"timeline": "2 weeks",
@@ -761,13 +829,13 @@
 				"client": "Internal",
 				"image": "evolve-mobile.png",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
+					"HTML",
 					"jQuery",
+					"Mobile",
 					"PHP",
-					"WordPress",
-					"Mobile"
+					"PSD-to-HTML",
+					"WordPress"
 				],
 				"timeline": "2 weeks",
 				"unique": "evolvem",
@@ -780,12 +848,12 @@
 				"link": "http://frontier.com",
 				"name": "Frontier",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
-					"CSS3",
-					"jQuery",
 					"bug fixes",
-					"JIRA"
+					"CSS3",
+					"HTML",
+					"JIRA",
+					"jQuery",
+					"PSD-to-HTML"
 				],
 				"timeline": "2 weeks",
 				"unique": "front",
@@ -798,11 +866,11 @@
 				"link": "http://us.msasafety.com",
 				"name": "MSA Safety",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
+					"HTML",
 					"jQuery",
-					"PHP"
+					"PHP",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "mine",
@@ -814,14 +882,14 @@
 				"image": "tmobile-mobile.png",
 				"name": "T-Mobile",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
-					"jQuery",
+					"E-commerce",
+					"HTML",
 					"jQuery Mobile",
-					"PHP",
+					"jQuery",
 					"Mobile",
-					"E-commerce"
+					"PHP",
+					"PSD-to-HTML"
 				],
 				"timeline": "2 weeks",
 				"unique": "tmobile",
@@ -833,12 +901,12 @@
 				"image": "unsnowman.png",
 				"name": "Unsnowman Competition",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS3",
+					"HTML",
 					"jQuery",
+					"MySQL",
 					"PHP",
-					"MySQL"
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "unsnowmen",
@@ -850,9 +918,9 @@
 				"image": "wesco.png",
 				"name": "Wesco",
 				"tags": [
-					"QA",
 					"bug fixes",
-					"JIRA"
+					"JIRA",
+					"QA"
 				],
 				"timeline": "1 week",
 				"unique": "wes",
@@ -864,14 +932,14 @@
 				"image": "grainger.png",
 				"name": "Grainger",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
+					"Agile",
 					"CSS",
 					"DOJO",
-					"JIRA",
+					"E-commerce",
+					"HTML",
 					"Hybris",
-					"Agile",
-					"E-commerce"
+					"JIRA",
+					"PSD-to-HTML"
 				],
 				"timeline": "18 months",
 				"unique": "grain",
@@ -884,11 +952,11 @@
 				"link": "http://www.sanfordhealth.org/",
 				"name": "Sanford Health",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"HTML",
 					"jQuery",
-					"PHP"
+					"PHP",
+					"PSD-to-HTML"
 				],
 				"timeline": "2 weeks",
 				"unique": "sanford",
@@ -901,12 +969,12 @@
 				"link": "http://www.destinationxl.com/mens-big-and-tall-store/",
 				"name": "Casual Male DXL",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"E-commerce",
+					"HTML",
 					"jQuery",
 					"PHP",
-					"E-commerce"
+					"PSD-to-HTML"
 				],
 				"timeline": "5 weeks",
 				"unique": "casual",
@@ -919,11 +987,11 @@
 				"link": "http://www.yslbeautyus.com/",
 				"name": "L'Oreal",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"E-commerce",
+					"HTML",
 					"jQuery",
-					"E-commerce"
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "loreal",
@@ -936,12 +1004,12 @@
 				"link": "http://www.ltdcommodities.com/",
 				"name": "LTD Commodities",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"E-commerce",
+					"HTML",
 					"jQuery",
 					"PHP",
-					"E-commerce"
+					"PSD-to-HTML"
 				],
 				"timeline": "4 weeks",
 				"unique": "ltd",
@@ -954,12 +1022,12 @@
 				"link": "http://iloveny.com/",
 				"name": "ILOVENY | The Official New York State Tourism Site",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
+					"AJAX",
 					"CSS",
+					"HTML",
 					"Javascript",
 					"jQuery",
-					"AJAX"
+					"PSD-to-HTML"
 				],
 				"timeline": "10 weeks",
 				"unique": "ny",
@@ -972,8 +1040,8 @@
 				"link": "http://www.healthychildren.org/english/tips-tools/symptom-checker/Pages/default.aspx",
 				"name": "American Academy of Pediatrics: Symptom Checker Tool",
 				"tags": [
-					"HTML",
 					"CSS",
+					"HTML",
 					"jQuery"
 				],
 				"timeline": "2 weeks",
@@ -987,8 +1055,8 @@
 				"link": "http://suntimes.com/",
 				"name": "suntimes.com",
 				"tags": [
-					"HTML",
 					"CSS",
+					"HTML",
 					"Javascript"
 				],
 				"timeline": "5 weeks",
@@ -1002,11 +1070,11 @@
 				"link": "http://pizzahut.com/",
 				"name": "Pizza Hut",
 				"tags": [
-					"HTML",
-					"CSS",
-					"Javascript",
 					"bug fixes",
-					"E-commerce"
+					"CSS",
+					"E-commerce",
+					"HTML",
+					"Javascript"
 				],
 				"timeline": "2 months",
 				"unique": "pizza",
@@ -1018,14 +1086,14 @@
 				"image": "daa.png",
 				"name": "Distinguished Alumni Awards",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
-					"CSS",
 					"AJAX",
+					"ASP Classic",
+					"CSS",
+					"HTML",
 					"Javascript",
 					"jQuery",
-					"XML/XSLT",
-					"ASP Classic"
+					"PSD-to-HTML",
+					"XML/XSLT"
 				],
 				"timeline": "3 weeks",
 				"unique": "daa",
@@ -1038,10 +1106,10 @@
 				"link": "http://chicagobooth.edu/food/2009/",
 				"name": "From Farm to Fork Food Conference 2009",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"Javascript"
+					"HTML",
+					"Javascript",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "farm",
@@ -1054,10 +1122,10 @@
 				"link": "http://www.chicagobooth.edu/alumni/celebration/2009/",
 				"name": "Alumni Celebrations 2009",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"Javascript"
+					"HTML",
+					"Javascript",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "alumni",
@@ -1070,10 +1138,10 @@
 				"link": "http://career.chicagobooth.edu/parttime/careerpath/",
 				"name": "Career Paths",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
+					"ASP Classic",
 					"CSS",
-					"ASP Classic"
+					"HTML",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "career",
@@ -1086,14 +1154,14 @@
 				"link": "http://chicagobooth.edu/alumni/reunion2009/",
 				"name": "Alumni Reunions 2009",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
+					"AJAX",
+					"ASP Classic",
 					"CSS",
+					"HTML",
 					"Javascript",
 					"jQuery",
-					"AJAX",
-					"XML/XSLT",
-					"ASP Classic"
+					"PSD-to-HTML",
+					"XML/XSLT"
 				],
 				"timeline": "3 weeks",
 				"unique": "reunion",
@@ -1105,12 +1173,12 @@
 				"image": "talent-development.png",
 				"name": "Talent Development Conference 2010",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
+					"ASP Classic",
 					"CSS",
+					"HTML",
 					"Javascript",
 					"jQuery",
-					"ASP Classic"
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "talent",
@@ -1122,10 +1190,10 @@
 				"image": "discover-find-my-offer-mobile.png",
 				"name": "Discover Card: Find My Offer (Mobile)",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"Mobile"
+					"HTML",
+					"Mobile",
+					"PSD-to-HTML"
 				],
 				"timeline": "2 weeks",
 				"unique": "discovercard",
@@ -1137,11 +1205,11 @@
 				"image": "3m.png",
 				"name": "3M-Cuno",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"HTML",
 					"jQuery",
-					"PHP"
+					"PHP",
+					"PSD-to-HTML"
 				],
 				"timeline": "4 weeks",
 				"unique": "cuno",
@@ -1154,12 +1222,12 @@
 				"link": "http://www.ashleyfurniturehomestore.com",
 				"name": "Ashley Furniture Homestore",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"E-commerce",
+					"HTML",
 					"jQuery",
 					"PHP",
-					"E-commerce"
+					"PSD-to-HTML"
 				],
 				"timeline": "2 weeks",
 				"unique": "ashley",
@@ -1172,11 +1240,11 @@
 				"link": "http://www.gfs.com/en",
 				"name": "Gordon Food Services",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
+					"HTML",
 					"jQuery",
-					"PHP"
+					"PHP",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "gordon",
@@ -1189,10 +1257,10 @@
 				"link": "https://my.secure.home1.ul.com/portal/page/portal/usa/Welcome",
 				"name": "UL &ndash; @MyHome",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"jQuery"
+					"HTML",
+					"jQuery",
+					"PSD-to-HTML"
 				],
 				"timeline": "4 weeks",
 				"unique": "ul",
@@ -1204,10 +1272,10 @@
 				"image": "regis-franchise.png",
 				"name": "Regis Franchise",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"jQuery"
+					"HTML",
+					"jQuery",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "regis",
@@ -1219,10 +1287,10 @@
 				"image": "regis-stylist.png",
 				"name": "Regis Stylist",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"jQuery"
+					"HTML",
+					"jQuery",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "regiss",
@@ -1234,10 +1302,10 @@
 				"image": "invitrogen.png",
 				"name": "Invitrogen Rockfeller",
 				"tags": [
-					"PSD-to-HTML",
-					"HTML",
 					"CSS",
-					"jQuery"
+					"HTML",
+					"jQuery",
+					"PSD-to-HTML"
 				],
 				"timeline": "3 weeks",
 				"unique": "invitro",
@@ -1250,14 +1318,14 @@
 				"link": "http://www.modernlighting.com",
 				"name": "Modern Lighting",
 				"tags": [
-					"PSD-to-HTML",
+					"AJAX",
+					"CSS",
 					"E-commerce",
 					"HTML",
-					"CSS",
-					"AJAX",
 					"Javascript",
+					"MySQL",
 					"PHP",
-					"MySQL"
+					"PSD-to-HTML"
 				],
 				"timeline": "18 months",
 				"unique": "modern",

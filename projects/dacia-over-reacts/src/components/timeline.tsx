@@ -1,5 +1,9 @@
 import content from '../media/json/static.en-us.json'
 
+function getImage(image: string): string {
+	return new URL(`../media/assets/images/projects/${image}`, import.meta.url).href
+}
+
 export default function Timeline() {
 	return (
 		<div className="timeline">
@@ -17,7 +21,7 @@ export default function Timeline() {
 									className="ui small image project hvr-grow-shadow"
 									data-modal={`project-${project.unique}`}
 								>
-									<img src={`../media/assets/images/projects/${project.image}`} alt={project.name} />
+									<img src={getImage(project.image)} alt={project.name} />
 									<div className="ui green right ribbon label">{project.timeline}</div>
 									<div className="ui bottom attached label">{project.name}</div>
 								</a>
@@ -43,7 +47,7 @@ export default function Timeline() {
 										</h3>
 
 										<span className="ui small image">
-											<img src={`../media/assets/images/projects/${project.image}`} alt={project.name} />
+											<img src={getImage(project.image)} alt={project.name} />
 											<div className="ui green right ribbon label">{project.timeline}</div>
 										</span>
 
