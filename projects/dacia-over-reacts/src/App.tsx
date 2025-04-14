@@ -11,6 +11,7 @@ import Resume from './pages/Resume'
 import content from './media/json/static.en-us.json'
 import 'semantic-ui-css/semantic.min.css'
 import './media/styles/main.scss'
+import './media/styles/mui-override.scss'
 
 import Footer from './pages/Footer'
 import Header, { MenuItem } from './pages/Header'
@@ -28,7 +29,6 @@ function App() {
 const AppContent = () => {
 	const location = useLocation()
 	const routeClass = location.pathname === '/' ? 'home' : location.pathname.replace('/', '')
-	console.log({ routeClass })
 
 	return (
 		<div className="wrapper">

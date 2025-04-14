@@ -4,6 +4,10 @@ function getImage(image: string): string {
 	return new URL(`../media/assets/images/projects/${image}`, import.meta.url).href
 }
 
+function showModal(project: string) {
+	// ($(`#${project}.modal`) as any).modal('attach events', `#${project}-link`, 'show')
+}
+
 export default function Timeline() {
 	return (
 		<div className="timeline">
@@ -20,6 +24,7 @@ export default function Timeline() {
 									id={`project-${project.unique}-link`}
 									className="ui small image project hvr-grow-shadow"
 									data-modal={`project-${project.unique}`}
+									onClick={() => showModal(project.unique)}
 								>
 									<img src={getImage(project.image)} alt={project.name} />
 									<div className="ui green right ribbon label">{project.timeline}</div>
@@ -53,9 +58,7 @@ export default function Timeline() {
 
 										<div className="ui labels">
 											{project.tags.map((tag, index) => (
-												<span className="ui label" key={index}>
-													{tag}
-												</span>
+												<span className="ui label" key={index}>{tag}</span>
 											))}
 										</div>
 									</div>
@@ -65,7 +68,7 @@ export default function Timeline() {
 					))}
 				</div>
 			</div>
-		</div>
+		</div >
 	)
 }
 

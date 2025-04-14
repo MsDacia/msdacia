@@ -1,3 +1,9 @@
+import {
+	Accordion,
+	AccordionSummary,
+	AccordionDetails,
+} from '@mui/material'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import content from '../media/json/static.en-us.json'
 
 export default function Experience() {
