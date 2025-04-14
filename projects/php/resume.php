@@ -20,16 +20,7 @@
 			<section id="mainContent" class="resume" data-role="content">
 
 				<h1>Dacia Rodrigue</h1>
-				<p>Chicago, Illinois<br />
-				<a href="media/miscellaneous/DaciaJamesResumeAll.pdf">download resume (.pdf)</a>
-
-<?php
-	$filename = 'media/miscellaneous/DaciaJamesResumeAll.pdf';
-	if (file_exists($filename)) {
-		echo "<br /><span>(last modified: <span>" . date ("F d Y H:i:s.", filemtime($filename)) . "</span>)</span>";
-	}
-?>
-				</p>
+				<p>Chicago, Illinois</p>
 
 				<h3>Career Objective</h3>
 				<p>12+ year of front-end web developer experience working with diverse clients and projects, showcasing my strong development and leadership skills. I have expert-level knowledge of W3C standards, cross-browser/platform development, accessibility, and a solid understanding of the principles of information architecture. I have the ability to quickly hand-code clean HTML/CSS from Photoshop/Sketch/Zeplin mock-ups, functional specs and use cases, with understanding of interaction design and user-centered design methods and practices. I have experience in refactoring existing codebase and in understanding existing implementations to decide to refactor or rewrite. I enjoy working in Agile development and am extremely comfortable with SCRUM process.</p>

@@ -8,12 +8,6 @@
 		<div class="fourteen wide column">
 			<ad-work></ad-work>
 			<address>{{content.resume.address}}</address>
-			<p>
-				<a :href="content.resume.resumeUrl" target="_blank" @click="runAnalytics('download resume')">
-					<i class="inverted file pdf outline icon"></i>
-					{{content.resume.resumeTitle}}
-				</a>
-			</p>
 
 			<h2 class="ui horizontal divider header">
 				<i class="keyboard icon"></i>

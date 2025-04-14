@@ -20,17 +20,6 @@ export default function Resume() {
 
 				<address>{content.resume?.address ?? 'Address not available'}</address>
 
-				<p>
-					<a
-						href={content.resume?.resumeUrl ?? '#'}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<i className="inverted file pdf outline icon" />
-						{content.resume?.resumeTitle ?? 'Download Resume'}
-					</a>
-				</p>
-
 				<h2 className="ui horizontal divider header">
 					<i className="keyboard icon" />
 					{content.resume?.skills?.title ?? 'Skills'}
