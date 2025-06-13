@@ -1,7 +1,6 @@
 import About from './about'
 import Home from './home'
 import Portfolio from './portfolio'
-import Resume from './resume'
 import Wrapper from './wrapper'
 
 export default [
@@ -24,10 +23,6 @@ export default [
 			{
 				component: Portfolio,
 				path: '/portfolio'
-			},
-			{
-				component: Resume,
-				path: '/resume'
 			}
 		]
 	}

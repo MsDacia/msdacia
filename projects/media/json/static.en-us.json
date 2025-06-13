@@ -63,11 +63,6 @@
 				"title": "About"
 			},
 			{
-				"item": "resume",
-				"path": "/resume",
-				"title": "Resume"
-			},
-			{
 				"item": "portfolio",
 				"path": "/portfolio",
 				"title": "Portfolio"
@@ -1472,8 +1467,8 @@
 			"copy": "Continuing with my front-end web engineering experience working with diverse clients and projects while collaborating with product owners, UI/UX designers, back-end engineers, and QA engineers. As a team member, I showcase strong leadership skills within an agile environment, while bringing my passion about new technologies, industry coding standards, and clean, reusable code, while keeping in mind the end-user experience with the application.",
 			"title": "Objective"
 		},
-		"resumeTitle": "View/Download",
-		"resumeUrl": "https://drive.google.com/file/d/1iOClgvHzZfglfjzdLpA8FNdtHC60Onbn/view?usp=sharing",
+		"resumeTitle": "N/A",
+		"resumeUrl": "",
 		"skills": {
 			"categories": [
 				{

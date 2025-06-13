@@ -7,7 +7,6 @@ import {
 import Home from './pages/Home'
 import About from './pages/About'
 import Portfolio from './pages/Portfolio'
-import Resume from './pages/Resume'
 import content from './media/json/static.en-us.json'
 import 'semantic-ui-css/semantic.min.css'
 import './media/styles/main.scss'
@@ -40,7 +39,6 @@ const AppContent = () => {
 					<div className={`main-content ${routeClass}`}>
 						<Routes>
 							<Route path="/about" element={<About />} />
-							<Route path="/resume" element={<Resume />} />
 							<Route path="/portfolio" element={<Portfolio />} />
 							<Route path="/" element={<Home />} />
 						</Routes>
