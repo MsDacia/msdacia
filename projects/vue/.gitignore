@@ -1,23 +1,25 @@
-.DS_Store
-coverage
-node_modules
-dist
-test/e2e/reports/
-test/unit/coverage/
-vendor
-media
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-firestore-debug.log*
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+/cypress/videos/
+/cypress/screenshots/
 
 # Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*
@@ -25,7 +27,4 @@ yarn-error.log*
 *.sln
 *.sw?
 
-# production
-/build
-
-datastore.js
+*.tsbuildinfo
