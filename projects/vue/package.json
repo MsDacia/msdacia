@@ -1,14 +1,26 @@
 {
-  "name": "vue-modern",
-  "version": "0.0.0",
+  "name": "msdacia",
+  "version": "3.0.0",
+  "description": "MsDacia's Personal Site",
+  "author": "Dacia Rodrigue <msdessin@gmail.com>",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "deploy": "",
     "preview": "vite preview",
+    "predeploy": "npm run build",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build"
+    "type-check": "vue-tsc --build",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui",
+    "test:all": "npm run test:run && npm run test:e2e"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
@@ -19,15 +31,23 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/vue": "^8.1.0",
     "@tsconfig/node22": "^22.0.1",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-vue": "^5.2.3",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
+    "happy-dom": "^15.11.6",
     "npm-run-all2": "^7.0.2",
     "sass": "^1.89.2",
     "typescript": "~5.8.0",
     "vite": "^6.2.4",
     "vite-plugin-vue-devtools": "^7.7.2",
+    "vitest": "^2.1.8",
     "vue-tsc": "^2.2.8"
   }
 }

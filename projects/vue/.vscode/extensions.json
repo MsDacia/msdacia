@@ -1,3 +1,58 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    // Vue.js Development
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    
+    // Testing
+    "vitest.explorer",
+    "ms-playwright.playwright",
+    "ryanluker.vscode-coverage-gutters",
+    "hbenl.vscode-test-explorer",
+    
+    // TypeScript & JavaScript
+    "ms-vscode.vscode-typescript-next",
+    "bradlc.vscode-tailwindcss",
+    
+    // Code Quality
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    
+    // Git & Version Control
+    "eamodio.gitlens",
+    "donjayamanne.githistory",
+    
+    // Productivity
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "ms-vscode.vscode-npm-scripts",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    
+    // UI/UX
+    "pkief.material-icon-theme",
+    "github.github-vscode-theme",
+    
+    // Debugging & Development
+    "ms-vscode.vscode-js-debug",
+    "firefox-devtools.vscode-firefox-debug",
+    
+    // Documentation
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    
+    // Terminal Enhancement
+    "ms-vscode.vscode-terminal",
+    
+    // SASS/SCSS Support
+    "syler.sass-indented",
+    "glenn2223.live-sass",
+    
+    // Additional Utilities
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "ms-vscode.vscode-json-languageservice",
+    "ms-vscode.vscode-css-languageservice"
+  ]
 }
