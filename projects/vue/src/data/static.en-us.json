@@ -1,7 +1,7 @@
 {
 	"about": {
 		"copy": "In this world there is no hope or true love, but I have found something that keeps me filled with continual joy, and that is the love of <strong>GOD</strong>. Love is not a feeling or an emotion, but an unbreakable promise, a covenant. I pride myself in establishing flourish personal and professional relationships. I tend to live a transparent life, the same person in every situation&hellip; no two faces (or more) about me. WYSIWYG!!!",
-		"copy2": "I am a front end software engineer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue, which is how this site was originally built, but I have taken the Vue code and converted it to React. I also have 3 additional sites/apps I am building/have built with my husband: our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a>, our multi-person, offline mode supported grocery list app, and my personal closet app, called a href=\"http://daciascloset.com\" target=\"_blank\">dacia's closet</a>. As a detail-oriented, person being a software engineer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. Right now, I am quite content with my current career path.",
+		"copy2": "I am a front end software engineer, learning UI/UX. As you can see from the site design, it may be simple, but it works. My current JS framework obsession is Vue, which is how this site was originally built, but I have taken the Vue code and converted it to React. I also have 3 additional sites/apps I am building/have built with my husband: our wedding website, <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a>, our multi-person, offline mode supported grocery list app, and my personal closet app, called <a href=\"http://daciascloset.com\" target=\"_blank\">dacia's closet</a>. As a detail-oriented, person being a software engineer is right up my alley. Bringing the vision of the client to fruition by paying attention to details, making sure all the T's are crossed and the I's are dotted. It is important to me to have and maintain a work/life balance. Right now, I am quite content with my current career path.",
 		"copy3": "When I am not billable, I am a movie buff, while keeping up on the latest TV dramas and reality shows. But my most passionate form of entertainment is sports, particularly NHL and NFL. I love the Chicago Blackhawks, but I am a HUGE Chicago BEARS fan. Check out the <a href=\"http://timeoutchicago.com/guides/16016226/the-football-fanatic\" target=\"_blank\">article</a> written about me in TimeOut Chicago. My husband and I had the honor of having our wedding at Soldier Field, November 1, 2018. Visit our site <a href=\"http://davidanddacia.com\" target=\"_blank\">David + Dacia</a> to see the video.",
 		"subtitle": "Foundation",
 		"subtitle2": "Professionally",
@@ -1346,73 +1346,90 @@
 		"experiences": {
 			"job": [
 				{
+					"id": 8,
+					"company": "CareAcademy",
+					"date": "11/2020 to current",
+					"location": "Remote",
+					"points": [
+						"Developing, maintaining, and deploying responsive, scalable web applications with streamlined CI/CD pipelines",
+						"Operating as lead engineer on all initiatives, building user stories and sprint planning for the team",
+						"Establishing the architecture and best practices for web or mobile application within our codebase",
+						"Managing DevOps workflows, including quarterly updates of front-end dependencies to ensure system stability and security",
+						"Designing and implementing an API service to seamlessly integrate front-end code with Ruby-based APIs",
+						"Working closely with back-end Ruby engineers in peer-programming sessions",
+						"Contributing to company’s internal component-based UI design system",
+						"Converting codebase from Slim/Vue to use TSX, and eventually working to, convert codebase from Vue 2 to Vue 3",
+						"Instituting testing of front-end codebase with Vue Test Utils and vitest for unit tests and components and for e2e, utilized Cypress and Playwright"
+					],
+					"title": "Senior Frontend Engineer - Lead"
+				},
+				{
 					"id": 7,
+					"company": "Independent Consultant",
+					"date": "02/2019 to current",
+					"location": "Remote (Cook County)",
+					"points": [
+						"Assisting pro se litigants with document production and preparation",
+						"Creating, updating, maintaining, proofing and coordinating legal documents for internal and external audiences",
+						"Ensuring that all necessary specifications are met and that documents are fit for filing with the court",
+						"Preparing email and schedules court hearings"
+					],
+					"title": "Legal Document Preparer/Specialist"
+				},
+				{
+					"id": 6,
+					"company": "Gorilla Group",
+					"date": "04/2020 to 11/2020",
+					"location": "Remote",
+					"points": [
+						"Estimated various projects based on high-level requirements, assumptions, designs and business rules",
+						"Created sprint plans with Backend Lead Engineer, including creating Jira stories from functional specifications while managing team velocity",
+						"Oversaw multiple projects by participating in code reviews, triaged bugs, and validated task completion",
+						"Escalated issues and providing support to frontend developers staffed on projects, as well as, direct reports",
+						"Engaged in phone-screenings, interviews, and administering code tests for potential hires",
+						"Facilitated 1: 1 meetings with direct reports, peer feedback, and scheduling resources on various projects"
+					],
+					"title": "Frontend Developer Manager/Project Lead"
+				},
+				{
+					"id": 5,
 					"company": "GrayMeta",
 					"date": "05/2018 to 03/2020",
 					"location": "Remote",
 					"points": [
-						"Gathered business logic from product owners, which allowed for determining if either the \"client side\" or \"server side\" approach is appropriate and educated teams on this",
-						"Architected, developed, tested, refactored, and scaled new and existing reusable cross-platform components for optimal user workflow experiences for GrayMeta's SaaS cloud-based application using Vue, vuex, unit tests, and LESS in a GoLang environment",
-						"Integrated and maintained state management for complex API-driven data models utilizing vuex",
-						"Created page and feature designs for developer consumption in Adobe XD, exported to Zeplin",
-						"Participated in code reviews providing thoughtfully constructive feedback",
-						"Acted as Scrum Master for development team, including backlog grooming, sprint planning, and running daily stand-up meetings",
-						"Contributed to developer coding standards for a consistent code-base",
-						"Communicated effectively with the ability to translate and explain technical issues to non-technical team members"
+						"Built reusable Vue.js components for GrayMeta’s SaaS cloud-based application; sole developer on registration and admin flow for small business users with unit tests using Vue Test Utils",
+						"Integrated RESTful APIs; managed application state using Vuex",
+						"Reduced technical debt, refactored code, and increased scalability; provided peer code reviews",
+						"Began the process of integrating Typescript into Vue.js components",
+						"Contributed to developer coding standards documentation for consistency",
+						"Designed pages and features for developer consumption in Adobe XD, exported to Zeplin",
+						"Acted as Scrum Master, including backlog grooming, sprint planning; lead daily stand-up meetings",
+						"Gathered business requirements with Product Owner; helped distinguish between client- and server-side implementation"
 					],
 					"title": "Front-End Software Engineer"
 				},
 				{
-					"id": 6,
+					"id": 4,
 					"company": "Lyons Consulting Group",
 					"date": "12/2017 to 06/2018",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Focused on the browser interaction side of things, using jQuery, HTML5 and LESS techniques to implement the layout and user experience specified in wireframes and PSDs delivered by Information Architects and Creative Designers",
-						"Used Hybris CMS, including customizing templates and components via Impex files based on JSP templates using JSTL",
-						"Utilized experience and judgment to plan around milestone schedules in order to manage multiple deadline driven projects"
+						"Implemented the layout and user experience specified in wireframes and PSDs",
+						"Customized ecommerce Hybris pages and components via Impex files based on JSP templates",
+						"Planned development around milestones in order to manage multiple deadline driven projects"
 					],
 					"title": "Applications Engineer - Hybris"
 				},
 				{
-					"id": 5,
-					"company": "Innerworkings",
-					"date": "03/2017 to 12/2017",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Developed web-based application for B2B clients using HTML5, CSS3, Javascript, AngularJS, and Java",
-						"Debugged defects in application environment, including SQL scripts, API callback",
-						"Generated on-demand PDFs from application based on user's requirementss"
-					],
-					"title": "Application Developer"
-				},
-				{
-					"id": 4,
-					"company": "Razorfish Commerce",
-					"date": "05/2016 to 02/2017",
-					"location": "Chicago, Illinois",
-					"points": [
-						"Architected all coded presentation layer deliverables utilizing HTML5, Javascript, CSS3, Backbone, SASS, JSON, D3 within Adobe AEM/CQ and Hybris",
-						"Converted HTML pages from Sketch/Zeplin to microsites and landing pages for clients",
-						"Worked within agile, SCRUM-based environment on large commerce accounts",
-						"Architected client sites using Grunt/Gulp and developed single-page applications using AWS",
-						"Tested website for functionality for cross-browser/platform issues and enforced coding W3C standards",
-						"Utilized experience and judgment to plan around milestone schedules in order to manage multiple deadline driven projects"
-					],
-					"title": "Senior Presentation Layer Developer"
-				},
-				{
 					"id": 3,
-					"company": "SuperHumane",
-					"date": "05/2016 to 11/2016",
+					"company": "Independent Contractor",
+					"date": "03/2015 to 12/2017",
 					"location": "Remote",
 					"points": [
-						"Architected client-side templates using JSON/Twig within JSX React templates, while working efficiently with a strong attention to detail and accuracy from Invision and Sketch mockups",
-						"Tested website for functionality for cross-browser/platform issues and enforced coding W3C standards",
-						"Designed JSON API within Craft CMS",
-						"Participated in daily stand-up, sprint planning, and retrospective"
+						"Networked with various companies and clients staffed on short- and long-term engagements",
+						"Developed presentation-layer websites, CMS-driven microsites, user-interactive kiosks, ecommerce and responsive single-page applications independently"
 					],
-					"title": "React Front-End Web Developer (Independent Contractor)"
+					"title": "Frontend Web Developer"
 				},
 				{
 					"id": 2,
@@ -1420,11 +1437,11 @@
 					"date": "12/2013 to 06/2015",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including CSS3, HTML, AJAX, Javascript, backbone.js, XML/XSLT, JSP, API, JSON, and ATG CMS",
-						"Developed front-end sites and applications, including responsive web design, vanilla Javascript, RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
-						"Created and maintained the UI toolkit and other internal projects in ATG Business Control Center CMS",
-						"Developed in agile development environment, including scrums, backlog grooming, and sprint planning",
-						"Handled and documented the deployment process for the end of sprint code release to production"
+						"Produced dynamic page templates for desktop and mobile web application",
+						"Developed responsive microsites with rich media production and social media integration",
+						"Created and maintained the UI toolkit and other internal projects",
+						"Developed within agile environment, including backlog grooming, sprint planning, and retrospectives",
+						"Documented and executed the deployment process for the end of sprint code release to production"
 					],
 					"title": "Senior Front-End Web Developer"
 				},
@@ -1434,11 +1451,10 @@
 					"date": "06/2008 to 12/2013",
 					"location": "Chicago, Illinois",
 					"points": [
-						"Produced HTML5/CSS page templates from master source documents for desktop and mobile web applications using technologies including but not limited to CSS, HTML, AJAX, Javascript, XML/XSLT, JSP, PHP, API, JSON, and CMS' such as Adobe CQ and Hybris",
-						"Coached front-end developers in standards, compliant methodologies, repeatable processes, cross browser, and cross platform website and application development, including building out our formal QA process",
-						"Architected and developed front-end sites and applications, including responsive web design, Javascript (both jQuery and dojo frameworks), RESTful API integration, and rich media production and social media integration while working efficiently with a strong attention to detail and accuracy",
-						"Utilized experience and judgment to plan around milestone schedules in order to manage multiple deadline driven projects",
-						"Provided appropriate guidance and oversight to team members to ensure quality of deliverables, mentoring college hires"
+						"Architected and developed responsive ecommerce web templates, desktop and mobile web applications",
+						"Coached frontend developers in standards, compliant methodologies, reusable components, and cross-browser/platform websites and applications development, including building out our formal QA process",
+						"Planned milestone schedules in order to manage multiple deadline driven projects",
+						"Provided oversight to team members to ensure quality of deliverables, while mentoring college hires"
 					],
 					"title": "Senior Front-End Web Developer"
 				}
@@ -1463,22 +1479,26 @@
 			"title": "Links"
 		},
 		"objective": {
-			"copy": "Continuing with my front-end web engineering experience working with diverse clients and projects while collaborating with product owners, UI/UX designers, back-end engineers, and QA engineers. As a team member, I showcase strong leadership skills within an agile environment, while bringing my passion about new technologies, industry coding standards, and clean, reusable code, while keeping in mind the end-user experience with the application.",
+			"copy": "Pursuing opportunities to advance my engineering career by collaborating with diverse clients and teams on innovative projects leveraging TypeScript. I excel in cross-functional collaboration with product owners, UI/UX designers, backend engineers, and QA teams. With a passion for new technologies, clean, reusable code, and adherence to industry standards, I combine technical expertise with a user-centered approach to deliver exceptional applications.",
 			"title": "Objective"
 		},
 		"skills": {
 			"categories": [
 				{
-					"copy": "Vue/vuex, ReactJS/redux, TypeScript, HTML5, LESS/SASS, API integration, JSON, YAML, Twig",
+					"copy": "Vue 2/Vue 3/Vue-Router, TypeScript, HTML5, LESS/SASS/Typestyle/Tailwind, API integration, JSON, YAML, Twig, vite, vitest, Vue Test Utils, Cypress, Playwright",
 					"title": "Development"
 				},
 				{
-					"copy": "Yarn/NPM, GitHub, Bitbucket, Jira, Postman, Docker",
+					"copy": "Yarn/NPM, GitHub, Bitbucket, Jira, Asana, Postman, Heroku, BugSnag, Docker",
 					"title": "Environment/DevOps"
 				},
 				{
-					"copy": "Adobe XD, Zeplin, Sketch",
+					"copy": "Figma, Adobe XD, Zeplin, Sketch",
 					"title": "UI Design"
+				},
+				{
+					"copy": "Claude AI, ChatGPT, GitHub Copilot",
+					"title": "Tools"
 				}
 			],
 			"title": "Skills"
