@@ -90,6 +90,7 @@ tests/
 ## 🎨 Components
 
 ### Core Components
+
 - **SiteHeader**: Navigation with responsive menu
 - **SwitchTheme**: Advanced theme switching (Light/Dark/System)
 - **ProjectGrid**: Flexible project display with grid/list views
@@ -97,7 +98,9 @@ tests/
 - **ExperienceTimeline**: Professional experience timeline
 
 ### Theme System
+
 Advanced theme management with:
+
 - Light/Dark/System preferences
 - Automatic system preference detection
 - Smooth transitions
@@ -106,23 +109,26 @@ Advanced theme management with:
 ## 🧪 Testing Strategy
 
 ### Test Coverage
+
 - **Unit Tests**: 15+ test files covering all major components
 - **Integration Tests**: Router and component interaction testing
 - **E2E Tests**: Complete user workflows across 4 test files
 - **Performance Tests**: Lighthouse audits for Core Web Vitals
 
 ### Test Files
+
 ```
 tests/
 ├── unit/
 │   ├── components/      # Component unit tests
-│   ├── composables/     # Composable tests  
+│   ├── composables/     # Composable tests
 │   └── views/          # View component tests
 ├── integration/         # Component integration tests
 └── e2e/                # End-to-end workflow tests
 ```
 
 ### VS Code Integration
+
 - Debug configurations for tests
 - Task runner integration
 - Recommended extensions
@@ -211,11 +217,13 @@ npm run build
 ## 🔍 Debugging
 
 ### VS Code
+
 - Set breakpoints in test files
 - Use "Debug Current Test File" configuration
 - View test coverage in editor
 
 ### Command Line
+
 ```bash
 # Debug specific test
 npm run test -- MyComponent.test.ts
@@ -240,9 +248,15 @@ This project is private and proprietary.
 ## 👩‍💻 Author
 
 **Dacia Rodrigue** - *Frontend Engineer*
+
 - Website: [msdacia.com](http://msdacia.com)
-- Email: msdessin@gmail.com
+- Email: <msdessin@gmail.com>
 
 ---
 
 *Built with ❤️ using Vue 3, TypeScript, and modern web development practices.*
+
+TODO
+
+- add favicon
+- fix theme switch

@@ -1,4 +1,10 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import {
+	beforeEach,
+	describe,
+	expect,
+	it,
+	vi,
+} from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
@@ -9,38 +15,38 @@ import Portfolio from '@/views/Portfolio.vue'
 
 // Mock the SwitchTheme component
 vi.mock('@/components/SwitchTheme.vue', () => ({
-  default: {
-    name: 'SwitchTheme',
-    template: '<div class="switch-theme-mock">Theme Switcher</div>'
-  }
+	default: {
+		name: 'SwitchTheme',
+		template: '<div class="switch-theme-mock">Theme Switcher</div>'
+	}
 }))
 
 // Mock the static data
 vi.mock('@/data/static.en-us.json', () => ({
-  default: {
-    common: {
-      global: {
-        menu: 'Menu'
-      },
-      navigation: [
-        {
-          item: 'home',
-          path: '/',
-          title: 'Home'
-        },
-        {
-          item: 'about',
-          path: '/about',
-          title: 'About'
-        },
-        {
-          item: 'portfolio',
-          path: '/portfolio',
-          title: 'Portfolio'
-        }
-      ]
-    }
-  }
+	default: {
+		common: {
+			global: {
+				menu: 'Menu'
+			},
+			navigation: [
+				{
+					item: 'home',
+					path: '/',
+					title: 'Home'
+				},
+				{
+					item: 'about',
+					path: '/about',
+					title: 'About'
+				},
+				{
+					item: 'portfolio',
+					path: '/portfolio',
+					title: 'Portfolio'
+				}
+			]
+		}
+	}
 }))
 
 // Simple mock components for views
@@ -49,318 +55,318 @@ const MockAbout = { name: 'About', template: '<div>About View</div>' }
 const MockPortfolio = { name: 'Portfolio', template: '<div>Portfolio View</div>' }
 
 describe('SiteHeader Integration', () => {
-  let router: any
+	let router: any
 
-  beforeEach(() => {
-    // Create a fresh router for each test
-    router = createRouter({
-      history: createWebHistory(),
-      routes: [
-        { path: '/', name: 'home', component: MockHome },
-        { path: '/about', name: 'about', component: MockAbout },
-        { path: '/portfolio', name: 'portfolio', component: MockPortfolio }
-      ],
-      linkActiveClass: 'current'
-    })
+	beforeEach(() => {
+		// Create a fresh router for each test
+		router = createRouter({
+			history: createWebHistory(),
+			routes: [
+				{ path: '/', name: 'home', component: MockHome },
+				{ path: '/about', name: 'about', component: MockAbout },
+				{ path: '/portfolio', name: 'portfolio', component: MockPortfolio }
+			],
+			linkActiveClass: 'current'
+		})
 
-    // Start at home route
-    router.push('/')
-  })
+		// Start at home route
+		router.push('/')
+	})
 
-  describe('Navigation Menu', () => {
-    it('renders all navigation links from data', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+	describe('Navigation Menu', () => {
+		it('renders all navigation links from data', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Open the menu
-      await wrapper.find('.item').trigger('click')
-      await nextTick()
+			// Open the menu
+			await wrapper.find('.item').trigger('click')
+			await nextTick()
 
-      const navLinks = wrapper.findAll('.nav-link')
-      expect(navLinks).toHaveLength(3)
+			const navLinks = wrapper.findAll('.nav-link')
+			expect(navLinks).toHaveLength(3)
 
-      // Check link titles
-      expect(navLinks[0].text()).toContain('Home')
-      expect(navLinks[1].text()).toContain('About')
-      expect(navLinks[2].text()).toContain('Portfolio')
-    })
+			// Check link titles
+			expect(navLinks[0].text()).toContain('Home')
+			expect(navLinks[1].text()).toContain('About')
+			expect(navLinks[2].text()).toContain('Portfolio')
+		})
 
-    it('has correct router-link destinations', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+		it('has correct router-link destinations', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Open the menu
-      await wrapper.find('.item').trigger('click')
-      await nextTick()
+			// Open the menu
+			await wrapper.find('.item').trigger('click')
+			await nextTick()
 
-      const navLinks = wrapper.findAll('.nav-link')
-      
-      expect(navLinks[0].attributes('to')).toBe('/')
-      expect(navLinks[1].attributes('to')).toBe('/about')
-      expect(navLinks[2].attributes('to')).toBe('/portfolio')
-    })
+			const navLinks = wrapper.findAll('.nav-link')
 
-    it('displays menu toggle button', () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			expect(navLinks[0].attributes('to')).toBe('/')
+			expect(navLinks[1].attributes('to')).toBe('/about')
+			expect(navLinks[2].attributes('to')).toBe('/portfolio')
+		})
 
-      const toggleButton = wrapper.find('.item')
-      expect(toggleButton.exists()).toBe(true)
-      expect(toggleButton.text()).toContain('Menu')
-    })
-  })
+		it('displays menu toggle button', () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-  describe('Menu Interaction', () => {
-    it('toggles menu visibility when clicked', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			const toggleButton = wrapper.find('.item')
+			expect(toggleButton.exists()).toBe(true)
+			expect(toggleButton.text()).toContain('Menu')
+		})
+	})
 
-      const toggleButton = wrapper.find('.item')
-      const menu = wrapper.find('.menu')
+	describe('Menu Interaction', () => {
+		it('toggles menu visibility when clicked', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Initially menu should be hidden
-      expect(wrapper.vm.showMenu).toBe(false)
-      expect(menu.classes()).toContain('hide-content')
+			const toggleButton = wrapper.find('.item')
+			const menu = wrapper.find('.menu')
 
-      // Click to show menu
-      await toggleButton.trigger('click')
-      expect(wrapper.vm.showMenu).toBe(true)
-      expect(menu.classes()).toContain('show-content')
+			// Initially menu should be hidden
+			expect(wrapper.vm.showMenu).toBe(false)
+			expect(menu.classes()).toContain('hide-content')
 
-      // Click again to hide menu
-      await toggleButton.trigger('click')
-      expect(wrapper.vm.showMenu).toBe(false)
-      expect(menu.classes()).toContain('hide-content')
-    })
+			// Click to show menu
+			await toggleButton.trigger('click')
+			expect(wrapper.vm.showMenu).toBe(true)
+			expect(menu.classes()).toContain('show-content')
 
-    it('updates toggle icons based on menu state', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			// Click again to hide menu
+			await toggleButton.trigger('click')
+			expect(wrapper.vm.showMenu).toBe(false)
+			expect(menu.classes()).toContain('hide-content')
+		})
 
-      const toggleButton = wrapper.find('.item')
-      
-      // Check initial icon states
-      let offIcon = wrapper.find('.toggle.off')
-      let onIcon = wrapper.find('.toggle.on')
-      
-      expect(offIcon.classes()).toContain('show-content')
-      expect(onIcon.classes()).toContain('hide-content')
+		it('updates toggle icons based on menu state', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Open menu and check icon states
-      await toggleButton.trigger('click')
-      
-      offIcon = wrapper.find('.toggle.off')
-      onIcon = wrapper.find('.toggle.on')
-      
-      expect(offIcon.classes()).toContain('hide-content')
-      expect(onIcon.classes()).toContain('show-content')
-    })
+			const toggleButton = wrapper.find('.item')
 
-    it('closes menu when navigation link is clicked', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			// Check initial icon states
+			let offIcon = wrapper.find('.toggle.off')
+			let onIcon = wrapper.find('.toggle.on')
 
-      // Open menu
-      await wrapper.find('.item').trigger('click')
-      expect(wrapper.vm.showMenu).toBe(true)
+			expect(offIcon.classes()).toContain('show-content')
+			expect(onIcon.classes()).toContain('hide-content')
 
-      // Click on a navigation link
-      const aboutLink = wrapper.findAll('.nav-link').find(link => 
-        link.text().includes('About')
-      )
-      await aboutLink!.trigger('click')
+			// Open menu and check icon states
+			await toggleButton.trigger('click')
 
-      // Menu should be closed
-      expect(wrapper.vm.showMenu).toBe(false)
-    })
-  })
+			offIcon = wrapper.find('.toggle.off')
+			onIcon = wrapper.find('.toggle.on')
 
-  describe('Router Integration', () => {
-    it('navigates to correct routes when links are clicked', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			expect(offIcon.classes()).toContain('hide-content')
+			expect(onIcon.classes()).toContain('show-content')
+		})
 
-      // Open menu
-      await wrapper.find('.item').trigger('click')
-      await nextTick()
+		it('closes menu when navigation link is clicked', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Click About link
-      const aboutLink = wrapper.findAll('.nav-link').find(link => 
-        link.text().includes('About')
-      )
-      await aboutLink!.trigger('click')
-      await nextTick()
-      await router.isReady()
+			// Open menu
+			await wrapper.find('.item').trigger('click')
+			expect(wrapper.vm.showMenu).toBe(true)
 
-      expect(router.currentRoute.value.path).toBe('/about')
-      expect(router.currentRoute.value.name).toBe('about')
-    })
+			// Click on a navigation link
+			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+				link.text().includes('About')
+			)
+			await aboutLink!.trigger('click')
 
-    it('applies active class to current route link', async () => {
-      // Navigate to about page first
-      await router.push('/about')
-      await router.isReady()
+			// Menu should be closed
+			expect(wrapper.vm.showMenu).toBe(false)
+		})
+	})
 
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+	describe('Router Integration', () => {
+		it('navigates to correct routes when links are clicked', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Open menu
-      await wrapper.find('.item').trigger('click')
-      await nextTick()
+			// Open menu
+			await wrapper.find('.item').trigger('click')
+			await nextTick()
 
-      // Find the about link and check if it has active class
-      const aboutLink = wrapper.findAll('.nav-link').find(link => 
-        link.text().includes('About')
-      )
-      
-      // Should have router-link-active class (Vue Router adds this automatically)
-      expect(aboutLink!.classes()).toContain('router-link-active')
-    })
-  })
+			// Click About link
+			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+				link.text().includes('About')
+			)
+			await aboutLink!.trigger('click')
+			await nextTick()
+			await router.isReady()
 
-  describe('Component Composition', () => {
-    it('includes SwitchTheme component', () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			expect(router.currentRoute.value.path).toBe('/about')
+			expect(router.currentRoute.value.name).toBe('about')
+		})
 
-      expect(wrapper.find('.switch-theme-mock').exists()).toBe(true)
-    })
+		it('applies active class to current route link', async () => {
+			// Navigate to about page first
+			await router.push('/about')
+			await router.isReady()
 
-    it('renders header element as root', () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      expect(wrapper.element.tagName).toBe('HEADER')
-    })
-  })
+			// Open menu
+			await wrapper.find('.item').trigger('click')
+			await nextTick()
 
-  describe('Event Handling', () => {
-    it('calls handleNavClick with correct title when nav link is clicked', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			// Find the about link and check if it has active class
+			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+				link.text().includes('About')
+			)
 
-      // Spy on console.log since that's what handleNavClick does
-      const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
+			// Should have router-link-active class (Vue Router adds this automatically)
+			expect(aboutLink!.classes()).toContain('router-link-active')
+		})
+	})
 
-      // Open menu
-      await wrapper.find('.item').trigger('click')
-      await nextTick()
+	describe('Component Composition', () => {
+		it('includes SwitchTheme component', () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // Click About link
-      const aboutLink = wrapper.findAll('.nav-link').find(link => 
-        link.text().includes('About')
-      )
-      await aboutLink!.trigger('click')
+			expect(wrapper.find('.switch-theme-mock').exists()).toBe(true)
+		})
 
-      expect(consoleSpy).toHaveBeenCalledWith('Navigation clicked:', 'About')
-      
-      consoleSpy.mockRestore()
-    })
-  })
+		it('renders header element as root', () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-  describe('Data Integration', () => {
-    it('uses navigation data from JSON file', () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			expect(wrapper.element.tagName).toBe('HEADER')
+		})
+	})
 
-      // Check that the component has access to the mocked data
-      expect(wrapper.vm.content.common.global.menu).toBe('Menu')
-      expect(wrapper.vm.content.common.navigation).toHaveLength(3)
-      expect(wrapper.vm.content.common.navigation[0].title).toBe('Home')
-    })
-  })
+	describe('Event Handling', () => {
+		it('calls handleNavClick with correct title when nav link is clicked', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-  describe('Accessibility', () => {
-    it('uses semantic navigation structure', () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			// Spy on console.log since that's what handleNavClick does
+			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
 
-      // Check for semantic HTML structure
-      expect(wrapper.element.tagName).toBe('HEADER')
-      
-      // All navigation links should be actual router-links
-      const navLinks = wrapper.findAll('.nav-link')
-      navLinks.forEach(link => {
-        // Vue Router converts router-link to 'a' tags
-        expect(['A', 'ROUTER-LINK']).toContain(link.element.tagName)
-      })
-    })
+			// Open menu
+			await wrapper.find('.item').trigger('click')
+			await nextTick()
 
-    it('provides proper text content for screen readers', async () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+			// Click About link
+			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+				link.text().includes('About')
+			)
+			await aboutLink!.trigger('click')
 
-      // Open menu
-      await wrapper.find('.item').trigger('click')
-      await nextTick()
+			expect(consoleSpy).toHaveBeenCalledWith('Navigation clicked:', 'About')
 
-      const navLinks = wrapper.findAll('.nav-link')
-      
-      // Each link should have meaningful text content
-      navLinks.forEach(link => {
-        expect(link.text().trim()).toBeTruthy()
-        expect(link.text().length).toBeGreaterThan(0)
-      })
-    })
-  })
+			consoleSpy.mockRestore()
+		})
+	})
 
-  describe('Responsive Behavior', () => {
-    it('has responsive classes for mobile', () => {
-      const wrapper = mount(SiteHeader, {
-        global: {
-          plugins: [router]
-        }
-      })
+	describe('Data Integration', () => {
+		it('uses navigation data from JSON file', () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
 
-      // While we can't test actual media queries in jsdom,
-      // we can verify the classes are present for CSS to target
-      const menu = wrapper.find('.menu')
-      expect(menu.exists()).toBe(true)
-      
-      const toggleItem = wrapper.find('.item')
-      expect(toggleItem.exists()).toBe(true)
-    })
-  })
+			// Check that the component has access to the mocked data
+			expect(wrapper.vm.content.common.global.menu).toBe('Menu')
+			expect(wrapper.vm.content.common.navigation).toHaveLength(3)
+			expect(wrapper.vm.content.common.navigation[0].title).toBe('Home')
+		})
+	})
+
+	describe('Accessibility', () => {
+		it('uses semantic navigation structure', () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
+
+			// Check for semantic HTML structure
+			expect(wrapper.element.tagName).toBe('HEADER')
+
+			// All navigation links should be actual router-links
+			const navLinks = wrapper.findAll('.nav-link')
+			navLinks.forEach(link => {
+				// Vue Router converts router-link to 'a' tags
+				expect(['A', 'ROUTER-LINK']).toContain(link.element.tagName)
+			})
+		})
+
+		it('provides proper text content for screen readers', async () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
+
+			// Open menu
+			await wrapper.find('.item').trigger('click')
+			await nextTick()
+
+			const navLinks = wrapper.findAll('.nav-link')
+
+			// Each link should have meaningful text content
+			navLinks.forEach(link => {
+				expect(link.text().trim()).toBeTruthy()
+				expect(link.text().length).toBeGreaterThan(0)
+			})
+		})
+	})
+
+	describe('Responsive Behavior', () => {
+		it('has responsive classes for mobile', () => {
+			const wrapper = mount(SiteHeader, {
+				global: {
+					plugins: [router]
+				}
+			})
+
+			// While we can't test actual media queries in jsdom,
+			// we can verify the classes are present for CSS to target
+			const menu = wrapper.find('.menu')
+			expect(menu.exists()).toBe(true)
+
+			const toggleItem = wrapper.find('.item')
+			expect(toggleItem.exists()).toBe(true)
+		})
+	})
 })

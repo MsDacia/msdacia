@@ -20,7 +20,7 @@ This guide covers the comprehensive testing setup for your Vue 3 project, includ
 This project uses a modern testing approach with multiple layers:
 
 - **Unit Tests**: Individual component and composable testing
-- **Integration Tests**: Component interaction and router testing  
+- **Integration Tests**: Component interaction and router testing
 - **E2E Tests**: Full user workflow testing
 - **Performance Tests**: Lighthouse audits
 - **Visual Regression**: (Future enhancement)
@@ -65,6 +65,7 @@ npm run test:all
 Test individual components, composables, and utilities in isolation.
 
 **Structure:**
+
 ```
 tests/unit/
 ├── components/
@@ -75,21 +76,22 @@ tests/unit/
 ├── composables/
 │   └── useTheme.test.ts
 └── views/
-    ├── Home.test.ts
-    └── Portfolio.test.ts
+  ├── Home.test.ts
+  └── Portfolio.test.ts
 ```
 
 **Example:**
+
 ```typescript
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import MyComponent from '@/components/MyComponent.vue'
 
 describe('MyComponent', () => {
-  it('renders correctly', () => {
-    const wrapper = mount(MyComponent)
-    expect(wrapper.text()).toContain('Expected Text')
-  })
+ it('renders correctly', () => {
+  const wrapper = mount(MyComponent)
+  expect(wrapper.text()).toContain('Expected Text')
+ })
 })
 ```
 
@@ -98,27 +100,29 @@ describe('MyComponent', () => {
 Test component interactions, routing, and data flow.
 
 **Features Tested:**
+
 - Router navigation
 - Component communication via events
 - State management
 - API integration (when added)
 
 **Example:**
+
 ```typescript
 import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import SiteHeader from '@/components/SiteHeader.vue'
 
 describe('SiteHeader Integration', () => {
-  it('navigates between routes', async () => {
-    const router = createRouter({...})
-    const wrapper = mount(SiteHeader, {
-      global: { plugins: [router] }
-    })
-    
-    await wrapper.find('.nav-link[to="/about"]').trigger('click')
-    expect(router.currentRoute.value.path).toBe('/about')
+ it('navigates between routes', async () => {
+  const router = createRouter({...})
+  const wrapper = mount(SiteHeader, {
+   global: { plugins: [router] }
   })
+
+  await wrapper.find('.nav-link[to="/about"]').trigger('click')
+  expect(router.currentRoute.value.path).toBe('/about')
+ })
 })
 ```
 
@@ -127,6 +131,7 @@ describe('SiteHeader Integration', () => {
 Test complete user workflows across the entire application.
 
 **Test Files:**
+
 - `navigation.spec.ts` - Site navigation and theme switching
 - `home.spec.ts` - Home page functionality
 - `about.spec.ts` - About page content and interactions
@@ -134,24 +139,25 @@ Test complete user workflows across the entire application.
 - `theme.spec.ts` - Theme system comprehensive testing
 
 **Example:**
+
 ```typescript
 import { test, expect } from '@playwright/test'
 
 test('user can browse portfolio projects', async ({ page }) => {
-  await page.goto('/portfolio')
-  
-  // Filter by technology
-  await page.locator('.filter-tag', { hasText: 'Vue' }).click()
-  
-  // Open project modal
-  await page.locator('[data-testid^="project-"]').first().click()
-  await expect(page.locator('[data-testid="project-modal"]')).toBeVisible()
+ await page.goto('/portfolio')
+
+ // Filter by technology
+ await page.locator('.filter-tag', { hasText: 'Vue' }).click()
+
+ // Open project modal
+ await page.locator('[data-testid^="project-"]').first().click()
+ await expect(page.locator('[data-testid="project-modal"]')).toBeVisible()
 })
 ```
 
 ## 🏃‍♂️ Running Tests
 
-### Using npm scripts:
+### Using npm scripts
 
 ```bash
 # Unit tests (watch mode)
@@ -179,7 +185,7 @@ npm run test:e2e:headed
 npm run test:all
 ```
 
-### Using the test runner script:
+### Using the test runner script
 
 ```bash
 # Make script executable (one time)
@@ -204,18 +210,18 @@ Follow the **Arrange-Act-Assert** pattern:
 
 ```typescript
 describe('Component Name', () => {
-  describe('Feature Group', () => {
-    it('should do something specific', () => {
-      // Arrange: Set up test data and conditions
-      const props = { title: 'Test Title' }
-      
-      // Act: Perform the action being tested
-      const wrapper = mount(Component, { props })
-      
-      // Assert: Verify the expected outcome
-      expect(wrapper.find('h1').text()).toBe('Test Title')
-    })
+ describe('Feature Group', () => {
+  it('should do something specific', () => {
+   // Arrange: Set up test data and conditions
+   const props = { title: 'Test Title' }
+
+   // Act: Perform the action being tested
+   const wrapper = mount(Component, { props })
+
+   // Assert: Verify the expected outcome
+   expect(wrapper.find('h1').text()).toBe('Test Title')
   })
+ })
 })
 ```
 
@@ -224,11 +230,11 @@ describe('Component Name', () => {
 The project includes comprehensive test utilities in `tests/utils/test-helpers.ts`:
 
 ```typescript
-import { 
-  createMockProject, 
-  createMockRouter,
-  expectToBeVisible,
-  triggerEvent 
+import {
+ createMockProject,
+ createMockRouter,
+ expectToBeVisible,
+ triggerEvent
 } from '@/tests/utils/test-helpers'
 
 // Create mock data
@@ -242,69 +248,75 @@ await triggerEvent(wrapper, '.button', 'click')
 ### Component Testing Patterns
 
 **Props Testing:**
+
 ```typescript
 it('displays props correctly', () => {
-  const wrapper = mount(Component, {
-    props: { title: 'Test Title', count: 5 }
-  })
-  
-  expect(wrapper.text()).toContain('Test Title')
-  expect(wrapper.text()).toContain('5')
+ const wrapper = mount(Component, {
+  props: { title: 'Test Title', count: 5 }
+ })
+
+ expect(wrapper.text()).toContain('Test Title')
+ expect(wrapper.text()).toContain('5')
 })
 ```
 
 **Events Testing:**
+
 ```typescript
 it('emits events correctly', async () => {
-  const wrapper = mount(Component)
-  
-  await wrapper.find('button').trigger('click')
-  
-  expect(wrapper.emitted('click')).toHaveLength(1)
-  expect(wrapper.emitted('click')![0]).toEqual(['expected-payload'])
+ const wrapper = mount(Component)
+
+ await wrapper.find('button').trigger('click')
+
+ expect(wrapper.emitted('click')).toHaveLength(1)
+ expect(wrapper.emitted('click')![0]).toEqual(['expected-payload'])
 })
 ```
 
 **Async Operations:**
+
 ```typescript
 it('handles async operations', async () => {
-  const wrapper = mount(AsyncComponent)
-  
-  // Wait for async operation
-  await wrapper.vm.$nextTick()
-  
-  expect(wrapper.find('.result').text()).toBe('Loaded')
+ const wrapper = mount(AsyncComponent)
+
+ // Wait for async operation
+ await wrapper.vm.$nextTick()
+
+ expect(wrapper.find('.result').text()).toBe('Loaded')
 })
 ```
 
 ### E2E Testing Patterns
 
 **Page Navigation:**
+
 ```typescript
 test('navigates through application', async ({ page }) => {
-  await page.goto('/')
-  await page.locator('.cta-button').first().click()
-  await expect(page).toHaveURL('/about')
+ await page.goto('/')
+ await page.locator('.cta-button').first().click()
+ await expect(page).toHaveURL('/about')
 })
 ```
 
 **Form Interactions:**
+
 ```typescript
 test('submits form correctly', async ({ page }) => {
-  await page.goto('/contact')
-  await page.fill('#name', 'John Doe')
-  await page.fill('#email', 'john@example.com')
-  await page.click('#submit')
-  await expect(page.locator('.success')).toBeVisible()
+ await page.goto('/contact')
+ await page.fill('#name', 'John Doe')
+ await page.fill('#email', 'john@example.com')
+ await page.click('#submit')
+ await expect(page.locator('.success')).toBeVisible()
 })
 ```
 
 **Responsive Testing:**
+
 ```typescript
 test('works on mobile', async ({ page }) => {
-  await page.setViewportSize({ width: 375, height: 667 })
-  await page.goto('/')
-  await expect(page.locator('.mobile-menu')).toBeVisible()
+ await page.setViewportSize({ width: 375, height: 667 })
+ await page.goto('/')
+ await expect(page.locator('.mobile-menu')).toBeVisible()
 })
 ```
 
@@ -361,15 +373,15 @@ Coverage is configured in `vitest.config.ts`:
 
 ```typescript
 coverage: {
-  provider: 'v8',
-  reporter: ['text', 'json', 'html'],
-  exclude: [
-    'node_modules/',
-    'tests/',
-    'dist/',
-    '**/*.d.ts',
-    '**/*.config.*'
-  ]
+ provider: 'v8',
+ reporter: ['text', 'json', 'html'],
+ exclude: [
+  'node_modules/',
+  'tests/',
+  'dist/',
+  '**/*.d.ts',
+  '**/*.config.*'
+ ]
 }
 ```
 
@@ -378,40 +390,40 @@ coverage: {
 ### General Testing Guidelines
 
 1. **Test Behavior, Not Implementation**
-   ```typescript
-   // ❌ Bad: Testing internal state
-   expect(wrapper.vm.internalCounter).toBe(5)
-   
-   // ✅ Good: Testing user-visible behavior
-   expect(wrapper.text()).toContain('5 items')
-   ```
+  ```typescript
+  // ❌ Bad: Testing internal state
+  expect(wrapper.vm.internalCounter).toBe(5)
+
+  // ✅ Good: Testing user-visible behavior
+  expect(wrapper.text()).toContain('5 items')
+  ```
 
 2. **Use Descriptive Test Names**
-   ```typescript
-   // ❌ Bad
-   it('works')
-   
-   // ✅ Good
-   it('displays error message when form validation fails')
-   ```
+  ```typescript
+  // ❌ Bad
+  it('works')
+
+  // ✅ Good
+  it('displays error message when form validation fails')
+  ```
 
 3. **Keep Tests Independent**
-   ```typescript
-   // Each test should be able to run in isolation
-   beforeEach(() => {
-     // Reset state before each test
-   })
-   ```
+  ```typescript
+  // Each test should be able to run in isolation
+  beforeEach(() => {
+   // Reset state before each test
+  })
+  ```
 
 4. **Test Edge Cases**
-   ```typescript
-   describe('edge cases', () => {
-     it('handles empty data gracefully', () => {
-       const wrapper = mount(Component, { props: { items: [] } })
-       expect(wrapper.find('.empty-state')).toBeVisible()
-     })
+  ```typescript
+  describe('edge cases', () => {
+   it('handles empty data gracefully', () => {
+    const wrapper = mount(Component, { props: { items: [] } })
+    expect(wrapper.find('.empty-state')).toBeVisible()
    })
-   ```
+  })
+  ```
 
 ### Component Testing Best Practices
 
@@ -476,6 +488,7 @@ rm -rf node_modules/.cache
 ### Debug Mode
 
 **Unit Tests:**
+
 ```bash
 # Run specific test file
 npm run test -- SwitchTheme.test.ts
@@ -488,6 +501,7 @@ npm run test -- --reporter=verbose
 ```
 
 **E2E Tests:**
+
 ```bash
 # Run with headed browser
 npm run test:e2e:headed
@@ -502,32 +516,34 @@ npx playwright test home.spec.ts --debug
 ### Test Environment Issues
 
 **DOM Environment:**
+
 ```typescript
 // If you need a full browser environment
 import { beforeAll } from 'vitest'
 
 beforeAll(() => {
-  // Setup DOM environment
-  Object.defineProperty(window, 'matchMedia', {
-    value: vi.fn().mockImplementation(query => ({
-      matches: false,
-      media: query,
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-    }))
-  })
+ // Setup DOM environment
+ Object.defineProperty(window, 'matchMedia', {
+  value: vi.fn().mockImplementation(query => ({
+   matches: false,
+   media: query,
+   addEventListener: vi.fn(),
+   removeEventListener: vi.fn(),
+  }))
+ })
 })
 ```
 
 **Router Issues:**
+
 ```typescript
 // Use test helpers for router setup
 import { createTestRouter } from '@/tests/utils/test-helpers'
 
 const wrapper = mount(Component, {
-  global: {
-    plugins: [createTestRouter()]
-  }
+ global: {
+  plugins: [createTestRouter()]
+ }
 })
 ```
 
@@ -554,7 +570,7 @@ When adding new features:
 Before submitting a PR:
 
 - [ ] All unit tests pass
-- [ ] All integration tests pass  
+- [ ] All integration tests pass
 - [ ] All E2E tests pass
 - [ ] Code coverage is above 80%
 - [ ] No TypeScript errors

@@ -47,6 +47,7 @@ Located in `tests/utils/test-helpers.ts`:
 ## 🎯 What's Tested
 
 ### ✅ Components Covered
+
 - [x] SwitchTheme - Theme switching logic
 - [x] SiteHeader - Navigation and menu
 - [x] ProjectGrid - Project display and filtering
@@ -55,14 +56,17 @@ Located in `tests/utils/test-helpers.ts`:
 - [x] IconCommunity - Icon rendering
 
 ### ✅ Views Covered
+
 - [x] Home - Landing page functionality
 - [x] Portfolio - Project filtering and search
 - [x] About - Content display (basic structure)
 
 ### ✅ Composables Covered
+
 - [x] useTheme - Complete theme system
 
 ### ✅ E2E Workflows Covered
+
 - [x] Navigation between pages
 - [x] Theme switching across pages
 - [x] Portfolio search and filtering
@@ -79,6 +83,7 @@ The setup includes VS Code configuration for:
 - **Settings** - Optimized for testing workflow
 
 ### Keyboard Shortcuts
+
 - `Cmd+Shift+P` → "Tasks: Run Task" → Select test type
 - `F5` → Debug current test file
 - `Cmd+Shift+T` → Reopen closed terminal
@@ -97,7 +102,7 @@ The setup includes VS Code configuration for:
 GitHub Actions automatically runs:
 
 1. **Lint & Type Check** - Code quality
-2. **Unit Tests** - Component testing  
+2. **Unit Tests** - Component testing
 3. **E2E Tests** - User workflow testing
 4. **Build Test** - Production build
 5. **Security Audit** - Dependency scanning
@@ -106,35 +111,38 @@ GitHub Actions automatically runs:
 ## 📝 Writing Your First Test
 
 ### Unit Test Example
+
 ```typescript
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import MyComponent from '@/components/MyComponent.vue'
 
 describe('MyComponent', () => {
-  it('renders hello message', () => {
-    const wrapper = mount(MyComponent, {
-      props: { name: 'World' }
-    })
-    expect(wrapper.text()).toContain('Hello World')
+ it('renders hello message', () => {
+  const wrapper = mount(MyComponent, {
+   props: { name: 'World' }
   })
+  expect(wrapper.text()).toContain('Hello World')
+ })
 })
 ```
 
 ### E2E Test Example
+
 ```typescript
 import { test, expect } from '@playwright/test'
 
 test('user can navigate to about page', async ({ page }) => {
-  await page.goto('/')
-  await page.click('text=Learn About Me')
-  await expect(page).toHaveURL('/about')
+ await page.goto('/')
+ await page.click('text=Learn About Me')
+ await expect(page).toHaveURL('/about')
 })
 ```
 
 ## 🔍 Debug Tips
 
 ### Unit Test Debugging
+
 ```bash
 # Run specific test file
 npm run test -- MyComponent.test.ts
@@ -146,6 +154,7 @@ npm run test -- --reporter=verbose
 ```
 
 ### E2E Test Debugging
+
 ```bash
 # Run with browser visible
 npm run test:e2e:headed
@@ -173,7 +182,7 @@ Use `./scripts/test-runner.sh` for guided testing:
 Before pushing code:
 
 - [ ] `npm run test:run` - Unit tests pass
-- [ ] `npm run type-check` - No TypeScript errors  
+- [ ] `npm run type-check` - No TypeScript errors
 - [ ] `npm run build` - Production build works
 - [ ] `npm run test:e2e` - E2E tests pass
 - [ ] Coverage maintained above 80%
@@ -181,6 +190,7 @@ Before pushing code:
 ## 🆘 Common Issues
 
 **Tests not running?**
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
@@ -188,12 +198,14 @@ npm install
 ```
 
 **Playwright issues?**
+
 ```bash
 # Reinstall browsers
 npx playwright install
 ```
 
 **TypeScript errors?**
+
 ```bash
 # Check configuration
 npm run type-check

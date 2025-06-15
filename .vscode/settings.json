@@ -12,7 +12,7 @@
 		"test/unit/**/coverage": true
 	},
 	"files.trimTrailingWhitespace": true,
-	"workbench.colorTheme": "Fresh Material - Pink",
+	"workbench.colorTheme": "Bearded Theme Arc Blueberry",
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit"
 	},

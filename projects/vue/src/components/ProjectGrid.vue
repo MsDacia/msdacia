@@ -1,340 +1,344 @@
 <template>
-  <div class="project-grid" :class="`view-${viewMode}`">
-    <div 
-      v-for="project in projects" 
-      :key="project.id"
-      class="project-card"
-      @click="$emit('project-click', project)"
-    >
-      <div class="project-image">
-        <div class="placeholder-image">
-          <i class="fas fa-image"></i>
-          <span>{{ project.name }}</span>
-        </div>
-        <div class="project-year">{{ project.year }}</div>
-        <div class="project-timeline">{{ project.timeline }}</div>
-      </div>
-      
-      <div class="project-content">
-        <div class="project-header">
-          <h3 class="project-title">{{ project.name }}</h3>
-          <p class="project-client">{{ project.client }}</p>
-        </div>
-        
-        <div class="project-tags">
-          <span 
-            v-for="tag in project.tags.slice(0, viewMode === 'grid' ? 4 : 8)" 
-            :key="tag"
-            class="tag"
-          >
-            {{ tag }}
-          </span>
-          <span 
-            v-if="project.tags.length > (viewMode === 'grid' ? 4 : 8)"
-            class="tag more-tags"
-          >
-            +{{ project.tags.length - (viewMode === 'grid' ? 4 : 8) }} more
-          </span>
-        </div>
-        
-        <div class="project-footer">
-          <div class="project-meta">
-            <span class="meta-item">
-              <i class="fas fa-calendar"></i>
-              {{ project.year }}
-            </span>
-            <span class="meta-item">
-              <i class="fas fa-clock"></i>
-              {{ project.timeline }}
-            </span>
-            <span v-if="project.link" class="meta-item">
-              <i class="fas fa-external-link-alt"></i>
-              Live Site
-            </span>
-          </div>
-          
-          <button class="view-details">
-            View Details
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Empty State -->
-    <div v-if="projects.length === 0" class="empty-state">
-      <i class="fas fa-search"></i>
-      <h3>No projects found</h3>
-      <p>Try adjusting your search criteria or filters.</p>
-    </div>
-  </div>
+	<div class="project-grid" :class="`view-${viewMode}`">
+		<div
+			v-for="project in projects"
+			:key="project.id"
+			class="project-card"
+			@click="$emit('project-click', project)"
+		>
+			<div class="project-image">
+				<div class="placeholder-image">
+					<i class="fas fa-image" />
+					<span>{{ project.name }}</span>
+				</div>
+
+				<div class="project-year">{{ project.year }}</div>
+				<div class="project-timeline">{{ project.timeline }}</div>
+			</div>
+
+			<div class="project-content">
+				<div class="project-header">
+					<h3 class="project-title">{{ project.name }}</h3>
+					<p class="project-client">{{ project.client }}</p>
+				</div>
+
+				<div class="project-tags">
+					<span
+						v-for="tag in project.tags.slice(0, viewMode === 'grid' ? 4 : 8)"
+						:key="tag"
+						class="tag"
+					>
+						{{ tag }}
+					</span>
+
+					<span
+						v-if="project.tags.length > (viewMode === 'grid' ? 4 : 8)"
+						class="tag more-tags"
+					>
+						+{{ project.tags.length - (viewMode === 'grid' ? 4 : 8) }} more
+					</span>
+				</div>
+
+				<div class="project-footer">
+					<div class="project-meta">
+						<span class="meta-item">
+							<i class="fas fa-calendar" />
+							{{ project.year }}
+						</span>
+
+						<span class="meta-item">
+							<i class="fas fa-clock" />
+							{{ project.timeline }}
+						</span>
+
+						<span v-if="project.link" class="meta-item">
+							<i class="fas fa-external-link-alt" />
+							Live Site
+						</span>
+					</div>
+
+					<button class="view-details">
+						View Details
+						<i class="fas fa-arrow-right" />
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Empty State -->
+		<div v-if="projects.length === 0" class="empty-state">
+			<i class="fas fa-search" />
+			<h3>No projects found</h3>
+			<p>Try adjusting your search criteria or filters.</p>
+		</div>
+	</div>
 </template>
 
 <script setup lang="ts">
 interface Project {
-  id: number
-  name: string
-  client: string
-  year: string
-  timeline: string
-  tags: string[]
-  link?: string
-  image: string
+	id: number
+	name: string
+	client: string
+	year: string
+	timeline: string
+	tags: string[]
+	link?: string
+	image: string
 }
 
 interface Props {
-  projects: Project[]
-  viewMode: 'grid' | 'list'
+	projects: Project[]
+	viewMode: 'grid' | 'list'
 }
 
 defineProps<Props>()
 defineEmits<{
-  'project-click': [project: Project]
+	'project-click': [project: Project]
 }>()
 </script>
 
 <style lang="scss" scoped>
 .project-grid {
-  display: grid;
-  gap: 2rem;
+	display: grid;
+	gap: 2rem;
 
-  &.view-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	&.view-grid {
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
-  }
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr;
+		}
+	}
 
-  &.view-list {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+	&.view-list {
+		gap: 1rem;
+		grid-template-columns: 1fr;
 
-    .project-card {
-      display: flex;
-      flex-direction: row;
-      height: auto;
+		.project-card {
+			display: flex;
+			flex-direction: row;
+			height: auto;
 
-      @media (max-width: 768px) {
-        flex-direction: column;
-      }
+			@media (max-width: 768px) {
+				flex-direction: column;
+			}
 
-      .project-image {
-        width: 200px;
-        height: 150px;
-        flex-shrink: 0;
+			.project-image {
+				flex-shrink: 0;
+				height: 150px;
+				width: 200px;
 
-        @media (max-width: 768px) {
-          width: 100%;
-          height: 200px;
-        }
-      }
+				@media (max-width: 768px) {
+					height: 200px;
+					width: 100%;
+				}
+			}
 
-      .project-content {
-        flex: 1;
-        padding: 1.5rem;
-      }
-    }
-  }
+			.project-content {
+				flex: 1;
+				padding: 1.5rem;
+			}
+		}
+	}
 
-  .project-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e9ecef;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
+	.project-card {
+		background: white;
+		border-radius: 12px;
+		border: 1px solid #e9ecef;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		transition: all 0.3s ease;
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      border-color: #42b883;
+		&:hover {
+			border-color: #42b883;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+			transform: translateY(-4px);
 
-      .view-details {
-        background: #369870;
-        transform: translateX(4px);
-      }
-    }
+			.view-details {
+				background: #369870;
+				transform: translateX(4px);
+			}
+		}
 
-    .project-image {
-      position: relative;
-      height: 200px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-      .placeholder-image {
-        text-align: center;
-        color: #6c757d;
-        
-        i {
-          font-size: 3rem;
-          margin-bottom: 0.5rem;
-          display: block;
-        }
-        
-        span {
-          font-size: 0.9rem;
-          font-weight: 500;
-        }
-      }
+		.project-image {
+			align-items: center;
+			background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+			display: flex;
+			height: 200px;
+			justify-content: center;
+			position: relative;
 
-      .project-year {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        background: #42b883;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
+			.placeholder-image {
+				color: #6c757d;
+				text-align: center;
 
-      .project-timeline {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: rgba(255, 255, 255, 0.9);
-        color: #2c3e50;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: 500;
-        font-size: 0.8rem;
-        backdrop-filter: blur(10px);
-      }
-    }
+				i {
+					display: block;
+					font-size: 3rem;
+					margin-bottom: 0.5rem;
+				}
 
-    .project-content {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+				span {
+					font-size: 0.9rem;
+					font-weight: 500;
+				}
+			}
 
-      .project-header {
-        margin-bottom: 1rem;
+			.project-year {
+				background: #42b883;
+				border-radius: 20px;
+				color: white;
+				font-size: 0.9rem;
+				font-weight: 600;
+				left: 1rem;
+				padding: 0.5rem 1rem;
+				position: absolute;
+				top: 1rem;
+			}
 
-        .project-title {
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: #2c3e50;
-          margin: 0 0 0.5rem 0;
-          line-height: 1.3;
-        }
+			.project-timeline {
+				backdrop-filter: blur(10px);
+				background: rgba(255, 255, 255, 0.9);
+				border-radius: 20px;
+				color: #2c3e50;
+				font-size: 0.8rem;
+				font-weight: 500;
+				padding: 0.5rem 1rem;
+				position: absolute;
+				right: 1rem;
+				top: 1rem;
+			}
+		}
 
-        .project-client {
-          color: #42b883;
-          font-weight: 500;
-          margin: 0;
-          font-size: 1rem;
-        }
-      }
+		.project-content {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			padding: 1.5rem;
 
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
+			.project-header {
+				margin-bottom: 1rem;
 
-        .tag {
-          background: #f8f9fa;
-          color: #495057;
-          padding: 0.25rem 0.75rem;
-          border-radius: 12px;
-          font-size: 0.8rem;
-          font-weight: 500;
-          border: 1px solid #e9ecef;
+				.project-title {
+					color: #2c3e50;
+					font-size: 1.2rem;
+					font-weight: 600;
+					line-height: 1.3;
+					margin: 0 0 0.5rem 0;
+				}
 
-          &.more-tags {
-            background: #42b883;
-            color: white;
-            border-color: #42b883;
-          }
-        }
-      }
+				.project-client {
+					color: #42b883;
+					font-size: 1rem;
+					font-weight: 500;
+					margin: 0;
+				}
+			}
 
-      .project-footer {
-        margin-top: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
+			.project-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-bottom: 1rem;
 
-        @media (max-width: 480px) {
-          flex-direction: column;
-          align-items: stretch;
-        }
+				.tag {
+					background: #f8f9fa;
+					border-radius: 12px;
+					border: 1px solid #e9ecef;
+					color: #495057;
+					font-size: 0.8rem;
+					font-weight: 500;
+					padding: 0.25rem 0.75rem;
 
-        .project-meta {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
+					&.more-tags {
+						background: #42b883;
+						border-color: #42b883;
+						color: white;
+					}
+				}
+			}
 
-          @media (max-width: 480px) {
-            justify-content: center;
-          }
+			.project-footer {
+				align-items: center;
+				display: flex;
+				gap: 1rem;
+				justify-content: space-between;
+				margin-top: auto;
 
-          .meta-item {
-            color: #6c757d;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
+				@media (max-width: 480px) {
+					align-items: stretch;
+					flex-direction: column;
+				}
 
-            i {
-              color: #42b883;
-            }
-          }
-        }
+				.project-meta {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 1rem;
 
-        .view-details {
-          background: #42b883;
-          color: white;
-          border: none;
-          padding: 0.5rem 1rem;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 0.9rem;
-          font-weight: 500;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          white-space: nowrap;
+					@media (max-width: 480px) {
+						justify-content: center;
+					}
 
-          &:hover {
-            background: #369870;
-          }
-        }
-      }
-    }
-  }
+					.meta-item {
+						align-items: center;
+						color: #6c757d;
+						display: flex;
+						font-size: 0.8rem;
+						gap: 0.25rem;
 
-  .empty-state {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 4rem 2rem;
-    color: #6c757d;
+						i {
+							color: #42b883;
+						}
+					}
+				}
 
-    i {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      color: #dee2e6;
-    }
+				.view-details {
+					align-items: center;
+					background: #42b883;
+					border-radius: 6px;
+					border: none;
+					color: white;
+					cursor: pointer;
+					display: flex;
+					font-size: 0.9rem;
+					font-weight: 500;
+					gap: 0.5rem;
+					padding: 0.5rem 1rem;
+					transition: all 0.3s ease;
+					white-space: nowrap;
 
-    h3 {
-      color: #495057;
-      margin-bottom: 0.5rem;
-    }
+					&:hover {
+						background: #369870;
+					}
+				}
+			}
+		}
+	}
 
-    p {
-      margin: 0;
-      font-size: 1rem;
-    }
-  }
+	.empty-state {
+		color: #6c757d;
+		grid-column: 1 / -1;
+		padding: 4rem 2rem;
+		text-align: center;
+
+		i {
+			color: #dee2e6;
+			font-size: 4rem;
+			margin-bottom: 1rem;
+		}
+
+		h3 {
+			color: #495057;
+			margin-bottom: 0.5rem;
+		}
+
+		p {
+			margin: 0;
+			font-size: 1rem;
+		}
+	}
 }
 </style>

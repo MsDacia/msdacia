@@ -1,55 +1,58 @@
 <template>
-  <div class="experience-timeline">
-    <div class="timeline-header">
-      <h2>{{ content.resume.experiences.title }}</h2>
-      <p class="timeline-subtitle">My professional journey in front-end development</p>
-    </div>
+	<div class="experience-timeline">
+		<div class="timeline-header">
+			<h2>{{ content.resume.experiences.title }}</h2>
 
-    <div class="timeline">
-      <div 
-        v-for="job in content.resume.experiences.job" 
-        :key="job.id"
-        class="timeline-item"
-        :class="{ 'expanded': expandedJob === job.id }"
-      >
-        <div class="timeline-marker"></div>
-        
-        <div class="job-card" @click="toggleJob(job.id)">
-          <div class="job-header">
-            <div class="job-title-section">
-              <h3 class="job-title">{{ job.title }}</h3>
-              <div class="company-info">
-                <h4 class="company-name">{{ job.company }}</h4>
-                <span class="job-location">{{ job.location }}</span>
-              </div>
-            </div>
-            
-            <div class="job-meta">
-              <span class="job-date">{{ job.date }}</span>
-              <i 
-                class="fas fa-chevron-down expand-icon" 
-                :class="{ 'rotated': expandedJob === job.id }"
-              ></i>
-            </div>
-          </div>
+			<p class="timeline-subtitle">My professional journey in front-end development</p>
+		</div>
 
-          <div class="job-content" v-show="expandedJob === job.id">
-            <div class="responsibilities">
-              <h5>Key Responsibilities & Achievements:</h5>
-              <ul class="responsibility-list">
-                <li 
-                  v-for="(point, index) in job.points" 
-                  :key="index"
-                  class="responsibility-item"
-                  v-html="point"
-                ></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+		<div class="timeline">
+			<div
+				v-for="job in content.resume.experiences.job"
+				:key="job.id"
+				class="timeline-item"
+				:class="{ 'expanded': expandedJob === job.id }"
+			>
+				<div class="timeline-marker" />
+
+				<div class="job-card" @click="toggleJob(job.id)">
+					<div class="job-header">
+						<div class="job-title-section">
+							<h3 class="job-title">{{ job.title }}</h3>
+
+							<div class="company-info">
+								<h4 class="company-name">{{ job.company }}</h4>
+								<span class="job-location">{{ job.location }}</span>
+							</div>
+						</div>
+
+						<div class="job-meta">
+							<span class="job-date">{{ job.date }}</span>
+							<i
+								class="fas fa-chevron-down expand-icon"
+								:class="{ 'rotated': expandedJob === job.id }"
+							 />
+						</div>
+					</div>
+
+					<div class="job-content" v-show="expandedJob === job.id">
+						<div class="responsibilities">
+							<h5>Key Responsibilities & Achievements:</h5>
+
+							<ul class="responsibility-list">
+								<li
+									v-for="(point, index) in job.points"
+									:key="index"
+									class="responsibility-item"
+									v-html="point"
+								/>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -62,262 +65,262 @@ const expandedJob = ref<number | null>(null)
 
 // Methods using Composition API
 const toggleJob = (jobId: number) => {
-  expandedJob.value = expandedJob.value === jobId ? null : jobId
+	expandedJob.value = expandedJob.value === jobId ? null : jobId
 }
 </script>
 
 <style lang="scss" scoped>
 .experience-timeline {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
+	margin: 0 auto;
+	max-width: 900px;
+	padding: 2rem;
 
-  .timeline-header {
-    text-align: center;
-    margin-bottom: 3rem;
+	.timeline-header {
+		margin-bottom: 3rem;
+		text-align: center;
 
-    h2 {
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
+		h2 {
+			color: #2c3e50;
+			font-size: 2.5rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
 
-    .timeline-subtitle {
-      font-size: 1.1rem;
-      color: #6c757d;
-      margin: 0;
-    }
-  }
+		.timeline-subtitle {
+			color: #6c757d;
+			font-size: 1.1rem;
+			margin: 0;
+		}
+	}
 
-  .timeline {
-    position: relative;
-    
-    // Timeline vertical line
-    &::before {
-      content: '';
-      position: absolute;
-      left: 30px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, #42b883 0%, #369870 100%);
-      border-radius: 2px;
-      
-      @media (max-width: 768px) {
-        left: 20px;
-      }
-    }
-  }
+	.timeline {
+		position: relative;
 
-  .timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-    padding-left: 80px;
-    
-    @media (max-width: 768px) {
-      padding-left: 60px;
-    }
+		// Timeline vertical line
+		&::before {
+			background: linear-gradient(180deg, #42b883 0%, #369870 100%);
+			border-radius: 2px;
+			bottom: 0;
+			content: '';
+			left: 30px;
+			position: absolute;
+			top: 0;
+			width: 3px;
 
-    .timeline-marker {
-      position: absolute;
-      left: 18px;
-      top: 24px;
-      width: 24px;
-      height: 24px;
-      background: #42b883;
-      border: 4px solid #fff;
-      border-radius: 50%;
-      box-shadow: 0 2px 10px rgba(66, 184, 131, 0.3);
-      z-index: 2;
-      
-      @media (max-width: 768px) {
-        left: 8px;
-        width: 20px;
-        height: 20px;
-      }
-    }
+			@media (max-width: 768px) {
+				left: 20px;
+			}
+		}
+	}
 
-    .job-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e9ecef;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      overflow: hidden;
+	.timeline-item {
+		margin-bottom: 2rem;
+		padding-left: 80px;
+		position: relative;
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        border-color: #42b883;
-      }
+		@media (max-width: 768px) {
+			padding-left: 60px;
+		}
 
-      .job-header {
-        padding: 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        border-bottom: 1px solid #f8f9fa;
+		.timeline-marker {
+			background: #42b883;
+			border-radius: 50%;
+			border: 4px solid #fff;
+			box-shadow: 0 2px 10px rgba(66, 184, 131, 0.3);
+			height: 24px;
+			left: 18px;
+			position: absolute;
+			top: 24px;
+			width: 24px;
+			z-index: 2;
 
-        @media (max-width: 768px) {
-          flex-direction: column;
-          gap: 1rem;
-        }
+			@media (max-width: 768px) {
+				height: 20px;
+				left: 8px;
+				width: 20px;
+			}
+		}
 
-        .job-title-section {
-          flex: 1;
+		.job-card {
+			background: #fff;
+			border-radius: 12px;
+			border: 1px solid #e9ecef;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+			cursor: pointer;
+			overflow: hidden;
+			transition: all 0.3s ease;
 
-          .job-title {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            margin: 0 0 0.5rem 0;
-            font-weight: 600;
-            line-height: 1.3;
-          }
+			&:hover {
+				border-color: #42b883;
+				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+				transform: translateY(-2px);
+			}
 
-          .company-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
+			.job-header {
+				align-items: flex-start;
+				border-bottom: 1px solid #f8f9fa;
+				display: flex;
+				justify-content: space-between;
+				padding: 1.5rem;
 
-            .company-name {
-              font-size: 1.1rem;
-              color: #42b883;
-              margin: 0;
-              font-weight: 500;
-            }
+				@media (max-width: 768px) {
+					flex-direction: column;
+					gap: 1rem;
+				}
 
-            .job-location {
-              font-size: 0.9rem;
-              color: #6c757d;
-              font-style: italic;
-            }
-          }
-        }
+				.job-title-section {
+					flex: 1;
 
-        .job-meta {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          
-          @media (max-width: 768px) {
-            width: 100%;
-            justify-content: space-between;
-          }
+					.job-title {
+						color: #2c3e50;
+						font-size: 1.3rem;
+						font-weight: 600;
+						line-height: 1.3;
+						margin: 0 0 0.5rem 0;
+					}
 
-          .job-date {
-            font-size: 0.9rem;
-            color: #6c757d;
-            font-weight: 500;
-            white-space: nowrap;
-          }
+					.company-info {
+						display: flex;
+						flex-direction: column;
+						gap: 0.25rem;
 
-          .expand-icon {
-            color: #42b883;
-            font-size: 1rem;
-            transition: transform 0.3s ease;
+						.company-name {
+							color: #42b883;
+							font-size: 1.1rem;
+							font-weight: 500;
+							margin: 0;
+						}
 
-            &.rotated {
-              transform: rotate(180deg);
-            }
-          }
-        }
-      }
+						.job-location {
+							color: #6c757d;
+							font-size: 0.9rem;
+							font-style: italic;
+						}
+					}
+				}
 
-      .job-content {
-        padding: 0 1.5rem 1.5rem;
-        animation: slideDown 0.3s ease-out;
+				.job-meta {
+					align-items: center;
+					display: flex;
+					gap: 1rem;
 
-        .responsibilities {
-          h5 {
-            font-size: 1rem;
-            color: #2c3e50;
-            margin: 0 0 1rem 0;
-            font-weight: 600;
-          }
+					@media (max-width: 768px) {
+						justify-content: space-between;
+						width: 100%;
+					}
 
-          .responsibility-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+					.job-date {
+						color: #6c757d;
+						font-size: 0.9rem;
+						font-weight: 500;
+						white-space: nowrap;
+					}
 
-            .responsibility-item {
-              position: relative;
-              padding: 0.5rem 0 0.5rem 1.5rem;
-              color: #495057;
-              line-height: 1.6;
-              border-bottom: 1px solid #f8f9fa;
+					.expand-icon {
+						color: #42b883;
+						font-size: 1rem;
+						transition: transform 0.3s ease;
 
-              &:last-child {
-                border-bottom: none;
-              }
+						&.rotated {
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
 
-              &::before {
-                content: '▸';
-                position: absolute;
-                left: 0;
-                top: 0.5rem;
-                color: #42b883;
-                font-weight: bold;
-              }
+			.job-content {
+				animation: slideDown 0.3s ease-out;
+				padding: 0 1.5rem 1.5rem;
 
-              &:hover {
-                background: rgba(66, 184, 131, 0.02);
-                border-radius: 4px;
-              }
-            }
-          }
-        }
-      }
-    }
+				.responsibilities {
+					h5 {
+						color: #2c3e50;
+						font-size: 1rem;
+						font-weight: 600;
+						margin: 0 0 1rem 0;
+					}
 
-    &.expanded .job-card {
-      border-color: #42b883;
-      box-shadow: 0 8px 30px rgba(66, 184, 131, 0.15);
-    }
-  }
+					.responsibility-list {
+						list-style: none;
+						margin: 0;
+						padding: 0;
+
+						.responsibility-item {
+							border-bottom: 1px solid #f8f9fa;
+							color: #495057;
+							line-height: 1.6;
+							padding: 0.5rem 0 0.5rem 1.5rem;
+							position: relative;
+
+							&:last-child {
+								border-bottom: none;
+							}
+
+							&::before {
+								color: #42b883;
+								content: '▸';
+								font-weight: bold;
+								left: 0;
+								position: absolute;
+								top: 0.5rem;
+							}
+
+							&:hover {
+								background: rgba(66, 184, 131, 0.02);
+								border-radius: 4px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.expanded .job-card {
+			border-color: #42b883;
+			box-shadow: 0 8px 30px rgba(66, 184, 131, 0.15);
+		}
+	}
 }
 
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 // Enhanced responsive design
 @media (max-width: 768px) {
-  .experience-timeline {
-    padding: 1rem;
+	.experience-timeline {
+		padding: 1rem;
 
-    .timeline-header {
-      margin-bottom: 2rem;
+		.timeline-header {
+			margin-bottom: 2rem;
 
-      h2 {
-        font-size: 2rem;
-      }
+			h2 {
+				font-size: 2rem;
+			}
 
-      .timeline-subtitle {
-        font-size: 1rem;
-      }
-    }
+			.timeline-subtitle {
+				font-size: 1rem;
+			}
+		}
 
-    .timeline-item .job-card .job-header {
-      padding: 1rem;
+		.timeline-item .job-card .job-header {
+			padding: 1rem;
 
-      .job-title-section .job-title {
-        font-size: 1.1rem;
-      }
-    }
+			.job-title-section .job-title {
+				font-size: 1.1rem;
+			}
+		}
 
-    .timeline-item .job-card .job-content {
-      padding: 0 1rem 1rem;
-    }
-  }
+		.timeline-item .job-card .job-content {
+			padding: 0 1rem 1rem;
+		}
+	}
 }
 </style>

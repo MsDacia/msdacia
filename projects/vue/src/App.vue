@@ -1,11 +1,13 @@
 <template>
-  <div id="app">
-    <SiteHeader />
-    <main>
-      <RouterView />
-    </main>
-    <SiteFooter />
-  </div>
+	<div id="app">
+		<SiteHeader />
+
+		<main>
+			<RouterView />
+		</main>
+
+		<SiteFooter />
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -16,31 +18,31 @@ import { RouterView } from 'vue-router'
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	color: #2c3e50;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 main {
-  padding-top: 80px; // Space for fixed header
+	padding-top: 80px; // Space for fixed header
 }
 
 // Global styles
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .hide-content {
-  display: none;
+	display: none;
 }
 
 .show-content {
-  display: block;
+	display: block;
 }
 </style>
