@@ -176,29 +176,29 @@ test.describe('Portfolio Page E2E', () => {
 	test.describe('View Mode Switching', () => {
 		test('should switch between grid and list views', async ({ page }) => {
 			// Initially should be in grid view
-			await expect(page.locator('.view-btn').first()).toHaveClass(/active/)
+			await expect(page.locator('.view-button').first()).toHaveClass(/active/)
 
 			// Switch to list view
-			await page.locator('.view-btn').last().click()
-			await expect(page.locator('.view-btn').last()).toHaveClass(/active/)
-			await expect(page.locator('.view-btn').first()).not.toHaveClass(/active/)
+			await page.locator('.view-button').last().click()
+			await expect(page.locator('.view-button').last()).toHaveClass(/active/)
+			await expect(page.locator('.view-button').first()).not.toHaveClass(/active/)
 
 			// Switch back to grid view
-			await page.locator('.view-btn').first().click()
-			await expect(page.locator('.view-btn').first()).toHaveClass(/active/)
-			await expect(page.locator('.view-btn').last()).not.toHaveClass(/active/)
+			await page.locator('.view-button').first().click()
+			await expect(page.locator('.view-button').first()).toHaveClass(/active/)
+			await expect(page.locator('.view-button').last()).not.toHaveClass(/active/)
 		})
 
 		test('should maintain view mode during filtering', async ({ page }) => {
 			// Switch to list view
-			await page.locator('.view-btn').last().click()
+			await page.locator('.view-button').last().click()
 
 			// Apply a filter
 			await page.locator('.search-input').fill('Vue')
 			await page.waitForTimeout(300)
 
 			// Should still be in list view
-			await expect(page.locator('.view-btn').last()).toHaveClass(/active/)
+			await expect(page.locator('.view-button').last()).toHaveClass(/active/)
 		})
 	})
 
@@ -280,8 +280,8 @@ test.describe('Portfolio Page E2E', () => {
 			await page.waitForTimeout(300)
 
 			// View mode switching should work
-			await page.locator('.view-btn').last().click()
-			await expect(page.locator('.view-btn').last()).toHaveClass(/active/)
+			await page.locator('.view-button').last().click()
+			await expect(page.locator('.view-button').last()).toHaveClass(/active/)
 		})
 	})
 
@@ -400,7 +400,7 @@ test.describe('Portfolio Page E2E', () => {
 			await page.waitForTimeout(300)
 
 			// Step 3: User switches to list view
-			await page.locator('.view-btn').last().click()
+			await page.locator('.view-button').last().click()
 
 			// Step 4: User opens a project modal
 			const projects = page.locator('[data-testid^="project-"]')
@@ -424,8 +424,8 @@ test.describe('Portfolio Page E2E', () => {
 			expect(initialCount).toBeGreaterThan(0)
 
 			// User switches view modes
-			await page.locator('.view-btn').last().click()
-			await page.locator('.view-btn').first().click()
+			await page.locator('.view-button').last().click()
+			await page.locator('.view-button').first().click()
 
 			// Project count should remain the same
 			const finalCount = await page.locator('[data-testid^="project-"]').count()

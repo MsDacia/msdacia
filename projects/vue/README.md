@@ -259,4 +259,3 @@ This project is private and proprietary.
 TODO
 
 - add favicon
-- fix theme switch

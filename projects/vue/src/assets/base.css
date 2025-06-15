@@ -32,12 +32,42 @@
 
 	--color-heading: var(--vt-c-text-light-1);
 	--color-text: var(--vt-c-text-light-1);
+	--color-text-secondary: #42b883;
 
 	--section-gap: 160px;
 }
 
+/* Theme variables for SwitchTheme component */
+/* Light theme (default) */
+:root,
+[data-theme="light"],
+.light {
+	--bg-surface: #ffffff;
+	--bg-hover: #f5f5f5;
+	--border-color: #e0e0e0;
+	--shadow-color: rgba(0, 0, 0, 0.1);
+	--text-primary: #2c3e50;
+	--text-secondary: #6c757d;
+	--accent-color: #369870;
+	--accent-color-light: rgba(0, 122, 204, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"],
+.dark {
+	--bg-surface: #1e1e1e;
+	--bg-hover: #2a2a2a;
+	--border-color: #404040;
+	--shadow-color: rgba(0, 0, 0, 0.3);
+	--text-primary: #ffffff;
+	--text-secondary: #b0b0b0;
+	--accent-color: #369870;
+	--accent-color-light: rgba(77, 166, 255, 0.15);
+}
+
+/* Keep system preference support for existing variables */
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme]) {
 		--color-background: var(--vt-c-black);
 		--color-background-soft: var(--vt-c-black-soft);
 		--color-background-mute: var(--vt-c-black-mute);
@@ -48,6 +78,33 @@
 		--color-heading: var(--vt-c-text-dark-1);
 		--color-text: var(--vt-c-text-dark-2);
 	}
+}
+
+/* Override existing variables when data-theme is set */
+[data-theme="dark"],
+.dark {
+	--color-background: var(--vt-c-black);
+	--color-background-soft: var(--vt-c-black-soft);
+	--color-background-mute: var(--vt-c-black-mute);
+
+	--color-border: var(--vt-c-divider-dark-2);
+	--color-border-hover: var(--vt-c-divider-dark-1);
+
+	--color-heading: var(--vt-c-text-dark-1);
+	--color-text: var(--vt-c-text-dark-2);
+}
+
+[data-theme="light"],
+.light {
+	--color-background: var(--vt-c-white);
+	--color-background-soft: var(--vt-c-white-soft);
+	--color-background-mute: var(--vt-c-white-mute);
+
+	--color-border: var(--vt-c-divider-light-2);
+	--color-border-hover: var(--vt-c-divider-light-1);
+
+	--color-heading: var(--vt-c-text-light-1);
+	--color-text: var(--vt-c-text-light-1);
 }
 
 *,

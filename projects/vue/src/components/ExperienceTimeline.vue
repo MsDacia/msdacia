@@ -80,14 +80,14 @@ const toggleJob = (jobId: number) => {
 		text-align: center;
 
 		h2 {
-			color: #2c3e50;
+			color: var(--color-heading);
 			font-size: 2.5rem;
 			font-weight: 600;
 			margin-bottom: 0.5rem;
 		}
 
 		.timeline-subtitle {
-			color: #6c757d;
+			color: var(--color-heading);
 			font-size: 1.1rem;
 			margin: 0;
 		}
@@ -123,9 +123,9 @@ const toggleJob = (jobId: number) => {
 		}
 
 		.timeline-marker {
-			background: #42b883;
+			background: var(--color-text-secondary);
 			border-radius: 50%;
-			border: 4px solid #fff;
+			border: 4px solid var(--color-border);
 			box-shadow: 0 2px 10px rgba(66, 184, 131, 0.3);
 			height: 24px;
 			left: 18px;
@@ -142,23 +142,23 @@ const toggleJob = (jobId: number) => {
 		}
 
 		.job-card {
-			background: #fff;
+			background: var(--color-background);
 			border-radius: 12px;
-			border: 1px solid #e9ecef;
+			border: 1px solid var(--color-border);
 			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 			cursor: pointer;
 			overflow: hidden;
 			transition: all 0.3s ease;
 
 			&:hover {
-				border-color: #42b883;
+				border-color: var(--color-text-secondary);
 				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 				transform: translateY(-2px);
 			}
 
 			.job-header {
 				align-items: flex-start;
-				border-bottom: 1px solid #f8f9fa;
+				border-bottom: 1px solid var(--color-border);
 				display: flex;
 				justify-content: space-between;
 				padding: 1.5rem;
@@ -172,7 +172,7 @@ const toggleJob = (jobId: number) => {
 					flex: 1;
 
 					.job-title {
-						color: #2c3e50;
+						color: var(--color-text);
 						font-size: 1.3rem;
 						font-weight: 600;
 						line-height: 1.3;
@@ -185,14 +185,14 @@ const toggleJob = (jobId: number) => {
 						gap: 0.25rem;
 
 						.company-name {
-							color: #42b883;
+							color: var(--color-text-secondary);
 							font-size: 1.1rem;
 							font-weight: 500;
 							margin: 0;
 						}
 
 						.job-location {
-							color: #6c757d;
+							color: var(--color-text);
 							font-size: 0.9rem;
 							font-style: italic;
 						}
@@ -210,14 +210,14 @@ const toggleJob = (jobId: number) => {
 					}
 
 					.job-date {
-						color: #6c757d;
+						color: var(--color-text);
 						font-size: 0.9rem;
 						font-weight: 500;
 						white-space: nowrap;
 					}
 
 					.expand-icon {
-						color: #42b883;
+						color: var(--color-text-secondary);
 						font-size: 1rem;
 						transition: transform 0.3s ease;
 
@@ -234,7 +234,7 @@ const toggleJob = (jobId: number) => {
 
 				.responsibilities {
 					h5 {
-						color: #2c3e50;
+						color: var(--color-heading);
 						font-size: 1rem;
 						font-weight: 600;
 						margin: 0 0 1rem 0;
@@ -246,8 +246,8 @@ const toggleJob = (jobId: number) => {
 						padding: 0;
 
 						.responsibility-item {
-							border-bottom: 1px solid #f8f9fa;
-							color: #495057;
+							border-bottom: 1px solid var(--color-border);
+							color: var(--color-text);
 							line-height: 1.6;
 							padding: 0.5rem 0 0.5rem 1.5rem;
 							position: relative;
@@ -257,7 +257,7 @@ const toggleJob = (jobId: number) => {
 							}
 
 							&::before {
-								color: #42b883;
+								color: var(--color-text-secondary);
 								content: '▸';
 								font-weight: bold;
 								left: 0;
@@ -276,7 +276,7 @@ const toggleJob = (jobId: number) => {
 		}
 
 		&.expanded .job-card {
-			border-color: #42b883;
+			border-color: var(--color-text-secondary);
 			box-shadow: 0 8px 30px rgba(66, 184, 131, 0.15);
 		}
 	}

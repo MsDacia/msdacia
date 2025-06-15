@@ -58,7 +58,6 @@ if (typeof document !== 'undefined') {
 		align-items: center;
 		background: var(--bg-surface);
 		border-radius: 8px;
-		border: 2px solid var(--border-color);
 		box-shadow: 0 2px 8px var(--shadow-color);
 		color: var(--text-primary);
 		cursor: pointer;

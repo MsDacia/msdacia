@@ -76,12 +76,12 @@
 					</div>
 
 					<div class="project-actions">
-						<button v-if="project.link" @click="openLiveProject" class="action-btn primary">
+						<button v-if="project.link" @click="openLiveProject" class="action-button primary">
 							<i class="fas fa-external-link-alt" />
 							View Live Project
 						</button>
 
-						<button @click="closeModal" class="action-btn secondary">
+						<button @click="closeModal" class="action-button secondary">
 							<i class="fas fa-arrow-left" />
 							Back to Portfolio
 						</button>
@@ -94,14 +94,14 @@
 
 <script setup lang="ts">
 interface Project {
-	id: number
-	name: string
 	client: string
-	year: string
-	timeline: string
-	tags: string[]
-	link?: string
+	id: number
 	image: string
+	link?: string
+	name: string
+	tags: string[]
+	timeline: string
+	year: string
 }
 
 interface Props {
@@ -172,7 +172,7 @@ const getTechCategory = (tech: string): string => {
 
 .modal-content {
 	animation: modalSlideIn 0.3s ease-out;
-	background: white;
+	background: var(--color-background);
 	border-radius: 16px;
 	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 	max-height: 90vh;
@@ -188,7 +188,7 @@ const getTechCategory = (tech: string): string => {
 
 .modal-header {
 	align-items: center;
-	border-bottom: 1px solid #e9ecef;
+	border-bottom: 1px solid var(--color-border);
 	display: flex;
 	justify-content: space-between;
 	padding: 1.5rem 2rem;
@@ -198,7 +198,7 @@ const getTechCategory = (tech: string): string => {
 	}
 
 	.project-year-badge {
-		background: #42b883;
+		background: var(--color-text-secondary);
 		border-radius: 20px;
 		color: white;
 		font-size: 1rem;
@@ -208,7 +208,7 @@ const getTechCategory = (tech: string): string => {
 
 	.close-button {
 		align-items: center;
-		background: #f8f9fa;
+		background: var(--color-background);
 		border-radius: 50%;
 		border: none;
 		cursor: pointer;
@@ -219,12 +219,11 @@ const getTechCategory = (tech: string): string => {
 		width: 40px;
 
 		&:hover {
-			background: #e9ecef;
 			transform: scale(1.1);
 		}
 
 		i {
-			color: #6c757d;
+			color: var(--color-text);
 			font-size: 1.2rem;
 		}
 	}
@@ -281,9 +280,9 @@ const getTechCategory = (tech: string): string => {
 
 		.project-timeline-badge {
 			backdrop-filter: blur(10px);
-			background: rgba(255, 255, 255, 0.9);
+			background: var(--color-background);
 			border-radius: 20px;
-			color: #2c3e50;
+			color: var(--color-text);
 			font-weight: 500;
 			padding: 0.5rem 1rem;
 			position: absolute;
@@ -298,7 +297,7 @@ const getTechCategory = (tech: string): string => {
 		margin-bottom: 2rem;
 
 		.project-title {
-			color: #2c3e50;
+			color: var(--color-text);
 			font-size: 2rem;
 			font-weight: 700;
 			line-height: 1.3;
@@ -310,7 +309,7 @@ const getTechCategory = (tech: string): string => {
 		}
 
 		.project-client {
-			color: #42b883;
+			color: var(--color-text-secondary);
 			font-size: 1.2rem;
 			font-weight: 600;
 			margin: 0;
@@ -324,7 +323,7 @@ const getTechCategory = (tech: string): string => {
 		margin-bottom: 2rem;
 
 		.meta-item {
-			background: #f8f9fa;
+			background: var(--color-background);
 			border-radius: 8px;
 			display: flex;
 			flex-direction: column;
@@ -332,12 +331,12 @@ const getTechCategory = (tech: string): string => {
 			padding: 1rem;
 
 			i {
-				color: #42b883;
+				color: var(--color-text-secondary);
 				font-size: 1.2rem;
 			}
 
 			.meta-label {
-				color: #6c757d;
+				color: var(--color-text);
 				font-size: 0.8rem;
 				font-weight: 500;
 				letter-spacing: 0.5px;
@@ -345,12 +344,12 @@ const getTechCategory = (tech: string): string => {
 			}
 
 			.meta-value {
-				color: #2c3e50;
+				color:var(--color-text);
 				font-weight: 600;
 
 				&.live-link {
 					align-items: center;
-					color: #42b883;
+					color: var(--color-text-secondary);
 					display: flex;
 					gap: 0.5rem;
 					text-decoration: none;
@@ -368,7 +367,7 @@ const getTechCategory = (tech: string): string => {
 		margin-bottom: 2rem;
 
 		h3 {
-			color: #2c3e50;
+			color: var(--color-heading);
 			font-size: 1.3rem;
 			margin-bottom: 1rem;
 		}
@@ -388,8 +387,8 @@ const getTechCategory = (tech: string): string => {
 
 				&.framework {
 					background: rgba(66, 184, 131, 0.1);
-					border-color: #42b883;
-					color: #42b883;
+					border-color: var(--color-text-secondary);
+					color: var(--color-text-secondary);
 				}
 
 				&.styling {
@@ -439,7 +438,7 @@ const getTechCategory = (tech: string): string => {
 			flex-direction: column;
 		}
 
-		.action-btn {
+		.action-button {
 			align-items: center;
 			border-radius: 8px;
 			border: none;
@@ -452,7 +451,7 @@ const getTechCategory = (tech: string): string => {
 			transition: all 0.3s ease;
 
 			&.primary {
-				background: #42b883;
+				background: var(--color-text-secondary);
 				color: white;
 
 				&:hover {

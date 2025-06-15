@@ -334,8 +334,8 @@ describe('Home View', () => {
 			expect(emphasis.exists()).toBe(true)
 
 			// Primary CTA should not have secondary class
-			const primaryCta = wrapper.findAll('.cta-button').find(btn =>
-				!btn.classes().includes('secondary')
+			const primaryCta = wrapper.findAll('.cta-button').find(button =>
+				!button.classes().includes('secondary')
 			)
 			expect(primaryCta).toBeTruthy()
 		})

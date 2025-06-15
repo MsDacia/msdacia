@@ -8,42 +8,7 @@ import {
 import { mount } from '@vue/test-utils'
 import Portfolio from '@/views/Portfolio.vue'
 
-// Mock child components
-vi.mock('@/components/ProjectGrid.vue', () => ({
-	default: {
-		emits: ['project-click'],
-		name: 'ProjectGrid',
-		props: ['projects', 'viewMode'],
-		template: `
-			<div class="project-grid-mock">
-				<div
-					v-for="project in projects"
-					:key="project.id"
-					class="mock-project-card"
-					@click="$emit('project-click', project)"
-				>
-					{{ project.name }}
-				</div>
-			</div>
-		`
-	}
-}))
-
-vi.mock('@/components/ProjectModal.vue', () => ({
-	default: {
-		emits: ['close'],
-		name: 'ProjectModal',
-		props: ['project'],
-		template: `
-			<div class="project-modal-mock">
-				<h3>{{ project.name }}</h3>
-				<button @click="$emit('close')" class="close-modal">Close</button>
-			</div>
-		`
-	}
-}))
-
-// Mock portfolio data
+// Mock portfolio data (must be defined before mocks)
 const mockPortfolioData = {
 	portfolio: {
 		copy: 'Browse my gallery of projects.',
@@ -88,6 +53,41 @@ const mockPortfolioData = {
 		title: 'Portfolio',
 	}
 }
+
+// Mock child components
+vi.mock('@/components/ProjectGrid.vue', () => ({
+	default: {
+		emits: ['project-click'],
+		name: 'ProjectGrid',
+		props: ['projects', 'viewMode'],
+		template: `
+			<div class="project-grid-mock">
+				<div
+					v-for="project in projects"
+					:key="project.id"
+					class="mock-project-card"
+					@click="$emit('project-click', project)"
+				>
+					{{ project.name }}
+				</div>
+			</div>
+		`
+	}
+}))
+
+vi.mock('@/components/ProjectModal.vue', () => ({
+	default: {
+		emits: ['close'],
+		name: 'ProjectModal',
+		props: ['project'],
+		template: `
+			<div class="project-modal-mock">
+				<h3>{{ project.name }}</h3>
+				<button @click="$emit('close')" class="close-modal">Close</button>
+			</div>
+		`
+	}
+}))
 
 vi.mock('@/data/static.en-us.json', () => ({
 	default: mockPortfolioData
@@ -271,8 +271,8 @@ describe('Portfolio View', () => {
 
 	describe('View Mode Switching', () => {
 		it('switches between grid and list view modes', async () => {
-			const gridBtn = wrapper.find('.view-btn:first-child')
-			const listBtn = wrapper.find('.view-btn:last-child')
+			const gridBtn = wrapper.find('.view-button:first-child')
+			const listBtn = wrapper.find('.view-button:last-child')
 
 			// Initially grid mode
 			expect(wrapper.vm.viewMode).toBe('grid')
@@ -291,7 +291,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('passes view mode to ProjectGrid component', async () => {
-			const listBtn = wrapper.find('.view-btn:last-child')
+			const listBtn = wrapper.find('.view-button:last-child')
 			await listBtn.trigger('click')
 
 			const projectGrid = wrapper.findComponent({ name: 'ProjectGrid' })

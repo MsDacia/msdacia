@@ -53,7 +53,7 @@
 					<button
 						@click="viewMode = 'grid'"
 						:class="{ active: viewMode === 'grid' }"
-						class="view-btn"
+						class="view-button"
 					>
 						<i class="fas fa-th" /> Grid
 					</button>
@@ -61,7 +61,7 @@
 					<button
 						@click="viewMode = 'list'"
 						:class="{ active: viewMode === 'list' }"
-						class="view-btn"
+						class="view-button"
 					>
 						<i class="fas fa-list" /> List
 					</button>
@@ -73,7 +73,7 @@
 				<h3>Filter by Technology:</h3>
 				<div class="tag-filters">
 					<button
-						@click="selectedTag = '"
+						@click="selectedTag = ''"
 						:class="{ active: selectedTag === '' }"
 						class="filter-tag all-tag"
 					>
@@ -153,7 +153,7 @@ import contentData from '../data/static.en-us.json'
 // Reactive data
 const content = ref(contentData)
 const searchQuery = ref('')
-const selectedTag = ('')
+const selectedTag = ref('')
 const viewMode = ref<'grid' | 'list'>('grid')
 const showAllTags = ref(false)
 const selectedProject = ref<any>(null)
@@ -250,7 +250,7 @@ const closeProjectModal = () => {
 	text-align: center;
 
 	h1 {
-		color: #2c3e50;
+		color: var(--color-heading);
 		font-size: 3rem;
 		font-weight: 700;
 		margin-bottom: 1rem;
@@ -261,14 +261,14 @@ const closeProjectModal = () => {
 	}
 
 	.portfolio-description {
-		color: #6c757d;
+		color: var(--color-text);
 		font-size: 1.1rem;
 		line-height: 1.6;
 		margin: 0 auto 2rem;
 		max-width: 800px;
 
 		:deep(a) {
-			color: #42b883;
+			color: var(--color-text-secondary);
 			text-decoration: none;
 
 			&:hover {
@@ -285,14 +285,14 @@ const closeProjectModal = () => {
 		max-width: 600px;
 
 		.stat-item {
-			background: white;
+			background: var(--color-background);
 			border-radius: 12px;
-			border: 1px solid #e9ecef;
+			border: 1px solid var(--color-border);
 			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 			padding: 1rem;
 
 			.stat-number {
-				color: #42b883;
+				color: var(--color-text-secondary);
 				display: block;
 				font-size: 2rem;
 				font-weight: 700;
@@ -300,7 +300,7 @@ const closeProjectModal = () => {
 			}
 
 			.stat-label {
-				color: #6c757d;
+				color: var(--color-text);
 				font-size: 0.9rem;
 				font-weight: 500;
 			}
@@ -309,7 +309,7 @@ const closeProjectModal = () => {
 }
 
 .controls-section {
-	background: white;
+	background: var(--color-background);
 	border-radius: 16px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 	margin-bottom: 2rem;
@@ -330,7 +330,7 @@ const closeProjectModal = () => {
 			position: relative;
 
 			i.fa-search {
-				color: #6c757d;
+				color: var(--color-text);
 				left: 1rem;
 				position: absolute;
 				top: 50%;
@@ -338,15 +338,17 @@ const closeProjectModal = () => {
 			}
 
 			.search-input {
+				background: var(--color-background);
+				color: var(--color-text);
 				border-radius: 8px;
-				border: 2px solid #e9ecef;
+				border: 2px solid var(--color-border);
 				font-size: 1rem;
 				padding: 0.75rem 1rem 0.75rem 2.5rem;
 				transition: border-color 0.3s ease;
 				width: 100%;
 
 				&:focus {
-					border-color: #42b883;
+					border-color: var(--color-text-secondary);
 					outline: none;
 				}
 			}
@@ -354,7 +356,7 @@ const closeProjectModal = () => {
 			.clear-search {
 				background: none;
 				border: none;
-				color: #6c757d;
+				color: var(--color-text);
 				cursor: pointer;
 				padding: 0.5rem;
 				position: absolute;
@@ -363,7 +365,7 @@ const closeProjectModal = () => {
 				transform: translateY(-50%);
 
 				&:hover {
-					color: #42b883;
+					color: var(--color-text-secondary);
 				}
 			}
 		}
@@ -372,24 +374,25 @@ const closeProjectModal = () => {
 			display: flex;
 			gap: 0.5rem;
 
-			.view-btn {
-				background: white;
+			.view-button {
+				background: var(--color-background);
 				border-radius: 8px;
-				border: 2px solid #e9ecef;
+				border: 2px solid var(--color-border);
+				color: var(--color-text);
 				cursor: pointer;
 				font-size: 0.9rem;
 				padding: 0.75rem 1rem;
 				transition: all 0.3s ease;
 
 				&:hover {
-					border-color: #42b883;
-					color: #42b883;
+					border-color: var(--color-text-secondary);
+					color: var(--color-text-secondary);
 				}
 
 				&.active {
-					background: #42b883;
-					border-color: #42b883;
-					color: white;
+					background: var(--color-text-secondary);
+					border-color: var(--color-text-secondary);
+					color: var(--color-text);
 				}
 			}
 		}
@@ -397,7 +400,7 @@ const closeProjectModal = () => {
 
 	.filter-section {
 		h3 {
-			color: #2c3e50;
+			color: var(--color-text);
 			font-size: 1.1rem;
 			margin-bottom: 1rem;
 		}
@@ -409,33 +412,34 @@ const closeProjectModal = () => {
 			margin-bottom: 1rem;
 
 			.filter-tag {
-				background: white;
+				background: var(--color-background);
 				border-radius: 20px;
-				border: 1px solid #dee2e6;
+				border: 1px solid var(--color-border);
+				color: var(--color-text);
 				cursor: pointer;
 				font-size: 0.9rem;
 				padding: 0.5rem 1rem;
 				transition: all 0.3s ease;
 
 				&:hover {
-					border-color: #42b883;
-					color: #42b883;
+					border-color: var(--color-text-secondary);
+					color: var(--color-text-secondary);
 				}
 
 				&.active {
-					background: #42b883;
-					border-color: #42b883;
+					background: var(--color-text-secondary);
+					border-color: var(--color-text-secondary);
 					color: white;
 				}
 
 				&.all-tag {
-					border-color: #42b883;
-					color: #42b883;
+					border-color: var(--color-text-secondary);
+					color: var(--color-text-secondary);
 					font-weight: 600;
 
 					&.active {
-						background: #42b883;
-						color: white;
+						background: var(--color-text-secondary);
+						color: var(--color-text);
 					}
 				}
 			}
@@ -444,7 +448,7 @@ const closeProjectModal = () => {
 		.show-more-tags {
 			background: none;
 			border: none;
-			color: #42b883;
+			color: var(--color-text-secondary);
 			cursor: pointer;
 			font-size: 0.9rem;
 			text-decoration: underline;
@@ -465,7 +469,7 @@ const closeProjectModal = () => {
 
 .results-summary {
 	align-items: center;
-	background: #f8f9fa;
+	background: var(--color-background);
 	border-radius: 8px;
 	display: flex;
 	justify-content: space-between;
@@ -478,7 +482,7 @@ const closeProjectModal = () => {
 	}
 
 	p {
-		color: #6c757d;
+		color: var(--color-text);
 		font-size: 0.9rem;
 		margin: 0;
 	}
@@ -487,7 +491,7 @@ const closeProjectModal = () => {
 		background: #dc3545;
 		border-radius: 6px;
 		border: none;
-		color: white;
+		color: var(--color-text);
 		cursor: pointer;
 		font-size: 0.9rem;
 		padding: 0.5rem 1rem;

@@ -4,10 +4,9 @@
 
 		<div class="item" @click="showMenu = !showMenu">
 			<i class="toggle off icon" :class="[showMenu ? 'hide-content' : 'show-content']" />
-
 			<i class="toggle on icon" :class="[showMenu ? 'show-content' : 'hide-content']" />
 
-			<em :class="[showMenu ? 'active' : '']">{{ content.common.global.menu }}</em>
+			<span :class="[showMenu ? 'active' : '']"><i class="fa fa-ellipsis-vertical" /></span>
 		</div>
 
 		<div class="menu" :class="[showMenu ? 'show-content' : 'hide-content']">
@@ -48,6 +47,7 @@ header {
 	z-index: 3;
 
 	.item {
+		cursor: pointer;
 		overflow: hidden;
 		padding: 0;
 		pointer-events: all;
@@ -63,24 +63,23 @@ header {
 		}
 
 		i {
+			color: var(--color-text);
 			font-weight: 900;
 
 			&.on {
-				color: #42b883; // Vue green for hover state
+				color: var(--color-text-secondary); // Vue green for hover state
 			}
 		}
 
 		em {
-			font-family: serif;
-
 			&.active {
-				color: #42b883;
+				color: var(--color-text-secondary);
 			}
 		}
 	}
 
 	.menu {
-		background: #f8f9fa; // Light background
+		background: var(--color-background); // Light background
 		height: 100%;
 		left: 0;
 		padding: 50px 30px 40px;
@@ -113,10 +112,11 @@ header {
 		}
 
 		.nav-link {
-			color: #2c3e50;
+			color: var(--color-text);
 			cursor: pointer;
 			display: inline-block;
 			font: normal 1.6em/1.6 serif;
+			font-family: "News Cycle", Avenir, Helvetica, Arial, sans-serif;
 			letter-spacing: 0.5px;
 			margin: 30px 0 0;
 			padding: 0 10px 5px;
@@ -140,23 +140,23 @@ header {
 			&.current {
 				.icon {
 					animation: blink 2s steps(5, start) infinite;
-					color: #42b883;
+					color: var(--color-text-secondary);
 				}
 			}
 
 			&:hover,
 			&.router-link-active,
 			&.current {
-				color: #42b883;
+				color: var(--color-text-secondary);
 
 				.icon {
-					color: #42b883;
+					color: var(--color-text-secondary);
 					visibility: visible;
 				}
 			}
 
 			.icon {
-				color: #2c3e50;
+				color: var(--color-text);
 				font-size: 0.75rem;
 				margin-right: 0;
 				transition: visibility 1s ease-out;

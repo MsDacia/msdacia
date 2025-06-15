@@ -88,7 +88,7 @@ describe('useTheme composable', () => {
 	describe('System Theme Detection', () => {
 		it('should detect light system preference', () => {
 			// Mock light system preference
-			matchMediaMock.mockImplementation(query => ({
+			matchMediaMock.mockImplementation((query: string) => ({
 				matches: query === '(prefers-color-scheme: dark)' ? false : true,
 				media: query,
 				addEventListener: vi.fn(),
@@ -101,7 +101,7 @@ describe('useTheme composable', () => {
 
 		it('should detect dark system preference', () => {
 			// Mock dark system preference
-			matchMediaMock.mockImplementation(query => ({
+			matchMediaMock.mockImplementation((query: string) => ({
 				matches: query === '(prefers-color-scheme: dark)' ? true : false,
 				media: query,
 				addEventListener: vi.fn(),
@@ -130,7 +130,7 @@ describe('useTheme composable', () => {
 			const { setSystemTheme, actualTheme } = useTheme()
 
 			// Test with light system preference
-			matchMediaMock.mockImplementation(query => ({
+			matchMediaMock.mockImplementation((query: string) => ({
 				matches: false,
 				media: query,
 				addEventListener: vi.fn(),

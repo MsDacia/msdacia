@@ -41,7 +41,7 @@ const content = ref(contentData)
 	padding: 0 1rem;
 
 	.about-intro {
-		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+		background: var(--color-background);
 		border-radius: 16px;
 		margin-bottom: 3rem;
 		padding: 2rem;
@@ -51,7 +51,7 @@ const content = ref(contentData)
 		}
 
 		h1 {
-			color: #2c3e50;
+			color: var(--color-heading);
 			font-size: 3rem;
 			font-weight: 700;
 			margin-bottom: 2rem;
@@ -71,32 +71,32 @@ const content = ref(contentData)
 			}
 
 			.about-section {
-				background: white;
-				border-left: 4px solid #42b883;
+				background: var(--color-background);
+				border-left: 4px solid var(--color-text-secondary);
 				border-radius: 12px;
 				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 				padding: 1.5rem;
 
 				h3 {
-					color: #42b883;
+					color: var(--color-text-secondary);
 					font-size: 1.3rem;
 					font-weight: 600;
 					margin-bottom: 1rem;
 				}
 
 				p {
-					color: #495057;
+					color: var(--color-text);
 					font-size: 1rem;
 					line-height: 1.7;
 					margin: 0;
 
 					:deep(strong) {
-						color: #2c3e50;
+						color: var(--color-text);
 						font-weight: 700;
 					}
 
 					:deep(a) {
-						color: #42b883;
+						color: var(--color-text-secondary);
 						text-decoration: none;
 						font-weight: 500;
 

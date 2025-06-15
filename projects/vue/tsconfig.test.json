@@ -1,0 +1,17 @@
+{
+	"extends": "./tsconfig.app.json",
+	"include": [
+		"env.d.ts",
+		"src/**/*",
+		"src/**/*.vue",
+		"tests/**/*"
+	],
+	"exclude": [],
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"types": ["vitest/globals", "@testing-library/jest-dom", "node"],
+		"moduleResolution": "Bundler"
+	}
+}

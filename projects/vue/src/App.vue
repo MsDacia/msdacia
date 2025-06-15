@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div>
 		<SiteHeader />
 
 		<main>
@@ -21,7 +21,6 @@ import { RouterView } from 'vue-router'
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	color: #2c3e50;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 main {
@@ -31,6 +30,7 @@ main {
 // Global styles
 * {
 	box-sizing: border-box;
+	font-family: "News Cycle", Avenir, Helvetica, Arial, sans-serif;
 }
 
 body {

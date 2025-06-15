@@ -37,11 +37,15 @@ global.console = {
 }
 
 // Mock Firebase for tests (if needed)
-vi.mock('firebase', () => ({
-	default: {
-		apps: [],
-		initializeApp: vi.fn(),
-	}
+vi.mock('firebase/app', () => ({
+	initializeApp: vi.fn(),
+	getApps: vi.fn(() => []),
+	getApp: vi.fn(),
+}))
+
+vi.mock('firebase/analytics', () => ({
+	getAnalytics: vi.fn(),
+	logEvent: vi.fn(),
 }))
 
 // Mock vue-gtag

@@ -184,7 +184,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject }
 			})
 
-			const primaryButton = wrapper.find('.action-btn.primary')
+			const primaryButton = wrapper.find('.action-button.primary')
 			await primaryButton.trigger('click')
 
 			expect(mockWindowOpen).toHaveBeenCalledWith('https://example.com', '_blank')
@@ -213,7 +213,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject }
 			})
 
-			const secondaryButton = wrapper.find('.action-btn.secondary')
+			const secondaryButton = wrapper.find('.action-button.secondary')
 			await secondaryButton.trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
@@ -226,7 +226,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject }
 			})
 
-			expect(wrapper.find('.action-btn.primary').exists()).toBe(true)
+			expect(wrapper.find('.action-button.primary').exists()).toBe(true)
 		})
 
 		it('hides primary action button when project has no link', () => {
@@ -235,8 +235,8 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithoutLink }
 			})
 
-			expect(wrapper.find('.action-btn.primary').exists()).toBe(false)
-			expect(wrapper.find('.action-btn.secondary').exists()).toBe(true)
+			expect(wrapper.find('.action-button.primary').exists()).toBe(false)
+			expect(wrapper.find('.action-button.secondary').exists()).toBe(true)
 		})
 
 		it('always shows secondary action button', () => {
@@ -245,7 +245,7 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithoutLink }
 			})
 
-			expect(wrapper.find('.action-btn.secondary').exists()).toBe(true)
+			expect(wrapper.find('.action-button.secondary').exists()).toBe(true)
 		})
 	})
 
@@ -273,8 +273,8 @@ describe('ProjectModal Component', () => {
 			})
 
 			const closeButton = wrapper.find('.close-button')
-			const primaryButton = wrapper.find('.action-btn.primary')
-			const secondaryButton = wrapper.find('.action-btn.secondary')
+			const primaryButton = wrapper.find('.action-button.primary')
+			const secondaryButton = wrapper.find('.action-button.secondary')
 
 			// Close button should have icon (aria would be better but not implemented)
 			expect(closeButton.find('i').exists()).toBe(true)
@@ -326,7 +326,7 @@ describe('ProjectModal Component', () => {
 
 			// Interactive elements should exist and be properly structured for CSS hover effects
 			expect(wrapper.find('.close-button').exists()).toBe(true)
-			expect(wrapper.find('.action-btn').exists()).toBe(true)
+			expect(wrapper.find('.action-button').exists()).toBe(true)
 			expect(wrapper.findAll('.tech-tag').length).toBeGreaterThan(0)
 		})
 	})
@@ -349,7 +349,7 @@ describe('ProjectModal Component', () => {
 			})
 
 			expect(wrapper.find('.project-title').text()).toBe('Minimal Project')
-			expect(wrapper.find('.action-btn.primary').exists()).toBe(false)
+			expect(wrapper.find('.action-button.primary').exists()).toBe(false)
 			expect(wrapper.find('.live-link').exists()).toBe(false)
 		})
 

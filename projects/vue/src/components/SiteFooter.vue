@@ -62,8 +62,8 @@ const getFontAwesomeClass = (semanticClass: string): string => {
 
 <style lang="scss" scoped>
 footer {
-	background: #f8f9fa;
-	border-top: 1px solid #e9ecef;
+	background: var(--color-background);
+	border-top: 1px solid var(--color-border);
 	font-size: 1rem;
 	padding: 2rem 0;
 	position: relative;
@@ -79,7 +79,7 @@ footer {
 
 		.social-link {
 			border-radius: 50%;
-			color: #6c757d;
+			color: var(--color-text);
 			margin: 0 0.5rem 0.5rem 0;
 			padding: 0.5rem;
 			text-align: center;
@@ -94,12 +94,12 @@ footer {
 
 			&:hover {
 				background: rgba(66, 184, 131, 0.1);
-				color: #42b883;
+				color: var(--color-text-secondary);
 				cursor: pointer;
 				transform: translateY(-2px);
 
 				i {
-					color: #42b883;
+					color: var(--color-text-secondary);
 				}
 			}
 
@@ -108,7 +108,7 @@ footer {
 				transition: color 0.3s ease;
 
 				&:hover {
-					color: #42b883;
+					color: var(--color-text-secondary);
 				}
 			}
 		}
@@ -116,7 +116,7 @@ footer {
 
 	#copyright {
 		font-size: 0.9rem;
-		color: #6c757d;
+		color: var(--color-text);
 		margin: 0;
 
 		@media (max-width: 768px) {
@@ -125,7 +125,7 @@ footer {
 		}
 
 		.home-link {
-			color: #42b883;
+			color: var(--color-text-secondary);
 			margin-left: 0.25rem;
 			text-decoration: none;
 			transition: color 0.3s ease;
@@ -137,7 +137,7 @@ footer {
 		}
 
 		i {
-			color: #6c757d;
+			color: var(--color-text);
 			font-size: 0.8rem;
 			margin-right: 0.25rem;
 		}

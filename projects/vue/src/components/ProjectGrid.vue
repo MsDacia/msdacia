@@ -76,14 +76,14 @@
 
 <script setup lang="ts">
 interface Project {
-	id: number
-	name: string
 	client: string
-	year: string
-	timeline: string
-	tags: string[]
-	link?: string
+	id: number
 	image: string
+	link?: string
+	name: string
+	tags: string[]
+	timeline: string
+	year: string
 }
 
 interface Props {
@@ -142,9 +142,9 @@ defineEmits<{
 	}
 
 	.project-card {
-		background: white;
+		background: var(--color-background);
 		border-radius: 12px;
-		border: 1px solid #e9ecef;
+		border: 1px solid var(--color-border);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 		cursor: pointer;
 		display: flex;
@@ -153,7 +153,7 @@ defineEmits<{
 		transition: all 0.3s ease;
 
 		&:hover {
-			border-color: #42b883;
+			border-color: var(--color-text-secondary);
 			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 			transform: translateY(-4px);
 
@@ -188,9 +188,9 @@ defineEmits<{
 			}
 
 			.project-year {
-				background: #42b883;
+				background: var(--color-text-secondary);
 				border-radius: 20px;
-				color: white;
+				color: var(--color-text);
 				font-size: 0.9rem;
 				font-weight: 600;
 				left: 1rem;
@@ -201,9 +201,9 @@ defineEmits<{
 
 			.project-timeline {
 				backdrop-filter: blur(10px);
-				background: rgba(255, 255, 255, 0.9);
+				background: var(--color-background);
 				border-radius: 20px;
-				color: #2c3e50;
+				color: var(--color-text);
 				font-size: 0.8rem;
 				font-weight: 500;
 				padding: 0.5rem 1rem;
@@ -223,7 +223,7 @@ defineEmits<{
 				margin-bottom: 1rem;
 
 				.project-title {
-					color: #2c3e50;
+					color: var(--color-heading);
 					font-size: 1.2rem;
 					font-weight: 600;
 					line-height: 1.3;
@@ -231,7 +231,7 @@ defineEmits<{
 				}
 
 				.project-client {
-					color: #42b883;
+					color: var(--color-text-secondary);
 					font-size: 1rem;
 					font-weight: 500;
 					margin: 0;
@@ -245,17 +245,17 @@ defineEmits<{
 				margin-bottom: 1rem;
 
 				.tag {
-					background: #f8f9fa;
+					background: var(--color-background);
 					border-radius: 12px;
-					border: 1px solid #e9ecef;
-					color: #495057;
+					border: 1px solid var(--color-border);
+					color: var(--color-text);
 					font-size: 0.8rem;
 					font-weight: 500;
 					padding: 0.25rem 0.75rem;
 
 					&.more-tags {
-						background: #42b883;
-						border-color: #42b883;
+						background: var(--color-text-secondary);
+						border-color: var(--color-text-secondary);
 						color: white;
 					}
 				}
@@ -284,20 +284,20 @@ defineEmits<{
 
 					.meta-item {
 						align-items: center;
-						color: #6c757d;
+						color: var(--color-text);
 						display: flex;
 						font-size: 0.8rem;
 						gap: 0.25rem;
 
 						i {
-							color: #42b883;
+							color: var(--color-text-secondary);
 						}
 					}
 				}
 
 				.view-details {
 					align-items: center;
-					background: #42b883;
+					background: var(--color-text-secondary);
 					border-radius: 6px;
 					border: none;
 					color: white;
@@ -319,19 +319,19 @@ defineEmits<{
 	}
 
 	.empty-state {
-		color: #6c757d;
+		color: var(--color-text);
 		grid-column: 1 / -1;
 		padding: 4rem 2rem;
 		text-align: center;
 
 		i {
-			color: #dee2e6;
+			color: var(--color-text);
 			font-size: 4rem;
 			margin-bottom: 1rem;
 		}
 
 		h3 {
-			color: #495057;
+			color: var(--color-heading);
 			margin-bottom: 0.5rem;
 		}
 

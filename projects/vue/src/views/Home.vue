@@ -33,7 +33,7 @@ const content = ref(contentData)
 		text-align: center;
 
 		.hero-title {
-			color: #2c3e50;
+			color: var(--color-heading);
 			font-size: 3.5rem;
 			font-weight: bold;
 			margin-bottom: 1rem;
@@ -44,19 +44,19 @@ const content = ref(contentData)
 		}
 
 		.hero-subtitle {
-			color: #6c757d;
+			color: var(--color-heading);
 			font-size: 1.2rem;
 			line-height: 1.6;
 			margin-bottom: 2rem;
 
 			em {
-				color: #42b883;
+				color: var(--color-text-secondary);
 				font-style: italic;
 			}
 		}
 
 		.tagline {
-			color: #42b883;
+			color: var(--color-text-secondary);
 			font-size: 2rem;
 			font-weight: 300;
 			margin-bottom: 3rem;
@@ -73,7 +73,7 @@ const content = ref(contentData)
 			justify-content: center;
 
 			.cta-button {
-				background: #42b883;
+				background: var(--color-text-secondary);
 				border-radius: 8px;
 				color: white;
 				font-weight: 500;
@@ -89,11 +89,11 @@ const content = ref(contentData)
 
 				&.secondary {
 					background: transparent;
-					border: 2px solid #42b883;
-					color: #42b883;
+					border: 2px solid var(--color-text-secondary);
+					color: var(--color-text-secondary);
 
 					&:hover {
-						background: #42b883;
+						background: var(--color-text-secondary);
 						color: white;
 					}
 				}
