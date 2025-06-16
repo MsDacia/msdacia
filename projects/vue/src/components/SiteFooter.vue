@@ -63,19 +63,15 @@ const getFontAwesomeClass = (semanticClass: string): string => {
 <style lang="scss" scoped>
 footer {
 	background: var(--color-background);
-	border-top: 1px solid var(--color-border);
 	font-size: 1rem;
-	padding: 2rem 0;
-	position: relative;
+	grid-area: footer;
 	text-align: center;
-	z-index: 2;
 
 	#social-media {
 		align-content: center;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		margin-bottom: 1rem;
 
 		.social-link {
 			border-radius: 50%;

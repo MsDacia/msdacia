@@ -12,7 +12,21 @@
 			<div class="modal-body">
 				<div class="project-image-section">
 					<div class="project-image-large">
-						<div class="placeholder-image">
+						<!-- Show image if it exists and loads successfully -->
+						<img 
+							v-if="!imageError && project.image"
+							:src="getImageUrl(project.image)" 
+							:alt="project.name" 
+							class="project-img-large"
+							@error="() => handleImageError()"
+							@load="() => handleImageLoad()"
+						/>
+						
+						<!-- Show placeholder if no image or image failed to load -->
+						<div 
+							v-if="imageError || !project.image"
+							class="placeholder-image"
+						>
 							<i class="fas fa-image" />
 							<span>{{ project.name }}</span>
 						</div>
@@ -93,6 +107,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue'
+
 interface Project {
 	client: string
 	id: number
@@ -113,6 +129,34 @@ const props = defineProps<Props>()
 const emit = defineEmits<{
 	close: []
 }>()
+
+// Track image loading error
+const imageError = ref(false)
+
+// Function to get image URL
+const getImageUrl = (imageName: string) => {
+	try {
+		return new URL(`../assets/images/projects/${imageName}`, import.meta.url).href
+	} catch (error) {
+		console.warn(`Image not found: ${imageName}`, error)
+		return ''
+	}
+}
+
+// Handle image loading errors
+const handleImageError = () => {
+	imageError.value = true
+}
+
+// Handle successful image loading
+const handleImageLoad = () => {
+	imageError.value = false
+}
+
+// Reset image error when project changes
+watch(() => props.project.id, () => {
+	imageError.value = false
+})
 
 // Methods
 const closeModal = () => {
@@ -252,6 +296,17 @@ const getTechCategory = (tech: string): string => {
 
 		@media (max-width: 768px) {
 			height: 200px;
+		}
+
+		.project-img-large {
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+			width: 100%;
+
+			&:hover {
+				transform: scale(1.02);
+			}
 		}
 
 		.placeholder-image {

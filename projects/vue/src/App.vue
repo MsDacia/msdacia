@@ -1,13 +1,11 @@
 <template>
-	<div>
-		<SiteHeader />
+	<SiteHeader />
 
-		<main>
-			<RouterView />
-		</main>
+	<main>
+		<RouterView />
+	</main>
 
-		<SiteFooter />
-	</div>
+	<SiteFooter />
 </template>
 
 <script setup lang="ts">
@@ -20,11 +18,12 @@ import { RouterView } from 'vue-router'
 #app {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	color: #2c3e50;
+	color: var(--color-text);
 }
 
 main {
-	padding-top: 80px; // Space for fixed header
+	grid-area: main;
+	overflow-y: auto;
 }
 
 // Global styles

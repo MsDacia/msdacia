@@ -42,9 +42,8 @@ const handleNavClick = (title: string) => {
 
 <style lang="scss" scoped>
 header {
+	grid-area: header;
 	padding-bottom: 0;
-	position: relative;
-	z-index: 3;
 
 	.item {
 		cursor: pointer;

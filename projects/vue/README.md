@@ -255,7 +255,3 @@ This project is private and proprietary.
 ---
 
 *Built with ❤️ using Vue 3, TypeScript, and modern web development practices.*
-
-TODO
-
-- add favicon

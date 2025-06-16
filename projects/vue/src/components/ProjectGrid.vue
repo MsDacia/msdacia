@@ -7,13 +7,29 @@
 			@click="$emit('project-click', project)"
 		>
 			<div class="project-image">
-				<div class="placeholder-image">
+				<!-- Show image if it exists and loads successfully -->
+				<img
+					v-if="!imageErrors[project.id] && project.image"
+					:src="getImageUrl(project.image)"
+					:alt="project.name"
+					class="project-img"
+					@error="() => handleImageError(project.id)"
+					@load="() => handleImageLoad(project.id)"
+				/>
+
+				<!-- Show placeholder if no image or image failed to load -->
+				<div
+					v-if="imageErrors[project.id] || !project.image"
+					class="placeholder-image"
+				>
 					<i class="fas fa-image" />
 					<span>{{ project.name }}</span>
 				</div>
 
-				<div class="project-year">{{ project.year }}</div>
-				<div class="project-timeline">{{ project.timeline }}</div>
+				<div class="project-overlay">
+					<div class="project-year">{{ project.year }}</div>
+					<div class="project-timeline">{{ project.timeline }}</div>
+				</div>
 			</div>
 
 			<div class="project-content">
@@ -75,6 +91,8 @@
 </template>
 
 <script setup lang="ts">
+import { reactive } from 'vue'
+
 interface Project {
 	client: string
 	id: number
@@ -95,6 +113,29 @@ defineProps<Props>()
 defineEmits<{
 	'project-click': [project: Project]
 }>()
+
+// Track image loading errors for each project
+const imageErrors = reactive<Record<number, boolean>>({})
+
+// Function to get image URL
+const getImageUrl = (imageName: string) => {
+	try {
+		return new URL(`../assets/images/projects/${imageName}`, import.meta.url).href
+	} catch (error) {
+		console.warn(`Image not found: ${imageName}`, error)
+		return ''
+	}
+}
+
+// Handle image loading errors
+const handleImageError = (projectId: number) => {
+	imageErrors[projectId] = true
+}
+
+// Handle successful image loading
+const handleImageLoad = (projectId: number) => {
+	imageErrors[projectId] = false
+}
 </script>
 
 <style lang="scss" scoped>
@@ -157,6 +198,10 @@ defineEmits<{
 			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 			transform: translateY(-4px);
 
+			.project-img {
+				transform: scale(1.05);
+			}
+
 			.view-details {
 				background: #369870;
 				transform: translateX(4px);
@@ -164,16 +209,27 @@ defineEmits<{
 		}
 
 		.project-image {
-			align-items: center;
-			background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-			display: flex;
 			height: 200px;
-			justify-content: center;
+			overflow: hidden;
 			position: relative;
 
+			.project-img {
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+				width: 100%;
+			}
+
 			.placeholder-image {
+				align-items: center;
+				background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 				color: #6c757d;
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				justify-content: center;
 				text-align: center;
+				width: 100%;
 
 				i {
 					display: block;
@@ -184,32 +240,44 @@ defineEmits<{
 				span {
 					font-size: 0.9rem;
 					font-weight: 500;
+					max-width: 90%;
+					word-wrap: break-word;
 				}
 			}
 
+			.project-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				pointer-events: none;
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding: 1rem;
+			}
+
 			.project-year {
-				background: var(--color-text-secondary);
+				background: var(--color-background);
+				backdrop-filter: blur(10px);
 				border-radius: 20px;
 				color: var(--color-text);
 				font-size: 0.9rem;
 				font-weight: 600;
-				left: 1rem;
 				padding: 0.5rem 1rem;
-				position: absolute;
-				top: 1rem;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 			}
 
 			.project-timeline {
-				backdrop-filter: blur(10px);
 				background: var(--color-background);
+				backdrop-filter: blur(10px);
 				border-radius: 20px;
 				color: var(--color-text);
 				font-size: 0.8rem;
 				font-weight: 500;
 				padding: 0.5rem 1rem;
-				position: absolute;
-				right: 1rem;
-				top: 1rem;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 			}
 		}
 
