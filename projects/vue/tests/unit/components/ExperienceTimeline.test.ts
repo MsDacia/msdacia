@@ -240,7 +240,7 @@ describe('ExperienceTimeline Component', () => {
 			})
 
 			// Mock the content ref to use our HTML data
-			wrapper.vm.content = htmlMockData
+			wrapper.vm.content = htmlMockData as any
 
 			await wrapper.vm.$nextTick()
 
@@ -436,7 +436,7 @@ describe('ExperienceTimeline Component', () => {
 			})
 
 			// Mock the content ref
-			wrapper.vm.content = emptyJobsData
+			wrapper.vm.content = emptyJobsData as any
 
 			expect(wrapper.findAll('.timeline-item')).toHaveLength(0)
 			expect(wrapper.find('.timeline-header').exists()).toBe(true)
@@ -467,7 +467,7 @@ describe('ExperienceTimeline Component', () => {
 				}
 			})
 
-			wrapper.vm.content = jobWithEmptyPoints
+			wrapper.vm.content = jobWithEmptyPoints as any
 			await wrapper.vm.$nextTick()
 
 			const jobCard = wrapper.find('.job-card')
@@ -501,7 +501,7 @@ describe('ExperienceTimeline Component', () => {
 				}
 			})
 
-			wrapper.vm.content = incompleteJobData
+			wrapper.vm.content = incompleteJobData as any
 			await wrapper.vm.$nextTick()
 
 			// Component should still render without crashing
@@ -539,7 +539,7 @@ describe('ExperienceTimeline Component', () => {
 				}
 			})
 
-			wrapper.vm.content = largeDatSet
+			wrapper.vm.content = largeDatSet as any
 
 			expect(wrapper.findAll('.timeline-item')).toHaveLength(20)
 			expect(wrapper.vm).toBeTruthy() // Component should render without issues

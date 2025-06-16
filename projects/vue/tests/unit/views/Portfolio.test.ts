@@ -492,8 +492,8 @@ describe('Portfolio View', () => {
 			const buttons = wrapper.findAll('button')
 			expect(buttons.length).toBeGreaterThan(0)
 
-			buttons.forEach(button => {
-				expect(button.element.tagName).toBe('BUTTON')
+			buttons.forEach((button: any) => {
+				expect(button.element?.tagName).toBe('BUTTON')
 			})
 		})
 	})

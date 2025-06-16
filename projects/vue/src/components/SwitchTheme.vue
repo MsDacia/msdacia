@@ -30,6 +30,20 @@ const {
 
 const showMenu = ref(false)
 
+// Expose properties for testing
+defineExpose({
+	showMenu,
+	currentMode,
+	nextThemeLabel,
+	setDarkTheme,
+	setLightTheme,
+	setSystemTheme,
+	systemPrefersDark,
+	themeIcon,
+	themeLabel,
+	toggleTheme,
+})
+
 // Close menu when clicking outside
 if (typeof document !== 'undefined') {
 	document.addEventListener('click', (e) => {

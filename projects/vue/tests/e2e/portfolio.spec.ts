@@ -268,7 +268,9 @@ test.describe('Portfolio Page E2E', () => {
 			await page.waitForTimeout(300)
 
 			// Should show results
-			await expect(page.locator('[data-testid^="project-"]')).toHaveCount.toBeGreaterThan(0)
+			const projectElements = page.locator('[data-testid^="project-"]')
+			const count = await projectElements.count()
+			expect(count).toBeGreaterThan(0)
 		})
 
 		test('should maintain functionality on large screens', async ({ page }) => {
@@ -303,7 +305,9 @@ test.describe('Portfolio Page E2E', () => {
 			}
 
 			// Should still be functional
-			await expect(page.locator('[data-testid^="project-"]')).toHaveCount.toBeGreaterThan(0)
+			const portfolioProjectElements = page.locator('[data-testid^="project-"]')
+			const portfolioCount = await portfolioProjectElements.count()
+			expect(portfolioCount).toBeGreaterThan(0)
 		})
 
 		test('should not have memory leaks during filtering', async ({ page }) => {

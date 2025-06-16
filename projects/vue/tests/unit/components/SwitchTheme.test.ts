@@ -9,6 +9,8 @@ import { mount } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import SwitchTheme from '@/components/SwitchTheme.vue'
 
+import { useTheme } from '@/composables/useTheme'
+
 // Mock the composable
 vi.mock('@/composables/useTheme', () => ({
 	useTheme: vi.fn(() => ({

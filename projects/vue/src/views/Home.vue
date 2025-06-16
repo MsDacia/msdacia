@@ -18,6 +18,11 @@ import { ref } from 'vue'
 import contentData from '../data/static.en-us.json'
 
 const content = ref(contentData)
+
+// Expose properties for testing
+defineExpose({
+	content,
+})
 </script>
 
 <style lang="scss" scoped>

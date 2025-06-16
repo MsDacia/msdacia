@@ -67,6 +67,13 @@ const expandedJob = ref<number | null>(null)
 const toggleJob = (jobId: number) => {
 	expandedJob.value = expandedJob.value === jobId ? null : jobId
 }
+
+// Expose properties for testing
+defineExpose({
+	content,
+	expandedJob,
+	toggleJob,
+})
 </script>
 
 <style lang="scss" scoped>

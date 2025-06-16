@@ -268,7 +268,7 @@ test.describe('About Page E2E', () => {
 				await expect(firstParagraph).toBeVisible()
 
 				// Text should have reasonable line length for readability
-				const pWidth = await firstParagraph.evaluate(el => el.offsetWidth)
+				const pWidth = await firstParagraph.evaluate(el => (el as HTMLElement).offsetWidth)
 				expect(pWidth).toBeLessThan(800) // Not too wide for comfortable reading
 			}
 		})
@@ -281,7 +281,7 @@ test.describe('About Page E2E', () => {
 			// Content should be centered and not too wide
 			const mainContent = page.locator('main, .about, .content')
 			if (await mainContent.count() > 0) {
-				const contentWidth = await mainContent.first().evaluate(el => el.offsetWidth)
+				const contentWidth = await mainContent.first().evaluate(el => (el as HTMLElement).offsetWidth)
 				expect(contentWidth).toBeLessThan(1200) // Should have max-width for readability
 			}
 		})

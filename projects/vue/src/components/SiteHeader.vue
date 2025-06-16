@@ -38,6 +38,13 @@ const handleNavClick = (title: string) => {
 	// Modern analytics will be added later
 	console.log('Navigation clicked:', title)
 }
+
+// Expose properties for testing
+defineExpose({
+	content,
+	showMenu,
+	handleNavClick,
+})
 </script>
 
 <style lang="scss" scoped>
