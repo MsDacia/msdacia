@@ -26,7 +26,7 @@
 		"react-router": "7.0.2",
 		"sass": "1.74.1",
 		"semantic-ui-css": "2.5.0",
-		"vite": "4.4.9"
+		"vite": "7.1.11"
 	},
 	"devDependencies": {
 		"@playwright/test": "1.50.1",
@@ -38,7 +38,7 @@
 		"@types/react-dom": "18.0.0",
 		"@types/react-router-dom": "5.3.3",
 		"@types/semantic-ui": "2.2.9",
-		"@vitejs/plugin-react": "4.0.3",
+		"@vitejs/plugin-react": "4.7.0",
 		"cssnano": "6.1.2",
 		"husky": "9.1.7",
 		"postcss": "8.5.1",
