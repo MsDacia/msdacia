@@ -8,5 +8,5 @@
 [Dacia Rodrigue](http://www.msdacia.com)
 
 ###For Hire
-I am currently looking for projects in VueJS, ReactJs, TypeScript, and CraftCMS/Twig. I always looking for projects to help showcase my skills.
+I am currently looking for projects in Vue, React, TypeScript. I always looking for projects to help showcase my skills.
 
