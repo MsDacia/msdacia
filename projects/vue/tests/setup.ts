@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+import { config } from '@vue/test-utils'
 import { vi } from 'vitest'
 
 // Mock window.matchMedia for theme tests
@@ -24,7 +25,7 @@ const localStorageMock = {
 	clear: vi.fn(),
 }
 Object.defineProperty(window, 'localStorage', {
-	value: localStorageMock
+	value: localStorageMock,
 })
 
 // Mock console methods to avoid noise in tests
@@ -36,23 +37,32 @@ global.console = {
 	error: vi.fn(),
 }
 
-// Mock Firebase for tests (if needed)
-vi.mock('firebase/app', () => ({
-	initializeApp: vi.fn(),
-	getApps: vi.fn(() => []),
-	getApp: vi.fn(),
-}))
+// Register ui-components directives as no-ops so components that use them
+// (e.g. UIIcon's v-tooltip) mount cleanly. Mirrors the dacias-closet pattern.
+config.global.directives = {
+	clickOutside: {
+		beforeMount: () => {},
+		mounted: () => {},
+		updated: () => {},
+	},
+	tooltip: {
+		beforeMount: () => {},
+		mounted: () => {},
+		updated: () => {},
+	},
+}
 
-vi.mock('firebase/analytics', () => ({
-	getAnalytics: vi.fn(),
-	logEvent: vi.fn(),
-}))
-
-// Mock vue-gtag
-vi.mock('vue-gtag', () => ({
-	gtag: vi.fn(),
-	install: vi.fn(),
-}))
+// Stub ui-components UIIcon with a synchronous marker. The real UIIcon resolves
+// its SVG via an async component, so stubbing keeps icon assertions deterministic.
+// The rendered element exposes `data-ui="icon"` and the icon name as a class,
+// matching the real component's fall-through markup.
+config.global.stubs = {
+	UIIcon: {
+		name: 'UIIcon',
+		props: ['icon', 'color', 'tooltip'],
+		template: '<svg data-ui="icon" :class="icon"></svg>',
+	},
+}
 
 // Global test utilities
 export const createMockRouter = () => ({
@@ -67,7 +77,7 @@ export const createMockRouter = () => ({
 			name: 'Home',
 			params: {},
 			query: {},
-			meta: {}
-		}
-	}
+			meta: {},
+		},
+	},
 })

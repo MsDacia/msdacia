@@ -1,17 +1,18 @@
 {
-	"extends": "@tsconfig/node22/tsconfig.json",
 	"include": [
-		"cypress.config.*",
 		"eslint.config.*",
-		"nightwatch.conf.*",
 		"playwright.config.*",
 		"vite.config.*",
 		"vitest.config.*",
 	],
 	"compilerOptions": {
+		"composite": true,
+		"lib": ["ES2023"],
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
+		"target": "ES2023",
 		"noEmit": true,
+		"skipLibCheck": true,
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 		"types": ["node"]
 	}

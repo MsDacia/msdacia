@@ -4,6 +4,7 @@
 			v-for="project in projects"
 			:key="project.id"
 			class="project-card"
+			:data-testid="`project-${project.id}`"
 			@click="$emit('project-click', project)"
 		>
 			<div class="project-image">
@@ -22,7 +23,7 @@
 					v-if="imageErrors[project.id] || !project.image"
 					class="placeholder-image"
 				>
-					<i class="fas fa-image" />
+					<UIIcon icon="SVGImage" />
 					<span>{{ project.name }}</span>
 				</div>
 
@@ -58,24 +59,24 @@
 				<div class="project-footer">
 					<div class="project-meta">
 						<span class="meta-item">
-							<i class="fas fa-calendar" />
+							<UIIcon icon="SVGCalendar" />
 							{{ project.year }}
 						</span>
 
 						<span class="meta-item">
-							<i class="fas fa-clock" />
+							<UIIcon icon="SVGClock" />
 							{{ project.timeline }}
 						</span>
 
 						<span v-if="project.link" class="meta-item">
-							<i class="fas fa-external-link-alt" />
+							<UIIcon icon="SVGLink" />
 							Live Site
 						</span>
 					</div>
 
 					<button class="view-details">
 						View Details
-						<i class="fas fa-arrow-right" />
+						<UIIcon icon="SVGArrowRight" />
 					</button>
 				</div>
 			</div>
@@ -83,7 +84,7 @@
 
 		<!-- Empty State -->
 		<div v-if="projects.length === 0" class="empty-state">
-			<i class="fas fa-search" />
+			<UIIcon icon="SVGSearch" />
 			<h3>No projects found</h3>
 			<p>Try adjusting your search criteria or filters.</p>
 		</div>
@@ -92,6 +93,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { UIIcon } from 'ui-components'
 
 interface Project {
 	client: string
@@ -231,10 +233,11 @@ const handleImageLoad = (projectId: number) => {
 				text-align: center;
 				width: 100%;
 
-				i {
+				[data-ui="icon"] {
 					display: block;
-					font-size: 3rem;
+					height: 3rem;
 					margin-bottom: 0.5rem;
+					width: 3rem;
 				}
 
 				span {
@@ -357,7 +360,7 @@ const handleImageLoad = (projectId: number) => {
 						font-size: 0.8rem;
 						gap: 0.25rem;
 
-						i {
+						[data-ui="icon"] {
 							color: var(--color-text-secondary);
 						}
 					}
@@ -392,10 +395,11 @@ const handleImageLoad = (projectId: number) => {
 		padding: 4rem 2rem;
 		text-align: center;
 
-		i {
+		[data-ui="icon"] {
 			color: var(--color-text);
-			font-size: 4rem;
+			height: 4rem;
 			margin-bottom: 1rem;
+			width: 4rem;
 		}
 
 		h3 {

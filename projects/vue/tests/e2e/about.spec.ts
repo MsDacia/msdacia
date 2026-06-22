@@ -170,9 +170,6 @@ test.describe('About Page E2E', () => {
 						// Click the link and verify it works
 						await link.click()
 
-						// Should navigate successfully (not stay on about page)
-						const currentUrl = page.url()
-
 						// Navigate back to about for next iteration
 						await page.goto('/about')
 					}
@@ -189,7 +186,7 @@ test.describe('About Page E2E', () => {
 				const menuTrigger = page.locator('.menu-trigger')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: 'Light' }).click()
+					await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
 				}
 			}
 
@@ -206,7 +203,7 @@ test.describe('About Page E2E', () => {
 				const menuTrigger = page.locator('.menu-trigger')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: 'Dark' }).click()
+					await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
 				}
 			}
 
@@ -228,7 +225,7 @@ test.describe('About Page E2E', () => {
 				const menuTrigger = page.locator('.menu-trigger')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: 'Dark' }).click()
+					await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
 				}
 			}
 
@@ -350,7 +347,7 @@ test.describe('About Page E2E', () => {
 				// Avoid generic link text
 				const genericTexts = ['click here', 'read more', 'link', 'here']
 				const isGeneric = genericTexts.some(generic =>
-					linkText?.toLowerCase().includes(generic)
+					linkText?.toLowerCase().includes(generic),
 				)
 
 				if (isGeneric && !ariaLabel && !title) {
@@ -408,7 +405,7 @@ test.describe('About Page E2E', () => {
 			const criticalErrors = errors.filter(error =>
 				!error.includes('favicon') &&
 				!error.includes('analytics') &&
-				!error.includes('tracking')
+				!error.includes('tracking'),
 			)
 
 			expect(criticalErrors).toHaveLength(0)

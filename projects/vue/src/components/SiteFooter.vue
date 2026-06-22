@@ -10,12 +10,12 @@
 				@click="handleSocialClick(social.title)"
 				class="social-link"
 			>
-				<i :class="getFontAwesomeClass(social.icon)" />
+				<UIIcon :icon="getIconName(social.icon)" />
 			</a>
 		</div>
 
 		<p id="copyright">
-			<i class="far fa-copyright" />
+			<span class="copyright-symbol">&copy;</span>
 			{{ content.common.copyright.content }}
 			<a
 				:href="content.common.global.url"
@@ -30,6 +30,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UIIcon } from 'ui-components'
 import contentData from '../data/static.en-us.json'
 
 // Reactive data using Composition API (Vue 3 way!)
@@ -45,18 +46,18 @@ const handleHomeClick = (title: string) => {
 	console.log('Home link clicked:', title)
 }
 
-// Convert Semantic UI icon classes to FontAwesome classes
-const getFontAwesomeClass = (semanticClass: string): string => {
+// Map Semantic UI icon classes to ui-components SVG icon names
+const getIconName = (semanticClass: string): string => {
 	const iconMap: { [key: string]: string } = {
-		'facebook icon': 'fab fa-facebook-f',
-		'linkedin icon': 'fab fa-linkedin-in',
-		'twitter icon': 'fab fa-twitter',
-		'instagram icon': 'fab fa-instagram',
-		'github icon': 'fab fa-github',
-		'bitbucket icon': 'fab fa-bitbucket'
+		'facebook icon': 'SVGFacebook',
+		'linkedin icon': 'SVGLinkedIn',
+		'twitter icon': 'SVGTwitter',
+		'instagram icon': 'SVGInstagram',
+		'github icon': 'SVGGithub',
+		'bitbucket icon': 'SVGCode',
 	}
 
-	return iconMap[semanticClass] || 'fas fa-link'
+	return iconMap[semanticClass] || 'SVGLink'
 }
 </script>
 
@@ -83,7 +84,7 @@ footer {
 			transition: all 0.3s ease;
 
 			&:last-of-type {
-				i {
+				[data-ui="icon"] {
 					margin-right: 0;
 				}
 			}
@@ -94,14 +95,15 @@ footer {
 				cursor: pointer;
 				transform: translateY(-2px);
 
-				i {
+				[data-ui="icon"] {
 					color: var(--color-text-secondary);
 				}
 			}
 
-			i {
-				font-size: 1.4rem;
+			[data-ui="icon"] {
+				height: 1.4rem;
 				transition: color 0.3s ease;
+				width: 1.4rem;
 
 				&:hover {
 					color: var(--color-text-secondary);
@@ -132,7 +134,7 @@ footer {
 			}
 		}
 
-		i {
+		.copyright-symbol {
 			color: var(--color-text);
 			font-size: 0.8rem;
 			margin-right: 0.25rem;

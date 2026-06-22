@@ -13,7 +13,7 @@ import { createMockProject } from '@/tests/utils/test-helpers'
 const mockWindowOpen = vi.fn()
 Object.defineProperty(window, 'open', {
 	value: mockWindowOpen,
-	writable: true
+	writable: true,
 })
 
 describe('ProjectModal Component', () => {
@@ -31,7 +31,7 @@ describe('ProjectModal Component', () => {
 	describe('Component Rendering', () => {
 		it('renders modal overlay and content', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			expect(wrapper.find('.modal-overlay').exists()).toBe(true)
@@ -40,7 +40,7 @@ describe('ProjectModal Component', () => {
 
 		it('displays project information correctly', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			// Check header information
@@ -49,20 +49,24 @@ describe('ProjectModal Component', () => {
 			expect(wrapper.find('.project-client').text()).toBe('Modal Test Client')
 		})
 
-		it('renders project image placeholder', () => {
+		it('renders project image placeholder when the image fails to load', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const imageSection = wrapper.find('.project-image-large')
 			expect(imageSection.exists()).toBe(true)
+
+			// Simulate the image failing to load, which reveals the placeholder
+			await imageSection.find('.project-img-large').trigger('error')
+
 			expect(imageSection.find('.placeholder-image').exists()).toBe(true)
 			expect(imageSection.find('.placeholder-image span').text()).toBe('Test Project Modal')
 		})
 
 		it('displays project metadata correctly', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const metaItems = wrapper.findAll('.meta-item')
@@ -77,7 +81,7 @@ describe('ProjectModal Component', () => {
 
 		it('shows live site link when project has link', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const liveLink = wrapper.find('.live-link')
@@ -89,7 +93,7 @@ describe('ProjectModal Component', () => {
 		it('hides live site link when project has no link', () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithoutLink }
+				props: { project: projectWithoutLink },
 			})
 
 			expect(wrapper.find('.live-link').exists()).toBe(false)
@@ -100,7 +104,7 @@ describe('ProjectModal Component', () => {
 	describe('Technology Tags', () => {
 		it('displays all technology tags', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const techTags = wrapper.findAll('.tech-tag')
@@ -116,7 +120,7 @@ describe('ProjectModal Component', () => {
 
 		it('categorizes technologies correctly', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const vueTag = wrapper.findAll('.tech-tag').find(tag => tag.text() === 'Vue')
@@ -131,11 +135,11 @@ describe('ProjectModal Component', () => {
 		it('handles technologies not in predefined categories', () => {
 			const projectWithCustomTech = {
 				...mockProject,
-				tags: ['CustomFramework', 'NewTechnology']
+				tags: ['CustomFramework', 'NewTechnology'],
 			}
 
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithCustomTech }
+				props: { project: projectWithCustomTech },
 			})
 
 			const customTags = wrapper.findAll('.tech-tag')
@@ -148,7 +152,7 @@ describe('ProjectModal Component', () => {
 	describe('User Interactions', () => {
 		it('emits close event when close button is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const closeButton = wrapper.find('.close-button')
@@ -159,7 +163,7 @@ describe('ProjectModal Component', () => {
 
 		it('emits close event when overlay is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const overlay = wrapper.find('.modal-overlay')
@@ -170,7 +174,7 @@ describe('ProjectModal Component', () => {
 
 		it('does not emit close when modal content is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const modalContent = wrapper.find('.modal-content')
@@ -181,7 +185,7 @@ describe('ProjectModal Component', () => {
 
 		it('opens live project in new tab when primary action is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const primaryButton = wrapper.find('.action-button.primary')
@@ -192,7 +196,7 @@ describe('ProjectModal Component', () => {
 
 		it('opens live project when live link is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const liveLink = wrapper.find('.live-link')
@@ -210,7 +214,7 @@ describe('ProjectModal Component', () => {
 
 		it('closes modal when secondary action is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const secondaryButton = wrapper.find('.action-button.secondary')
@@ -223,7 +227,7 @@ describe('ProjectModal Component', () => {
 	describe('Conditional Rendering', () => {
 		it('shows primary action button only when project has link', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			expect(wrapper.find('.action-button.primary').exists()).toBe(true)
@@ -232,7 +236,7 @@ describe('ProjectModal Component', () => {
 		it('hides primary action button when project has no link', () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithoutLink }
+				props: { project: projectWithoutLink },
 			})
 
 			expect(wrapper.find('.action-button.primary').exists()).toBe(false)
@@ -242,7 +246,7 @@ describe('ProjectModal Component', () => {
 		it('always shows secondary action button', () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithoutLink }
+				props: { project: projectWithoutLink },
 			})
 
 			expect(wrapper.find('.action-button.secondary').exists()).toBe(true)
@@ -252,7 +256,7 @@ describe('ProjectModal Component', () => {
 	describe('Accessibility', () => {
 		it('uses semantic HTML structure', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			// Should have proper heading hierarchy
@@ -269,7 +273,7 @@ describe('ProjectModal Component', () => {
 
 		it('provides meaningful button text', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const closeButton = wrapper.find('.close-button')
@@ -277,7 +281,7 @@ describe('ProjectModal Component', () => {
 			const secondaryButton = wrapper.find('.action-button.secondary')
 
 			// Close button should have icon (aria would be better but not implemented)
-			expect(closeButton.find('i').exists()).toBe(true)
+			expect(closeButton.find('[data-ui="icon"]').exists()).toBe(true)
 
 			// Action buttons should have descriptive text
 			expect(primaryButton.text()).toContain('View Live Project')
@@ -286,7 +290,7 @@ describe('ProjectModal Component', () => {
 
 		it('uses proper link attributes for external links', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const externalLink = wrapper.find('.live-link')
@@ -298,7 +302,7 @@ describe('ProjectModal Component', () => {
 	describe('Visual Design and Animation', () => {
 		it('applies animation classes for modal entrance', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const modalContent = wrapper.find('.modal-content')
@@ -310,7 +314,7 @@ describe('ProjectModal Component', () => {
 
 		it('applies backdrop blur to overlay', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const overlay = wrapper.find('.modal-overlay')
@@ -321,7 +325,7 @@ describe('ProjectModal Component', () => {
 
 		it('shows hover effects on interactive elements', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			// Interactive elements should exist and be properly structured for CSS hover effects
@@ -340,12 +344,12 @@ describe('ProjectModal Component', () => {
 				year: '2023',
 				timeline: '1 week',
 				tags: ['HTML'],
-				image: 'minimal.png'
+				image: 'minimal.png',
 				// No link property
 			}
 
 			const wrapper = mount(ProjectModal, {
-				props: { project: minimalProject }
+				props: { project: minimalProject },
 			})
 
 			expect(wrapper.find('.project-title').text()).toBe('Minimal Project')
@@ -356,11 +360,11 @@ describe('ProjectModal Component', () => {
 		it('handles empty tags array', () => {
 			const projectWithNoTags = {
 				...mockProject,
-				tags: []
+				tags: [],
 			}
 
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithNoTags }
+				props: { project: projectWithNoTags },
 			})
 
 			expect(wrapper.findAll('.tech-tag')).toHaveLength(0)
@@ -371,11 +375,11 @@ describe('ProjectModal Component', () => {
 			const projectWithLongNames = {
 				...mockProject,
 				name: 'This is a Very Long Project Name That Should Be Handled Gracefully in the Modal',
-				client: 'This is a Very Long Client Name That Should Also Be Handled Properly'
+				client: 'This is a Very Long Client Name That Should Also Be Handled Properly',
 			}
 
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithLongNames }
+				props: { project: projectWithLongNames },
 			})
 
 			expect(wrapper.find('.project-title').text()).toBe(projectWithLongNames.name)
@@ -386,7 +390,7 @@ describe('ProjectModal Component', () => {
 	describe('Method Testing', () => {
 		it('getTechCategory method categorizes technologies correctly', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			// Access the component instance to test methods
@@ -405,7 +409,7 @@ describe('ProjectModal Component', () => {
 
 		it('closeModal method emits close event', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const vm = wrapper.vm as any
@@ -417,7 +421,7 @@ describe('ProjectModal Component', () => {
 
 		it('openLiveProject method opens correct URL', async () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			const vm = wrapper.vm as any
@@ -433,7 +437,7 @@ describe('ProjectModal Component', () => {
 		it('openLiveProject handles projects without links gracefully', async () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
 			const wrapper = mount(ProjectModal, {
-				props: { project: projectWithoutLink }
+				props: { project: projectWithoutLink },
 			})
 
 			const vm = wrapper.vm as any
@@ -451,7 +455,7 @@ describe('ProjectModal Component', () => {
 	describe('Responsive Design Support', () => {
 		it('renders responsive structure correctly', () => {
 			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject }
+				props: { project: mockProject },
 			})
 
 			// Check that responsive elements exist (actual responsive behavior tested in E2E)

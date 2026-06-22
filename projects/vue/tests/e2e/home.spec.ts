@@ -66,7 +66,7 @@ test.describe('Home Page E2E', () => {
 				const menuTrigger = page.locator('.menu-trigger')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: 'Dark' }).click()
+					await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
 				}
 			}
 

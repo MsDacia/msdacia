@@ -5,8 +5,8 @@ import { describe, it, expect } from 'vitest'
 import Portfolio from '@/views/Portfolio.vue'
 
 describe('@-alias test', () => {
-  it('should be able to import Portfolio component using @ alias', () => {
-    expect(Portfolio).toBeDefined()
-    expect(Portfolio.name).toBe(undefined) // Vue components may not have explicit names
-  })
+	it('should be able to import Portfolio component using @ alias', () => {
+		expect(Portfolio).toBeDefined()
+		expect(Portfolio.name).toBe(undefined) // Vue components may not have explicit names
+	})
 })

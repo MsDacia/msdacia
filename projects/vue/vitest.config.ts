@@ -7,15 +7,17 @@ export default defineConfig({
 	plugins: [vue()],
 	resolve: {
 		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url))
+			'@/tests': fileURLToPath(new URL('./tests', import.meta.url)),
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+			'@ui': fileURLToPath(new URL('./node_modules/ui-components', import.meta.url)),
 		},
 	},
 	test: {
 		globals: true,
-		environment: 'happy-dom',
+		environment: 'jsdom',
 		setupFiles: ['./tests/setup.ts'],
 		coverage: {
-			provider: 'v8',
+			provider: 'istanbul',
 			reporter: ['text', 'json', 'html'],
 			exclude: [
 				'node_modules/',

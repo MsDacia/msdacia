@@ -10,5 +10,5 @@ export default function AdWork() {
 				<p>{content.common?.ad?.work?.copy ?? ''}</p>
 			</div>
 		</div>
-	);
+	)
 }

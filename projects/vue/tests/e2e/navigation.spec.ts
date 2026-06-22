@@ -94,8 +94,8 @@ test.describe('Theme Switching', () => {
 			await menuTrigger.click()
 
 			// Check that all theme options are visible
-			await expect(page.locator('.theme-option', { hasText: 'Light' })).toBeVisible()
-			await expect(page.locator('.theme-option', { hasText: 'Dark' })).toBeVisible()
+			await expect(page.locator('.theme-option', { hasText: /^\s*Light\s*$/ })).toBeVisible()
+			await expect(page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ })).toBeVisible()
 			await expect(page.locator('.theme-option', { hasText: 'System' })).toBeVisible()
 		}
 	})
@@ -108,7 +108,7 @@ test.describe('Theme Switching', () => {
 			await menuTrigger.click()
 
 			// Switch to dark theme
-			await page.locator('.theme-option', { hasText: 'Dark' }).click()
+			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Verify dark theme is applied to document
 			const htmlElement = page.locator('html')
@@ -117,7 +117,7 @@ test.describe('Theme Switching', () => {
 
 			// Switch to light theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: 'Light' }).click()
+			await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
 
 			// Verify light theme is applied
 			await expect(htmlElement).toHaveAttribute('data-theme', 'light')
@@ -131,7 +131,7 @@ test.describe('Theme Switching', () => {
 		if (await menuTrigger.isVisible()) {
 			// Set dark theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: 'Dark' }).click()
+			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Navigate to another page
 			const navToggle = page.locator('.item')

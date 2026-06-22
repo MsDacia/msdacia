@@ -7,8 +7,8 @@ import {
 import { mount } from '@vue/test-utils'
 import ExperienceTimeline from '@/components/ExperienceTimeline.vue'
 
-// Mock the content data
-const mockResumeData = {
+// Mock the content data (vi.hoisted so it is available to the hoisted vi.mock factory)
+const mockResumeData = vi.hoisted(() => ({
 	resume: {
 		experiences: {
 			title: 'Experience',
@@ -21,7 +21,7 @@ const mockResumeData = {
 					points: [
 						'Developed modern web applications using Vue.js and TypeScript',
 						'Led a team of 3 junior developers',
-						'Improved application performance by 40%'
+						'Improved application performance by 40%',
 					],
 					title: 'Senior Frontend Developer',
 				},
@@ -33,7 +33,7 @@ const mockResumeData = {
 					points: [
 						'Built responsive web interfaces using React and JavaScript',
 						'Collaborated with design team to implement pixel-perfect UIs',
-						'Participated in code reviews and mentored interns'
+						'Participated in code reviews and mentored interns',
 					],
 					title: 'Frontend Developer',
 				},
@@ -45,17 +45,17 @@ const mockResumeData = {
 					points: [
 						'Created landing pages and marketing websites',
 						'Learned modern development practices and tools',
-						'Worked on cross-browser compatibility issues'
+						'Worked on cross-browser compatibility issues',
 					],
 					title: 'Junior Web Developer',
-				}
-			]
-		}
-	}
-}
+				},
+			],
+		},
+	},
+}))
 
 vi.mock('@/data/static.en-us.json', () => ({
-	default: mockResumeData
+	default: mockResumeData,
 }))
 
 describe('ExperienceTimeline Component', () => {
@@ -156,9 +156,10 @@ describe('ExperienceTimeline Component', () => {
 			await jobCards.at(1)?.trigger('click')
 			expect(wrapper.vm.expandedJob).toBe(2)
 
-			// First job should be collapsed, second expanded
-			expect(wrapper.findAll('.job-content').at(0)?.isVisible()).toBe(false)
-			expect(wrapper.findAll('.job-content').at(1)?.isVisible()).toBe(true)
+			// First job should be collapsed (content not rendered), second expanded
+			const timelineItems = wrapper.findAll('.timeline-item')
+			expect(timelineItems.at(0)?.find('.job-content').exists()).toBe(false)
+			expect(timelineItems.at(1)?.find('.job-content').exists()).toBe(true)
 		})
 
 		it('rotates expand icon when job is expanded', async () => {
@@ -223,20 +224,20 @@ describe('ExperienceTimeline Component', () => {
 							title: 'Developer',
 							points: [
 								'Used <strong>Vue.js</strong> and <em>TypeScript</em>',
-								'Built <a href="https://example.com">modern applications</a>'
-							]
-						}]
-					}
-				}
+								'Built <a href="https://example.com">modern applications</a>',
+							],
+						}],
+					},
+				},
 			}
 
 			// Create wrapper with HTML content
 			const wrapper = mount(ExperienceTimeline, {
 				global: {
 					mocks: {
-						content: htmlMockData
-					}
-				}
+						content: htmlMockData,
+					},
+				},
 			})
 
 			// Mock the content ref to use our HTML data
@@ -422,17 +423,17 @@ describe('ExperienceTimeline Component', () => {
 				resume: {
 					experiences: {
 						title: 'Experience',
-						job: []
-					}
-				}
+						job: [],
+					},
+				},
 			}
 
 			const wrapper = mount(ExperienceTimeline, {
 				global: {
 					mocks: {
-						content: emptyJobsData
-					}
-				}
+						content: emptyJobsData,
+					},
+				},
 			})
 
 			// Mock the content ref
@@ -453,18 +454,18 @@ describe('ExperienceTimeline Component', () => {
 							date: '2020-2022',
 							location: 'Remote',
 							title: 'Developer',
-							points: []
-						}]
-					}
-				}
+							points: [],
+						}],
+					},
+				},
 			}
 
 			const wrapper = mount(ExperienceTimeline, {
 				global: {
 					mocks: {
-						content: jobWithEmptyPoints
-					}
-				}
+						content: jobWithEmptyPoints,
+					},
+				},
 			})
 
 			wrapper.vm.content = jobWithEmptyPoints as any
@@ -486,19 +487,19 @@ describe('ExperienceTimeline Component', () => {
 							id: 1,
 							company: 'Test Company',
 							title: 'Developer',
-							points: ['Single responsibility']
+							points: ['Single responsibility'],
 							// Missing date and location
-						}]
-					}
-				}
+						}],
+					},
+				},
 			}
 
 			const wrapper = mount(ExperienceTimeline, {
 				global: {
 					mocks: {
-						content: incompleteJobData
-					}
-				}
+						content: incompleteJobData,
+					},
+				},
 			})
 
 			wrapper.vm.content = incompleteJobData as any
@@ -519,24 +520,24 @@ describe('ExperienceTimeline Component', () => {
 				date: `202${i % 4} to present`,
 				location: 'Remote',
 				title: `Position ${i + 1}`,
-				points: [`Responsibility ${i + 1}`]
+				points: [`Responsibility ${i + 1}`],
 			}))
 
 			const largeDatSet = {
 				resume: {
 					experiences: {
 						title: 'Experience',
-						job: manyJobs
-					}
-				}
+						job: manyJobs,
+					},
+				},
 			}
 
 			const wrapper = mount(ExperienceTimeline, {
 				global: {
 					mocks: {
-						content: largeDatSet
-					}
-				}
+						content: largeDatSet,
+					},
+				},
 			})
 
 			wrapper.vm.content = largeDatSet as any

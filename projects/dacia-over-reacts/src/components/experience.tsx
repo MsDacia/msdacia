@@ -1,17 +1,21 @@
-import {
-	Accordion,
-	AccordionSummary,
-	AccordionDetails,
-} from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { useState } from 'react'
+
 import content from '../media/json/static.en-us.json'
 
 export default function Experience() {
+	const [
+		expandedIndex,
+		setExpandedIndex,
+	] = useState<number | null>(null)
+
 	return (
 		<div className="ui accordion">
 			{content.resume.experiences.job.map((job, index) =>
-				<span key={index}>
-					<div className="title">
+				<div key={index}>
+					<div
+						className={`title ${expandedIndex === index ? 'active' : ''}`}
+						onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+					>
 						<div className="ui icon message">
 							<i className="laptop icon" />
 
@@ -21,7 +25,7 @@ export default function Experience() {
 						</div>
 					</div>
 
-					<div className="content">
+					<div className={`content ${expandedIndex === index ? 'active' : ''}`}>
 						<div className="ui feed">
 							<div className="event">
 								<div className="content">
@@ -33,10 +37,14 @@ export default function Experience() {
 
 									<div className="extra text">
 										{job.points.map((point, index) =>
-											<div className="ui middle aligned divided list" key={index}>
+											<div
+												key={index} className="ui middle aligned divided list"
+											>
 												<div className="item">
 													<i className="tiny circle icon" />
-													<div className="content" dangerouslySetInnerHTML={{ __html: point }}></div>
+													<div
+														className="content" dangerouslySetInnerHTML={{ __html: point }}
+													/>
 												</div>
 											</div>
 										)}
@@ -45,7 +53,7 @@ export default function Experience() {
 							</div>
 						</div>
 					</div>
-				</span>
+				</div>
 			)}
 		</div>
 	)

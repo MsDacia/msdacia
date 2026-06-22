@@ -1,11 +1,11 @@
 <template>
 	<div class="modal-overlay" @click="closeModal">
-		<div class="modal-content" @click.stop>
+		<div class="modal-content" data-testid="project-modal" @click.stop>
 			<div class="modal-header">
 				<div class="project-year-badge">{{ project.year }}</div>
 
-				<button @click="closeModal" class="close-button">
-					<i class="fas fa-times" />
+				<button @click="closeModal" class="close-button" data-testid="close-modal">
+					<UIIcon icon="SVGClose" />
 				</button>
 			</div>
 
@@ -13,21 +13,21 @@
 				<div class="project-image-section">
 					<div class="project-image-large">
 						<!-- Show image if it exists and loads successfully -->
-						<img 
+						<img
 							v-if="!imageError && project.image"
-							:src="getImageUrl(project.image)" 
-							:alt="project.name" 
+							:src="getImageUrl(project.image)"
+							:alt="project.name"
 							class="project-img-large"
 							@error="() => handleImageError()"
 							@load="() => handleImageLoad()"
 						/>
-						
+
 						<!-- Show placeholder if no image or image failed to load -->
-						<div 
+						<div
 							v-if="imageError || !project.image"
 							class="placeholder-image"
 						>
-							<i class="fas fa-image" />
+							<UIIcon icon="SVGImage" />
 							<span>{{ project.name }}</span>
 						</div>
 
@@ -43,25 +43,25 @@
 
 					<div class="project-meta-grid">
 						<div class="meta-item">
-							<i class="fas fa-calendar" />
+							<UIIcon icon="SVGCalendar" />
 							<span class="meta-label">Year</span>
 							<span class="meta-value">{{ project.year }}</span>
 						</div>
 
 						<div class="meta-item">
-							<i class="fas fa-clock" />
+							<UIIcon icon="SVGClock" />
 							<span class="meta-label">Duration</span>
 							<span class="meta-value">{{ project.timeline }}</span>
 						</div>
 
 						<div class="meta-item">
-							<i class="fas fa-building" />
+							<UIIcon icon="SVGBuilding" />
 							<span class="meta-label">Client</span>
 							<span class="meta-value">{{ project.client }}</span>
 						</div>
 
 						<div v-if="project.link" class="meta-item">
-							<i class="fas fa-external-link-alt" />
+							<UIIcon icon="SVGLink" />
 							<span class="meta-label">Live Site</span>
 							<a
 								:href="project.link"
@@ -70,7 +70,7 @@
 								@click="handleLiveClick"
 							>
 								Visit Project
-								<i class="fas fa-external-link-alt" />
+								<UIIcon icon="SVGLink" />
 							</a>
 						</div>
 					</div>
@@ -91,12 +91,12 @@
 
 					<div class="project-actions">
 						<button v-if="project.link" @click="openLiveProject" class="action-button primary">
-							<i class="fas fa-external-link-alt" />
+							<UIIcon icon="SVGLink" />
 							View Live Project
 						</button>
 
 						<button @click="closeModal" class="action-button secondary">
-							<i class="fas fa-arrow-left" />
+							<UIIcon icon="SVGArrowLeft" />
 							Back to Portfolio
 						</button>
 					</div>
@@ -108,6 +108,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { UIIcon } from 'ui-components'
 
 interface Project {
 	client: string
@@ -266,9 +267,10 @@ const getTechCategory = (tech: string): string => {
 			transform: scale(1.1);
 		}
 
-		i {
+		[data-ui="icon"] {
 			color: var(--color-text);
-			font-size: 1.2rem;
+			height: 1.2rem;
+			width: 1.2rem;
 		}
 	}
 }
@@ -313,13 +315,15 @@ const getTechCategory = (tech: string): string => {
 			color: #6c757d;
 			text-align: center;
 
-			i {
-				font-size: 4rem;
-				margin-bottom: 1rem;
+			[data-ui="icon"] {
 				display: block;
+				height: 4rem;
+				margin-bottom: 1rem;
+				width: 4rem;
 
 				@media (max-width: 768px) {
-					font-size: 3rem;
+					height: 3rem;
+					width: 3rem;
 				}
 			}
 
@@ -385,9 +389,10 @@ const getTechCategory = (tech: string): string => {
 			gap: 0.5rem;
 			padding: 1rem;
 
-			i {
+			[data-ui="icon"] {
 				color: var(--color-text-secondary);
-				font-size: 1.2rem;
+				height: 1.2rem;
+				width: 1.2rem;
 			}
 
 			.meta-label {

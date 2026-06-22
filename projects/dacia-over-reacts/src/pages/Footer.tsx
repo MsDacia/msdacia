@@ -4,17 +4,17 @@ export default function Footer() {
 	return (
 		<footer>
 			<div id="social-media">
-				{content.common.social?.map(social => (
+				{content.common.social?.map(social =>
 					<a
-						href={social.url}
-						title={social.title}
 						key={social.title}
-						target="_blank"
+						href={social.url}
 						rel="noopener noreferrer"
+						target="_blank"
+						title={social.title}
 					>
 						<i className={social.icon} />
 					</a>
-				))}
+				)}
 			</div>
 
 			<p id="copyright">

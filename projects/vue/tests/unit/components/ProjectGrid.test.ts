@@ -1,6 +1,10 @@
-import { describe, it, expect, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
 import ProjectGrid from '@/components/ProjectGrid.vue'
+import { mount } from '@vue/test-utils'
+import {
+	describe,
+	expect,
+	it,
+} from 'vitest'
 
 // Mock data for testing
 const mockProjects = [
@@ -46,7 +50,7 @@ const mockProjects = [
 		],
 		timeline: 'ongoing',
 		year: '2024',
-	}
+	},
 ]
 
 describe('ProjectGrid Component', () => {
@@ -55,8 +59,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: mockProjects,
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.find('.project-grid').classes()).toContain('view-grid')
@@ -67,8 +71,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[0]],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const card = wrapper.find('.project-card')
@@ -92,8 +96,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[2]], // Project with 8 tags
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const tags = wrapper.findAll('.tag:not(.more-tags)')
@@ -108,8 +112,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[1]], // Project with 2 tags
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const moreTags = wrapper.find('.more-tags')
@@ -120,8 +124,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: mockProjects,
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const cards = wrapper.findAll('.project-card')
@@ -141,8 +145,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: mockProjects,
-					viewMode: 'list'
-				}
+					viewMode: 'list',
+				},
 			})
 
 			expect(wrapper.find('.project-grid').classes()).toContain('view-list')
@@ -153,8 +157,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[2]], // Project with 8 tags
-					viewMode: 'list'
-				}
+					viewMode: 'list',
+				},
 			})
 
 			const tags = wrapper.findAll('.tag:not(.more-tags)')
@@ -167,14 +171,14 @@ describe('ProjectGrid Component', () => {
 		it('shows more tags indicator when tags > 8 in list view', () => {
 			const projectWithManyTags = {
 				...mockProjects[2],
-				tags: ['Tag1', 'Tag2', 'Tag3', 'Tag4', 'Tag5', 'Tag6', 'Tag7', 'Tag8', 'Tag9', 'Tag10']
+				tags: ['Tag1', 'Tag2', 'Tag3', 'Tag4', 'Tag5', 'Tag6', 'Tag7', 'Tag8', 'Tag9', 'Tag10'],
 			}
 
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [projectWithManyTags],
-					viewMode: 'list'
-				}
+					viewMode: 'list',
+				},
 			})
 
 			const tags = wrapper.findAll('.tag:not(.more-tags)')
@@ -191,8 +195,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const emptyState = wrapper.find('.empty-state')
@@ -205,8 +209,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: mockProjects,
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.find('.empty-state').exists()).toBe(false)
@@ -218,8 +222,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[0]],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const card = wrapper.find('.project-card')
@@ -233,8 +237,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[0]],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			// Note: Since the button is inside the card, clicking it will also trigger the card click
@@ -250,8 +254,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[0]],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			const card = wrapper.find('.project-card')
@@ -269,8 +273,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: mockProjects,
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			// Check that responsive classes are present
@@ -288,15 +292,15 @@ describe('ProjectGrid Component', () => {
 				year: '2023',
 				timeline: '1 week',
 				tags: ['Vue'],
-				image: 'minimal.png'
+				image: 'minimal.png',
 				// No link field
 			}
 
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [projectWithMissingFields],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.find('.project-card').exists()).toBe(true)
@@ -310,14 +314,14 @@ describe('ProjectGrid Component', () => {
 		it('handles empty tags array', () => {
 			const projectWithNoTags = {
 				...mockProjects[0],
-				tags: []
+				tags: [],
 			}
 
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [projectWithNoTags],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.find('.project-card').exists()).toBe(true)
@@ -328,14 +332,14 @@ describe('ProjectGrid Component', () => {
 			const projectWithLongNames = {
 				...mockProjects[0],
 				name: 'This is a very long project name that might cause layout issues if not handled properly',
-				client: 'This is a very long client name that should also be handled gracefully'
+				client: 'This is a very long client name that should also be handled gracefully',
 			}
 
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [projectWithLongNames],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.find('.project-title').text()).toBe(projectWithLongNames.name)
@@ -346,8 +350,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[0]],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.findAll('.project-card')).toHaveLength(1)
@@ -360,8 +364,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: mockProjects,
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			// Check for proper heading structure
@@ -381,8 +385,8 @@ describe('ProjectGrid Component', () => {
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: [mockProjects[0]],
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			// All text content should be meaningful
@@ -398,14 +402,14 @@ describe('ProjectGrid Component', () => {
 			const manyProjects = Array.from({ length: 100 }, (_, i) => ({
 				...mockProjects[0],
 				id: i + 1,
-				name: `Project ${i + 1}`
+				name: `Project ${i + 1}`,
 			}))
 
 			const wrapper = mount(ProjectGrid, {
 				props: {
 					projects: manyProjects,
-					viewMode: 'grid'
-				}
+					viewMode: 'grid',
+				},
 			})
 
 			expect(wrapper.findAll('.project-card')).toHaveLength(100)

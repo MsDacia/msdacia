@@ -1,7 +1,7 @@
-import content from '../media/json/static.en-us.json'
 import AdWork from '../components/ad-work'
 import ProjectStats from '../components/stats'
 import ProjectTimeline from '../components/timeline'
+import content from '../media/json/static.en-us.json'
 
 export default function Portfolio() {
 	return (
@@ -15,7 +15,7 @@ export default function Portfolio() {
 			<div className="fourteen wide column">
 				<AdWork />
 
-				<p dangerouslySetInnerHTML={{ __html: content.portfolio.copy }}></p>
+				<p dangerouslySetInnerHTML={{ __html: content.portfolio.copy }} />
 
 				<div className="ui grid">
 					<div className="two wide column">
@@ -23,7 +23,9 @@ export default function Portfolio() {
 						<ProjectStats />
 					</div>
 
-					<div id="timeline" className="fourteen wide column">
+					<div
+						className="fourteen wide column" id="timeline"
+					>
 						<h2>{content.portfolio.subtitle3}</h2>
 						<ProjectTimeline />
 					</div>

@@ -6,55 +6,34 @@ import {
 	vi,
 } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 import SwitchTheme from '@/components/SwitchTheme.vue'
 
 import { useTheme } from '@/composables/useTheme'
 
 // Mock the composable
 vi.mock('@/composables/useTheme', () => ({
-	useTheme: vi.fn(() => ({
-		currentMode: { value: 'system' },
-		nextThemeLabel: { value: 'Light' },
-		setDarkTheme: vi.fn(),
-		setLightTheme: vi.fn(),
-		setSystemTheme: vi.fn(),
-		systemPrefersDark: { value: false },
-		themeIcon: { value: 'fas fa-desktop' },
-		themeLabel: { value: 'System' },
-		toggleTheme: vi.fn(),
-	}))
+	useTheme: vi.fn(),
 }))
 
 describe('SwitchTheme', () => {
 	let mockUseTheme: any
 
 	beforeEach(() => {
-		// Reset the mock before each test
+		// Reset the mock with fresh reactive refs before each test
 		mockUseTheme = {
-			currentMode: { value: 'system' },
-			nextThemeLabel: { value: 'Light' },
+			currentMode: ref('system'),
+			nextThemeLabel: ref('Light'),
 			setDarkTheme: vi.fn(),
 			setLightTheme: vi.fn(),
 			setSystemTheme: vi.fn(),
-			systemPrefersDark: { value: false },
-			themeIcon: { value: 'fas fa-desktop' },
-			themeLabel: { value: 'System' },
+			systemPrefersDark: ref(false),
+			themeIcon: ref('SVGComputerMonitor'),
+			themeLabel: ref('System'),
 			toggleTheme: vi.fn(),
 		}
 
 		vi.mocked(useTheme).mockReturnValue(mockUseTheme)
-
-		// Mock document event listener
-		const mockAddEventListener = vi.fn()
-		const mockDocument = {
-			addEventListener: mockAddEventListener
-		}
-
-		Object.defineProperty(global, 'document', {
-			value: mockDocument,
-			writable: true
-		})
 	})
 
 	describe('Component Rendering', () => {
@@ -73,10 +52,10 @@ describe('SwitchTheme', () => {
 
 		it('displays the correct theme icon', () => {
 			const wrapper = mount(SwitchTheme)
-			const icon = wrapper.find('.menu-trigger i:first-child')
+			const icon = wrapper.find('.menu-trigger [data-ui="icon"]')
 
-			expect(icon.classes()).toContain('fas')
-			expect(icon.classes()).toContain('fa-desktop')
+			expect(icon.exists()).toBe(true)
+			expect(icon.classes()).toContain('SVGComputerMonitor')
 		})
 
 		it('shows the menu arrow', () => {
@@ -84,7 +63,7 @@ describe('SwitchTheme', () => {
 			const arrow = wrapper.find('.menu-arrow')
 
 			expect(arrow.exists()).toBe(true)
-			expect(arrow.classes()).toContain('fa-chevron-down')
+			expect(arrow.classes()).toContain('SVGChevronDown')
 		})
 	})
 
@@ -93,26 +72,26 @@ describe('SwitchTheme', () => {
 			const wrapper = mount(SwitchTheme)
 			const menuTrigger = wrapper.find('.menu-trigger')
 
-			// Initially menu should be closed
+			// Initially menu should be closed (v-show hides it via display:none)
 			expect(wrapper.vm.showMenu).toBe(false)
-			expect(wrapper.find('.menu-options').isVisible()).toBe(false)
+			expect(wrapper.find('.menu-options').attributes('style') || '').toContain('display: none')
 
 			// Click to open menu
 			await menuTrigger.trigger('click')
 
 			expect(wrapper.vm.showMenu).toBe(true)
+			expect(wrapper.find('.menu-options').attributes('style') || '').not.toContain('display: none')
 		})
 
 		it('rotates arrow when menu is open', async () => {
 			const wrapper = mount(SwitchTheme)
 			const menuTrigger = wrapper.find('.menu-trigger')
-			const arrow = wrapper.find('.menu-arrow')
 
 			// Open menu
 			await menuTrigger.trigger('click')
 			await nextTick()
 
-			expect(arrow.classes()).toContain('rotated')
+			expect(wrapper.find('.menu-arrow').classes()).toContain('rotated')
 		})
 
 		it('displays all theme options when menu is open', async () => {
@@ -127,9 +106,9 @@ describe('SwitchTheme', () => {
 
 			// Check option contents
 			const optionTexts = options.map(option => option.text())
-			expect(optionTexts).toContain('Light')
-			expect(optionTexts).toContain('Dark')
-			expect(optionTexts).toContain('System')
+			expect(optionTexts.some(text => text.includes('Light'))).toBe(true)
+			expect(optionTexts.some(text => text.includes('Dark'))).toBe(true)
+			expect(optionTexts.some(text => text.includes('System'))).toBe(true)
 		})
 	})
 
@@ -137,13 +116,11 @@ describe('SwitchTheme', () => {
 		it('calls setLightTheme when light option is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			await nextTick()
 
-			// Click light option
 			const lightOption = wrapper.findAll('.theme-option').find(option =>
-				option.text().includes('Light')
+				option.text().includes('Light'),
 			)
 			await lightOption!.trigger('click')
 
@@ -153,13 +130,11 @@ describe('SwitchTheme', () => {
 		it('calls setDarkTheme when dark option is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			await nextTick()
 
-			// Click dark option
 			const darkOption = wrapper.findAll('.theme-option').find(option =>
-				option.text().includes('Dark')
+				option.text().includes('Dark'),
 			)
 			await darkOption!.trigger('click')
 
@@ -169,13 +144,11 @@ describe('SwitchTheme', () => {
 		it('calls setSystemTheme when system option is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			await nextTick()
 
-			// Click system option
 			const systemOption = wrapper.findAll('.theme-option').find(option =>
-				option.text().includes('System')
+				option.text().includes('System'),
 			)
 			await systemOption!.trigger('click')
 
@@ -185,13 +158,11 @@ describe('SwitchTheme', () => {
 		it('closes menu after selecting an option', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			expect(wrapper.vm.showMenu).toBe(true)
 
-			// Click an option
 			const lightOption = wrapper.findAll('.theme-option').find(option =>
-				option.text().includes('Light')
+				option.text().includes('Light'),
 			)
 			await lightOption!.trigger('click')
 
@@ -206,16 +177,15 @@ describe('SwitchTheme', () => {
 
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			await nextTick()
 
 			const lightOption = wrapper.findAll('.theme-option').find(option =>
-				option.text().includes('Light')
+				option.text().includes('Light'),
 			)
 
 			expect(lightOption!.classes()).toContain('active')
-			expect(lightOption!.find('.fa-check').exists()).toBe(true)
+			expect(lightOption!.find('.SVGCheck').exists()).toBe(true)
 		})
 
 		it('shows system preference indicator', async () => {
@@ -225,12 +195,11 @@ describe('SwitchTheme', () => {
 
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			await nextTick()
 
 			const systemOption = wrapper.findAll('.theme-option').find(option =>
-				option.text().includes('System')
+				option.text().includes('System'),
 			)
 
 			expect(systemOption!.text()).toContain('(Dark)')
@@ -254,7 +223,6 @@ describe('SwitchTheme', () => {
 		it('provides proper button semantics for theme options', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			// Open menu
 			await wrapper.find('.menu-trigger').trigger('click')
 			await nextTick()
 
@@ -267,21 +235,19 @@ describe('SwitchTheme', () => {
 
 	describe('Theme Icon Updates', () => {
 		it('updates icon when theme changes', async () => {
-			// Start with system theme
 			const wrapper = mount(SwitchTheme)
-			let icon = wrapper.find('.menu-trigger i:first-child')
-			expect(icon.classes()).toContain('fa-desktop')
+			let icon = wrapper.find('.menu-trigger [data-ui="icon"]')
+			expect(icon.classes()).toContain('SVGComputerMonitor')
 
 			// Change to light theme
 			mockUseTheme.currentMode.value = 'light'
-			mockUseTheme.themeIcon.value = 'fas fa-sun'
+			mockUseTheme.themeIcon.value = 'SVGSun'
 			mockUseTheme.themeLabel.value = 'Light'
 
-			await wrapper.vm.$forceUpdate()
 			await nextTick()
 
-			icon = wrapper.find('.menu-trigger i:first-child')
-			expect(icon.classes()).toContain('fa-sun')
+			icon = wrapper.find('.menu-trigger [data-ui="icon"]')
+			expect(icon.classes()).toContain('SVGSun')
 		})
 	})
 
@@ -295,19 +261,22 @@ describe('SwitchTheme', () => {
 			await trigger.trigger('click')
 			await trigger.trigger('click')
 
-			// Should end up closed (odd number of clicks)
-			expect(wrapper.vm.showMenu).toBe(false)
+			// Should end up open (odd number of clicks)
+			expect(wrapper.vm.showMenu).toBe(true)
 		})
 
-		it('handles missing document gracefully', () => {
-			// Test SSR compatibility
-			const originalDocument = global.document
-			// @ts-ignore
-			delete global.document
+		it('closes the menu when clicking outside the switcher', async () => {
+			const wrapper = mount(SwitchTheme, { attachTo: document.body })
 
-			expect(() => mount(SwitchTheme)).not.toThrow()
+			await wrapper.find('.menu-trigger').trigger('click')
+			expect(wrapper.vm.showMenu).toBe(true)
 
-			global.document = originalDocument
+			// A click outside the .theme-switcher closes the menu
+			document.body.click()
+			await nextTick()
+			expect(wrapper.vm.showMenu).toBe(false)
+
+			wrapper.unmount()
 		})
 	})
 })

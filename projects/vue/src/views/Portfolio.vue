@@ -33,7 +33,7 @@
 		<div class="controls-section">
 			<div class="search-controls">
 				<div class="search-box">
-					<i class="fas fa-search" />
+					<UIIcon icon="SVGSearch" />
 					<input
 						v-model="searchQuery"
 						type="text"
@@ -45,7 +45,7 @@
 						@click="clearSearch"
 						class="clear-search"
 					>
-						<i class="fas fa-times" />
+						<UIIcon icon="SVGClose" />
 					</button>
 				</div>
 
@@ -55,7 +55,7 @@
 						:class="{ active: viewMode === 'grid' }"
 						class="view-button"
 					>
-						<i class="fas fa-th" /> Grid
+						<UIIcon icon="SVGLayout" /> Grid
 					</button>
 
 					<button
@@ -63,7 +63,7 @@
 						:class="{ active: viewMode === 'list' }"
 						class="view-button"
 					>
-						<i class="fas fa-list" /> List
+						<UIIcon icon="SVGList" /> List
 					</button>
 				</div>
 			</div>
@@ -122,7 +122,7 @@
 			</p>
 
 			<button @click="clearFilters" class="clear-filters">
-				<i class="fas fa-times" /> Clear Filters
+				<UIIcon icon="SVGClose" /> Clear Filters
 			</button>
 		</div>
 
@@ -146,6 +146,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { UIIcon } from 'ui-components'
 import ProjectGrid from '../components/ProjectGrid.vue'
 import ProjectModal from '../components/ProjectModal.vue'
 import contentData from '../data/static.en-us.json'
@@ -197,7 +198,7 @@ const filteredProjects = computed(() => {
 	// Filter by selected tag
 	if (selectedTag.value) {
 		projects = projects.filter(project =>
-			project.tags.includes(selectedTag.value)
+			project.tags.includes(selectedTag.value),
 		)
 	}
 
@@ -207,7 +208,7 @@ const filteredProjects = computed(() => {
 		projects = projects.filter(project =>
 			project.name.toLowerCase().includes(query) ||
 			project.client.toLowerCase().includes(query) ||
-			project.tags.some(tag => tag.toLowerCase().includes(query))
+			project.tags.some(tag => tag.toLowerCase().includes(query)),
 		)
 	}
 
@@ -329,7 +330,7 @@ const closeProjectModal = () => {
 			flex: 1;
 			position: relative;
 
-			i.fa-search {
+			> [data-ui="icon"] {
 				color: var(--color-text);
 				left: 1rem;
 				position: absolute;

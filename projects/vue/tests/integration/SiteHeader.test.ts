@@ -9,16 +9,13 @@ import { mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
 import SiteHeader from '@/components/SiteHeader.vue'
-import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-import Portfolio from '@/views/Portfolio.vue'
 
 // Mock the SwitchTheme component
 vi.mock('@/components/SwitchTheme.vue', () => ({
 	default: {
 		name: 'SwitchTheme',
-		template: '<div class="switch-theme-mock">Theme Switcher</div>'
-	}
+		template: '<div class="switch-theme-mock">Theme Switcher</div>',
+	},
 }))
 
 // Mock the static data
@@ -26,27 +23,27 @@ vi.mock('@/data/static.en-us.json', () => ({
 	default: {
 		common: {
 			global: {
-				menu: 'Menu'
+				menu: 'Menu',
 			},
 			navigation: [
 				{
 					item: 'home',
 					path: '/',
-					title: 'Home'
+					title: 'Home',
 				},
 				{
 					item: 'about',
 					path: '/about',
-					title: 'About'
+					title: 'About',
 				},
 				{
 					item: 'portfolio',
 					path: '/portfolio',
-					title: 'Portfolio'
-				}
-			]
-		}
-	}
+					title: 'Portfolio',
+				},
+			],
+		},
+	},
 }))
 
 // Simple mock components for views
@@ -64,9 +61,9 @@ describe('SiteHeader Integration', () => {
 			routes: [
 				{ path: '/', name: 'home', component: MockHome },
 				{ path: '/about', name: 'about', component: MockAbout },
-				{ path: '/portfolio', name: 'portfolio', component: MockPortfolio }
+				{ path: '/portfolio', name: 'portfolio', component: MockPortfolio },
 			],
-			linkActiveClass: 'current'
+			linkActiveClass: 'current',
 		})
 
 		// Start at home route
@@ -77,8 +74,8 @@ describe('SiteHeader Integration', () => {
 		it('renders all navigation links from data', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Open the menu
@@ -97,8 +94,8 @@ describe('SiteHeader Integration', () => {
 		it('has correct router-link destinations', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Open the menu
@@ -107,16 +104,16 @@ describe('SiteHeader Integration', () => {
 
 			const navLinks = wrapper.findAll('.nav-link')
 
-			expect(navLinks[0].attributes('to')).toBe('/')
-			expect(navLinks[1].attributes('to')).toBe('/about')
-			expect(navLinks[2].attributes('to')).toBe('/portfolio')
+			expect(navLinks[0].attributes('href')).toBe('/')
+			expect(navLinks[1].attributes('href')).toBe('/about')
+			expect(navLinks[2].attributes('href')).toBe('/portfolio')
 		})
 
 		it('displays menu toggle button', () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const toggleButton = wrapper.find('.item')
@@ -129,8 +126,8 @@ describe('SiteHeader Integration', () => {
 		it('toggles menu visibility when clicked', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const toggleButton = wrapper.find('.item')
@@ -154,8 +151,8 @@ describe('SiteHeader Integration', () => {
 		it('updates toggle icons based on menu state', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const toggleButton = wrapper.find('.item')
@@ -180,8 +177,8 @@ describe('SiteHeader Integration', () => {
 		it('closes menu when navigation link is clicked', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Open menu
@@ -190,7 +187,7 @@ describe('SiteHeader Integration', () => {
 
 			// Click on a navigation link
 			const aboutLink = wrapper.findAll('.nav-link').find(link =>
-				link.text().includes('About')
+				link.text().includes('About'),
 			)
 			await aboutLink!.trigger('click')
 
@@ -203,8 +200,8 @@ describe('SiteHeader Integration', () => {
 		it('navigates to correct routes when links are clicked', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Open menu
@@ -213,7 +210,7 @@ describe('SiteHeader Integration', () => {
 
 			// Click About link
 			const aboutLink = wrapper.findAll('.nav-link').find(link =>
-				link.text().includes('About')
+				link.text().includes('About'),
 			)
 			await aboutLink!.trigger('click')
 			await nextTick()
@@ -230,8 +227,8 @@ describe('SiteHeader Integration', () => {
 
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Open menu
@@ -240,11 +237,11 @@ describe('SiteHeader Integration', () => {
 
 			// Find the about link and check if it has active class
 			const aboutLink = wrapper.findAll('.nav-link').find(link =>
-				link.text().includes('About')
+				link.text().includes('About'),
 			)
 
-			// Should have router-link-active class (Vue Router adds this automatically)
-			expect(aboutLink!.classes()).toContain('router-link-active')
+			// Router is configured with linkActiveClass: 'current'
+			expect(aboutLink!.classes()).toContain('current')
 		})
 	})
 
@@ -252,8 +249,8 @@ describe('SiteHeader Integration', () => {
 		it('includes SwitchTheme component', () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			expect(wrapper.find('.switch-theme-mock').exists()).toBe(true)
@@ -262,8 +259,8 @@ describe('SiteHeader Integration', () => {
 		it('renders header element as root', () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			expect(wrapper.element.tagName).toBe('HEADER')
@@ -274,8 +271,8 @@ describe('SiteHeader Integration', () => {
 		it('calls handleNavClick with correct title when nav link is clicked', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Spy on console.log since that's what handleNavClick does
@@ -287,7 +284,7 @@ describe('SiteHeader Integration', () => {
 
 			// Click About link
 			const aboutLink = wrapper.findAll('.nav-link').find(link =>
-				link.text().includes('About')
+				link.text().includes('About'),
 			)
 			await aboutLink!.trigger('click')
 
@@ -301,8 +298,8 @@ describe('SiteHeader Integration', () => {
 		it('uses navigation data from JSON file', () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Check that the component has access to the mocked data
@@ -316,8 +313,8 @@ describe('SiteHeader Integration', () => {
 		it('uses semantic navigation structure', () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Check for semantic HTML structure
@@ -334,8 +331,8 @@ describe('SiteHeader Integration', () => {
 		it('provides proper text content for screen readers', async () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Open menu
@@ -356,8 +353,8 @@ describe('SiteHeader Integration', () => {
 		it('has responsive classes for mobile', () => {
 			const wrapper = mount(SiteHeader, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// While we can't test actual media queries in jsdom,

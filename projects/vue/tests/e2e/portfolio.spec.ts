@@ -350,8 +350,6 @@ test.describe('Portfolio Page E2E', () => {
 		test('should have proper heading structure', async ({ page }) => {
 			// Check for heading hierarchy
 			const h1 = await page.locator('h1').count()
-			const h2 = await page.locator('h2').count()
-			const h3 = await page.locator('h3').count()
 
 			expect(h1).toBeGreaterThan(0)
 			// Should have logical heading structure

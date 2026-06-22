@@ -28,14 +28,15 @@
 
 						<div class="job-meta">
 							<span class="job-date">{{ job.date }}</span>
-							<i
-								class="fas fa-chevron-down expand-icon"
-								:class="{ 'rotated': expandedJob === job.id }"
-							 />
+							<UIIcon
+								icon="SVGChevronDown"
+								class="expand-icon"
+								:class="{ rotated: expandedJob === job.id }"
+							/>
 						</div>
 					</div>
 
-					<div class="job-content" v-show="expandedJob === job.id">
+					<div class="job-content" v-if="expandedJob === job.id">
 						<div class="responsibilities">
 							<h5>Key Responsibilities & Achievements:</h5>
 
@@ -57,6 +58,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UIIcon } from 'ui-components'
 import contentData from '../data/static.en-us.json'
 
 // Reactive data using Composition API (Vue 3 way!)
@@ -225,8 +227,9 @@ defineExpose({
 
 					.expand-icon {
 						color: var(--color-text-secondary);
-						font-size: 1rem;
+						height: 1rem;
 						transition: transform 0.3s ease;
+						width: 1rem;
 
 						&.rotated {
 							transform: rotate(180deg);
