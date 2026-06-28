@@ -271,6 +271,27 @@ if (typeof document !== 'undefined') {
 			display: none;
 		}
 	}
+
+	// Use advanced menu by default, fallback to simple toggle
+	@media (hover: hover) {
+		.theme-toggle {
+			display: none;
+		}
+
+		.theme-menu {
+			display: block;
+		}
+	}
+
+	@media (hover: none) {
+		.theme-toggle {
+			display: flex;
+		}
+
+		.theme-menu {
+			display: none;
+		}
+	}
 }
 
 @keyframes menuSlideIn {
@@ -281,27 +302,6 @@ if (typeof document !== 'undefined') {
 	to {
 		opacity: 1;
 		transform: translateY(0);
-	}
-}
-
-// Use advanced menu by default, fallback to simple toggle
-@media (hover: hover) {
-	.theme-toggle {
-		display: none;
-	}
-
-	.theme-menu {
-		display: block;
-	}
-}
-
-@media (hover: none) {
-	.theme-toggle {
-		display: flex;
-	}
-
-	.theme-menu {
-		display: none;
 	}
 }
 </style>

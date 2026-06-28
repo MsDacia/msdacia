@@ -118,7 +118,7 @@ export const createMockContentData = () => ({
 			},
 		],
 		copyright: {
-			content: '2025 designed, developed by',
+			content: '2026 designed, developed by',
 			icon: 'fal fa-copyright',
 		},
 		email: {

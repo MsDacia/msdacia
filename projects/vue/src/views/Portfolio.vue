@@ -394,13 +394,13 @@ const closeProjectModal = () => {
 
 				&:hover {
 					border-color: var(--color-text-secondary);
-					color: var(--color-text-secondary);
+					color: #000;
 				}
 
 				&.active {
 					background: var(--color-text-secondary);
 					border-color: var(--color-text-secondary);
-					color: var(--color-text);
+					color: #000;
 				}
 			}
 		}
@@ -431,13 +431,12 @@ const closeProjectModal = () => {
 
 				&:hover {
 					border-color: var(--color-text-secondary);
-					color: var(--color-text-secondary);
+					color: #000;
 				}
 
 				&.active {
 					background: var(--color-text-secondary);
 					border-color: var(--color-text-secondary);
-					color: white;
 				}
 
 				&.all-tag {
@@ -447,7 +446,7 @@ const closeProjectModal = () => {
 
 					&.active {
 						background: var(--color-text-secondary);
-						color: var(--color-text);
+						color: #000;
 					}
 				}
 			}

@@ -78,7 +78,7 @@ defineExpose({
 			justify-content: center;
 
 			.cta-button {
-				background: var(--color-text-secondary);
+				background: #999;
 				border-radius: $size-8;
 				color: white;
 				font-weight: $weight-medium;

@@ -3,10 +3,8 @@
 		<SwitchTheme />
 
 		<div class="item" @click="showMenu = !showMenu">
-			<UIIcon icon="SVGDotsVertical" class="toggle off icon" :class="[showMenu ? 'hide-content' : 'show-content']" />
-			<UIIcon icon="SVGClose" class="toggle on icon" :class="[showMenu ? 'show-content' : 'hide-content']" />
-
-			<span class="menu-label" :class="[showMenu ? 'active' : '']">{{ content.common.global.menu }}</span>
+			<UIIcon v-show="!showMenu" icon="SVGHamburger" class="toggle off icon" />
+			<UIIcon v-show="showMenu" icon="SVGClose" class="toggle on icon" />
 		</div>
 
 		<div class="menu" :class="[showMenu ? 'show-content' : 'hide-content']">

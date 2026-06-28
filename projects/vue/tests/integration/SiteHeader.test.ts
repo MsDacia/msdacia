@@ -118,7 +118,6 @@ describe('SiteHeader Integration', () => {
 
 			const toggleButton = wrapper.find('.item')
 			expect(toggleButton.exists()).toBe(true)
-			expect(toggleButton.text()).toContain('Menu')
 		})
 	})
 
@@ -156,22 +155,17 @@ describe('SiteHeader Integration', () => {
 			})
 
 			const toggleButton = wrapper.find('.item')
+			const isHidden = (selector: string) => (wrapper.find(selector).attributes('style') ?? '').includes('display: none')
 
-			// Check initial icon states
-			let offIcon = wrapper.find('.toggle.off')
-			let onIcon = wrapper.find('.toggle.on')
+			// Check initial icon states (menu closed: dots visible, close hidden)
+			expect(isHidden('.toggle.off')).toBe(false)
+			expect(isHidden('.toggle.on')).toBe(true)
 
-			expect(offIcon.classes()).toContain('show-content')
-			expect(onIcon.classes()).toContain('hide-content')
-
-			// Open menu and check icon states
+			// Open menu and check icon states (close visible, dots hidden)
 			await toggleButton.trigger('click')
 
-			offIcon = wrapper.find('.toggle.off')
-			onIcon = wrapper.find('.toggle.on')
-
-			expect(offIcon.classes()).toContain('hide-content')
-			expect(onIcon.classes()).toContain('show-content')
+			expect(isHidden('.toggle.off')).toBe(true)
+			expect(isHidden('.toggle.on')).toBe(false)
 		})
 
 		it('closes menu when navigation link is clicked', async () => {

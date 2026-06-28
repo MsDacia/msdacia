@@ -24,6 +24,91 @@
 		],
 		"projects": [
 			{
+				"id": 67,
+				"client": "MsDacia",
+				"image": ".png",
+				"name": "Personal Budget Tracker",
+				"tags": [
+					"Claude code",
+					"eslint",
+					"React",
+					"Recharts",
+					"SASS",
+					"stylelint",
+					"Typescript",
+					"vite",
+					"vitest"
+				],
+				"timeline": "ongoing",
+				"unique": "budget",
+				"year": "2026"
+			},
+			{
+				"id": 66,
+				"client": "MsDacia",
+				"image": "msdacia-reacts.png",
+				"link": "http://msdacia.com",
+				"name": "MsDacia - coded in React",
+				"tags": [
+					"Claude code",
+					"eslint",
+					"Playwright",
+					"Prettier",
+					"React",
+					"React Router",
+					"Redux",
+					"SASS",
+					"Typescript",
+					"vite",
+					"vitest"
+				],
+				"timeline": "ongoing",
+				"unique": "msdaciareact",
+				"year": "2026"
+			},
+			{
+				"id": 65,
+				"client": "MsDacia",
+				"image": "react-ui-components.png",
+				"name": "React UI Component Library",
+				"tags": [
+					"Claude code",
+					"date-fns",
+					"eslint",
+					"React",
+					"SASS",
+					"stylelint",
+					"Typescript",
+					"vite",
+					"vitest",
+					"zustand"
+				],
+				"timeline": "ongoing",
+				"unique": "reactuicomponentlibrary",
+				"year": "2026"
+			},
+			{
+				"id": 64,
+				"client": "MsDacia",
+				"image": "ui-components.png",
+				"name": "UI Component Library",
+				"tags": [
+					"Claude code",
+					"date-fns",
+					"eslint",
+					"SASS",
+					"Typescript",
+					"vite",
+					"vitest",
+					"Vue 3",
+					"Vue Router",
+					"Vue Test Utils"
+				],
+				"timeline": "ongoing",
+				"unique": "uicomponentlibrary",
+				"year": "2022"
+			},
+			{
 				"id": 63,
 				"client": "CareAcademy",
 				"image": "careacademy.png",
@@ -34,13 +119,12 @@
 					"BrowserStack",
 					"BugSnag",
 					"ChatGPT",
-					"Claude AI",
+					"Claude code",
 					"Cypress",
 					"date-fns",
 					"eslint",
 					"Figma",
 					"GitHub Copilot",
-					"GitHub",
 					"Heroku",
 					"i18next",
 					"Internationalization",
@@ -50,6 +134,7 @@
 					"SASS",
 					"Sketch",
 					"Stripe",
+					"stylelint",
 					"Tailwind",
 					"Typescript",
 					"vite",
@@ -69,16 +154,15 @@
 				"image": "daciascloset.png",
 				"name": "Dacia's Closet",
 				"tags": [
-					"buefy",
+					"Claude code",
+					"date-fns",
 					"eslint",
-					"Firebase",
-					"Github",
+					"Playwright",
 					"SASS",
+					"stylelint",
 					"Typescript",
-					"Typestyle",
 					"vite",
 					"vitest",
-					"Vue 2",
 					"Vue 3",
 					"Vue Router",
 					"Vue Test Utils"
@@ -155,19 +239,17 @@
 				"link": "http://msdacia.com",
 				"name": "MsDacia",
 				"tags": [
-					"Cypress",
-					"Firebase",
-					"HTML5",
-					"jQuery",
-					"React",
-					"Redux",
+					"eslint",
+					"Pinia",
+					"Playwright",
 					"SASS",
-					"Semantic UI",
-					"SPA",
+					"stylelint",
+					"Typescript",
 					"vite",
-					"vue-cli",
-					"Vue 2",
-					"vuex"
+					"vitest",
+					"Vue 3",
+					"Vue Router",
+					"Vue Test Utils"
 				],
 				"timeline": "ongoing",
 				"unique": "msdacia",
@@ -1259,7 +1341,7 @@
 			"brown"
 		],
 		"copyright": {
-			"content": "2020 designed, 2025 developed by"
+			"content": "2020 designed, 2026 developed by"
 		},
 		"email": {
 			"domain": "gmail.com",

@@ -1,3 +1,5 @@
+import SiteFooter from '@/components/SiteFooter.vue'
+import { mount } from '@vue/test-utils'
 import {
 	beforeEach,
 	describe,
@@ -5,8 +7,6 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
-import SiteFooter from '@/components/SiteFooter.vue'
 
 // Mock the static content data (vi.hoisted so it is available to the hoisted factory)
 const mockData = vi.hoisted(() => ({
@@ -16,13 +16,29 @@ const mockData = vi.hoisted(() => ({
 			url: 'http://msdacia.com',
 		},
 		copyright: {
-			content: '2020 designed, 2025 developed by',
+			content: '2020 designed, 2026 developed by',
 		},
 		social: [
-			{ icon: 'facebook icon', title: 'Facebook', url: 'https://facebook.com/test' },
-			{ icon: 'github icon', title: 'GitHub', url: 'https://github.com/test' },
-			{ icon: 'bitbucket icon', title: 'Bitbucket', url: 'https://bitbucket.org/test' },
-			{ icon: 'unknown thing', title: 'Other', url: 'https://example.com' },
+			{
+				icon: 'facebook icon',
+				title: 'Facebook',
+				url: 'https://facebook.com/test',
+			},
+			{
+				icon: 'github icon',
+				title: 'GitHub',
+				url: 'https://github.com/test',
+			},
+			{
+				icon: 'bitbucket icon',
+				title: 'Bitbucket',
+				url: 'https://bitbucket.org/test',
+			},
+			{
+				icon: 'unknown thing',
+				title: 'Other',
+				url: 'https://example.com',
+			},
 		],
 	},
 }))
@@ -82,7 +98,7 @@ describe('SiteFooter', () => {
 			const copyright = wrapper.find('#copyright')
 
 			expect(copyright.find('.copyright-symbol').text()).toBe('©')
-			expect(copyright.text()).toContain('2020 designed, 2025 developed by')
+			expect(copyright.text()).toContain('2020 designed, 2026 developed by')
 		})
 
 		it('renders the home link with the global title and url', () => {
@@ -96,7 +112,7 @@ describe('SiteFooter', () => {
 
 	describe('Interaction', () => {
 		it('logs when a social link is clicked', async () => {
-			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
+			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
 			const wrapper = mount(SiteFooter)
 
 			await wrapper.findAll('.social-link')[0].trigger('click')
@@ -106,7 +122,7 @@ describe('SiteFooter', () => {
 		})
 
 		it('logs when the home link is clicked', async () => {
-			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
+			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
 			const wrapper = mount(SiteFooter)
 
 			await wrapper.find('.home-link').trigger('click')
