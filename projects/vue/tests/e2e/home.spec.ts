@@ -8,7 +8,7 @@ test.describe('Home Page E2E', () => {
 	test.describe('Page Loading and Content', () => {
 		test('should load home page successfully', async ({ page }) => {
 			await expect(page).toHaveURL('/')
-			await expect(page).toHaveTitle(/MsDacia/)
+			await expect(page).toHaveTitle(/Ms Dacia/)
 
 			// Check main hero section is visible
 			await expect(page.locator('.home')).toBeVisible()
@@ -66,7 +66,7 @@ test.describe('Home Page E2E', () => {
 				const menuTrigger = page.locator('.menu-trigger')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: 'Dark' }).click()
+					await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
 				}
 			}
 
@@ -202,9 +202,8 @@ test.describe('Home Page E2E', () => {
 		})
 
 		test('should have proper ARIA attributes and semantic markup', async ({ page }) => {
-			// Main content should be in main element or have role
-			const main = page.locator('main, [role="main"], .home')
-			await expect(main).toBeVisible()
+			// Home view renders its content inside the .home container
+			await expect(page.locator('.home')).toBeVisible()
 
 			// Links should have meaningful text
 			const links = page.locator('a')
@@ -213,9 +212,11 @@ test.describe('Home Page E2E', () => {
 			for (let i = 0; i < linkCount; i++) {
 				const linkText = await links.nth(i).textContent()
 				const ariaLabel = await links.nth(i).getAttribute('aria-label')
+				// Icon-only links (e.g. footer social links) expose their name via title
+				const title = await links.nth(i).getAttribute('title')
 
-				// Should have either text content or aria-label
-				expect(linkText?.trim() || ariaLabel?.trim()).toBeTruthy()
+				// Should have an accessible name from text, aria-label, or title
+				expect(linkText?.trim() || ariaLabel?.trim() || title?.trim()).toBeTruthy()
 			}
 		})
 
@@ -230,7 +231,7 @@ test.describe('Home Page E2E', () => {
 					const menuTrigger = page.locator('.menu-trigger')
 					if (await menuTrigger.isVisible()) {
 						await menuTrigger.click()
-						await page.locator('.theme-option', { hasText: theme === 'light' ? 'Light' : 'Dark' }).click()
+						await page.locator('.theme-option', { hasText: theme === 'light' ? /^\s*Light\s*$/ : /^\s*Dark\s*$/ }).click()
 					}
 				}
 

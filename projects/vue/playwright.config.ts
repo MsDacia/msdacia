@@ -17,7 +17,7 @@ export default defineConfig({
 	reporter: [
 		['html'],
 		['json', { outputFile: 'playwright-report/results.json' }],
-		['list']
+		['list'],
 	],
 	/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 	use: {
@@ -28,7 +28,7 @@ export default defineConfig({
 		/* Take screenshot on failure */
 		screenshot: 'only-on-failure',
 		/* Record video on failure */
-		video: 'retain-on-failure'
+		video: 'retain-on-failure',
 	},
 
 	/* Configure projects for major browsers */

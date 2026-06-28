@@ -1,9 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import content from '../media/json/static.en-us.json'
 
 export default function Footer({ items }: MenuProps) {
-	const [invertColors, setInvertColors] = useState(false)
-	const [showMenu, setShowMenu] = useState(false)
+	const [
+		invertColors,
+		setInvertColors,
+	] = useState(false)
+	const [
+		showMenu,
+		setShowMenu,
+	] = useState(false)
 
 	useEffect(() => {
 		const bodyTag = document.body
@@ -19,13 +26,14 @@ export default function Footer({ items }: MenuProps) {
 		<header>
 			<i
 				className="eyedropper icon"
-				onClick={() => setInvertColors((prev) => !prev)}
+				onClick={() => setInvertColors(prev => !prev)}
 			/>
 
-			<div className="item" onClick={() => setShowMenu((prev) => !prev)}>
-				<i
-					className={`toggle ${showMenu ? "off" : "on"} icon ${showMenu ? "hide-content" : "show-content"
-						}`}
+			<div
+				className="item" onClick={() => setShowMenu(prev => !prev)}
+			>
+				<i className={`toggle ${showMenu ? "off" : "on"} icon ${showMenu ? "hide-content" : "show-content"
+				}`}
 				/>
 
 				<em className={showMenu ? "active" : ""}>
@@ -34,22 +42,25 @@ export default function Footer({ items }: MenuProps) {
 			</div>
 
 			<div className={showMenu ? "menu show-content" : "menu hide-content"}>
-				{items.map((nav) => (
-					<a href={nav.path} key={nav.item} onClick={() => setShowMenu(false)}>
+				{items.map(nav =>
+					<a
+						key={nav.item} href={nav.path}
+						onClick={() => setShowMenu(false)}
+					>
 						<i className="terminal icon" /> {nav.title}
 					</a>
-				))}
+				)}
 			</div>
 		</header>
 	)
-}
-
-export interface MenuProps {
-	items: MenuItem[]
 }
 
 export interface MenuItem {
 	item: string
 	path: string
 	title: string
+}
+
+export interface MenuProps {
+	items: MenuItem[]
 }

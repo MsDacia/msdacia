@@ -1,20 +1,58 @@
 <template>
 	<div class="theme-switcher">
-		<!-- Simple Toggle Button -->
-		<button
-			@click="toggleTheme"
+		<!-- Simple Toggle Button (touch devices) -->
+		<UIButton
+			button-style="text"
 			class="theme-toggle"
 			:title="`Switch to ${nextThemeLabel} theme`"
+			@click="toggleTheme"
 		>
-			<i :class="themeIcon" />
+			<UIIcon :icon="themeIcon" />
 			<span class="theme-label">{{ themeLabel }}</span>
-		</button>
+		</UIButton>
+
+		<!-- Advanced Menu (pointer devices) -->
+		<div class="theme-menu" :class="{ 'menu-open': showMenu }">
+			<UIButton
+				button-style="text"
+				class="menu-trigger"
+				:title="`Theme: ${themeLabel}`"
+				@click="showMenu = !showMenu"
+			>
+				<UIIcon :icon="themeIcon" />
+				<span class="theme-label">{{ themeLabel }}</span>
+				<UIIcon icon="SVGChevronDown" class="menu-arrow" :class="{ rotated: showMenu }" />
+			</UIButton>
+
+			<div v-show="showMenu" class="menu-options">
+				<UIButton
+					v-for="option in themeOptions"
+					:key="option.mode"
+					button-style="text"
+					class="theme-option"
+					:class="{ active: currentMode === option.mode }"
+					@click="selectTheme(option)"
+				>
+					<UIIcon :icon="option.icon" />
+
+					<span>
+						{{ option.label }}
+						<span v-if="option.mode === 'system'" class="system-indicator">
+							({{ systemPrefersDark ? 'Dark' : 'Light' }})
+						</span>
+					</span>
+
+					<UIIcon v-if="currentMode === option.mode" icon="SVGCheck" class="check-icon" />
+				</UIButton>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useTheme } from '../composables/useTheme'
+import { UIButton, UIIcon } from 'ui-components'
+import { useTheme, type ThemeMode } from '../composables/useTheme'
 
 const {
 	currentMode,
@@ -30,17 +68,37 @@ const {
 
 const showMenu = ref(false)
 
+interface ThemeOption {
+	mode: ThemeMode
+	label: string
+	icon: string
+	apply: () => void
+}
+
+const themeOptions: ThemeOption[] = [
+	{ mode: 'light', label: 'Light', icon: 'SVGSun', apply: setLightTheme },
+	{ mode: 'dark', label: 'Dark', icon: 'SVGMoon', apply: setDarkTheme },
+	{ mode: 'system', label: 'System', icon: 'SVGComputerMonitor', apply: setSystemTheme },
+]
+
+const selectTheme = (option: ThemeOption) => {
+	option.apply()
+	showMenu.value = false
+}
+
 // Expose properties for testing
 defineExpose({
 	showMenu,
 	currentMode,
 	nextThemeLabel,
+	selectTheme,
 	setDarkTheme,
 	setLightTheme,
 	setSystemTheme,
 	systemPrefersDark,
 	themeIcon,
 	themeLabel,
+	themeOptions,
 	toggleTheme,
 })
 
@@ -169,7 +227,8 @@ if (typeof document !== 'undefined') {
 					border-bottom: 1px solid var(--border-color);
 				}
 
-				i:first-child {
+				[data-ui="icon"]:first-child {
+					height: 16px;
 					text-align: center;
 					width: 16px;
 				}
@@ -184,9 +243,10 @@ if (typeof document !== 'undefined') {
 					font-weight: normal;
 				}
 
-				.fa-check {
+				.check-icon {
 					color: var(--accent-color);
-					font-size: 0.8rem;
+					height: 0.8rem;
+					width: 0.8rem;
 				}
 			}
 		}

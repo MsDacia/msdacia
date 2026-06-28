@@ -3,10 +3,10 @@
 		<SwitchTheme />
 
 		<div class="item" @click="showMenu = !showMenu">
-			<i class="toggle off icon" :class="[showMenu ? 'hide-content' : 'show-content']" />
-			<i class="toggle on icon" :class="[showMenu ? 'show-content' : 'hide-content']" />
+			<UIIcon icon="SVGDotsVertical" class="toggle off icon" :class="[showMenu ? 'hide-content' : 'show-content']" />
+			<UIIcon icon="SVGClose" class="toggle on icon" :class="[showMenu ? 'show-content' : 'hide-content']" />
 
-			<span :class="[showMenu ? 'active' : '']"><i class="fa fa-ellipsis-vertical" /></span>
+			<span class="menu-label" :class="[showMenu ? 'active' : '']">{{ content.common.global.menu }}</span>
 		</div>
 
 		<div class="menu" :class="[showMenu ? 'show-content' : 'hide-content']">
@@ -17,7 +17,7 @@
 				:to="headerNav.path"
 				@click="handleNavClick(headerNav.title)"
 			>
-				<i class="terminal icon" /> {{ headerNav.title }}
+				<UIIcon icon="SVGCode" class="icon" /> {{ headerNav.title }}
 			</router-link>
 		</div>
 	</header>
@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UIIcon } from 'ui-components'
 import SwitchTheme from './SwitchTheme.vue'
 import contentData from '../data/static.en-us.json'
 
@@ -68,7 +69,7 @@ header {
 			display: none;
 		}
 
-		i {
+		[data-ui="icon"] {
 			color: var(--color-text);
 			font-weight: 900;
 
@@ -77,7 +78,9 @@ header {
 			}
 		}
 
-		em {
+		.menu-label {
+			color: var(--color-text);
+
 			&.active {
 				color: var(--color-text-secondary);
 			}
@@ -163,10 +166,11 @@ header {
 
 			.icon {
 				color: var(--color-text);
-				font-size: 0.75rem;
+				height: 0.75rem;
 				margin-right: 0;
 				transition: visibility 1s ease-out;
 				visibility: hidden;
+				width: 0.75rem;
 			}
 		}
 	}

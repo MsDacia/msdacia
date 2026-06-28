@@ -1,7 +1,12 @@
 <template>
 	<div class="experience-timeline">
 		<div class="timeline-header">
-			<h2>{{ content.resume.experiences.title }}</h2>
+			<UIHeading
+				:heading="2"
+				centered
+			>
+				{{ content.resume.experiences.title }}
+			</UIHeading>
 
 			<p class="timeline-subtitle">My professional journey in front-end development</p>
 		</div>
@@ -15,29 +20,32 @@
 			>
 				<div class="timeline-marker" />
 
-				<div class="job-card" @click="toggleJob(job.id)">
-					<div class="job-header">
-						<div class="job-title-section">
-							<h3 class="job-title">{{ job.title }}</h3>
+				<UIAccordion
+					class="job-card"
+					title=""
+					:expanded="expandedJob === job.id"
+					@update:expanded="(open: boolean) => (expandedJob = open ? job.id : null)"
+				>
+					<template #titleFlare>
+						<div class="job-header">
+							<div class="job-title-section">
+								<h3 class="job-title">{{ job.title }}</h3>
 
-							<div class="company-info">
-								<h4 class="company-name">{{ job.company }}</h4>
-								<span class="job-location">{{ job.location }}</span>
+								<div class="company-info">
+									<h4 class="company-name">{{ job.company }}</h4>
+									<span class="job-location">{{ job.location }}</span>
+								</div>
+							</div>
+
+							<div class="job-meta">
+								<span class="job-date">{{ job.date }}</span>
 							</div>
 						</div>
+					</template>
 
-						<div class="job-meta">
-							<span class="job-date">{{ job.date }}</span>
-							<i
-								class="fas fa-chevron-down expand-icon"
-								:class="{ 'rotated': expandedJob === job.id }"
-							 />
-						</div>
-					</div>
-
-					<div class="job-content" v-show="expandedJob === job.id">
+					<div class="job-content">
 						<div class="responsibilities">
-							<h5>Key Responsibilities & Achievements:</h5>
+							<h5>Key Responsibilities &amp; Achievements:</h5>
 
 							<ul class="responsibility-list">
 								<li
@@ -49,7 +57,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</UIAccordion>
 			</div>
 		</div>
 	</div>
@@ -57,6 +65,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UIAccordion, UIHeading } from 'ui-components'
 import contentData from '../data/static.en-us.json'
 
 // Reactive data using Composition API (Vue 3 way!)
@@ -85,13 +94,6 @@ defineExpose({
 	.timeline-header {
 		margin-bottom: 3rem;
 		text-align: center;
-
-		h2 {
-			color: var(--color-heading);
-			font-size: 2.5rem;
-			font-weight: 600;
-			margin-bottom: 0.5rem;
-		}
 
 		.timeline-subtitle {
 			color: var(--color-heading);
@@ -148,155 +150,106 @@ defineExpose({
 			}
 		}
 
-		.job-card {
-			background: var(--color-background);
-			border-radius: 12px;
-			border: 1px solid var(--color-border);
-			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-			cursor: pointer;
-			overflow: hidden;
-			transition: all 0.3s ease;
+		.job-header {
+			align-items: flex-start;
+			display: flex;
+			gap: 1rem;
+			justify-content: space-between;
+			width: 100%;
 
-			&:hover {
-				border-color: var(--color-text-secondary);
-				box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-				transform: translateY(-2px);
+			@media (max-width: 768px) {
+				flex-direction: column;
+				gap: 1rem;
 			}
 
-			.job-header {
-				align-items: flex-start;
-				border-bottom: 1px solid var(--color-border);
-				display: flex;
-				justify-content: space-between;
-				padding: 1.5rem;
+			.job-title-section {
+				flex: 1;
+				text-align: left;
 
-				@media (max-width: 768px) {
-					flex-direction: column;
-					gap: 1rem;
+				.job-title {
+					color: var(--color-text);
+					font-size: 1.3rem;
+					font-weight: 600;
+					line-height: 1.3;
+					margin: 0 0 0.5rem 0;
 				}
 
-				.job-title-section {
-					flex: 1;
-
-					.job-title {
-						color: var(--color-text);
-						font-size: 1.3rem;
-						font-weight: 600;
-						line-height: 1.3;
-						margin: 0 0 0.5rem 0;
-					}
-
-					.company-info {
-						display: flex;
-						flex-direction: column;
-						gap: 0.25rem;
-
-						.company-name {
-							color: var(--color-text-secondary);
-							font-size: 1.1rem;
-							font-weight: 500;
-							margin: 0;
-						}
-
-						.job-location {
-							color: var(--color-text);
-							font-size: 0.9rem;
-							font-style: italic;
-						}
-					}
-				}
-
-				.job-meta {
-					align-items: center;
+				.company-info {
 					display: flex;
-					gap: 1rem;
+					flex-direction: column;
+					gap: 0.25rem;
 
-					@media (max-width: 768px) {
-						justify-content: space-between;
-						width: 100%;
+					.company-name {
+						color: var(--color-text-secondary);
+						font-size: 1.1rem;
+						font-weight: 500;
+						margin: 0;
 					}
 
-					.job-date {
+					.job-location {
 						color: var(--color-text);
 						font-size: 0.9rem;
-						font-weight: 500;
-						white-space: nowrap;
-					}
-
-					.expand-icon {
-						color: var(--color-text-secondary);
-						font-size: 1rem;
-						transition: transform 0.3s ease;
-
-						&.rotated {
-							transform: rotate(180deg);
-						}
+						font-style: italic;
 					}
 				}
 			}
 
-			.job-content {
-				animation: slideDown 0.3s ease-out;
-				padding: 0 1.5rem 1.5rem;
+			.job-meta {
+				align-items: center;
+				display: flex;
+				gap: 1rem;
 
-				.responsibilities {
-					h5 {
-						color: var(--color-heading);
-						font-size: 1rem;
-						font-weight: 600;
-						margin: 0 0 1rem 0;
-					}
+				.job-date {
+					color: var(--color-text);
+					font-size: 0.9rem;
+					font-weight: 500;
+					white-space: nowrap;
+				}
+			}
+		}
 
-					.responsibility-list {
-						list-style: none;
-						margin: 0;
-						padding: 0;
+		.job-content {
+			.responsibilities {
+				h5 {
+					color: var(--color-heading);
+					font-size: 1rem;
+					font-weight: 600;
+					margin: 0 0 1rem 0;
+				}
 
-						.responsibility-item {
-							border-bottom: 1px solid var(--color-border);
-							color: var(--color-text);
-							line-height: 1.6;
-							padding: 0.5rem 0 0.5rem 1.5rem;
-							position: relative;
+				.responsibility-list {
+					list-style: none;
+					margin: 0;
+					padding: 0;
 
-							&:last-child {
-								border-bottom: none;
-							}
+					.responsibility-item {
+						border-bottom: 1px solid var(--color-border);
+						color: var(--color-text);
+						line-height: 1.6;
+						padding: 0.5rem 0 0.5rem 1.5rem;
+						position: relative;
 
-							&::before {
-								color: var(--color-text-secondary);
-								content: '▸';
-								font-weight: bold;
-								left: 0;
-								position: absolute;
-								top: 0.5rem;
-							}
+						&:last-child {
+							border-bottom: none;
+						}
 
-							&:hover {
-								background: rgba(66, 184, 131, 0.02);
-								border-radius: 4px;
-							}
+						&::before {
+							color: var(--color-text-secondary);
+							content: '▸';
+							font-weight: bold;
+							left: 0;
+							position: absolute;
+							top: 0.5rem;
+						}
+
+						&:hover {
+							background: rgba(66, 184, 131, 0.02);
+							border-radius: 4px;
 						}
 					}
 				}
 			}
 		}
-
-		&.expanded .job-card {
-			border-color: var(--color-text-secondary);
-			box-shadow: 0 8px 30px rgba(66, 184, 131, 0.15);
-		}
-	}
-}
-
-@keyframes slideDown {
-	from {
-		opacity: 0;
-		transform: translateY(-10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
 	}
 }
 
@@ -308,25 +261,9 @@ defineExpose({
 		.timeline-header {
 			margin-bottom: 2rem;
 
-			h2 {
-				font-size: 2rem;
-			}
-
 			.timeline-subtitle {
 				font-size: 1rem;
 			}
-		}
-
-		.timeline-item .job-card .job-header {
-			padding: 1rem;
-
-			.job-title-section .job-title {
-				font-size: 1.1rem;
-			}
-		}
-
-		.timeline-item .job-card .job-content {
-			padding: 0 1rem 1rem;
 		}
 	}
 }

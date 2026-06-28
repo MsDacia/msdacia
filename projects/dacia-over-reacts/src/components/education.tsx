@@ -11,17 +11,17 @@ export default function Education() {
 				</div>
 
 				<div className="description">
-					{content.resume.education?.major && (
+					{content.resume.education?.major &&
 						<p>{content.resume.education.major}<br /><em>Major</em></p>
-					)}
+					}
 
-					{content.resume.education?.minor && (
+					{content.resume.education?.minor &&
 						<p>{content.resume.education.minor}<br /><em>Minor</em></p>
-					)}
+					}
 
-					{content.resume.education?.specialization && (
+					{content.resume.education?.specialization &&
 						<p>{content.resume.education.specialization}<br /><em>Specialization</em></p>
-					)}
+					}
 				</div>
 			</div>
 		</div>

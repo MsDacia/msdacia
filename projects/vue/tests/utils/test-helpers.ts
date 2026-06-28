@@ -26,7 +26,7 @@ export const createMockProject = (overrides: Partial<MockProject> = {}): MockPro
 	timeline: '3 months',
 	unique: 'test-project',
 	year: '2023',
-	...overrides
+	...overrides,
 })
 
 export const createMockProjects = (count: number = 3): MockProject[] => {
@@ -38,12 +38,12 @@ export const createMockProjects = (count: number = 3): MockProject[] => {
 			tags: [
 				['Vue', 'TypeScript', 'SASS'],
 				['React', 'JavaScript', 'CSS'],
-				['Angular', 'RxJS', 'Material UI']
+				['Angular', 'RxJS', 'Material UI'],
 			][index] || ['HTML', 'CSS', 'JavaScript'],
 			timeline: `${(index + 1) * 2} months`,
 			year: String(2023 - index),
-			unique: `test-project-${index + 1}`
-		})
+			unique: `test-project-${index + 1}`,
+		}),
 	)
 }
 
@@ -51,7 +51,7 @@ export const createMockProjectWithManyTags = (tagCount: number = 10): MockProjec
 	const tags = Array.from({ length: tagCount }, (_, i) => `Tag${i + 1}`)
 	return createMockProject({
 		name: 'Project with Many Tags',
-		tags
+		tags,
 	})
 }
 
@@ -65,15 +65,15 @@ export const createMockPortfolioData = (projects: MockProject[] = createMockProj
 			{
 				icon: 'github icon',
 				title: 'GitHub Repositories',
-				url: 'https://github.com/TestUser'
-			}
+				url: 'https://github.com/TestUser',
+			},
 		],
 		projects,
 		subtitle: 'My Links',
 		subtitle2: 'Stats',
 		subtitle3: 'Timeline',
 		title: 'Portfolio',
-	}
+	},
 })
 
 /**
@@ -91,43 +91,43 @@ export const createMockContentData = () => ({
 			tagline: 'I am here. This is who I am. I am Dacia.',
 			title: 'MsDacia',
 			url: 'http://msdacia.com',
-			urlTitle: 'msdacia.com'
+			urlTitle: 'msdacia.com',
 		},
 		navigation: [
 			{
 				item: 'home',
 				path: '/',
-				title: 'Home'
+				title: 'Home',
 			},
 			{
 				item: 'about',
 				path: '/about',
-				title: 'About'
+				title: 'About',
 			},
 			{
 				item: 'portfolio',
 				path: '/portfolio',
-				title: 'Portfolio'
-			}
+				title: 'Portfolio',
+			},
 		],
 		social: [
 			{
 				icon: 'github icon',
 				title: 'Github',
-				url: 'https://github.com/TestUser'
-			}
+				url: 'https://github.com/TestUser',
+			},
 		],
 		copyright: {
 			content: '2025 designed, developed by',
-			icon: 'fal fa-copyright'
+			icon: 'fal fa-copyright',
 		},
 		email: {
 			domain: 'gmail.com',
 			icon: 'mail icon',
 			local: 'test',
 			subject: 'Test Subject',
-			title: 'Email'
-		}
+			title: 'Email',
+		},
 	},
 	about: {
 		copy: 'Test about content...',
@@ -138,7 +138,7 @@ export const createMockContentData = () => ({
 		subtitle3: 'Personally',
 		title: 'WYSIWYG',
 	},
-	...createMockPortfolioData()
+	...createMockPortfolioData(),
 })
 
 /**
@@ -176,7 +176,7 @@ export const createMockRouter = () => ({
 			path: '/',
 			query: {},
 			redirectedFrom: undefined,
-		}
+		},
 	},
 	addRoute: vi.fn(),
 	afterEach: vi.fn(),
@@ -211,7 +211,7 @@ export const createTestRoutes = () => [
 		component: { name: 'Portfolio', template: '<div>Portfolio</div>' },
 		name: 'portfolio',
 		path: '/portfolio',
-	}
+	},
 ]
 
 /**
@@ -221,7 +221,7 @@ export const createMockComponent = (name: string, props: string[] = [], emits: s
 	name,
 	props,
 	emits,
-	template: `<div class="${name.toLowerCase()}-mock">${name} Mock</div>`
+	template: `<div class="${name.toLowerCase()}-mock">${name} Mock</div>`,
 })
 
 export const createMockProjectGrid = () => ({
@@ -241,7 +241,7 @@ export const createMockProjectGrid = () => ({
 			</div>
 			<div v-if="projects.length === 0" class="empty-state-mock">No projects</div>
 		</div>
-	`
+	`,
 })
 
 export const createMockProjectModal = () => ({
@@ -255,12 +255,12 @@ export const createMockProjectModal = () => ({
 				Close
 			</button>
 		</div>
-	`
+	`,
 })
 
 export const createMockSwitchTheme = () => ({
 	name: 'SwitchTheme',
-	template: '<div class="switch-theme-mock" data-testid="theme-switcher">Theme Switcher</div>'
+	template: '<div class="switch-theme-mock" data-testid="theme-switcher">Theme Switcher</div>',
 })
 
 /**
@@ -303,7 +303,7 @@ export const createMockMediaQuery = (matches: boolean = false) => {
 export const mockMatchMedia = (matches: boolean = false) => {
 	Object.defineProperty(window, 'matchMedia', {
 		writable: true,
-		value: createMockMediaQuery(matches)
+		value: createMockMediaQuery(matches),
 	})
 }
 
@@ -326,7 +326,7 @@ export const createMockLocalStorage = () => {
 export const mockLocalStorage = () => {
 	Object.defineProperty(window, 'localStorage', {
 		writable: true,
-		value: createMockLocalStorage()
+		value: createMockLocalStorage(),
 	})
 }
 
@@ -424,7 +424,7 @@ export const expectThemeToBeApplied = (theme: 'light' | 'dark') => {
 	expect(document.documentElement.className).toBe(theme)
 }
 
-export const expectSystemThemeDetection = (prefersDark: boolean) => {
+export const expectSystemThemeDetection = (_prefersDark: boolean) => {
 	const mockMatchMedia = window.matchMedia as any
 	expect(mockMatchMedia).toHaveBeenCalledWith('(prefers-color-scheme: dark)')
 }

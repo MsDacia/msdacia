@@ -8,8 +8,8 @@ import {
 import { mount } from '@vue/test-utils'
 import Portfolio from '@/views/Portfolio.vue'
 
-// Mock portfolio data (must be defined before mocks)
-const mockPortfolioData = {
+// Mock portfolio data (vi.hoisted so it is available to the hoisted vi.mock factory)
+const mockPortfolioData = vi.hoisted(() => ({
 	portfolio: {
 		copy: 'Browse my gallery of projects.',
 		projects: [
@@ -20,7 +20,7 @@ const mockPortfolioData = {
 				year: '2023',
 				timeline: '3 months',
 				tags: ['Vue', 'TypeScript', 'SASS'],
-				image: 'vue-project.png'
+				image: 'vue-project.png',
 			},
 			{
 				id: 2,
@@ -29,7 +29,7 @@ const mockPortfolioData = {
 				year: '2022',
 				timeline: '6 weeks',
 				tags: ['React', 'JavaScript', 'CSS'],
-				image: 'react-project.png'
+				image: 'react-project.png',
 			},
 			{
 				id: 3,
@@ -38,7 +38,7 @@ const mockPortfolioData = {
 				year: '2024',
 				timeline: 'ongoing',
 				tags: ['Angular', 'TypeScript', 'RxJS'],
-				image: 'angular-project.png'
+				image: 'angular-project.png',
 			},
 			{
 				id: 4,
@@ -47,12 +47,12 @@ const mockPortfolioData = {
 				year: '2023',
 				timeline: '8 months',
 				tags: ['Vue', 'Node.js', 'PostgreSQL'],
-				image: 'fullstack-project.png'
-			}
+				image: 'fullstack-project.png',
+			},
 		],
 		title: 'Portfolio',
-	}
-}
+	},
+}))
 
 // Mock child components
 vi.mock('@/components/ProjectGrid.vue', () => ({
@@ -71,8 +71,8 @@ vi.mock('@/components/ProjectGrid.vue', () => ({
 					{{ project.name }}
 				</div>
 			</div>
-		`
-	}
+		`,
+	},
 }))
 
 vi.mock('@/components/ProjectModal.vue', () => ({
@@ -85,12 +85,12 @@ vi.mock('@/components/ProjectModal.vue', () => ({
 				<h3>{{ project.name }}</h3>
 				<button @click="$emit('close')" class="close-modal">Close</button>
 			</div>
-		`
-	}
+		`,
+	},
 }))
 
 vi.mock('@/data/static.en-us.json', () => ({
-	default: mockPortfolioData
+	default: mockPortfolioData,
 }))
 
 describe('Portfolio View', () => {
@@ -120,13 +120,13 @@ describe('Portfolio View', () => {
 			expect(statItems[2].find('.stat-number').text()).toBe('3') // Year range (2022-2024)
 			expect(statItems[2].find('.stat-label').text()).toBe('Years')
 
-			expect(statItems[3].find('.stat-number').text()).toBe('8') // Unique technologies
+			expect(statItems[3].find('.stat-number').text()).toBe('10') // Unique technologies
 			expect(statItems[3].find('.stat-label').text()).toBe('Technologies')
 		})
 
 		it('initializes with correct default state', () => {
 			expect(wrapper.vm.searchQuery).toBe('')
-			expect(wrapper.vm.selectedTag).toBeNull()
+			expect(wrapper.vm.selectedTag).toBe('')
 			expect(wrapper.vm.viewMode).toBe('grid')
 			expect(wrapper.vm.showAllTags).toBe(false)
 			expect(wrapper.vm.selectedProject).toBeNull()
@@ -145,7 +145,7 @@ describe('Portfolio View', () => {
 
 			expect(filteredProjects).toHaveLength(2) // Vue Project and Fullstack Project
 			expect(filteredProjects.every((p: any) =>
-				p.name.includes('Vue') || p.tags.includes('Vue')
+				p.name.includes('Vue') || p.tags.includes('Vue'),
 			)).toBe(true)
 		})
 
@@ -206,14 +206,13 @@ describe('Portfolio View', () => {
 			// Should show first 12 tags (or all if fewer)
 			expect(tagFilters.length).toBeLessThanOrEqual(12)
 
-			// First tag should be the most popular (Vue appears twice)
-			expect(tagFilters[0].text()).toContain('Vue')
+			// First tag should be one of the most popular (count of 2)
 			expect(tagFilters[0].text()).toContain('(2)') // Count
 		})
 
 		it('filters projects by selected tag', async () => {
 			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
-				tag.text().includes('Vue')
+				tag.text().includes('Vue'),
 			)
 
 			await vueTag.trigger('click')
@@ -230,7 +229,7 @@ describe('Portfolio View', () => {
 		it('shows all projects when "All Projects" is selected', async () => {
 			// First select a tag
 			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
-				tag.text().includes('Vue')
+				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
@@ -248,7 +247,7 @@ describe('Portfolio View', () => {
 
 		it('shows active state for selected tag', async () => {
 			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
-				tag.text().includes('Vue')
+				tag.text().includes('Vue'),
 			)
 
 			await vueTag.trigger('click')
@@ -303,7 +302,7 @@ describe('Portfolio View', () => {
 		it('applies both search and tag filters together', async () => {
 			// Apply tag filter
 			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
-				tag.text().includes('Vue')
+				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
@@ -321,7 +320,7 @@ describe('Portfolio View', () => {
 
 		it('shows results summary when filters are applied', async () => {
 			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
-				tag.text().includes('Vue')
+				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
@@ -339,7 +338,7 @@ describe('Portfolio View', () => {
 		it('clears all filters when clear filters button is clicked', async () => {
 			// Apply filters
 			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
-				tag.text().includes('Vue')
+				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
@@ -439,13 +438,14 @@ describe('Portfolio View', () => {
 		})
 
 		it('calculates total technologies correctly', () => {
-			expect(wrapper.vm.totalTechnologies).toBe(8) // Unique tags count
+			expect(wrapper.vm.totalTechnologies).toBe(10) // Unique tags count
 		})
 
 		it('calculates popular tags correctly', () => {
 			const popular = wrapper.vm.popularTags
-			expect(popular[0].name).toBe('Vue') // Most frequent
+			// The most popular tag has a count of 2 (Vue and TypeScript both appear twice)
 			expect(popular[0].count).toBe(2)
+			expect(['Vue', 'TypeScript']).toContain(popular[0].name)
 		})
 	})
 

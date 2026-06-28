@@ -9,7 +9,7 @@ export type ThemeMode = 'light' | 'dark' | 'system'
 export type ActualTheme = 'light' | 'dark'
 
 // Reactive theme state (persists during session)
-const currentMode = ref<ThemeMode>('dark')
+const currentMode = ref<ThemeMode>('system')
 const systemPrefersDark = ref(true)
 
 // Check system preference
@@ -72,13 +72,13 @@ export function useTheme() {
 	const isDark = computed(() => actualTheme.value === 'dark')
 	const isSystem = computed(() => currentMode.value === 'system')
 
-	// Get theme icon for UI
+	// Get theme icon for UI (ui-components SVG icon name)
 	const themeIcon = computed(() => {
 		switch (currentMode.value) {
-			case 'light': return 'fas fa-sun'
-			case 'dark': return 'fas fa-moon'
-			case 'system': return 'fas fa-desktop'
-			default: return 'fas fa-adjust'
+			case 'light': return 'SVGSun'
+			case 'dark': return 'SVGMoon'
+			case 'system': return 'SVGComputerMonitor'
+			default: return 'SVGComputerMonitor'
 		}
 	})
 
@@ -121,11 +121,11 @@ export function useTheme() {
 		isSystem,
 		themeIcon,
 		themeLabel,
-		nextThemeLabel
+		nextThemeLabel,
 	}
 }
 
 // Helper function to make reactive values readonly
-function readonly<T>(ref: any) {
+function readonly(ref: any) {
 	return computed(() => ref.value)
 }

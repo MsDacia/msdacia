@@ -5,9 +5,13 @@ export default function Links() {
 		<div className="ui card">
 			<div className="ui horizontal list">
 				{content.resume.links.categories.map((link, index) =>
-					<div className="item" key={index}>
+					<div
+						key={index} className="item"
+					>
 						<div className="content">
-							<a href={link.url} target="_blank">{link.title}</a>
+							<a
+								href={link.url} target="_blank"
+							>{link.title}</a>
 						</div>
 					</div>
 				)}

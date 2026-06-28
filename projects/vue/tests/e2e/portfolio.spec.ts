@@ -8,7 +8,7 @@ test.describe('Portfolio Page E2E', () => {
 	test.describe('Page Loading and Initial State', () => {
 		test('should load portfolio page successfully', async ({ page }) => {
 			await expect(page).toHaveURL('/portfolio')
-			await expect(page).toHaveTitle(/Portfolio|MsDacia/)
+			await expect(page).toHaveTitle(/Ms Dacia/)
 
 			// Check main sections are visible
 			await expect(page.locator('.portfolio-header')).toBeVisible()
@@ -211,28 +211,28 @@ test.describe('Portfolio Page E2E', () => {
 			await page.locator('[data-testid^="project-"]').first().click()
 
 			// Modal should open
-			await expect(page.locator('[data-testid="project-modal"]')).toBeVisible()
+			await expect(page.locator('.ui-modal')).toBeVisible()
 
 			// Modal should contain project information
-			await expect(page.locator('[data-testid="project-modal"] h3')).toBeVisible()
+			await expect(page.locator('.ui-modal h3')).toBeVisible()
 		})
 
 		test('should close modal when close button is clicked', async ({ page }) => {
 			// Open modal
 			await page.locator('[data-testid^="project-"]').first().click()
-			await expect(page.locator('[data-testid="project-modal"]')).toBeVisible()
+			await expect(page.locator('.ui-modal')).toBeVisible()
 
 			// Close modal
-			await page.locator('[data-testid="close-modal"]').click()
+			await page.locator('.ui-close-button').click()
 
 			// Modal should be closed
-			await expect(page.locator('[data-testid="project-modal"]')).not.toBeVisible()
+			await expect(page.locator('.ui-modal')).not.toBeVisible()
 		})
 
 		test('should close modal when clicking outside (if implemented)', async ({ page }) => {
 			// Open modal
 			await page.locator('[data-testid^="project-"]').first().click()
-			await expect(page.locator('[data-testid="project-modal"]')).toBeVisible()
+			await expect(page.locator('.ui-modal')).toBeVisible()
 
 			// Click outside modal (on backdrop)
 			await page.locator('body').click({ position: { x: 10, y: 10 } })
@@ -350,8 +350,6 @@ test.describe('Portfolio Page E2E', () => {
 		test('should have proper heading structure', async ({ page }) => {
 			// Check for heading hierarchy
 			const h1 = await page.locator('h1').count()
-			const h2 = await page.locator('h2').count()
-			const h3 = await page.locator('h3').count()
 
 			expect(h1).toBeGreaterThan(0)
 			// Should have logical heading structure
@@ -410,11 +408,11 @@ test.describe('Portfolio Page E2E', () => {
 			const projects = page.locator('[data-testid^="project-"]')
 			if (await projects.count() > 0) {
 				await projects.first().click()
-				await expect(page.locator('[data-testid="project-modal"]')).toBeVisible()
+				await expect(page.locator('.ui-modal')).toBeVisible()
 
 				// Step 5: User closes modal
-				await page.locator('[data-testid="close-modal"]').click()
-				await expect(page.locator('[data-testid="project-modal"]')).not.toBeVisible()
+				await page.locator('.ui-close-button').click()
+				await expect(page.locator('.ui-modal')).not.toBeVisible()
 			}
 
 			// Step 6: User clears all filters

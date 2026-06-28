@@ -5,15 +5,17 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
-import { createTestRoutes, createMockContentData } from '@/tests/utils/test-helpers'
+import { createTestRoutes } from '@/tests/utils/test-helpers'
 
-// Mock the content data
-vi.mock('@/data/static.en-us.json', () => ({
-	default: createMockContentData()
-}))
+// Mock the content data (async import so the hoisted factory can use the helper)
+vi.mock('@/data/static.en-us.json', async () => {
+	const { createMockContentData } = await import('@/tests/utils/test-helpers')
+
+	return { default: createMockContentData() }
+})
 
 describe('Home View', () => {
 	let router: any
@@ -21,7 +23,7 @@ describe('Home View', () => {
 	beforeEach(async () => {
 		router = createRouter({
 			history: createWebHistory(),
-			routes: createTestRoutes()
+			routes: createTestRoutes(),
 		})
 
 		router.push('/')
@@ -32,8 +34,8 @@ describe('Home View', () => {
 		it('renders the hero section correctly', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			expect(wrapper.find('.home').exists()).toBe(true)
@@ -43,8 +45,8 @@ describe('Home View', () => {
 		it('displays the correct title and content', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			expect(wrapper.find('.hero-title').text()).toBe('MsDacia')
@@ -56,8 +58,8 @@ describe('Home View', () => {
 		it('highlights the pronunciation in the subtitle', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const subtitle = wrapper.find('.hero-subtitle')
@@ -72,8 +74,8 @@ describe('Home View', () => {
 		it('renders call-to-action buttons', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const ctaButtons = wrapper.findAll('.cta-button')
@@ -86,21 +88,21 @@ describe('Home View', () => {
 		it('has correct router-link destinations', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const ctaButtons = wrapper.findAll('.cta-button')
 
-			expect(ctaButtons[0].attributes('to')).toBe('/about')
-			expect(ctaButtons[1].attributes('to')).toBe('/portfolio')
+			expect(ctaButtons[0].attributes('href')).toBe('/about')
+			expect(ctaButtons[1].attributes('href')).toBe('/portfolio')
 		})
 
 		it('applies correct CSS classes to buttons', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const ctaButtons = wrapper.findAll('.cta-button')
@@ -117,28 +119,28 @@ describe('Home View', () => {
 		it('navigates to About page when "Learn About Me" is clicked', async () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
-			const aboutButton = wrapper.find('.cta-button[to="/about"]')
+			const aboutButton = wrapper.find('.cta-button[href="/about"]')
 			await aboutButton.trigger('click')
 
-			await router.isReady()
+			await flushPromises()
 			expect(router.currentRoute.value.path).toBe('/about')
 		})
 
 		it('navigates to Portfolio page when "View Portfolio" is clicked', async () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
-			const portfolioButton = wrapper.find('.cta-button[to="/portfolio"]')
+			const portfolioButton = wrapper.find('.cta-button[href="/portfolio"]')
 			await portfolioButton.trigger('click')
 
-			await router.isReady()
+			await flushPromises()
 			expect(router.currentRoute.value.path).toBe('/portfolio')
 		})
 	})
@@ -147,8 +149,8 @@ describe('Home View', () => {
 		it('uses proper semantic HTML structure', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Check for proper heading hierarchy
@@ -162,8 +164,8 @@ describe('Home View', () => {
 		it('has the correct heading hierarchy', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const h1 = wrapper.find('h1')
@@ -182,8 +184,8 @@ describe('Home View', () => {
 		it('applies responsive CSS classes', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Check that responsive classes exist (actual responsive behavior tested in E2E)
@@ -194,8 +196,8 @@ describe('Home View', () => {
 		it('maintains proper layout structure for mobile', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Quick links should flex-wrap for mobile responsiveness
@@ -208,8 +210,8 @@ describe('Home View', () => {
 		it('uses content data from JSON file correctly', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Verify that component data is properly loaded
@@ -220,15 +222,19 @@ describe('Home View', () => {
 		it('reactively updates when content changes', async () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Change the content reactively
+			const originalTitle = wrapper.vm.content.common.global.title
 			wrapper.vm.content.common.global.title = 'New Title'
 			await wrapper.vm.$nextTick()
 
 			expect(wrapper.find('.hero-title').text()).toBe('New Title')
+
+			// Restore so the shared mock data does not leak into other tests
+			wrapper.vm.content.common.global.title = originalTitle
 		})
 	})
 
@@ -236,8 +242,8 @@ describe('Home View', () => {
 		it('provides meaningful text for screen readers', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// All text content should be meaningful
@@ -256,8 +262,8 @@ describe('Home View', () => {
 		it('uses semantic link elements', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const ctaButtons = wrapper.findAll('.cta-button')
@@ -270,8 +276,8 @@ describe('Home View', () => {
 		it('has proper focus management', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const focusableElements = wrapper.findAll('a, button, [tabindex]')
@@ -283,8 +289,8 @@ describe('Home View', () => {
 		it('renders efficiently without unnecessary re-renders', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Component should render without throwing errors
@@ -295,8 +301,8 @@ describe('Home View', () => {
 		it('uses proper Vue composition API patterns', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Check that ref is used properly
@@ -309,8 +315,8 @@ describe('Home View', () => {
 		it('applies proper CSS classes for styling', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Check for key styling classes
@@ -325,8 +331,8 @@ describe('Home View', () => {
 		it('emphasizes key content appropriately', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Pronunciation should be emphasized
@@ -335,7 +341,7 @@ describe('Home View', () => {
 
 			// Primary CTA should not have secondary class
 			const primaryCta = wrapper.findAll('.cta-button').find(button =>
-				!button.classes().includes('secondary')
+				!button.classes().includes('secondary'),
 			)
 			expect(primaryCta).toBeTruthy()
 		})
@@ -346,8 +352,8 @@ describe('Home View', () => {
 			// Test with undefined content
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// Component should still render without crashing
@@ -359,8 +365,8 @@ describe('Home View', () => {
 		it('uses standard HTML elements and attributes', () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			// All elements should be standard HTML
@@ -382,8 +388,8 @@ describe('Home View', () => {
 
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			expect(wrapper.find('.hero-title').text()).toBe('MsDacia')
@@ -392,8 +398,8 @@ describe('Home View', () => {
 		it('maintains state during navigation', async () => {
 			const wrapper = mount(Home, {
 				global: {
-					plugins: [router]
-				}
+					plugins: [router],
+				},
 			})
 
 			const initialTitle = wrapper.find('.hero-title').text()

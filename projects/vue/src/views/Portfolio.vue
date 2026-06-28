@@ -33,38 +33,41 @@
 		<div class="controls-section">
 			<div class="search-controls">
 				<div class="search-box">
-					<i class="fas fa-search" />
+					<UIIcon icon="SVGSearch" />
 					<input
 						v-model="searchQuery"
 						type="text"
 						placeholder="Search projects, clients, or technologies..."
 						class="search-input"
 					>
-					<button
+					<UIButton
 						v-if="searchQuery"
-						@click="clearSearch"
+						button-style="text"
 						class="clear-search"
+						@click="clearSearch"
 					>
-						<i class="fas fa-times" />
-					</button>
+						<UIIcon icon="SVGClose" />
+					</UIButton>
 				</div>
 
 				<div class="view-controls">
-					<button
-						@click="viewMode = 'grid'"
+					<UIButton
+						button-style="text"
 						:class="{ active: viewMode === 'grid' }"
 						class="view-button"
+						@click="viewMode = 'grid'"
 					>
-						<i class="fas fa-th" /> Grid
-					</button>
+						<UIIcon icon="SVGLayout" /> Grid
+					</UIButton>
 
-					<button
-						@click="viewMode = 'list'"
+					<UIButton
+						button-style="text"
 						:class="{ active: viewMode === 'list' }"
 						class="view-button"
+						@click="viewMode = 'list'"
 					>
-						<i class="fas fa-list" /> List
-					</button>
+						<UIIcon icon="SVGList" /> List
+					</UIButton>
 				</div>
 			</div>
 
@@ -72,43 +75,47 @@
 			<div class="filter-section">
 				<h3>Filter by Technology:</h3>
 				<div class="tag-filters">
-					<button
-						@click="selectedTag = ''"
+					<UIButton
+						button-style="text"
 						:class="{ active: selectedTag === '' }"
 						class="filter-tag all-tag"
+						@click="selectedTag = ''"
 					>
 						All Projects ({{ totalProjects }})
-					</button>
+					</UIButton>
 
-					<button
+					<UIButton
 						v-for="tag in popularTags"
 						:key="tag.name"
-						@click="selectedTag = tag.name"
+						button-style="text"
 						:class="{ active: selectedTag === tag.name }"
 						class="filter-tag"
+						@click="selectedTag = tag.name"
 					>
 						{{ tag.name }} ({{ tag.count }})
-					</button>
+					</UIButton>
 				</div>
 
-				<button
+				<UIButton
 					v-if="!showAllTags && allTags.length > 12"
-					@click="showAllTags = true"
+					button-style="text"
 					class="show-more-tags"
+					@click="showAllTags = true"
 				>
 					Show {{ allTags.length - 12 }} more technologies...
-				</button>
+				</UIButton>
 
 				<div v-if="showAllTags" class="all-tags">
-					<button
+					<UIButton
 						v-for="tag in allTags.slice(12)"
 						:key="tag.name"
-						@click="selectedTag = tag.name"
+						button-style="text"
 						:class="{ active: selectedTag === tag.name }"
 						class="filter-tag"
+						@click="selectedTag = tag.name"
 					>
 						{{ tag.name }} ({{ tag.count }})
-					</button>
+					</UIButton>
 				</div>
 			</div>
 		</div>
@@ -121,9 +128,9 @@
 				<span v-if="searchQuery"> matching "{{ searchQuery }}"</span>
 			</p>
 
-			<button @click="clearFilters" class="clear-filters">
-				<i class="fas fa-times" /> Clear Filters
-			</button>
+			<UIButton button-style="text" class="clear-filters" @click="clearFilters">
+				<UIIcon icon="SVGClose" /> Clear Filters
+			</UIButton>
 		</div>
 
 		<!-- Project Grid/List -->
@@ -146,6 +153,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { UIButton, UIIcon } from 'ui-components'
 import ProjectGrid from '../components/ProjectGrid.vue'
 import ProjectModal from '../components/ProjectModal.vue'
 import contentData from '../data/static.en-us.json'
@@ -197,7 +205,7 @@ const filteredProjects = computed(() => {
 	// Filter by selected tag
 	if (selectedTag.value) {
 		projects = projects.filter(project =>
-			project.tags.includes(selectedTag.value)
+			project.tags.includes(selectedTag.value),
 		)
 	}
 
@@ -207,7 +215,7 @@ const filteredProjects = computed(() => {
 		projects = projects.filter(project =>
 			project.name.toLowerCase().includes(query) ||
 			project.client.toLowerCase().includes(query) ||
-			project.tags.some(tag => tag.toLowerCase().includes(query))
+			project.tags.some(tag => tag.toLowerCase().includes(query)),
 		)
 	}
 
@@ -329,7 +337,7 @@ const closeProjectModal = () => {
 			flex: 1;
 			position: relative;
 
-			i.fa-search {
+			> [data-ui="icon"] {
 				color: var(--color-text);
 				left: 1rem;
 				position: absolute;
