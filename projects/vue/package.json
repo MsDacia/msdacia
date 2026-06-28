@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"pinia": "3.0.4",
-		"ui-components": "npm:@davidanddacia/ui-components@0.0.119",
+		"ui-components": "npm:@davidanddacia/ui-components@0.0.120",
 		"vue": "3.5.31",
 		"vue-router": "4.6.4"
 	},
