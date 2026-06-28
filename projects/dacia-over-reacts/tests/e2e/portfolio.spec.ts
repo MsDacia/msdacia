@@ -1,40 +1,49 @@
 import { expect, test } from '@playwright/test'
 
+import content from '../../src/media/json/static.en-us.json'
+
+const portfolio = content.portfolio
+
 test.describe('Portfolio Page', () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto('/portfolio')
 	})
 
-	test('should load the portfolio page', async ({ page }) => {
-		await expect(page).toHaveURL(/portfolio/)
+	test('loads on the portfolio route', async ({ page }) => {
+		await expect(page).toHaveURL(/\/portfolio$/)
+		await expect(page.locator('main .main-content.portfolio')).toBeVisible()
 	})
 
-	test('should display portfolio content', async ({ page }) => {
-		const container = page.locator('main') || page.locator('[role="main"]')
-
-		await expect(container).toBeDefined()
+	test('renders the portfolio title and section headings', async ({ page }) => {
+		await expect(page.getByRole('heading', { level: 1 })).toHaveText(portfolio.title)
+		await expect(page.getByRole('heading', { level: 2, name: portfolio.subtitle2 })).toBeVisible()
+		await expect(page.getByRole('heading', { level: 2, name: portfolio.subtitle3 })).toBeVisible()
 	})
 
-	test('should display portfolio items', async ({ page }) => {
-		const items = page.locator('[class*="project"], [class*="portfolio"], [class*="work"]')
-		const count = await items.count()
-
-		expect(count).toBeGreaterThanOrEqual(0)
+	test('renders a project tile per project', async ({ page }) => {
+		await expect(page.locator('a.project')).toHaveCount(portfolio.projects.length)
 	})
 
-	test('should be accessible', async ({ page }) => {
-		const headings = page.locator('h1, h2, h3')
-		const count = await headings.count()
-
-		expect(count).toBeGreaterThan(0)
+	test('renders the stats tag labels', async ({ page }) => {
+		await expect(page.locator('.ui.labels a.ui.label').first()).toBeVisible()
 	})
 
-	test('should have working navigation', async ({ page }) => {
-		const resumeLink = page.locator('a[href="/resume"]')
+	test('opens a project modal when a tile is clicked and closes it', async ({ page }) => {
+		const project = portfolio.projects[0]
 
-		if (await resumeLink.count() > 0) {
-			await resumeLink.first().click()
-			await expect(page).toHaveURL(/resume/)
-		}
+		await expect(page.locator('[data-ui="modal"]')).toHaveCount(0)
+
+		await page.locator(`#project-${project.unique}-link`).click()
+
+		// The outer [data-ui="modal"] wrapper is zero-size (its children are fixed-position),
+		// so assert visibility on the inner box, which carries the real dimensions.
+		const box = page.locator('[data-ui-role="box"]')
+
+		await expect(box).toBeVisible()
+		await expect(box).toContainText(project.name)
+
+		await page.locator('[data-ui="close-button"]').click()
+
+		await expect(page.locator('[data-ui="modal"]')).toHaveCount(0)
 	})
 })

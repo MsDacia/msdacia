@@ -1,48 +1,34 @@
 import { expect, test } from '@playwright/test'
 
+import content from '../../src/media/json/static.en-us.json'
+
 test.describe('About Page', () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto('/about')
 	})
 
-	test('should load the about page', async ({ page }) => {
-		await expect(page).toHaveURL(/about/)
+	test('loads on the about route', async ({ page }) => {
+		await expect(page).toHaveURL(/\/about$/)
+		await expect(page.locator('main .main-content.about')).toBeVisible()
 	})
 
-	test('should display about content', async ({ page }) => {
-		const container = page.locator('main') || page.locator('[role="main"]')
-
-		await expect(container).toBeDefined()
+	test('renders the about title', async ({ page }) => {
+		await expect(page.getByRole('heading', { level: 1 })).toHaveText(content.about.title)
 	})
 
-	test('should display accordion sections', async ({ page }) => {
-		const accordion = page.locator('.ui.accordion')
-
-		await expect(accordion).toBeDefined()
-	})
-
-	test('should toggle accordion sections', async ({ page }) => {
+	test('renders three collapsed accordion sections', async ({ page }) => {
 		const titles = page.locator('.ui.accordion .title')
-		const count = await titles.count()
 
-		if (count > 0) {
-			const firstTitle = titles.first()
-
-			await firstTitle.click()
-			await expect(firstTitle).toHaveClass(/active/)
-
-			await firstTitle.click()
-			// Note: depending on timing, the class might still be there
-			// This is a basic test that the interaction works
-		}
+		await expect(titles).toHaveCount(3)
+		await expect(page.locator('.ui.accordion .title.active')).toHaveCount(0)
 	})
 
-	test('should have navigation back to home', async ({ page }) => {
-		const homeLink = page.locator('a[href="/"]')
+	test('expands an accordion section when clicked', async ({ page }) => {
+		const firstTitle = page.locator('.ui.accordion .title').first()
 
-		if (await homeLink.count() > 0) {
-			await homeLink.first().click()
-			await expect(page).toHaveURL('/')
-		}
+		await firstTitle.click()
+
+		await expect(firstTitle).toHaveClass(/active/)
+		await expect(page.locator('.ui.accordion .content.active')).toHaveCount(1)
 	})
 })

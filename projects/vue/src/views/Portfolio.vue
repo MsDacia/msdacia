@@ -40,31 +40,34 @@
 						placeholder="Search projects, clients, or technologies..."
 						class="search-input"
 					>
-					<button
+					<UIButton
 						v-if="searchQuery"
-						@click="clearSearch"
+						button-style="text"
 						class="clear-search"
+						@click="clearSearch"
 					>
 						<UIIcon icon="SVGClose" />
-					</button>
+					</UIButton>
 				</div>
 
 				<div class="view-controls">
-					<button
-						@click="viewMode = 'grid'"
+					<UIButton
+						button-style="text"
 						:class="{ active: viewMode === 'grid' }"
 						class="view-button"
+						@click="viewMode = 'grid'"
 					>
 						<UIIcon icon="SVGLayout" /> Grid
-					</button>
+					</UIButton>
 
-					<button
-						@click="viewMode = 'list'"
+					<UIButton
+						button-style="text"
 						:class="{ active: viewMode === 'list' }"
 						class="view-button"
+						@click="viewMode = 'list'"
 					>
 						<UIIcon icon="SVGList" /> List
-					</button>
+					</UIButton>
 				</div>
 			</div>
 
@@ -72,43 +75,47 @@
 			<div class="filter-section">
 				<h3>Filter by Technology:</h3>
 				<div class="tag-filters">
-					<button
-						@click="selectedTag = ''"
+					<UIButton
+						button-style="text"
 						:class="{ active: selectedTag === '' }"
 						class="filter-tag all-tag"
+						@click="selectedTag = ''"
 					>
 						All Projects ({{ totalProjects }})
-					</button>
+					</UIButton>
 
-					<button
+					<UIButton
 						v-for="tag in popularTags"
 						:key="tag.name"
-						@click="selectedTag = tag.name"
+						button-style="text"
 						:class="{ active: selectedTag === tag.name }"
 						class="filter-tag"
+						@click="selectedTag = tag.name"
 					>
 						{{ tag.name }} ({{ tag.count }})
-					</button>
+					</UIButton>
 				</div>
 
-				<button
+				<UIButton
 					v-if="!showAllTags && allTags.length > 12"
-					@click="showAllTags = true"
+					button-style="text"
 					class="show-more-tags"
+					@click="showAllTags = true"
 				>
 					Show {{ allTags.length - 12 }} more technologies...
-				</button>
+				</UIButton>
 
 				<div v-if="showAllTags" class="all-tags">
-					<button
+					<UIButton
 						v-for="tag in allTags.slice(12)"
 						:key="tag.name"
-						@click="selectedTag = tag.name"
+						button-style="text"
 						:class="{ active: selectedTag === tag.name }"
 						class="filter-tag"
+						@click="selectedTag = tag.name"
 					>
 						{{ tag.name }} ({{ tag.count }})
-					</button>
+					</UIButton>
 				</div>
 			</div>
 		</div>
@@ -121,9 +128,9 @@
 				<span v-if="searchQuery"> matching "{{ searchQuery }}"</span>
 			</p>
 
-			<button @click="clearFilters" class="clear-filters">
+			<UIButton button-style="text" class="clear-filters" @click="clearFilters">
 				<UIIcon icon="SVGClose" /> Clear Filters
-			</button>
+			</UIButton>
 		</div>
 
 		<!-- Project Grid/List -->
@@ -146,7 +153,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { UIIcon } from 'ui-components'
+import { UIButton, UIIcon } from 'ui-components'
 import ProjectGrid from '../components/ProjectGrid.vue'
 import ProjectModal from '../components/ProjectModal.vue'
 import contentData from '../data/static.en-us.json'

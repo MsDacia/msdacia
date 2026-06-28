@@ -6,24 +6,18 @@ import {
 } from 'vitest'
 
 import Objective from '../../src/components/objective'
+import content from '../../src/media/json/static.en-us.json'
 
 describe('Objective Component', () => {
-	it('renders without crashing', () => {
+	it('renders the objective card', () => {
 		const { container } = render(<Objective />)
 
-		expect(container).toBeTruthy()
+		expect(container.querySelector('.objective.ui.card')).toBeInTheDocument()
 	})
 
-	it('displays objective section', () => {
-		const { container } = render(<Objective />)
-		const section = container.querySelector('[class*="objective"], [class*="container"], h2')
-
-		expect(section || container.querySelector('div')).toBeTruthy()
-	})
-
-	it('renders objective content', () => {
+	it('renders the objective copy from content', () => {
 		const { container } = render(<Objective />)
 
-		expect(container.querySelector('div')).toBeTruthy()
+		expect(container.querySelector('.description p')).toHaveTextContent(content.resume.objective.copy)
 	})
 })

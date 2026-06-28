@@ -6,24 +6,32 @@ import {
 } from 'vitest'
 
 import AdWork from '../../src/components/ad-work'
+import content from '../../src/media/json/static.en-us.json'
+
+const message = (container: HTMLElement) => container.querySelector('.ui.icon.ad.message')!
 
 describe('AdWork Component', () => {
-	it('renders without crashing', () => {
+	it('renders the ad message container', () => {
 		const { container } = render(<AdWork />)
 
-		expect(container).toBeTruthy()
+		expect(message(container)).toBeInTheDocument()
 	})
 
-	it('displays ad work section with content', () => {
+	it('renders the laptop icon', () => {
 		const { container } = render(<AdWork />)
 
-		expect(container.querySelector('[class*="ad"], [class*="work"], h2')).toBeInTheDocument()
+		expect(container.querySelector('i.laptop.icon')).toBeInTheDocument()
 	})
 
-	it('renders properly structured content', () => {
+	it('renders the ad title from content', () => {
 		const { container } = render(<AdWork />)
-		const content = container.querySelector('div')
 
-		expect(content).toBeTruthy()
+		expect(container.querySelector('.header')).toHaveTextContent(content.common.ad.work.title)
+	})
+
+	it('renders the ad copy from content', () => {
+		const { container } = render(<AdWork />)
+
+		expect(container).toHaveTextContent(content.common.ad.work.copy)
 	})
 })

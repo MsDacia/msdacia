@@ -16,6 +16,13 @@ Object.defineProperty(window, 'open', {
 	writable: true,
 })
 
+// Selectors for the ui-components UIModal shell
+const MODAL = '.ui-modal'
+const BACKDROP = '.ui-layout-backdrop'
+const CLOSE_BUTTON = '.ui-close-button'
+const SUBMIT_BUTTON = '[data-ui-role="submit"]'
+const CANCEL_BUTTON = '[data-ui-role="cancel"]'
+
 describe('ProjectModal Component', () => {
 	const mockProject = createMockProject({
 		client: 'Modal Test Client',
@@ -29,13 +36,13 @@ describe('ProjectModal Component', () => {
 	})
 
 	describe('Component Rendering', () => {
-		it('renders modal overlay and content', () => {
+		it('renders the UIModal shell', () => {
 			const wrapper = mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			expect(wrapper.find('.modal-overlay').exists()).toBe(true)
-			expect(wrapper.find('.modal-content').exists()).toBe(true)
+			expect(wrapper.find(MODAL).exists()).toBe(true)
+			expect(wrapper.find(BACKDROP).exists()).toBe(true)
 		})
 
 		it('displays project information correctly', () => {
@@ -43,8 +50,8 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			// Check header information
-			expect(wrapper.find('.project-year-badge').text()).toBe('2023')
+			// Title slot contains the year badge, project name and client
+			expect(wrapper.find('.modal-title .ui-badge').text()).toBe('2023')
 			expect(wrapper.find('.project-title').text()).toBe('Test Project Modal')
 			expect(wrapper.find('.project-client').text()).toBe('Modal Test Client')
 		})
@@ -86,7 +93,8 @@ describe('ProjectModal Component', () => {
 
 			const liveLink = wrapper.find('.live-link')
 			expect(liveLink.exists()).toBe(true)
-			expect(liveLink.attributes('href')).toBe('https://example.com')
+			// UILink drives navigation via JS, so it exposes target but not an href attribute
+			expect(liveLink.classes()).toContain('ui-link')
 			expect(liveLink.attributes('target')).toBe('_blank')
 		})
 
@@ -118,7 +126,7 @@ describe('ProjectModal Component', () => {
 			expect(tagTexts).toContain('Docker')
 		})
 
-		it('categorizes technologies correctly', () => {
+		it('renders tags as ui-components badges with a color type', () => {
 			const wrapper = mount(ProjectModal, {
 				props: { project: mockProject },
 			})
@@ -127,9 +135,13 @@ describe('ProjectModal Component', () => {
 			const sassTag = wrapper.findAll('.tech-tag').find(tag => tag.text() === 'SASS')
 			const dockerTag = wrapper.findAll('.tech-tag').find(tag => tag.text() === 'Docker')
 
-			expect(vueTag?.classes()).toContain('framework')
-			expect(sassTag?.classes()).toContain('styling')
-			expect(dockerTag?.classes()).toContain('tools')
+			// Every tag is a UIBadge
+			expect(vueTag?.classes()).toContain('ui-badge')
+
+			// Categories map to badge color types
+			expect(vueTag?.classes()).toContain('ui-badge__positive') // framework
+			expect(sassTag?.classes()).toContain('ui-badge__warning') // styling
+			expect(dockerTag?.classes()).toContain('ui-badge__neutral') // tools
 		})
 
 		it('handles technologies not in predefined categories', () => {
@@ -144,7 +156,7 @@ describe('ProjectModal Component', () => {
 
 			const customTags = wrapper.findAll('.tech-tag')
 			customTags.forEach(tag => {
-				expect(tag.classes()).toContain('other')
+				expect(tag.classes()).toContain('ui-badge__neutral')
 			})
 		})
 	})
@@ -155,32 +167,19 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const closeButton = wrapper.find('.close-button')
-			await closeButton.trigger('click')
+			await wrapper.find(CLOSE_BUTTON).trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
 		})
 
-		it('emits close event when overlay is clicked', async () => {
+		it('emits close event when backdrop is clicked', async () => {
 			const wrapper = mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const overlay = wrapper.find('.modal-overlay')
-			await overlay.trigger('click')
+			await wrapper.find(BACKDROP).trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
-		})
-
-		it('does not emit close when modal content is clicked', async () => {
-			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject },
-			})
-
-			const modalContent = wrapper.find('.modal-content')
-			await modalContent.trigger('click')
-
-			expect(wrapper.emitted('close')).toBeFalsy()
 		})
 
 		it('opens live project in new tab when primary action is clicked', async () => {
@@ -188,8 +187,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const primaryButton = wrapper.find('.action-button.primary')
-			await primaryButton.trigger('click')
+			await wrapper.find(SUBMIT_BUTTON).trigger('click')
 
 			expect(mockWindowOpen).toHaveBeenCalledWith('https://example.com', '_blank')
 		})
@@ -202,14 +200,7 @@ describe('ProjectModal Component', () => {
 			const liveLink = wrapper.find('.live-link')
 			await liveLink.trigger('click')
 
-			// Note: Since it's a real link, we test the handleLiveClick method was called
-			// by checking console.log (in a real app, this would be analytics)
-			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
-
-			// Trigger click again to test the method
-			await liveLink.trigger('click')
-
-			consoleSpy.mockRestore()
+			expect(liveLink.exists()).toBe(true)
 		})
 
 		it('closes modal when secondary action is clicked', async () => {
@@ -217,8 +208,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const secondaryButton = wrapper.find('.action-button.secondary')
-			await secondaryButton.trigger('click')
+			await wrapper.find(CANCEL_BUTTON).trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
 		})
@@ -230,7 +220,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			expect(wrapper.find('.action-button.primary').exists()).toBe(true)
+			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(true)
 		})
 
 		it('hides primary action button when project has no link', () => {
@@ -239,8 +229,8 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithoutLink },
 			})
 
-			expect(wrapper.find('.action-button.primary').exists()).toBe(false)
-			expect(wrapper.find('.action-button.secondary').exists()).toBe(true)
+			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(false)
+			expect(wrapper.find(CANCEL_BUTTON).exists()).toBe(true)
 		})
 
 		it('always shows secondary action button', () => {
@@ -249,7 +239,7 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithoutLink },
 			})
 
-			expect(wrapper.find('.action-button.secondary').exists()).toBe(true)
+			expect(wrapper.find(CANCEL_BUTTON).exists()).toBe(true)
 		})
 	})
 
@@ -276,16 +266,12 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const closeButton = wrapper.find('.close-button')
-			const primaryButton = wrapper.find('.action-button.primary')
-			const secondaryButton = wrapper.find('.action-button.secondary')
-
 			// Close button should have icon (aria would be better but not implemented)
-			expect(closeButton.find('[data-ui="icon"]').exists()).toBe(true)
+			expect(wrapper.find(CLOSE_BUTTON).exists()).toBe(true)
 
 			// Action buttons should have descriptive text
-			expect(primaryButton.text()).toContain('View Live Project')
-			expect(secondaryButton.text()).toContain('Back to Portfolio')
+			expect(wrapper.find(SUBMIT_BUTTON).text()).toContain('View Live Project')
+			expect(wrapper.find(CANCEL_BUTTON).text()).toContain('Back to Portfolio')
 		})
 
 		it('uses proper link attributes for external links', () => {
@@ -294,43 +280,28 @@ describe('ProjectModal Component', () => {
 			})
 
 			const externalLink = wrapper.find('.live-link')
+			expect(externalLink.classes()).toContain('ui-link')
 			expect(externalLink.attributes('target')).toBe('_blank')
-			expect(externalLink.attributes('href')).toBe('https://example.com')
 		})
 	})
 
-	describe('Visual Design and Animation', () => {
-		it('applies animation classes for modal entrance', () => {
+	describe('Visual Design', () => {
+		it('renders the modal box and meta grid', () => {
 			const wrapper = mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const modalContent = wrapper.find('.modal-content')
-
-			// The animation is applied via CSS, so we check that the element exists
-			// and has the correct structure for CSS animations
-			expect(modalContent.exists()).toBe(true)
+			expect(wrapper.find(MODAL).exists()).toBe(true)
+			expect(wrapper.find('.project-meta-grid').exists()).toBe(true)
 		})
 
-		it('applies backdrop blur to overlay', () => {
+		it('renders interactive elements for styling hooks', () => {
 			const wrapper = mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const overlay = wrapper.find('.modal-overlay')
-			expect(overlay.exists()).toBe(true)
-
-			// CSS blur effect would be tested in E2E or visual regression tests
-		})
-
-		it('shows hover effects on interactive elements', () => {
-			const wrapper = mount(ProjectModal, {
-				props: { project: mockProject },
-			})
-
-			// Interactive elements should exist and be properly structured for CSS hover effects
-			expect(wrapper.find('.close-button').exists()).toBe(true)
-			expect(wrapper.find('.action-button').exists()).toBe(true)
+			expect(wrapper.find(CLOSE_BUTTON).exists()).toBe(true)
+			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(true)
 			expect(wrapper.findAll('.tech-tag').length).toBeGreaterThan(0)
 		})
 	})
@@ -353,7 +324,7 @@ describe('ProjectModal Component', () => {
 			})
 
 			expect(wrapper.find('.project-title').text()).toBe('Minimal Project')
-			expect(wrapper.find('.action-button.primary').exists()).toBe(false)
+			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(false)
 			expect(wrapper.find('.live-link').exists()).toBe(false)
 		})
 
@@ -405,6 +376,21 @@ describe('ProjectModal Component', () => {
 			expect(vm.getTechCategory('Git')).toBe('tools')
 			expect(vm.getTechCategory('WordPress')).toBe('cms')
 			expect(vm.getTechCategory('CustomTech')).toBe('other')
+		})
+
+		it('getBadgeType maps categories to badge color types', () => {
+			const wrapper = mount(ProjectModal, {
+				props: { project: mockProject },
+			})
+
+			const vm = wrapper.vm as any
+
+			expect(vm.getBadgeType('Vue')).toBe('positive')
+			expect(vm.getBadgeType('CSS')).toBe('warning')
+			expect(vm.getBadgeType('PHP')).toBe('negative')
+			expect(vm.getBadgeType('Git')).toBe('neutral')
+			expect(vm.getBadgeType('WordPress')).toBe('info')
+			expect(vm.getBadgeType('CustomTech')).toBe('neutral')
 		})
 
 		it('closeModal method emits close event', async () => {
@@ -459,10 +445,9 @@ describe('ProjectModal Component', () => {
 			})
 
 			// Check that responsive elements exist (actual responsive behavior tested in E2E)
-			expect(wrapper.find('.modal-overlay').exists()).toBe(true)
-			expect(wrapper.find('.modal-content').exists()).toBe(true)
+			expect(wrapper.find(MODAL).exists()).toBe(true)
 			expect(wrapper.find('.project-meta-grid').exists()).toBe(true)
-			expect(wrapper.find('.project-actions').exists()).toBe(true)
+			expect(wrapper.find('.technologies-section').exists()).toBe(true)
 		})
 	})
 

@@ -1,50 +1,33 @@
 import { expect, test } from '@playwright/test'
 
+import content from '../../src/media/json/static.en-us.json'
+
 test.describe('Resume Page', () => {
 	test.beforeEach(async ({ page }) => {
 		await page.goto('/resume')
 	})
 
-	test('should load the resume page', async ({ page }) => {
-		await expect(page).toHaveURL(/resume/)
+	test('keeps the app chrome on the resume route', async ({ page }) => {
+		await expect(page).toHaveURL(/\/resume$/)
+		await expect(page.locator('header')).toBeVisible()
+		await expect(page.locator('footer')).toBeVisible()
 	})
 
-	test('should display resume content', async ({ page }) => {
-		const container = page.locator('main') || page.locator('[role="main"]')
-
-		await expect(container).toBeDefined()
+	// KNOWN GAP: the Resume page component and nav link exist, but App.tsx has no
+	// `/resume` route, so the main content renders empty. This documents the current
+	// behavior — the assertion below confirms nothing renders inside main yet.
+	test('does not render resume content until the route is wired up', async ({ page }) => {
+		await expect(page.locator('main .main-content')).toBeEmpty()
 	})
 
-	test('should display accordion sections for experience', async ({ page }) => {
-		const accordion = page.locator('.ui.accordion')
-		const count = await accordion.count()
+	// Enable this once the `/resume` route is added to App.tsx — it describes the
+	// intended Resume flow (title + section headings + experience accordion).
+	test.fixme('renders the resume sections', async ({ page }) => {
+		const resume = content.resume
 
-		expect(count).toBeGreaterThan(0)
-	})
-
-	test('should allow expanding experience items', async ({ page }) => {
-		const titles = page.locator('.ui.accordion .title')
-		const titleCount = await titles.count()
-
-		if (titleCount > 0) {
-			const firstTitle = titles.first()
-
-			await firstTitle.click()
-			// Verify click was registered
-			expect(firstTitle).toBeDefined()
-		}
-	})
-
-	test('should display work experience with details', async ({ page }) => {
-		const content = page.locator('[class*="content"], [class*="feed"]')
-		const count = await content.count()
-
-		expect(count).toBeGreaterThanOrEqual(0)
-	})
-
-	test('should have readable typography', async ({ page }) => {
-		const mainText = page.locator('p, li, span, div').first()
-
-		await expect(mainText).toBeDefined()
+		await expect(page.getByRole('heading', { level: 1 })).toHaveText(resume.title)
+		await expect(page.getByRole('heading', { level: 2, name: resume.skills.title })).toBeVisible()
+		await expect(page.getByRole('heading', { level: 2, name: resume.experiences.title })).toBeVisible()
+		await expect(page.locator('.ui.accordion .title')).toHaveCount(resume.experiences.job.length)
 	})
 })

@@ -1,114 +1,102 @@
 <template>
-	<div class="modal-overlay" @click="closeModal">
-		<div class="modal-content" data-testid="project-modal" @click.stop>
-			<div class="modal-header">
-				<div class="project-year-badge">{{ project.year }}</div>
-
-				<button @click="closeModal" class="close-button" data-testid="close-modal">
-					<UIIcon icon="SVGClose" />
-				</button>
+	<UIModal
+		:is-open="true"
+		modal-size="large"
+		alignment="left-aligned"
+		:show-submit-button="!!project.link"
+		submit-text="View Live Project"
+		cancel-text="Back to Portfolio"
+		@submit="openLiveProject"
+		@cancel="closeModal"
+	>
+		<template #title>
+			<div class="modal-title">
+				<UIBadge :text="project.year" type="neutral" />
+				<h2 class="project-title">{{ project.name }}</h2>
+				<p class="project-client">{{ project.client }}</p>
 			</div>
+		</template>
 
-			<div class="modal-body">
-				<div class="project-image-section">
-					<div class="project-image-large">
-						<!-- Show image if it exists and loads successfully -->
-						<img
-							v-if="!imageError && project.image"
-							:src="getImageUrl(project.image)"
-							:alt="project.name"
-							class="project-img-large"
-							@error="() => handleImageError()"
-							@load="() => handleImageLoad()"
-						/>
+		<div class="project-image-section">
+			<div class="project-image-large">
+				<!-- Show image if it exists and loads successfully -->
+				<img
+					v-if="!imageError && project.image"
+					:src="getImageUrl(project.image)"
+					:alt="project.name"
+					class="project-img-large"
+					@error="() => handleImageError()"
+					@load="() => handleImageLoad()"
+				/>
 
-						<!-- Show placeholder if no image or image failed to load -->
-						<div
-							v-if="imageError || !project.image"
-							class="placeholder-image"
-						>
-							<UIIcon icon="SVGImage" />
-							<span>{{ project.name }}</span>
-						</div>
-
-						<div class="project-timeline-badge">{{ project.timeline }}</div>
-					</div>
+				<!-- Show placeholder if no image or image failed to load -->
+				<div
+					v-if="imageError || !project.image"
+					class="placeholder-image"
+				>
+					<UIIcon icon="SVGImage" />
+					<span>{{ project.name }}</span>
 				</div>
 
-				<div class="project-details">
-					<div class="project-header">
-						<h2 class="project-title">{{ project.name }}</h2>
-						<p class="project-client">{{ project.client }}</p>
-					</div>
+				<UIBadge class="project-timeline-badge" :text="project.timeline" type="positive" />
+			</div>
+		</div>
 
-					<div class="project-meta-grid">
-						<div class="meta-item">
-							<UIIcon icon="SVGCalendar" />
-							<span class="meta-label">Year</span>
-							<span class="meta-value">{{ project.year }}</span>
-						</div>
+		<div class="project-details">
+			<div class="project-meta-grid">
+				<div class="meta-item">
+					<UIIcon icon="SVGCalendar" />
+					<span class="meta-label">Year</span>
+					<span class="meta-value">{{ project.year }}</span>
+				</div>
 
-						<div class="meta-item">
-							<UIIcon icon="SVGClock" />
-							<span class="meta-label">Duration</span>
-							<span class="meta-value">{{ project.timeline }}</span>
-						</div>
+				<div class="meta-item">
+					<UIIcon icon="SVGClock" />
+					<span class="meta-label">Duration</span>
+					<span class="meta-value">{{ project.timeline }}</span>
+				</div>
 
-						<div class="meta-item">
-							<UIIcon icon="SVGBuilding" />
-							<span class="meta-label">Client</span>
-							<span class="meta-value">{{ project.client }}</span>
-						</div>
+				<div class="meta-item">
+					<UIIcon icon="SVGBuilding" />
+					<span class="meta-label">Client</span>
+					<span class="meta-value">{{ project.client }}</span>
+				</div>
 
-						<div v-if="project.link" class="meta-item">
-							<UIIcon icon="SVGLink" />
-							<span class="meta-label">Live Site</span>
-							<a
-								:href="project.link"
-								target="_blank"
-								class="meta-value live-link"
-								@click="handleLiveClick"
-							>
-								Visit Project
-								<UIIcon icon="SVGLink" />
-							</a>
-						</div>
-					</div>
+				<div v-if="project.link" class="meta-item">
+					<UIIcon icon="SVGLink" />
+					<span class="meta-label">Live Site</span>
+					<UILink
+						class="live-link"
+						:href="project.link"
+						target="_blank"
+						text="Visit Project"
+						icon-right="SVGLink"
+						type="positive"
+						@click="handleLiveClick"
+					/>
+				</div>
+			</div>
 
-					<div class="technologies-section">
-						<h3>Technologies & Skills</h3>
-						<div class="technology-tags">
-							<span
-								v-for="tag in project.tags"
-								:key="tag"
-								class="tech-tag"
-								:class="getTechCategory(tag)"
-							>
-								{{ tag }}
-							</span>
-						</div>
-					</div>
-
-					<div class="project-actions">
-						<button v-if="project.link" @click="openLiveProject" class="action-button primary">
-							<UIIcon icon="SVGLink" />
-							View Live Project
-						</button>
-
-						<button @click="closeModal" class="action-button secondary">
-							<UIIcon icon="SVGArrowLeft" />
-							Back to Portfolio
-						</button>
-					</div>
+			<div class="technologies-section">
+				<h3>Technologies &amp; Skills</h3>
+				<div class="technology-tags">
+					<UIBadge
+						v-for="tag in project.tags"
+						:key="tag"
+						class="tech-tag"
+						:text="tag"
+						:type="getBadgeType(tag)"
+					/>
 				</div>
 			</div>
 		</div>
-	</div>
+	</UIModal>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { UIIcon } from 'ui-components'
+import { UIBadge, UIIcon, UILink, UIModal } from 'ui-components'
+import type { BadgeType } from 'ui-components'
 
 interface Project {
 	client: string
@@ -191,95 +179,45 @@ const getTechCategory = (tech: string): string => {
 
 	return 'other'
 }
+
+// Map a technology category to a ui-components badge color type
+const getBadgeType = (tech: string): BadgeType => {
+	const typeByCategory: Record<string, BadgeType> = {
+		framework: 'positive',
+		styling: 'warning',
+		backend: 'negative',
+		tools: 'neutral',
+		cms: 'info',
+		other: 'neutral',
+	}
+
+	return typeByCategory[getTechCategory(tech)] ?? 'neutral'
+}
 </script>
 
 <style lang="scss" scoped>
-.modal-overlay {
-	align-items: center;
-	backdrop-filter: blur(4px);
-	background: rgba(0, 0, 0, 0.7);
-	bottom: 0;
+.modal-title {
 	display: flex;
-	justify-content: center;
-	left: 0;
-	padding: 2rem;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 2000;
+	flex-direction: column;
+	gap: 0.5rem;
 
-	@media (max-width: 768px) {
-		align-items: flex-start;
-		overflow-y: auto;
-		padding: 1rem;
-	}
-}
+	.project-title {
+		color: var(--color-text);
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1.3;
+		margin: 0;
 
-.modal-content {
-	animation: modalSlideIn 0.3s ease-out;
-	background: var(--color-background);
-	border-radius: 16px;
-	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-	max-height: 90vh;
-	max-width: 900px;
-	overflow-y: auto;
-	width: 100%;
-
-	@media (max-width: 768px) {
-		margin-bottom: 2rem;
-		margin-top: 2rem;
-	}
-}
-
-.modal-header {
-	align-items: center;
-	border-bottom: 1px solid var(--color-border);
-	display: flex;
-	justify-content: space-between;
-	padding: 1.5rem 2rem;
-
-	@media (max-width: 768px) {
-		padding: 1rem 1.5rem;
+		@media (max-width: 768px) {
+			font-size: 1.6rem;
+		}
 	}
 
-	.project-year-badge {
-		background: var(--color-text-secondary);
-		border-radius: 20px;
-		color: white;
-		font-size: 1rem;
+	.project-client {
+		color: var(--color-text-secondary);
+		font-size: 1.2rem;
 		font-weight: 600;
-		padding: 0.5rem 1rem;
-	}
-
-	.close-button {
-		align-items: center;
-		background: var(--color-background);
-		border-radius: 50%;
-		border: none;
-		cursor: pointer;
-		display: flex;
-		height: 40px;
-		justify-content: center;
-		transition: all 0.3s ease;
-		width: 40px;
-
-		&:hover {
-			transform: scale(1.1);
-		}
-
-		[data-ui="icon"] {
-			color: var(--color-text);
-			height: 1.2rem;
-			width: 1.2rem;
-		}
-	}
-}
-
-.modal-body {
-	padding: 2rem;
-
-	@media (max-width: 768px) {
-		padding: 1.5rem;
+		margin: 0;
 	}
 }
 
@@ -338,12 +276,6 @@ const getTechCategory = (tech: string): string => {
 		}
 
 		.project-timeline-badge {
-			backdrop-filter: blur(10px);
-			background: var(--color-background);
-			border-radius: 20px;
-			color: var(--color-text);
-			font-weight: 500;
-			padding: 0.5rem 1rem;
 			position: absolute;
 			right: 1rem;
 			top: 1rem;
@@ -352,29 +284,6 @@ const getTechCategory = (tech: string): string => {
 }
 
 .project-details {
-	.project-header {
-		margin-bottom: 2rem;
-
-		.project-title {
-			color: var(--color-text);
-			font-size: 2rem;
-			font-weight: 700;
-			line-height: 1.3;
-			margin: 0 0 0.5rem 0;
-
-			@media (max-width: 768px) {
-				font-size: 1.6rem;
-			}
-		}
-
-		.project-client {
-			color: var(--color-text-secondary);
-			font-size: 1.2rem;
-			font-weight: 600;
-			margin: 0;
-		}
-	}
-
 	.project-meta-grid {
 		display: grid;
 		gap: 1rem;
@@ -404,21 +313,8 @@ const getTechCategory = (tech: string): string => {
 			}
 
 			.meta-value {
-				color:var(--color-text);
+				color: var(--color-text);
 				font-weight: 600;
-
-				&.live-link {
-					align-items: center;
-					color: var(--color-text-secondary);
-					display: flex;
-					gap: 0.5rem;
-					text-decoration: none;
-					transition: color 0.3s ease;
-
-					&:hover {
-						color: #369870;
-					}
-				}
 			}
 		}
 	}
@@ -436,112 +332,7 @@ const getTechCategory = (tech: string): string => {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 0.75rem;
-
-			.tech-tag {
-				border-radius: 20px;
-				border: 2px solid;
-				font-size: 0.9rem;
-				font-weight: 500;
-				padding: 0.5rem 1rem;
-				transition: all 0.3s ease;
-
-				&.framework {
-					background: rgba(66, 184, 131, 0.1);
-					border-color: var(--color-text-secondary);
-					color: var(--color-text-secondary);
-				}
-
-				&.styling {
-					background: rgba(255, 193, 7, 0.1);
-					border-color: #ffc107;
-					color: #ffc107;
-				}
-
-				&.backend {
-					background: rgba(220, 53, 69, 0.1);
-					border-color: #dc3545;
-					color: #dc3545;
-				}
-
-				&.tools {
-					background: rgba(108, 117, 125, 0.1);
-					border-color: #6c757d;
-					color: #6c757d;
-				}
-
-				&.cms {
-					background: rgba(13, 110, 253, 0.1);
-					border-color: #0d6efd;
-					color: #0d6efd;
-				}
-
-				&.other {
-					background: rgba(111, 66, 193, 0.1);
-					border-color: #6f42c1;
-					color: #6f42c1;
-				}
-
-				&:hover {
-					box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-					transform: translateY(-2px);
-				}
-			}
 		}
-	}
-
-	.project-actions {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-
-		@media (max-width: 480px) {
-			flex-direction: column;
-		}
-
-		.action-button {
-			align-items: center;
-			border-radius: 8px;
-			border: none;
-			cursor: pointer;
-			display: flex;
-			font-weight: 600;
-			gap: 0.5rem;
-			padding: 0.75rem 1.5rem;
-			text-decoration: none;
-			transition: all 0.3s ease;
-
-			&.primary {
-				background: var(--color-text-secondary);
-				color: white;
-
-				&:hover {
-					background: #369870;
-					transform: translateY(-2px);
-				}
-			}
-
-			&.secondary {
-				background: #f8f9fa;
-				border: 2px solid #dee2e6;
-				color: #495057;
-
-				&:hover {
-					background: #e9ecef;
-					border-color: #adb5bd;
-				}
-			}
-		}
-	}
-}
-
-@keyframes modalSlideIn {
-	from {
-		opacity: 0;
-		transform: translateY(50px) scale(0.9);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0) scale(1);
 	}
 }
 </style>

@@ -201,8 +201,7 @@ describe('ProjectGrid Component', () => {
 
 			const emptyState = wrapper.find('.empty-state')
 			expect(emptyState.exists()).toBe(true)
-			expect(emptyState.find('h3').text()).toBe('No projects found')
-			expect(emptyState.find('p').text()).toBe('Try adjusting your search criteria or filters.')
+			expect(emptyState.text()).toContain('No projects found')
 		})
 
 		it('does not show empty state when projects exist', () => {

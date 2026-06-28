@@ -8,7 +8,7 @@ test.describe('Navigation and Routing', () => {
 	test('should load homepage successfully', async ({ page }) => {
 		// Check that we're on the homepage
 		await expect(page).toHaveURL('/')
-		await expect(page).toHaveTitle(/MsDacia/)
+		await expect(page).toHaveTitle(/Ms Dacia/)
 	})
 
 	test('should navigate between pages using header menu', async ({ page }) => {
@@ -187,7 +187,7 @@ test.describe('Responsive Design', () => {
 test.describe('Page Content and SEO', () => {
 	test('should have proper page titles', async ({ page }) => {
 		await page.goto('/')
-		await expect(page).toHaveTitle(/MsDacia/)
+		await expect(page).toHaveTitle(/Ms Dacia/)
 
 		// Navigate to About and check title updates (if implemented)
 		const menuToggle = page.locator('.item')

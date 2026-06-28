@@ -6,25 +6,30 @@ import {
 } from 'vitest'
 
 import Skills from '../../src/components/skills'
+import content from '../../src/media/json/static.en-us.json'
+
+const categories = content.resume.skills.categories
 
 describe('Skills Component', () => {
-	it('renders without crashing', () => {
+	it('renders the definition table', () => {
 		const { container } = render(<Skills />)
 
-		expect(container).toBeTruthy()
+		expect(container.querySelector('table.ui.definition.table')).toBeInTheDocument()
 	})
 
-	it('displays skills table', () => {
+	it('renders one row per skill category', () => {
 		const { container } = render(<Skills />)
-		const table = container.querySelector('table.ui.definition.table')
 
-		expect(table).toBeInTheDocument()
+		expect(container.querySelectorAll('tbody tr')).toHaveLength(categories.length)
 	})
 
-	it('renders skill items in table', () => {
+	it('renders each category title and copy', () => {
 		const { container } = render(<Skills />)
-		const rows = container.querySelectorAll('tr')
+		const rows = container.querySelectorAll('tbody tr')
 
-		expect(rows.length >= 0).toBeTruthy()
+		categories.forEach((skill, index) => {
+			expect(rows[index]).toHaveTextContent(skill.title)
+			expect(rows[index]).toHaveTextContent(skill.copy)
+		})
 	})
 })

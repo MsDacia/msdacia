@@ -58,6 +58,10 @@ vi.mock('@/data/static.en-us.json', () => ({
 	default: mockResumeData,
 }))
 
+// Selectors for the ui-components UIAccordion shell used per job
+const HEADER = '.ui-accordion__header'
+const CONTENT = '.ui-accordion__content'
+
 describe('ExperienceTimeline Component', () => {
 	describe('Component Rendering', () => {
 		it('renders timeline header correctly', () => {
@@ -92,15 +96,15 @@ describe('ExperienceTimeline Component', () => {
 			expect(markers).toHaveLength(3)
 		})
 
-		it('shows expand icons for all jobs', () => {
+		it('renders a collapsible accordion for every job', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const expandIcons = wrapper.findAll('.expand-icon')
-			expect(expandIcons).toHaveLength(3)
+			const headers = wrapper.findAll(HEADER)
+			expect(headers).toHaveLength(3)
 
-			// Initially none should be rotated
-			expandIcons.forEach(icon => {
-				expect(icon.classes()).not.toContain('rotated')
+			// Initially every accordion is collapsed
+			headers.forEach(header => {
+				expect(header.attributes('aria-expanded')).toBe('false')
 			})
 		})
 	})
@@ -111,87 +115,83 @@ describe('ExperienceTimeline Component', () => {
 
 			expect(wrapper.vm.expandedJob).toBeNull()
 
-			const jobContents = wrapper.findAll('.job-content')
-			jobContents.forEach(content => {
-				expect(content.isVisible()).toBe(false)
+			const contents = wrapper.findAll(CONTENT)
+			contents.forEach(content => {
+				expect(content.classes()).toContain('hidden-content')
 			})
 		})
 
 		it('expands job when clicked', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
-			await firstJobCard?.trigger('click')
+			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
 			expect(wrapper.vm.expandedJob).toBe(1)
 
-			const firstJobContent = wrapper.findAll('.job-content').at(0)
-			expect(firstJobContent?.isVisible()).toBe(true)
+			expect(wrapper.findAll(HEADER).at(0)?.attributes('aria-expanded')).toBe('true')
+			expect(wrapper.findAll(CONTENT).at(0)?.classes()).not.toContain('hidden-content')
 		})
 
 		it('collapses job when clicked again', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
+			const firstHeader = wrapper.findAll(HEADER).at(0)
 
 			// Expand
-			await firstJobCard?.trigger('click')
+			await firstHeader?.trigger('click')
 			expect(wrapper.vm.expandedJob).toBe(1)
 
 			// Collapse
-			await firstJobCard?.trigger('click')
+			await firstHeader?.trigger('click')
 			expect(wrapper.vm.expandedJob).toBeNull()
 		})
 
 		it('switches between jobs correctly', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const jobCards = wrapper.findAll('.job-card')
+			const headers = wrapper.findAll(HEADER)
 
 			// Expand first job
-			await jobCards.at(0)?.trigger('click')
+			await headers.at(0)?.trigger('click')
 			expect(wrapper.vm.expandedJob).toBe(1)
 
 			// Expand second job (should close first)
-			await jobCards.at(1)?.trigger('click')
+			await headers.at(1)?.trigger('click')
 			expect(wrapper.vm.expandedJob).toBe(2)
 
-			// First job should be collapsed (content not rendered), second expanded
-			const timelineItems = wrapper.findAll('.timeline-item')
-			expect(timelineItems.at(0)?.find('.job-content').exists()).toBe(false)
-			expect(timelineItems.at(1)?.find('.job-content').exists()).toBe(true)
+			// First job should be collapsed, second expanded
+			expect(wrapper.findAll(HEADER).at(0)?.attributes('aria-expanded')).toBe('false')
+			expect(wrapper.findAll(HEADER).at(1)?.attributes('aria-expanded')).toBe('true')
 		})
 
-		it('rotates expand icon when job is expanded', async () => {
+		it('reflects the expanded state on the accordion header', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
-			const firstExpandIcon = wrapper.findAll('.expand-icon').at(0)
+			const firstHeader = wrapper.findAll(HEADER).at(0)
 
-			// Initially not rotated
-			expect(firstExpandIcon?.classes()).not.toContain('rotated')
+			// Initially collapsed
+			expect(firstHeader?.attributes('aria-expanded')).toBe('false')
 
 			// Expand job
-			await firstJobCard?.trigger('click')
+			await firstHeader?.trigger('click')
 
-			// Icon should be rotated
-			expect(firstExpandIcon?.classes()).toContain('rotated')
+			// Header should report itself as expanded
+			expect(wrapper.findAll(HEADER).at(0)?.attributes('aria-expanded')).toBe('true')
 		})
 
 		it('adds expanded class to timeline item when job is expanded', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
 			const firstTimelineItem = wrapper.findAll('.timeline-item').at(0)
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
 
 			// Initially not expanded
 			expect(firstTimelineItem?.classes()).not.toContain('expanded')
 
 			// Expand job
-			await firstJobCard?.trigger('click')
+			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
 			// Timeline item should have expanded class
-			expect(firstTimelineItem?.classes()).toContain('expanded')
+			expect(wrapper.findAll('.timeline-item').at(0)?.classes()).toContain('expanded')
 		})
 	})
 
@@ -199,10 +199,11 @@ describe('ExperienceTimeline Component', () => {
 		it('displays responsibility points when job is expanded', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
-			await firstJobCard?.trigger('click')
+			const firstItem = wrapper.findAll('.timeline-item').at(0)
+			await firstItem?.find(HEADER).trigger('click')
 
-			const responsibilityItems = wrapper.findAll('.responsibility-item')
+			// Accordion content stays mounted, so scope to the first job's responsibilities
+			const responsibilityItems = firstItem!.findAll('.responsibility-item')
 			expect(responsibilityItems).toHaveLength(3)
 
 			expect(responsibilityItems.at(0)?.text()).toContain('Developed modern web applications')
@@ -232,21 +233,14 @@ describe('ExperienceTimeline Component', () => {
 			}
 
 			// Create wrapper with HTML content
-			const wrapper = mount(ExperienceTimeline, {
-				global: {
-					mocks: {
-						content: htmlMockData,
-					},
-				},
-			})
+			const wrapper = mount(ExperienceTimeline)
 
 			// Mock the content ref to use our HTML data
 			wrapper.vm.content = htmlMockData as any
 
 			await wrapper.vm.$nextTick()
 
-			const jobCard = wrapper.find('.job-card')
-			await jobCard.trigger('click')
+			await wrapper.find(HEADER).trigger('click')
 
 			const responsibilityItems = wrapper.findAll('.responsibility-item')
 
@@ -258,8 +252,7 @@ describe('ExperienceTimeline Component', () => {
 		it('shows responsibilities header when job is expanded', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
-			await firstJobCard?.trigger('click')
+			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
 			const responsibilitiesHeader = wrapper.find('.responsibilities h5')
 			expect(responsibilitiesHeader.exists()).toBe(true)
@@ -276,13 +269,13 @@ describe('ExperienceTimeline Component', () => {
 			expect(wrapper.findAll('.timeline-marker')).toHaveLength(3)
 		})
 
-		it('applies hover effects structure to job cards', () => {
+		it('renders job cards as accordions', () => {
 			const wrapper = mount(ExperienceTimeline)
 
 			const jobCards = wrapper.findAll('.job-card')
+			expect(jobCards).toHaveLength(3)
 			jobCards.forEach(card => {
-				// Cards should have the basic structure for CSS hover effects
-				expect(card.exists()).toBe(true)
+				expect(card.classes()).toContain('ui-accordion')
 			})
 		})
 	})
@@ -362,10 +355,10 @@ describe('ExperienceTimeline Component', () => {
 			expect(wrapper.find('h2').exists()).toBe(true)
 			expect(wrapper.findAll('h3').length).toBe(3) // One for each job title
 			expect(wrapper.findAll('h4').length).toBe(3) // One for each company
-			expect(wrapper.findAll('h5').length).toBe(0) // Hidden until expanded
 
-			// Lists should be semantic
-			expect(wrapper.findAll('ul').length).toBe(0) // Hidden until expanded
+			// Accordion content stays mounted, so responsibility headings/lists are present
+			expect(wrapper.findAll('h5').length).toBe(3) // One per job
+			expect(wrapper.findAll('ul').length).toBe(3) // One per job
 		})
 
 		it('provides meaningful content for screen readers', () => {
@@ -389,21 +382,21 @@ describe('ExperienceTimeline Component', () => {
 			})
 		})
 
-		it('has clickable elements that are focusable', () => {
+		it('exposes accordion headers as the interactive toggle', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const jobCards = wrapper.findAll('.job-card')
-			jobCards.forEach(card => {
-				// Cards should be clickable divs (could be improved with role="button")
-				expect(card.element.tagName).toBe('DIV')
+			const headers = wrapper.findAll(HEADER)
+			expect(headers).toHaveLength(3)
+			headers.forEach(header => {
+				expect(header.attributes('aria-expanded')).toBeDefined()
+				expect(header.attributes('aria-label')).toBe('Toggle accordion')
 			})
 		})
 
 		it('expands job content with proper list structure', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJobCard = wrapper.findAll('.job-card').at(0)
-			await firstJobCard?.trigger('click')
+			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
 			// Should create proper list structure
 			const responsibilityList = wrapper.find('.responsibility-list')
@@ -418,7 +411,7 @@ describe('ExperienceTimeline Component', () => {
 	})
 
 	describe('Edge Cases and Error Handling', () => {
-		it('handles empty job array gracefully', () => {
+		it('handles empty job array gracefully', async () => {
 			const emptyJobsData = {
 				resume: {
 					experiences: {
@@ -428,16 +421,11 @@ describe('ExperienceTimeline Component', () => {
 				},
 			}
 
-			const wrapper = mount(ExperienceTimeline, {
-				global: {
-					mocks: {
-						content: emptyJobsData,
-					},
-				},
-			})
+			const wrapper = mount(ExperienceTimeline)
 
 			// Mock the content ref
 			wrapper.vm.content = emptyJobsData as any
+			await wrapper.vm.$nextTick()
 
 			expect(wrapper.findAll('.timeline-item')).toHaveLength(0)
 			expect(wrapper.find('.timeline-header').exists()).toBe(true)
@@ -460,19 +448,12 @@ describe('ExperienceTimeline Component', () => {
 				},
 			}
 
-			const wrapper = mount(ExperienceTimeline, {
-				global: {
-					mocks: {
-						content: jobWithEmptyPoints,
-					},
-				},
-			})
+			const wrapper = mount(ExperienceTimeline)
 
 			wrapper.vm.content = jobWithEmptyPoints as any
 			await wrapper.vm.$nextTick()
 
-			const jobCard = wrapper.find('.job-card')
-			await jobCard.trigger('click')
+			await wrapper.find(HEADER).trigger('click')
 
 			expect(wrapper.findAll('.responsibility-item')).toHaveLength(0)
 			expect(wrapper.find('.responsibility-list').exists()).toBe(true)
@@ -494,13 +475,7 @@ describe('ExperienceTimeline Component', () => {
 				},
 			}
 
-			const wrapper = mount(ExperienceTimeline, {
-				global: {
-					mocks: {
-						content: incompleteJobData,
-					},
-				},
-			})
+			const wrapper = mount(ExperienceTimeline)
 
 			wrapper.vm.content = incompleteJobData as any
 			await wrapper.vm.$nextTick()
@@ -513,7 +488,7 @@ describe('ExperienceTimeline Component', () => {
 	})
 
 	describe('Performance Considerations', () => {
-		it('handles large number of jobs efficiently', () => {
+		it('handles large number of jobs efficiently', async () => {
 			const manyJobs = Array.from({ length: 20 }, (_, i) => ({
 				id: i + 1,
 				company: `Company ${i + 1}`,
@@ -532,15 +507,10 @@ describe('ExperienceTimeline Component', () => {
 				},
 			}
 
-			const wrapper = mount(ExperienceTimeline, {
-				global: {
-					mocks: {
-						content: largeDatSet,
-					},
-				},
-			})
+			const wrapper = mount(ExperienceTimeline)
 
 			wrapper.vm.content = largeDatSet as any
+			await wrapper.vm.$nextTick()
 
 			expect(wrapper.findAll('.timeline-item')).toHaveLength(20)
 			expect(wrapper.vm).toBeTruthy() // Component should render without issues
