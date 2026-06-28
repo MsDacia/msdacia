@@ -1,3 +1,5 @@
+import SiteHeader from '@/components/SiteHeader.vue'
+import { mount } from '@vue/test-utils'
 import {
 	beforeEach,
 	describe,
@@ -5,10 +7,8 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
-import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
-import SiteHeader from '@/components/SiteHeader.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 // Mock the SwitchTheme component
 vi.mock('@/components/SwitchTheme.vue', () => ({

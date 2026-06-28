@@ -17,13 +17,13 @@
 <style scoped>
 .item {
 	display: flex;
-	margin-top: 2rem;
+	margin-top: $size-32;
 	position: relative;
 }
 
 .details {
 	flex: 1;
-	margin-left: 1rem;
+	margin-left: $size-16;
 }
 
 .icon-wrapper {
@@ -38,14 +38,14 @@
 h3 {
 	color: var(--color-heading);
 	font-size: 1.2rem;
-	font-weight: 500;
+	font-weight: $weight-medium;
 	margin-bottom: 0.4rem;
 }
 
-@media (min-width: 1024px) {
+@include min-width(small-desktop) {
 	.item {
 		margin-top: 0;
-		padding: 0.4rem 0 1rem calc(var(--section-gap) / 2);
+		padding: 0.4rem 0 $size-16 calc(var(--section-gap) / 2);
 	}
 
 	.icon-wrapper {

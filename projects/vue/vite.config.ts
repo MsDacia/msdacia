@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,6 +21,7 @@ export default defineConfig({
 	css: {
 		preprocessorOptions: {
 			scss: {
+				additionalData: '@use \'@ui/assets/stylesheets/utils/variables\' as *;\n@use \'@ui/assets/stylesheets/utils/mixins\' as *;\n',
 				loadPaths: [
 					fileURLToPath(new URL('./src/assets', import.meta.url)),
 					fileURLToPath(new URL('./node_modules/ui-components/assets/stylesheets', import.meta.url)),

@@ -245,25 +245,25 @@ const closeProjectModal = () => {
 <style lang="scss" scoped>
 .modern-portfolio {
 	margin: 0 auto;
-	max-width: 1400px;
-	padding: 2rem;
+	max-width: $width-x-large-desktop;
+	padding: $size-32;
 
-	@media (max-width: 768px) {
-		padding: 1rem;
+	@include max-width(tablet) {
+		padding: $size-16;
 	}
 }
 
 .portfolio-header {
-	margin-bottom: 3rem;
+	margin-bottom: $size-48;
 	text-align: center;
 
 	h1 {
 		color: var(--color-heading);
-		font-size: 3rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
+		font-size: $size-48;
+		font-weight: $weight-bold;
+		margin-bottom: $size-16;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			font-size: 2.2rem;
 		}
 	}
@@ -272,7 +272,7 @@ const closeProjectModal = () => {
 		color: var(--color-text);
 		font-size: 1.1rem;
 		line-height: 1.6;
-		margin: 0 auto 2rem;
+		margin: 0 auto $size-32;
 		max-width: 800px;
 
 		:deep(a) {
@@ -287,30 +287,30 @@ const closeProjectModal = () => {
 
 	.portfolio-stats {
 		display: grid;
-		gap: 1rem;
+		gap: $size-16;
 		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 		margin: 0 auto;
 		max-width: 600px;
 
 		.stat-item {
 			background: var(--color-background);
-			border-radius: 12px;
+			border-radius: $size-12;
 			border: 1px solid var(--color-border);
-			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-			padding: 1rem;
+			box-shadow: 0 $size-2 $size-10 rgba(0, 0, 0, 0.05);
+			padding: $size-16;
 
 			.stat-number {
 				color: var(--color-text-secondary);
 				display: block;
-				font-size: 2rem;
-				font-weight: 700;
-				margin-bottom: 0.25rem;
+				font-size: $size-32;
+				font-weight: $weight-bold;
+				margin-bottom: $size-4;
 			}
 
 			.stat-label {
 				color: var(--color-text);
 				font-size: 0.9rem;
-				font-weight: 500;
+				font-weight: $weight-medium;
 			}
 		}
 	}
@@ -318,18 +318,18 @@ const closeProjectModal = () => {
 
 .controls-section {
 	background: var(--color-background);
-	border-radius: 16px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-	margin-bottom: 2rem;
-	padding: 2rem;
+	border-radius: $size-16;
+	box-shadow: 0 $size-4 $size-20 rgba(0, 0, 0, 0.08);
+	margin-bottom: $size-32;
+	padding: $size-32;
 
 	.search-controls {
 		align-items: center;
 		display: flex;
-		gap: 1rem;
-		margin-bottom: 2rem;
+		gap: $size-16;
+		margin-bottom: $size-32;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			flex-direction: column;
 		}
 
@@ -339,7 +339,7 @@ const closeProjectModal = () => {
 
 			> [data-ui="icon"] {
 				color: var(--color-text);
-				left: 1rem;
+				left: $size-16;
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
@@ -348,10 +348,10 @@ const closeProjectModal = () => {
 			.search-input {
 				background: var(--color-background);
 				color: var(--color-text);
-				border-radius: 8px;
-				border: 2px solid var(--color-border);
-				font-size: 1rem;
-				padding: 0.75rem 1rem 0.75rem 2.5rem;
+				border-radius: $size-8;
+				border: $size-2 solid var(--color-border);
+				font-size: $size-16;
+				padding: $size-12 $size-16 $size-12 $size-40;
 				transition: border-color 0.3s ease;
 				width: 100%;
 
@@ -366,9 +366,9 @@ const closeProjectModal = () => {
 				border: none;
 				color: var(--color-text);
 				cursor: pointer;
-				padding: 0.5rem;
+				padding: $size-8;
 				position: absolute;
-				right: 0.5rem;
+				right: $size-8;
 				top: 50%;
 				transform: translateY(-50%);
 
@@ -380,16 +380,16 @@ const closeProjectModal = () => {
 
 		.view-controls {
 			display: flex;
-			gap: 0.5rem;
+			gap: $size-8;
 
 			.view-button {
 				background: var(--color-background);
-				border-radius: 8px;
-				border: 2px solid var(--color-border);
+				border-radius: $size-8;
+				border: $size-2 solid var(--color-border);
 				color: var(--color-text);
 				cursor: pointer;
 				font-size: 0.9rem;
-				padding: 0.75rem 1rem;
+				padding: $size-12 $size-16;
 				transition: all 0.3s ease;
 
 				&:hover {
@@ -410,14 +410,14 @@ const closeProjectModal = () => {
 		h3 {
 			color: var(--color-text);
 			font-size: 1.1rem;
-			margin-bottom: 1rem;
+			margin-bottom: $size-16;
 		}
 
 		.tag-filters {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.5rem;
-			margin-bottom: 1rem;
+			gap: $size-8;
+			margin-bottom: $size-16;
 
 			.filter-tag {
 				background: var(--color-background);
@@ -426,7 +426,7 @@ const closeProjectModal = () => {
 				color: var(--color-text);
 				cursor: pointer;
 				font-size: 0.9rem;
-				padding: 0.5rem 1rem;
+				padding: $size-8 $size-16;
 				transition: all 0.3s ease;
 
 				&:hover {
@@ -443,7 +443,7 @@ const closeProjectModal = () => {
 				&.all-tag {
 					border-color: var(--color-text-secondary);
 					color: var(--color-text-secondary);
-					font-weight: 600;
+					font-weight: $weight-semibold;
 
 					&.active {
 						background: var(--color-text-secondary);
@@ -469,8 +469,8 @@ const closeProjectModal = () => {
 		.all-tags {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.5rem;
-			margin-top: 1rem;
+			gap: $size-8;
+			margin-top: $size-16;
 		}
 	}
 }
@@ -478,15 +478,15 @@ const closeProjectModal = () => {
 .results-summary {
 	align-items: center;
 	background: var(--color-background);
-	border-radius: 8px;
+	border-radius: $size-8;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 2rem;
-	padding: 1rem;
+	margin-bottom: $size-32;
+	padding: $size-16;
 
-	@media (max-width: 768px) {
+	@include max-width(tablet) {
 		flex-direction: column;
-		gap: 1rem;
+		gap: $size-16;
 	}
 
 	p {
@@ -502,7 +502,7 @@ const closeProjectModal = () => {
 		color: var(--color-text);
 		cursor: pointer;
 		font-size: 0.9rem;
-		padding: 0.5rem 1rem;
+		padding: $size-8 $size-16;
 		transition: background 0.3s ease;
 
 		&:hover {

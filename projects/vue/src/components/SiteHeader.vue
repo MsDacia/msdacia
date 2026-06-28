@@ -65,13 +65,13 @@ header {
 		transition: all 1s;
 		z-index: 1501;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			display: none;
 		}
 
 		[data-ui="icon"] {
 			color: var(--color-text);
-			font-weight: 900;
+			font-weight: $weight-black;
 
 			&.on {
 				color: var(--color-text-secondary); // Vue green for hover state
@@ -99,9 +99,9 @@ header {
 		width: 100%;
 		z-index: 1500;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			background: transparent;
-			margin: 0 20px;
+			margin: 0 $size-20;
 			padding: 0;
 			position: relative;
 			width: 90%;
@@ -111,7 +111,7 @@ header {
 		&.hide-content {
 			display: none;
 
-			@media (max-width: 768px) {
+			@include max-width(tablet) {
 				display: inline-block !important;
 			}
 		}
@@ -128,18 +128,18 @@ header {
 			font-family: "News Cycle", Avenir, Helvetica, Arial, sans-serif;
 			letter-spacing: 0.5px;
 			margin: 30px 0 0;
-			padding: 0 10px 5px;
+			padding: 0 $size-10 5px;
 			text-align: left;
 			text-decoration: none;
 
-			@media (max-width: 768px) {
-				margin: 0 0 10px;
+			@include max-width(tablet) {
+				margin: 0 0 $size-10;
 				padding-bottom: 5px;
 				text-align: right;
 			}
 
 			&:first-child {
-				@media (max-width: 768px) {
+				@include max-width(tablet) {
 					margin-left: 0;
 					padding-left: 0;
 				}
@@ -166,11 +166,11 @@ header {
 
 			.icon {
 				color: var(--color-text);
-				height: 0.75rem;
+				height: $size-12;
 				margin-right: 0;
 				transition: visibility 1s ease-out;
 				visibility: hidden;
-				width: 0.75rem;
+				width: $size-12;
 			}
 		}
 	}

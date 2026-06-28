@@ -13,16 +13,7 @@ test.describe('Resume Page', () => {
 		await expect(page.locator('footer')).toBeVisible()
 	})
 
-	// KNOWN GAP: the Resume page component and nav link exist, but App.tsx has no
-	// `/resume` route, so the main content renders empty. This documents the current
-	// behavior — the assertion below confirms nothing renders inside main yet.
-	test('does not render resume content until the route is wired up', async ({ page }) => {
-		await expect(page.locator('main .main-content')).toBeEmpty()
-	})
-
-	// Enable this once the `/resume` route is added to App.tsx — it describes the
-	// intended Resume flow (title + section headings + experience accordion).
-	test.fixme('renders the resume sections', async ({ page }) => {
+	test('renders the resume sections', async ({ page }) => {
 		const resume = content.resume
 
 		await expect(page.getByRole('heading', { level: 1 })).toHaveText(resume.title)

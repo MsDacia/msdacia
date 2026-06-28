@@ -76,9 +76,24 @@ interface ThemeOption {
 }
 
 const themeOptions: ThemeOption[] = [
-	{ mode: 'light', label: 'Light', icon: 'SVGSun', apply: setLightTheme },
-	{ mode: 'dark', label: 'Dark', icon: 'SVGMoon', apply: setDarkTheme },
-	{ mode: 'system', label: 'System', icon: 'SVGComputerMonitor', apply: setSystemTheme },
+	{
+		apply: setLightTheme,
+		icon: 'SVGSun',
+		label: 'Light',
+		mode: 'light',
+	},
+	{
+		apply: setDarkTheme,
+		icon: 'SVGMoon',
+		label: 'Dark',
+		mode: 'dark',
+	},
+	{
+		apply: setSystemTheme,
+		icon: 'SVGComputerMonitor',
+		label: 'System',
+		mode: 'system',
+	},
 ]
 
 const selectTheme = (option: ThemeOption) => {
@@ -120,34 +135,34 @@ if (typeof document !== 'undefined') {
 	top: 15px;
 	z-index: 1502;
 
-	@media (max-width: 768px) {
-		left: 20px;
-		top: 10px;
+	@include max-width(tablet) {
+		left: $size-20;
+		top: $size-10;
 	}
 
 	// Simple toggle for basic usage
 	.theme-toggle {
 		align-items: center;
 		background: var(--bg-surface);
-		border-radius: 8px;
-		box-shadow: 0 2px 8px var(--shadow-color);
+		border-radius: $size-8;
+		box-shadow: 0 $size-2 $size-8 var(--shadow-color);
 		color: var(--text-primary);
 		cursor: pointer;
 		display: flex;
 		font-size: 0.9rem;
-		font-weight: 500;
-		gap: 0.5rem;
-		padding: 0.5rem 1rem;
+		font-weight: $weight-medium;
+		gap: $size-8;
+		padding: $size-8 $size-16;
 		transition: all 0.3s ease;
 
 		&:hover {
 			border-color: var(--accent-color);
-			box-shadow: 0 4px 12px var(--shadow-color);
+			box-shadow: 0 $size-4 $size-12 var(--shadow-color);
 			transform: translateY(-1px);
 		}
 
 		.theme-label {
-			@media (max-width: 480px) {
+			@include max-width(mobile) {
 				display: none;
 			}
 		}
@@ -160,20 +175,20 @@ if (typeof document !== 'undefined') {
 		.menu-trigger {
 			align-items: center;
 			background: var(--bg-surface);
-			border-radius: 8px;
-			border: 2px solid var(--border-color);
-			box-shadow: 0 2px 8px var(--shadow-color);
+			border-radius: $size-8;
+			border: $size-2 solid var(--border-color);
+			box-shadow: 0 $size-2 $size-8 var(--shadow-color);
 			color: var(--text-primary);
 			cursor: pointer;
 			display: flex;
 			font-size: 0.9rem;
-			gap: 0.5rem;
-			padding: 0.5rem 1rem;
+			gap: $size-8;
+			padding: $size-8 $size-16;
 			transition: all 0.3s ease;
 
 			&:hover {
 				border-color: var(--accent-color);
-				box-shadow: 0 4px 12px var(--shadow-color);
+				box-shadow: 0 $size-4 $size-12 var(--shadow-color);
 				transform: translateY(-1px);
 			}
 
@@ -190,14 +205,14 @@ if (typeof document !== 'undefined') {
 		.menu-options {
 			animation: menuSlideIn 0.2s ease-out;
 			background: var(--bg-surface);
-			border-radius: 12px;
-			border: 2px solid var(--border-color);
-			box-shadow: 0 8px 32px var(--shadow-color);
+			border-radius: $size-12;
+			border: $size-2 solid var(--border-color);
+			box-shadow: 0 $size-8 $size-32 var(--shadow-color);
 			left: 0;
 			min-width: 160px;
 			overflow: hidden;
 			position: absolute;
-			top: calc(100% + 0.5rem);
+			top: calc(100% + $size-8);
 
 			.theme-option {
 				align-items: center;
@@ -207,8 +222,8 @@ if (typeof document !== 'undefined') {
 				cursor: pointer;
 				display: flex;
 				font-size: 0.9rem;
-				gap: 0.75rem;
-				padding: 0.75rem 1rem;
+				gap: $size-12;
+				padding: $size-12 $size-16;
 				transition: all 0.2s ease;
 				width: 100%;
 
@@ -220,7 +235,7 @@ if (typeof document !== 'undefined') {
 				&.active {
 					background: var(--accent-color-light);
 					color: var(--accent-color);
-					font-weight: 600;
+					font-weight: $weight-semibold;
 				}
 
 				&:not(:last-child) {
@@ -228,9 +243,9 @@ if (typeof document !== 'undefined') {
 				}
 
 				[data-ui="icon"]:first-child {
-					height: 16px;
+					height: $size-16;
 					text-align: center;
-					width: 16px;
+					width: $size-16;
 				}
 
 				span {
@@ -240,7 +255,7 @@ if (typeof document !== 'undefined') {
 				.system-indicator {
 					color: var(--text-secondary);
 					font-size: 0.8rem;
-					font-weight: normal;
+					font-weight: $weight-normal;
 				}
 
 				.check-icon {

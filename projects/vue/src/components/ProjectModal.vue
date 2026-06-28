@@ -199,16 +199,16 @@ const getBadgeType = (tech: string): BadgeType => {
 .modal-title {
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: $size-8;
 
 	.project-title {
 		color: var(--color-text);
-		font-size: 2rem;
-		font-weight: 700;
+		font-size: $size-32;
+		font-weight: $weight-bold;
 		line-height: 1.3;
 		margin: 0;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			font-size: 1.6rem;
 		}
 	}
@@ -216,25 +216,25 @@ const getBadgeType = (tech: string): BadgeType => {
 	.project-client {
 		color: var(--color-text-secondary);
 		font-size: 1.2rem;
-		font-weight: 600;
+		font-weight: $weight-semibold;
 		margin: 0;
 	}
 }
 
 .project-image-section {
-	margin-bottom: 2rem;
+	margin-bottom: $size-32;
 
 	.project-image-large {
 		align-items: center;
 		background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-		border-radius: 12px;
+		border-radius: $size-12;
 		display: flex;
 		height: 300px;
 		justify-content: center;
 		overflow: hidden;
 		position: relative;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			height: 200px;
 		}
 
@@ -255,30 +255,30 @@ const getBadgeType = (tech: string): BadgeType => {
 
 			[data-ui="icon"] {
 				display: block;
-				height: 4rem;
-				margin-bottom: 1rem;
-				width: 4rem;
+				height: $size-64;
+				margin-bottom: $size-16;
+				width: $size-64;
 
-				@media (max-width: 768px) {
-					height: 3rem;
-					width: 3rem;
+				@include max-width(tablet) {
+					height: $size-48;
+					width: $size-48;
 				}
 			}
 
 			span {
 				font-size: 1.2rem;
-				font-weight: 500;
+				font-weight: $weight-medium;
 
-				@media (max-width: 768px) {
-					font-size: 1rem;
+				@include max-width(tablet) {
+					font-size: $size-16;
 				}
 			}
 		}
 
 		.project-timeline-badge {
 			position: absolute;
-			right: 1rem;
-			top: 1rem;
+			right: $size-16;
+			top: $size-16;
 		}
 	}
 }
@@ -286,17 +286,17 @@ const getBadgeType = (tech: string): BadgeType => {
 .project-details {
 	.project-meta-grid {
 		display: grid;
-		gap: 1rem;
+		gap: $size-16;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		margin-bottom: 2rem;
+		margin-bottom: $size-32;
 
 		.meta-item {
 			background: var(--color-background);
 			border-radius: 8px;
 			display: flex;
 			flex-direction: column;
-			gap: 0.5rem;
-			padding: 1rem;
+			gap: $size-8;
+			padding: $size-16;
 
 			[data-ui="icon"] {
 				color: var(--color-text-secondary);
@@ -307,31 +307,31 @@ const getBadgeType = (tech: string): BadgeType => {
 			.meta-label {
 				color: var(--color-text);
 				font-size: 0.8rem;
-				font-weight: 500;
+				font-weight: $weight-medium;
 				letter-spacing: 0.5px;
 				text-transform: uppercase;
 			}
 
 			.meta-value {
 				color: var(--color-text);
-				font-weight: 600;
+				font-weight: $weight-semibold;
 			}
 		}
 	}
 
 	.technologies-section {
-		margin-bottom: 2rem;
+		margin-bottom: $size-32;
 
 		h3 {
 			color: var(--color-heading);
 			font-size: 1.3rem;
-			margin-bottom: 1rem;
+			margin-bottom: $size-16;
 		}
 
 		.technology-tags {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.75rem;
+			gap: $size-12;
 		}
 	}
 }

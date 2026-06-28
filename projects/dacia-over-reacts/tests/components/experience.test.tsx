@@ -88,6 +88,26 @@ describe('Experience Component', () => {
 
 		fireEvent.click(title)
 
-		expect(title.nextElementSibling!.querySelectorAll('.item')).toHaveLength(jobs[0].points.length)
+		const firstJob = jobs[0]
+		const expectedPoints = firstJob.groups
+			? firstJob.groups.reduce((total, group) => total + group.points.length, 0)
+			: (firstJob.points ?? []).length
+
+		expect(title.nextElementSibling!.querySelectorAll('.item')).toHaveLength(expectedPoints)
+	})
+
+	it('renders a sub-heading for each group of a grouped job', () => {
+		const { container } = render(<Experience />)
+		const title = container.querySelectorAll('.title')[0]
+
+		fireEvent.click(title)
+		const firstJob = jobs[0]
+		const groups = firstJob.groups ?? []
+		const headings = title.nextElementSibling!.querySelectorAll('.sub.header')
+
+		expect(headings).toHaveLength(groups.length)
+		groups.forEach((group, index) => {
+			expect(headings[index]).toHaveTextContent(group.title)
+		})
 	})
 })

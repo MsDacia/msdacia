@@ -42,11 +42,4 @@ describe('Education Component', () => {
 		expect(container).toHaveTextContent(education.minor)
 		expect(container).toHaveTextContent('Minor')
 	})
-
-	it('renders the specialization with its label', () => {
-		const { container } = render(<Education />)
-
-		expect(container).toHaveTextContent(education.specialization)
-		expect(container).toHaveTextContent('Specialization')
-	})
 })

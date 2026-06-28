@@ -18,10 +18,6 @@ export default function Education() {
 					{content.resume.education?.minor &&
 						<p>{content.resume.education.minor}<br /><em>Minor</em></p>
 					}
-
-					{content.resume.education?.specialization &&
-						<p>{content.resume.education.specialization}<br /><em>Specialization</em></p>
-					}
 				</div>
 			</div>
 		</div>

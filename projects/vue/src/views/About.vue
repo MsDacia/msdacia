@@ -38,67 +38,67 @@ const content = ref(contentData)
 .about {
 	margin: 0 auto;
 	max-width: 1200px;
-	padding: 0 1rem;
+	padding: 0 $size-16;
 
 	.about-intro {
 		background: var(--color-background);
-		border-radius: 16px;
-		margin-bottom: 3rem;
-		padding: 2rem;
+		border-radius: $size-16;
+		margin-bottom: $size-48;
+		padding: $size-32;
 
-		@media (max-width: 768px) {
-			padding: 1.5rem;
+		@include max-width(tablet) {
+			padding: $size-24;
 		}
 
 		h1 {
 			color: var(--color-heading);
-			font-size: 3rem;
-			font-weight: 700;
-			margin-bottom: 2rem;
+			font-size: $size-48;
+			font-weight: $weight-bold;
+			margin-bottom: $size-32;
 			text-align: center;
 
-			@media (max-width: 768px) {
+			@include max-width(tablet) {
 				font-size: 2.2rem;
 			}
 		}
 
 		.about-sections {
 			display: grid;
-			gap: 2rem;
+			gap: $size-32;
 
-			@media (min-width: 768px) {
+			@include min-width(tablet) {
 				grid-template-columns: 1fr;
 			}
 
 			.about-section {
 				background: var(--color-background);
-				border-left: 4px solid var(--color-text-secondary);
-				border-radius: 12px;
-				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-				padding: 1.5rem;
+				border-left: $size-4 solid var(--color-text-secondary);
+				border-radius: $size-12;
+				box-shadow: 0 $size-2 $size-10 rgba(0, 0, 0, 0.05);
+				padding: $size-24;
 
 				h3 {
 					color: var(--color-text-secondary);
 					font-size: 1.3rem;
-					font-weight: 600;
-					margin-bottom: 1rem;
+					font-weight: $weight-semibold;
+					margin-bottom: $size-16;
 				}
 
 				p {
 					color: var(--color-text);
-					font-size: 1rem;
+					font-size: $size-16;
 					line-height: 1.7;
 					margin: 0;
 
 					:deep(strong) {
 						color: var(--color-text);
-						font-weight: 700;
+						font-weight: $weight-bold;
 					}
 
 					:deep(a) {
 						color: var(--color-text-secondary);
 						text-decoration: none;
-						font-weight: 500;
+						font-weight: $weight-medium;
 
 						&:hover {
 							color: #369870;

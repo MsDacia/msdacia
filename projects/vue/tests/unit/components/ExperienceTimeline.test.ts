@@ -258,6 +258,48 @@ describe('ExperienceTimeline Component', () => {
 			expect(responsibilitiesHeader.exists()).toBe(true)
 			expect(responsibilitiesHeader.text()).toBe('Key Responsibilities & Achievements:')
 		})
+
+		it('renders grouped responsibilities with sub-headings when a job provides groups', async () => {
+			const groupedMockData = {
+				resume: {
+					experiences: {
+						title: 'Experience',
+						job: [{
+							company: 'Grouped Company',
+							date: '2020 to current',
+							groups: [
+								{
+									points: ['Led migration to TSX', 'Authored Vue 3 RFC'],
+									title: 'Architecture',
+								},
+								{
+									points: ['Converted Cypress to Playwright'],
+									title: 'Testing',
+								},
+							],
+							id: 1,
+							location: 'Remote',
+							title: 'Senior Engineer',
+						}],
+					},
+				},
+			}
+
+			const wrapper = mount(ExperienceTimeline)
+
+			wrapper.vm.content = groupedMockData as any
+			await wrapper.vm.$nextTick()
+
+			await wrapper.find(HEADER).trigger('click')
+
+			const groupTitles = wrapper.findAll('.responsibility-group-title')
+			expect(groupTitles).toHaveLength(2)
+			expect(groupTitles.at(0)?.text()).toBe('Architecture')
+			expect(groupTitles.at(1)?.text()).toBe('Testing')
+
+			// All points across every group are rendered
+			expect(wrapper.findAll('.responsibility-item')).toHaveLength(3)
+		})
 	})
 
 	describe('Timeline Visual Elements', () => {

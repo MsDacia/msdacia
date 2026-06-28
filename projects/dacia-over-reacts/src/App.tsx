@@ -14,6 +14,7 @@ import Footer from './pages/Footer'
 import Header, { MenuItem } from './pages/Header'
 import Home from './pages/Home'
 import Portfolio from './pages/Portfolio'
+import Resume from './pages/Resume'
 
 const menuItems: MenuItem[] = content.common.navigation ?? []
 
@@ -43,6 +44,9 @@ const AppContent = () => {
 							/>
 							<Route
 								element={<Portfolio />} path="/portfolio"
+							/>
+							<Route
+								element={<Resume />} path="/resume"
 							/>
 							<Route
 								element={<Home />} path="/"

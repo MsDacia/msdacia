@@ -25,8 +25,8 @@ describe('Resume Page', () => {
 		expect(headings.join(' ')).toContain(resume.skills.title)
 		expect(headings.join(' ')).toContain(resume.objective.title)
 		expect(headings.join(' ')).toContain(resume.experiences.title)
+		expect(headings.join(' ')).toContain(resume.projects.title)
 		expect(headings.join(' ')).toContain(resume.education.title)
-		expect(headings.join(' ')).toContain(resume.links.title)
 	})
 
 	it('composes the AdWork message', () => {
@@ -56,12 +56,20 @@ describe('Resume Page', () => {
 	it('composes the education card with the school name', () => {
 		const { container } = render(<Resume />)
 
-		expect(container.querySelector('.ui.card:not(.objective)')).toHaveTextContent(resume.education.school)
+		expect(container.querySelector('.ui.card .header')).toHaveTextContent(resume.education.school)
 	})
 
-	it('composes the links list with one item per category', () => {
+	it('composes the contact list with the email and one item per link', () => {
+		const { container } = render(<Resume />)
+		const items = container.querySelectorAll('.resume-contact .item')
+
+		expect(items).toHaveLength(resume.contact.links.length + 1)
+		expect(container.querySelector('.resume-contact')).toHaveTextContent(resume.contact.email)
+	})
+
+	it('composes the projects list with one item per category', () => {
 		const { container } = render(<Resume />)
 
-		expect(container.querySelectorAll('.ui.horizontal.list .item')).toHaveLength(resume.links.categories.length)
+		expect(container.querySelectorAll('.ui.card .ui.horizontal.list .item')).toHaveLength(resume.projects.categories.length)
 	})
 })

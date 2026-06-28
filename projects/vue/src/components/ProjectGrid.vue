@@ -152,18 +152,18 @@ const handleImageLoad = (projectId: number) => {
 <style lang="scss" scoped>
 .project-grid {
 	display: grid;
-	gap: 2rem;
+	gap: $size-32;
 
 	&.view-grid {
 		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			grid-template-columns: 1fr;
 		}
 	}
 
 	&.view-list {
-		gap: 1rem;
+		gap: $size-16;
 		grid-template-columns: 1fr;
 
 		.project-card {
@@ -171,7 +171,7 @@ const handleImageLoad = (projectId: number) => {
 				display: flex;
 				flex-direction: row;
 
-				@media (max-width: 768px) {
+				@include max-width(tablet) {
 					flex-direction: column;
 				}
 			}
@@ -181,7 +181,7 @@ const handleImageLoad = (projectId: number) => {
 				height: 150px;
 				width: 200px;
 
-				@media (max-width: 768px) {
+				@include max-width(tablet) {
 					height: 200px;
 					width: 100%;
 				}
@@ -226,14 +226,14 @@ const handleImageLoad = (projectId: number) => {
 
 				[data-ui="icon"] {
 					display: block;
-					height: 3rem;
-					margin-bottom: 0.5rem;
-					width: 3rem;
+					height: $size-48;
+					margin-bottom: $size-8;
+					width: $size-48;
 				}
 
 				span {
 					font-size: 0.9rem;
-					font-weight: 500;
+					font-weight: $weight-medium;
 					max-width: 90%;
 					word-wrap: break-word;
 				}
@@ -245,7 +245,7 @@ const handleImageLoad = (projectId: number) => {
 				display: flex;
 				justify-content: space-between;
 				left: 0;
-				padding: 1rem;
+				padding: $size-16;
 				pointer-events: none;
 				position: absolute;
 				right: 0;
@@ -256,23 +256,23 @@ const handleImageLoad = (projectId: number) => {
 		.project-content {
 			display: flex;
 			flex-direction: column;
-			padding: 1.5rem;
+			padding: $size-24;
 
 			.project-header {
-				margin-bottom: 1rem;
+				margin-bottom: $size-16;
 
 				.project-title {
 					color: var(--color-heading);
 					font-size: 1.2rem;
-					font-weight: 600;
+					font-weight: $weight-semibold;
 					line-height: 1.3;
-					margin: 0 0 0.5rem 0;
+					margin: 0 0 $size-8 0;
 				}
 
 				.project-client {
 					color: var(--color-text-secondary);
-					font-size: 1rem;
-					font-weight: 500;
+					font-size: $size-16;
+					font-weight: $weight-medium;
 					margin: 0;
 				}
 			}
@@ -280,18 +280,18 @@ const handleImageLoad = (projectId: number) => {
 			.project-tags {
 				display: flex;
 				flex-wrap: wrap;
-				gap: 0.5rem;
-				margin-bottom: 1rem;
+				gap: $size-8;
+				margin-bottom: $size-16;
 			}
 
 			.project-footer {
 				align-items: center;
 				display: flex;
-				gap: 1rem;
+				gap: $size-16;
 				justify-content: space-between;
 				margin-top: auto;
 
-				@media (max-width: 480px) {
+				@include max-width(mobile) {
 					align-items: stretch;
 					flex-direction: column;
 				}
@@ -299,9 +299,9 @@ const handleImageLoad = (projectId: number) => {
 				.project-meta {
 					display: flex;
 					flex-wrap: wrap;
-					gap: 1rem;
+					gap: $size-16;
 
-					@media (max-width: 480px) {
+					@include max-width(mobile) {
 						justify-content: center;
 					}
 
@@ -310,7 +310,7 @@ const handleImageLoad = (projectId: number) => {
 						color: var(--color-text);
 						display: flex;
 						font-size: 0.8rem;
-						gap: 0.25rem;
+						gap: $size-4;
 
 						[data-ui="icon"] {
 							color: var(--color-text-secondary);

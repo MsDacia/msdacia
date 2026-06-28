@@ -64,7 +64,7 @@ const getIconName = (semanticClass: string): string => {
 <style lang="scss" scoped>
 footer {
 	background: var(--color-background);
-	font-size: 1rem;
+	font-size: $size-16;
 	grid-area: footer;
 	text-align: center;
 
@@ -77,8 +77,8 @@ footer {
 		.social-link {
 			border-radius: 50%;
 			color: var(--color-text);
-			margin: 0 0.5rem 0.5rem 0;
-			padding: 0.5rem;
+			margin: 0 $size-8 $size-8 0;
+			padding: $size-8;
 			text-align: center;
 			text-decoration: none;
 			transition: all 0.3s ease;
@@ -117,14 +117,14 @@ footer {
 		color: var(--color-text);
 		margin: 0;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			font-size: 0.8rem;
-			margin-top: 0.5rem;
+			margin-top: $size-8;
 		}
 
 		.home-link {
 			color: var(--color-text-secondary);
-			margin-left: 0.25rem;
+			margin-left: $size-4;
 			text-decoration: none;
 			transition: color 0.3s ease;
 
@@ -137,7 +137,7 @@ footer {
 		.copyright-symbol {
 			color: var(--color-text);
 			font-size: 0.8rem;
-			margin-right: 0.25rem;
+			margin-right: $size-4;
 		}
 	}
 }

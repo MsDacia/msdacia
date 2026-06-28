@@ -31,7 +31,7 @@ defineExpose({
 	display: flex;
 	justify-content: center;
 	min-height: 80vh;
-	padding: 2rem;
+	padding: $size-32;
 
 	.hero-section {
 		max-width: 800px;
@@ -39,12 +39,12 @@ defineExpose({
 
 		.hero-title {
 			color: var(--color-heading);
-			font-size: 3.5rem;
-			font-weight: bold;
-			margin-bottom: 1rem;
+			font-size: $size-56;
+			font-weight: $weight-bold;
+			margin-bottom: $size-16;
 
-			@media (max-width: 768px) {
-				font-size: 2.5rem;
+			@include max-width(tablet) {
+				font-size: $size-40;
 			}
 		}
 
@@ -52,7 +52,7 @@ defineExpose({
 			color: var(--color-heading);
 			font-size: 1.2rem;
 			line-height: 1.6;
-			margin-bottom: 2rem;
+			margin-bottom: $size-32;
 
 			em {
 				color: var(--color-text-secondary);
@@ -62,39 +62,39 @@ defineExpose({
 
 		.tagline {
 			color: var(--color-text-secondary);
-			font-size: 2rem;
-			font-weight: 300;
-			margin-bottom: 3rem;
+			font-size: $size-32;
+			font-weight: $weight-light;
+			margin-bottom: $size-48;
 
-			@media (max-width: 768px) {
-				font-size: 1.5rem;
+			@include max-width(tablet) {
+				font-size: $size-24;
 			}
 		}
 
 		.quick-links {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 1rem;
+			gap: $size-16;
 			justify-content: center;
 
 			.cta-button {
 				background: var(--color-text-secondary);
-				border-radius: 8px;
+				border-radius: $size-8;
 				color: white;
-				font-weight: 500;
-				padding: 1rem 2rem;
+				font-weight: $weight-medium;
+				padding: $size-16 $size-32;
 				text-decoration: none;
 				transition: all 0.3s ease;
 
 				&:hover {
 					background: #369870;
-					box-shadow: 0 4px 12px rgba(66, 184, 131, 0.3);
+					box-shadow: 0 $size-4 $size-12 rgba(66, 184, 131, 0.3);
 					transform: translateY(-2px);
 				}
 
 				&.secondary {
 					background: transparent;
-					border: 2px solid var(--color-text-secondary);
+					border: $size-2 solid var(--color-text-secondary);
 					color: var(--color-text-secondary);
 
 					&:hover {

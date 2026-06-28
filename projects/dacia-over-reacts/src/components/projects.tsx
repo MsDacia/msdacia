@@ -1,17 +1,18 @@
 import content from '../media/json/static.en-us.json'
 
-export default function Links() {
+export default function Projects() {
 	return (
 		<div className="ui card">
 			<div className="ui horizontal list">
-				{content.resume.links.categories.map((link, index) =>
+				{content.resume.projects.categories.map((project, index) =>
 					<div
 						key={index} className="item"
 					>
 						<div className="content">
 							<a
-								href={link.url} target="_blank"
-							>{link.title}</a>
+								href={project.url} rel="noopener noreferrer"
+								target="_blank"
+							>{project.title}</a>
 						</div>
 					</div>
 				)}

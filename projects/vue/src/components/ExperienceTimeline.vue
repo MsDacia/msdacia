@@ -13,7 +13,7 @@
 
 		<div class="timeline">
 			<div
-				v-for="job in content.resume.experiences.job"
+				v-for="job in jobs"
 				:key="job.id"
 				class="timeline-item"
 				:class="{ 'expanded': expandedJob === job.id }"
@@ -47,7 +47,29 @@
 						<div class="responsibilities">
 							<h5>Key Responsibilities &amp; Achievements:</h5>
 
-							<ul class="responsibility-list">
+							<template v-if="job.groups && job.groups.length">
+								<div
+									v-for="group in job.groups"
+									:key="group.title"
+									class="responsibility-group"
+								>
+									<h6 class="responsibility-group-title">{{ group.title }}</h6>
+
+									<ul class="responsibility-list">
+										<li
+											v-for="(point, index) in group.points"
+											:key="index"
+											class="responsibility-item"
+											v-html="point"
+										/>
+									</ul>
+								</div>
+							</template>
+
+							<ul
+								v-else
+								class="responsibility-list"
+							>
 								<li
 									v-for="(point, index) in job.points"
 									:key="index"
@@ -64,13 +86,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { UIAccordion, UIHeading } from 'ui-components'
 import contentData from '../data/static.en-us.json'
+
+interface ExperienceGroup {
+	points: string[]
+	title: string
+}
+
+interface ExperienceJob {
+	company: string
+	date?: string
+	groups?: ExperienceGroup[]
+	id: number
+	location?: string
+	points?: string[]
+	title: string
+}
 
 // Reactive data using Composition API (Vue 3 way!)
 const content = ref(contentData)
 const expandedJob = ref<number | null>(null)
+
+// Jobs can list responsibilities flat (points) or grouped (groups); the
+// template renders whichever a given role provides.
+const jobs = computed(() => content.value.resume.experiences.job as unknown as ExperienceJob[])
 
 // Methods using Composition API
 const toggleJob = (jobId: number) => {
@@ -89,10 +130,10 @@ defineExpose({
 .experience-timeline {
 	margin: 0 auto;
 	max-width: 900px;
-	padding: 2rem;
+	padding: $size-32;
 
 	.timeline-header {
-		margin-bottom: 3rem;
+		margin-bottom: $size-48;
 		text-align: center;
 
 		.timeline-subtitle {
@@ -116,50 +157,50 @@ defineExpose({
 			top: 0;
 			width: 3px;
 
-			@media (max-width: 768px) {
-				left: 20px;
+			@include max-width(tablet) {
+				left: $size-20;
 			}
 		}
 	}
 
 	.timeline-item {
-		margin-bottom: 2rem;
+		margin-bottom: $size-32;
 		padding-left: 80px;
 		position: relative;
 
-		@media (max-width: 768px) {
+		@include max-width(tablet) {
 			padding-left: 60px;
 		}
 
 		.timeline-marker {
 			background: var(--color-text-secondary);
 			border-radius: 50%;
-			border: 4px solid var(--color-border);
-			box-shadow: 0 2px 10px rgba(66, 184, 131, 0.3);
-			height: 24px;
-			left: 18px;
+			border: $size-4 solid var(--color-border);
+			box-shadow: 0 $size-2 $size-10 rgba(66, 184, 131, 0.3);
+			height: $size-24;
+			left: $size-18;
 			position: absolute;
-			top: 24px;
-			width: 24px;
+			top: $size-24;
+			width: $size-24;
 			z-index: 2;
 
-			@media (max-width: 768px) {
-				height: 20px;
-				left: 8px;
-				width: 20px;
+			@include max-width(tablet) {
+				height: $size-20;
+				left: $size-8;
+				width: $size-20;
 			}
 		}
 
 		.job-header {
 			align-items: flex-start;
 			display: flex;
-			gap: 1rem;
+			gap: $size-16;
 			justify-content: space-between;
 			width: 100%;
 
-			@media (max-width: 768px) {
+			@include max-width(tablet) {
 				flex-direction: column;
-				gap: 1rem;
+				gap: $size-16;
 			}
 
 			.job-title-section {
@@ -169,20 +210,20 @@ defineExpose({
 				.job-title {
 					color: var(--color-text);
 					font-size: 1.3rem;
-					font-weight: 600;
+					font-weight: $weight-semibold;
 					line-height: 1.3;
-					margin: 0 0 0.5rem 0;
+					margin: 0 0 $size-8 0;
 				}
 
 				.company-info {
 					display: flex;
 					flex-direction: column;
-					gap: 0.25rem;
+					gap: $size-4;
 
 					.company-name {
 						color: var(--color-text-secondary);
 						font-size: 1.1rem;
-						font-weight: 500;
+						font-weight: $weight-medium;
 						margin: 0;
 					}
 
@@ -197,12 +238,12 @@ defineExpose({
 			.job-meta {
 				align-items: center;
 				display: flex;
-				gap: 1rem;
+				gap: $size-16;
 
 				.job-date {
 					color: var(--color-text);
 					font-size: 0.9rem;
-					font-weight: 500;
+					font-weight: $weight-medium;
 					white-space: nowrap;
 				}
 			}
@@ -212,9 +253,24 @@ defineExpose({
 			.responsibilities {
 				h5 {
 					color: var(--color-heading);
-					font-size: 1rem;
-					font-weight: 600;
-					margin: 0 0 1rem 0;
+					font-size: $size-16;
+					font-weight: $weight-semibold;
+					margin: 0 0 $size-16 0;
+				}
+
+				.responsibility-group {
+					margin-bottom: $size-16;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+
+					.responsibility-group-title {
+						color: var(--color-text-secondary);
+						font-size: 0.95rem;
+						font-weight: $weight-semibold;
+						margin: 0 0 $size-4 0;
+					}
 				}
 
 				.responsibility-list {
@@ -226,7 +282,7 @@ defineExpose({
 						border-bottom: 1px solid var(--color-border);
 						color: var(--color-text);
 						line-height: 1.6;
-						padding: 0.5rem 0 0.5rem 1.5rem;
+						padding: $size-8 0 $size-8 $size-24;
 						position: relative;
 
 						&:last-child {
@@ -236,15 +292,15 @@ defineExpose({
 						&::before {
 							color: var(--color-text-secondary);
 							content: '▸';
-							font-weight: bold;
+							font-weight: $weight-bold;
 							left: 0;
 							position: absolute;
-							top: 0.5rem;
+							top: $size-8;
 						}
 
 						&:hover {
 							background: rgba(66, 184, 131, 0.02);
-							border-radius: 4px;
+							border-radius: $size-4;
 						}
 					}
 				}
@@ -254,15 +310,15 @@ defineExpose({
 }
 
 // Enhanced responsive design
-@media (max-width: 768px) {
+@include max-width(tablet) {
 	.experience-timeline {
-		padding: 1rem;
+		padding: $size-16;
 
 		.timeline-header {
-			margin-bottom: 2rem;
+			margin-bottom: $size-32;
 
 			.timeline-subtitle {
-				font-size: 1rem;
+				font-size: $size-16;
 			}
 		}
 	}
