@@ -5,6 +5,10 @@
 	"author": "Dacia Rodrigue <msdessin@gmail.com>",
 	"private": true,
 	"type": "module",
+	"engines": {
+		"node": ">=24",
+		"npm": ">=11"
+	},
 	"scripts": {
 		"build-only": "vite build",
 		"build": "run-p type-check \"build-only {@}\" --",
@@ -25,7 +29,7 @@
 	},
 	"dependencies": {
 		"pinia": "3.0.4",
-		"ui-components": "npm:@davidanddacia/ui-components@0.0.117",
+		"ui-components": "npm:@davidanddacia/ui-components@0.0.119",
 		"vue": "3.5.31",
 		"vue-router": "4.6.4"
 	},
