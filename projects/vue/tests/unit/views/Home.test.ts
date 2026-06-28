@@ -38,8 +38,8 @@ describe('Home View', () => {
 				},
 			})
 
-			expect(wrapper.find('.home').exists()).toBe(true)
-			expect(wrapper.find('.hero-section').exists()).toBe(true)
+			expect(wrapper.find('[data-test="home"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="hero-section"]').exists()).toBe(true)
 		})
 
 		it('displays the correct title and content', () => {
@@ -49,10 +49,10 @@ describe('Home View', () => {
 				},
 			})
 
-			expect(wrapper.find('.hero-title').text()).toBe('MsDacia')
-			expect(wrapper.find('.hero-subtitle').text()).toContain('pronounced')
-			expect(wrapper.find('.hero-subtitle').text()).toContain('day-sha')
-			expect(wrapper.find('.tagline').text()).toBe('I am here. This is who I am. I am Dacia.')
+			expect(wrapper.find('[data-test="hero-title"]').text()).toBe('MsDacia')
+			expect(wrapper.find('[data-test="hero-subtitle"]').text()).toContain('pronounced')
+			expect(wrapper.find('[data-test="hero-subtitle"]').text()).toContain('day-sha')
+			expect(wrapper.find('[data-test="tagline"]').text()).toBe('I am here. This is who I am. I am Dacia.')
 		})
 
 		it('highlights the pronunciation in the subtitle', () => {
@@ -62,7 +62,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const subtitle = wrapper.find('.hero-subtitle')
+			const subtitle = wrapper.find('[data-test="hero-subtitle"]')
 			const emphasis = subtitle.find('em')
 
 			expect(emphasis.exists()).toBe(true)
@@ -78,7 +78,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const ctaButtons = wrapper.findAll('.cta-button')
+			const ctaButtons = wrapper.findAll('[data-test="cta-button"]')
 			expect(ctaButtons).toHaveLength(2)
 
 			expect(ctaButtons[0].text()).toBe('Learn About Me')
@@ -92,7 +92,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const ctaButtons = wrapper.findAll('.cta-button')
+			const ctaButtons = wrapper.findAll('[data-test="cta-button"]')
 
 			expect(ctaButtons[0].attributes('href')).toBe('/about')
 			expect(ctaButtons[1].attributes('href')).toBe('/portfolio')
@@ -105,7 +105,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const ctaButtons = wrapper.findAll('.cta-button')
+			const ctaButtons = wrapper.findAll('[data-test="cta-button"]')
 
 			expect(ctaButtons[0].classes()).toContain('cta-button')
 			expect(ctaButtons[0].classes()).not.toContain('secondary')
@@ -123,7 +123,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const aboutButton = wrapper.find('.cta-button[href="/about"]')
+			const aboutButton = wrapper.find('[data-test="cta-button"][href="/about"]')
 			await aboutButton.trigger('click')
 
 			await flushPromises()
@@ -137,7 +137,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const portfolioButton = wrapper.find('.cta-button[href="/portfolio"]')
+			const portfolioButton = wrapper.find('[data-test="cta-button"][href="/portfolio"]')
 			await portfolioButton.trigger('click')
 
 			await flushPromises()
@@ -158,7 +158,7 @@ describe('Home View', () => {
 			expect(wrapper.find('h2').exists()).toBe(true)
 
 			// Main content should be wrapped in a div with home class
-			expect(wrapper.find('.home').element.tagName).toBe('DIV')
+			expect(wrapper.find('[data-test="home"]').element.tagName).toBe('DIV')
 		})
 
 		it('has the correct heading hierarchy', () => {
@@ -189,8 +189,8 @@ describe('Home View', () => {
 			})
 
 			// Check that responsive classes exist (actual responsive behavior tested in E2E)
-			expect(wrapper.find('.hero-section').exists()).toBe(true)
-			expect(wrapper.find('.quick-links').exists()).toBe(true)
+			expect(wrapper.find('[data-test="hero-section"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="quick-links"]').exists()).toBe(true)
 		})
 
 		it('maintains proper layout structure for mobile', () => {
@@ -201,7 +201,7 @@ describe('Home View', () => {
 			})
 
 			// Quick links should flex-wrap for mobile responsiveness
-			const quickLinks = wrapper.find('.quick-links')
+			const quickLinks = wrapper.find('[data-test="quick-links"]')
 			expect(quickLinks.exists()).toBe(true)
 		})
 	})
@@ -231,7 +231,7 @@ describe('Home View', () => {
 			wrapper.vm.content.common.global.title = 'New Title'
 			await wrapper.vm.$nextTick()
 
-			expect(wrapper.find('.hero-title').text()).toBe('New Title')
+			expect(wrapper.find('[data-test="hero-title"]').text()).toBe('New Title')
 
 			// Restore so the shared mock data does not leak into other tests
 			wrapper.vm.content.common.global.title = originalTitle
@@ -247,12 +247,12 @@ describe('Home View', () => {
 			})
 
 			// All text content should be meaningful
-			expect(wrapper.find('.hero-title').text().trim()).toBeTruthy()
-			expect(wrapper.find('.hero-subtitle').text().trim()).toBeTruthy()
-			expect(wrapper.find('.tagline').text().trim()).toBeTruthy()
+			expect(wrapper.find('[data-test="hero-title"]').text().trim()).toBeTruthy()
+			expect(wrapper.find('[data-test="hero-subtitle"]').text().trim()).toBeTruthy()
+			expect(wrapper.find('[data-test="tagline"]').text().trim()).toBeTruthy()
 
 			// Button text should be descriptive
-			const buttons = wrapper.findAll('.cta-button')
+			const buttons = wrapper.findAll('[data-test="cta-button"]')
 			buttons.forEach(button => {
 				expect(button.text().trim()).toBeTruthy()
 				expect(button.text().length).toBeGreaterThan(5) // Meaningful button text
@@ -266,7 +266,7 @@ describe('Home View', () => {
 				},
 			})
 
-			const ctaButtons = wrapper.findAll('.cta-button')
+			const ctaButtons = wrapper.findAll('[data-test="cta-button"]')
 			ctaButtons.forEach(button => {
 				// Vue Router converts router-link to anchor tags
 				expect(['A', 'ROUTER-LINK']).toContain(button.element.tagName)
@@ -320,12 +320,12 @@ describe('Home View', () => {
 			})
 
 			// Check for key styling classes
-			expect(wrapper.find('.hero-section').exists()).toBe(true)
-			expect(wrapper.find('.hero-subtitle').exists()).toBe(true)
-			expect(wrapper.find('.hero-title').exists()).toBe(true)
-			expect(wrapper.find('.home').exists()).toBe(true)
-			expect(wrapper.find('.quick-links').exists()).toBe(true)
-			expect(wrapper.find('.tagline').exists()).toBe(true)
+			expect(wrapper.find('[data-test="hero-section"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="hero-subtitle"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="hero-title"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="home"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="quick-links"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="tagline"]').exists()).toBe(true)
 		})
 
 		it('emphasizes key content appropriately', () => {
@@ -336,11 +336,11 @@ describe('Home View', () => {
 			})
 
 			// Pronunciation should be emphasized
-			const emphasis = wrapper.find('.hero-subtitle em')
+			const emphasis = wrapper.find('[data-test="hero-subtitle"] em')
 			expect(emphasis.exists()).toBe(true)
 
 			// Primary CTA should not have secondary class
-			const primaryCta = wrapper.findAll('.cta-button').find(button =>
+			const primaryCta = wrapper.findAll('[data-test="cta-button"]').find(button =>
 				!button.classes().includes('secondary'),
 			)
 			expect(primaryCta).toBeTruthy()
@@ -357,7 +357,7 @@ describe('Home View', () => {
 			})
 
 			// Component should still render without crashing
-			expect(wrapper.find('.home').exists()).toBe(true)
+			expect(wrapper.find('[data-test="home"]').exists()).toBe(true)
 		})
 	})
 
@@ -392,7 +392,7 @@ describe('Home View', () => {
 				},
 			})
 
-			expect(wrapper.find('.hero-title').text()).toBe('MsDacia')
+			expect(wrapper.find('[data-test="hero-title"]').text()).toBe('MsDacia')
 		})
 
 		it('maintains state during navigation', async () => {
@@ -402,14 +402,14 @@ describe('Home View', () => {
 				},
 			})
 
-			const initialTitle = wrapper.find('.hero-title').text()
+			const initialTitle = wrapper.find('[data-test="hero-title"]').text()
 
 			// Navigate away and back
 			await router.push('/about')
 			await router.push('/')
 			await wrapper.vm.$nextTick()
 
-			expect(wrapper.find('.hero-title').text()).toBe(initialTitle)
+			expect(wrapper.find('[data-test="hero-title"]').text()).toBe(initialTitle)
 		})
 	})
 })

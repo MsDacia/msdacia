@@ -67,32 +67,32 @@ describe('ExperienceTimeline Component', () => {
 		it('renders timeline header correctly', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			expect(wrapper.find('.timeline-header h2').text()).toBe('Experience')
-			expect(wrapper.find('.timeline-subtitle').text()).toBe('My professional journey in front-end development')
+			expect(wrapper.find('[data-test="timeline-header"] h2').text()).toBe('Experience')
+			expect(wrapper.find('[data-test="timeline-subtitle"]').text()).toBe('My professional journey in front-end development')
 		})
 
 		it('renders all timeline items', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const timelineItems = wrapper.findAll('.timeline-item')
+			const timelineItems = wrapper.findAll('[data-test="timeline-item"]')
 			expect(timelineItems).toHaveLength(3)
 		})
 
 		it('displays job information correctly', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstJob = wrapper.findAll('.timeline-item').at(0)
+			const firstJob = wrapper.findAll('[data-test="timeline-item"]').at(0)
 
-			expect(firstJob?.find('.job-title').text()).toBe('Senior Frontend Developer')
-			expect(firstJob?.find('.company-name').text()).toBe('Test Company A')
-			expect(firstJob?.find('.job-location').text()).toBe('Remote')
-			expect(firstJob?.find('.job-date').text()).toBe('01/2020 to 12/2022')
+			expect(firstJob?.find('[data-test="job-title"]').text()).toBe('Senior Frontend Developer')
+			expect(firstJob?.find('[data-test="company-name"]').text()).toBe('Test Company A')
+			expect(firstJob?.find('[data-test="job-location"]').text()).toBe('Remote')
+			expect(firstJob?.find('[data-test="job-date"]').text()).toBe('01/2020 to 12/2022')
 		})
 
 		it('renders timeline markers', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const markers = wrapper.findAll('.timeline-marker')
+			const markers = wrapper.findAll('[data-test="timeline-marker"]')
 			expect(markers).toHaveLength(3)
 		})
 
@@ -182,7 +182,7 @@ describe('ExperienceTimeline Component', () => {
 		it('adds expanded class to timeline item when job is expanded', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstTimelineItem = wrapper.findAll('.timeline-item').at(0)
+			const firstTimelineItem = wrapper.findAll('[data-test="timeline-item"]').at(0)
 
 			// Initially not expanded
 			expect(firstTimelineItem?.classes()).not.toContain('expanded')
@@ -191,7 +191,7 @@ describe('ExperienceTimeline Component', () => {
 			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
 			// Timeline item should have expanded class
-			expect(wrapper.findAll('.timeline-item').at(0)?.classes()).toContain('expanded')
+			expect(wrapper.findAll('[data-test="timeline-item"]').at(0)?.classes()).toContain('expanded')
 		})
 	})
 
@@ -199,11 +199,11 @@ describe('ExperienceTimeline Component', () => {
 		it('displays responsibility points when job is expanded', async () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const firstItem = wrapper.findAll('.timeline-item').at(0)
+			const firstItem = wrapper.findAll('[data-test="timeline-item"]').at(0)
 			await firstItem?.find(HEADER).trigger('click')
 
 			// Accordion content stays mounted, so scope to the first job's responsibilities
-			const responsibilityItems = firstItem!.findAll('.responsibility-item')
+			const responsibilityItems = firstItem!.findAll('[data-test="responsibility-item"]')
 			expect(responsibilityItems).toHaveLength(3)
 
 			expect(responsibilityItems.at(0)?.text()).toContain('Developed modern web applications')
@@ -242,7 +242,7 @@ describe('ExperienceTimeline Component', () => {
 
 			await wrapper.find(HEADER).trigger('click')
 
-			const responsibilityItems = wrapper.findAll('.responsibility-item')
+			const responsibilityItems = wrapper.findAll('[data-test="responsibility-item"]')
 
 			// Check that HTML is rendered (v-html directive)
 			expect(responsibilityItems.at(0)?.html()).toContain('<strong>Vue.js</strong>')
@@ -254,7 +254,7 @@ describe('ExperienceTimeline Component', () => {
 
 			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
-			const responsibilitiesHeader = wrapper.find('.responsibilities h5')
+			const responsibilitiesHeader = wrapper.find('[data-test="responsibilities"] h5')
 			expect(responsibilitiesHeader.exists()).toBe(true)
 			expect(responsibilitiesHeader.text()).toBe('Key Responsibilities & Achievements:')
 		})
@@ -292,13 +292,13 @@ describe('ExperienceTimeline Component', () => {
 
 			await wrapper.find(HEADER).trigger('click')
 
-			const groupTitles = wrapper.findAll('.responsibility-group-title')
+			const groupTitles = wrapper.findAll('[data-test="responsibility-group-title"]')
 			expect(groupTitles).toHaveLength(2)
 			expect(groupTitles.at(0)?.text()).toBe('Architecture')
 			expect(groupTitles.at(1)?.text()).toBe('Testing')
 
 			// All points across every group are rendered
-			expect(wrapper.findAll('.responsibility-item')).toHaveLength(3)
+			expect(wrapper.findAll('[data-test="responsibility-item"]')).toHaveLength(3)
 		})
 	})
 
@@ -306,15 +306,15 @@ describe('ExperienceTimeline Component', () => {
 		it('creates timeline structure with proper CSS classes', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			expect(wrapper.find('.timeline').exists()).toBe(true)
-			expect(wrapper.findAll('.timeline-item')).toHaveLength(3)
-			expect(wrapper.findAll('.timeline-marker')).toHaveLength(3)
+			expect(wrapper.find('[data-test="timeline"]').exists()).toBe(true)
+			expect(wrapper.findAll('[data-test="timeline-item"]')).toHaveLength(3)
+			expect(wrapper.findAll('[data-test="timeline-marker"]')).toHaveLength(3)
 		})
 
 		it('renders job cards as accordions', () => {
 			const wrapper = mount(ExperienceTimeline)
 
-			const jobCards = wrapper.findAll('.job-card')
+			const jobCards = wrapper.findAll('[data-test="job-card"]')
 			expect(jobCards).toHaveLength(3)
 			jobCards.forEach(card => {
 				expect(card.classes()).toContain('ui-accordion')
@@ -338,7 +338,7 @@ describe('ExperienceTimeline Component', () => {
 			wrapper.vm.content.resume.experiences.title = 'Work History'
 			await wrapper.vm.$nextTick()
 
-			expect(wrapper.find('.timeline-header h2').text()).toBe('Work History')
+			expect(wrapper.find('[data-test="timeline-header"] h2').text()).toBe('Work History')
 		})
 
 		it('handles jobs array correctly', () => {
@@ -407,9 +407,9 @@ describe('ExperienceTimeline Component', () => {
 			const wrapper = mount(ExperienceTimeline)
 
 			// All text content should be meaningful
-			const jobTitles = wrapper.findAll('.job-title')
-			const companyNames = wrapper.findAll('.company-name')
-			const dates = wrapper.findAll('.job-date')
+			const jobTitles = wrapper.findAll('[data-test="job-title"]')
+			const companyNames = wrapper.findAll('[data-test="company-name"]')
+			const dates = wrapper.findAll('[data-test="job-date"]')
 
 			jobTitles.forEach(title => {
 				expect(title.text().trim()).toBeTruthy()
@@ -441,11 +441,11 @@ describe('ExperienceTimeline Component', () => {
 			await wrapper.findAll(HEADER).at(0)?.trigger('click')
 
 			// Should create proper list structure
-			const responsibilityList = wrapper.find('.responsibility-list')
+			const responsibilityList = wrapper.find('[data-test="responsibility-list"]')
 			expect(responsibilityList.exists()).toBe(true)
 			expect(responsibilityList.element.tagName).toBe('UL')
 
-			const listItems = wrapper.findAll('.responsibility-item')
+			const listItems = wrapper.findAll('[data-test="responsibility-item"]')
 			listItems.forEach(item => {
 				expect(item.element.tagName).toBe('LI')
 			})
@@ -469,8 +469,8 @@ describe('ExperienceTimeline Component', () => {
 			wrapper.vm.content = emptyJobsData as any
 			await wrapper.vm.$nextTick()
 
-			expect(wrapper.findAll('.timeline-item')).toHaveLength(0)
-			expect(wrapper.find('.timeline-header').exists()).toBe(true)
+			expect(wrapper.findAll('[data-test="timeline-item"]')).toHaveLength(0)
+			expect(wrapper.find('[data-test="timeline-header"]').exists()).toBe(true)
 		})
 
 		it('handles jobs with empty points array', async () => {
@@ -497,8 +497,8 @@ describe('ExperienceTimeline Component', () => {
 
 			await wrapper.find(HEADER).trigger('click')
 
-			expect(wrapper.findAll('.responsibility-item')).toHaveLength(0)
-			expect(wrapper.find('.responsibility-list').exists()).toBe(true)
+			expect(wrapper.findAll('[data-test="responsibility-item"]')).toHaveLength(0)
+			expect(wrapper.find('[data-test="responsibility-list"]').exists()).toBe(true)
 		})
 
 		it('handles missing job properties gracefully', async () => {
@@ -523,9 +523,9 @@ describe('ExperienceTimeline Component', () => {
 			await wrapper.vm.$nextTick()
 
 			// Component should still render without crashing
-			expect(wrapper.find('.timeline-item').exists()).toBe(true)
-			expect(wrapper.find('.job-title').text()).toBe('Developer')
-			expect(wrapper.find('.company-name').text()).toBe('Test Company')
+			expect(wrapper.find('[data-test="timeline-item"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="job-title"]').text()).toBe('Developer')
+			expect(wrapper.find('[data-test="company-name"]').text()).toBe('Test Company')
 		})
 	})
 
@@ -554,7 +554,7 @@ describe('ExperienceTimeline Component', () => {
 			wrapper.vm.content = largeDatSet as any
 			await wrapper.vm.$nextTick()
 
-			expect(wrapper.findAll('.timeline-item')).toHaveLength(20)
+			expect(wrapper.findAll('[data-test="timeline-item"]')).toHaveLength(20)
 			expect(wrapper.vm).toBeTruthy() // Component should render without issues
 		})
 
@@ -576,9 +576,9 @@ describe('ExperienceTimeline Component', () => {
 			const wrapper = mount(ExperienceTimeline)
 
 			// Check that responsive elements exist (actual responsive behavior tested in E2E)
-			expect(wrapper.find('.experience-timeline').exists()).toBe(true)
-			expect(wrapper.find('.timeline').exists()).toBe(true)
-			expect(wrapper.findAll('.timeline-item').length).toBeGreaterThan(0)
+			expect(wrapper.find('[data-test="experience-timeline"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="timeline"]').exists()).toBe(true)
+			expect(wrapper.findAll('[data-test="timeline-item"]').length).toBeGreaterThan(0)
 		})
 	})
 })

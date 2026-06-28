@@ -9,18 +9,20 @@
 				target="_blank"
 				@click="handleSocialClick(social.title)"
 				class="social-link"
+				data-test="social-link"
 			>
 				<UIIcon :icon="getIconName(social.icon)" />
 			</a>
 		</div>
 
-		<p id="copyright">
-			<span class="copyright-symbol">&copy;</span>
+		<p id="copyright" data-test="copyright">
+			<span class="copyright-symbol" data-test="copyright-symbol">&copy;</span>
 			{{ content.common.copyright.content }}
 			<a
 				:href="content.common.global.url"
 				@click="handleHomeClick(content.common.global.title)"
 				class="home-link"
+				data-test="home-link"
 			>
 				{{ content.common.global.title }}
 			</a>

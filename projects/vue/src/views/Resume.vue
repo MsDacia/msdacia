@@ -1,10 +1,10 @@
 <template>
-	<div class="resume">
+	<div class="resume" data-test="resume">
 		<div class="resume-intro">
 			<h1>{{ content.resume.title }}</h1>
-			<p class="resume-address">{{ content.resume.address }}</p>
+			<p class="resume-address" data-test="resume-address">{{ content.resume.address }}</p>
 
-			<ul class="resume-contact">
+			<ul class="resume-contact" data-test="resume-contact">
 				<li>
 					<a :href="`mailto:${content.resume.contact.email}`">{{ content.resume.contact.email }}</a>
 				</li>
@@ -21,14 +21,14 @@
 			</ul>
 		</div>
 
-		<section class="resume-section resume-objective">
+		<section class="resume-section resume-objective" data-test="resume-objective">
 			<h3>{{ content.resume.objective.title }}</h3>
-			<p class="objective-headline">{{ content.resume.objective.headline }}</p>
-			<p class="objective-subtitle">{{ content.resume.objective.subtitle }}</p>
+			<p class="objective-headline" data-test="objective-headline">{{ content.resume.objective.headline }}</p>
+			<p class="objective-subtitle" data-test="objective-subtitle">{{ content.resume.objective.subtitle }}</p>
 			<p>{{ content.resume.objective.copy }}</p>
 		</section>
 
-		<section class="resume-section resume-skills">
+		<section class="resume-section resume-skills" data-test="resume-skills">
 			<h3>{{ content.resume.skills.title }}</h3>
 
 			<div class="skills-grid">
@@ -36,6 +36,7 @@
 					v-for="skill in content.resume.skills.categories"
 					:key="skill.title"
 					class="skill-category"
+					data-test="skill-category"
 				>
 					<h4>{{ skill.title }}</h4>
 					<p>{{ skill.copy }}</p>
@@ -46,10 +47,10 @@
 		<!-- Professional Experience Timeline (shared with the About view) -->
 		<ExperienceTimeline />
 
-		<section class="resume-section resume-projects">
+		<section class="resume-section resume-projects" data-test="resume-projects">
 			<h3>{{ content.resume.projects.title }}</h3>
 
-			<ul class="projects-list">
+			<ul class="projects-list" data-test="projects-list">
 				<li
 					v-for="project in content.resume.projects.categories"
 					:key="project.title"
@@ -63,7 +64,7 @@
 			</ul>
 		</section>
 
-		<section class="resume-section resume-education">
+		<section class="resume-section resume-education" data-test="resume-education">
 			<h3>{{ content.resume.education.title }}</h3>
 
 			<div class="education-card">

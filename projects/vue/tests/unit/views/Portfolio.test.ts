@@ -103,25 +103,25 @@ describe('Portfolio View', () => {
 	describe('Component Initialization', () => {
 		it('renders portfolio header correctly', () => {
 			expect(wrapper.find('h1').text()).toBe('Portfolio')
-			expect(wrapper.find('.portfolio-description').text()).toBe('Browse my gallery of projects.')
+			expect(wrapper.find('[data-test="portfolio-description"]').text()).toBe('Browse my gallery of projects.')
 		})
 
 		it('displays portfolio statistics correctly', () => {
-			const statItems = wrapper.findAll('.stat-item')
+			const statItems = wrapper.findAll('[data-test="stat-item"]')
 			expect(statItems).toHaveLength(4)
 
 			// Check stat values
-			expect(statItems[0].find('.stat-number').text()).toBe('4') // Total projects
-			expect(statItems[0].find('.stat-label').text()).toBe('Projects')
+			expect(statItems[0].find('[data-test="stat-number"]').text()).toBe('4') // Total projects
+			expect(statItems[0].find('[data-test="stat-label"]').text()).toBe('Projects')
 
-			expect(statItems[1].find('.stat-number').text()).toBe('3') // Unique clients
-			expect(statItems[1].find('.stat-label').text()).toBe('Clients')
+			expect(statItems[1].find('[data-test="stat-number"]').text()).toBe('3') // Unique clients
+			expect(statItems[1].find('[data-test="stat-label"]').text()).toBe('Clients')
 
-			expect(statItems[2].find('.stat-number').text()).toBe('3') // Year range (2022-2024)
-			expect(statItems[2].find('.stat-label').text()).toBe('Years')
+			expect(statItems[2].find('[data-test="stat-number"]').text()).toBe('3') // Year range (2022-2024)
+			expect(statItems[2].find('[data-test="stat-label"]').text()).toBe('Years')
 
-			expect(statItems[3].find('.stat-number').text()).toBe('10') // Unique technologies
-			expect(statItems[3].find('.stat-label').text()).toBe('Technologies')
+			expect(statItems[3].find('[data-test="stat-number"]').text()).toBe('10') // Unique technologies
+			expect(statItems[3].find('[data-test="stat-label"]').text()).toBe('Technologies')
 		})
 
 		it('initializes with correct default state', () => {
@@ -135,7 +135,7 @@ describe('Portfolio View', () => {
 
 	describe('Search Functionality', () => {
 		it('filters projects by search query', async () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 
 			await searchInput.setValue('Vue')
 
@@ -150,7 +150,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('searches across project names, clients, and tags', async () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 
 			// Search by client name
 			await searchInput.setValue('Client A')
@@ -166,29 +166,29 @@ describe('Portfolio View', () => {
 		})
 
 		it('shows clear search button when search query exists', async () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 
 			// Initially no clear button
-			expect(wrapper.find('.clear-search').exists()).toBe(false)
+			expect(wrapper.find('[data-test="clear-search"]').exists()).toBe(false)
 
 			await searchInput.setValue('Vue')
 
 			// Clear button should appear
-			expect(wrapper.find('.clear-search').exists()).toBe(true)
+			expect(wrapper.find('[data-test="clear-search"]').exists()).toBe(true)
 		})
 
 		it('clears search when clear button is clicked', async () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 
 			await searchInput.setValue('Vue')
 			expect(wrapper.vm.searchQuery).toBe('Vue')
 
-			await wrapper.find('.clear-search').trigger('click')
+			await wrapper.find('[data-test="clear-search"]').trigger('click')
 			expect(wrapper.vm.searchQuery).toBe('')
 		})
 
 		it('performs case-insensitive search', async () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 
 			await searchInput.setValue('vue')
 
@@ -201,7 +201,7 @@ describe('Portfolio View', () => {
 
 	describe('Tag Filtering', () => {
 		it('displays popular tags correctly', () => {
-			const tagFilters = wrapper.findAll('.filter-tag:not(.all-tag)')
+			const tagFilters = wrapper.findAll('[data-test="filter-tag"]')
 
 			// Should show first 12 tags (or all if fewer)
 			expect(tagFilters.length).toBeLessThanOrEqual(12)
@@ -211,7 +211,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('filters projects by selected tag', async () => {
-			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
+			const vueTag = wrapper.findAll('[data-test="filter-tag"]').find((tag: any) =>
 				tag.text().includes('Vue'),
 			)
 
@@ -228,13 +228,13 @@ describe('Portfolio View', () => {
 
 		it('shows all projects when "All Projects" is selected', async () => {
 			// First select a tag
-			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
+			const vueTag = wrapper.findAll('[data-test="filter-tag"]').find((tag: any) =>
 				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
 			// Then click "All Projects"
-			const allTag = wrapper.find('.all-tag')
+			const allTag = wrapper.find('[data-test="filter-tag-all"]')
 			await allTag.trigger('click')
 
 			expect(wrapper.vm.selectedTag).toBe('')
@@ -246,7 +246,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('shows active state for selected tag', async () => {
-			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
+			const vueTag = wrapper.findAll('[data-test="filter-tag"]').find((tag: any) =>
 				tag.text().includes('Vue'),
 			)
 
@@ -256,7 +256,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('updates tag counts correctly', () => {
-			const tagFilters = wrapper.findAll('.filter-tag:not(.all-tag)')
+			const tagFilters = wrapper.findAll('[data-test="filter-tag"]')
 
 			// Vue should show count of 2
 			const vueTag = tagFilters.find((tag: any) => tag.text().includes('Vue'))
@@ -270,8 +270,8 @@ describe('Portfolio View', () => {
 
 	describe('View Mode Switching', () => {
 		it('switches between grid and list view modes', async () => {
-			const gridBtn = wrapper.find('.view-button:first-child')
-			const listBtn = wrapper.find('.view-button:last-child')
+			const gridBtn = wrapper.find('[data-test="view-button-grid"]')
+			const listBtn = wrapper.find('[data-test="view-button-list"]')
 
 			// Initially grid mode
 			expect(wrapper.vm.viewMode).toBe('grid')
@@ -290,7 +290,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('passes view mode to ProjectGrid component', async () => {
-			const listBtn = wrapper.find('.view-button:last-child')
+			const listBtn = wrapper.find('[data-test="view-button-list"]')
 			await listBtn.trigger('click')
 
 			const projectGrid = wrapper.findComponent({ name: 'ProjectGrid' })
@@ -301,13 +301,13 @@ describe('Portfolio View', () => {
 	describe('Combined Filtering', () => {
 		it('applies both search and tag filters together', async () => {
 			// Apply tag filter
-			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
+			const vueTag = wrapper.findAll('[data-test="filter-tag"]').find((tag: any) =>
 				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
 			// Apply search filter
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 			await searchInput.setValue('Fullstack')
 
 			const projectGrid = wrapper.findComponent({ name: 'ProjectGrid' })
@@ -319,34 +319,34 @@ describe('Portfolio View', () => {
 		})
 
 		it('shows results summary when filters are applied', async () => {
-			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
+			const vueTag = wrapper.findAll('[data-test="filter-tag"]').find((tag: any) =>
 				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
-			const resultsSummary = wrapper.find('.results-summary')
+			const resultsSummary = wrapper.find('[data-test="results-summary"]')
 			expect(resultsSummary.exists()).toBe(true)
 			expect(resultsSummary.text()).toContain('Showing 2 of 4 projects')
 			expect(resultsSummary.text()).toContain('tagged with "Vue"')
 		})
 
 		it('hides results summary when no filters are applied', () => {
-			const resultsSummary = wrapper.find('.results-summary')
+			const resultsSummary = wrapper.find('[data-test="results-summary"]')
 			expect(resultsSummary.exists()).toBe(false)
 		})
 
 		it('clears all filters when clear filters button is clicked', async () => {
 			// Apply filters
-			const vueTag = wrapper.findAll('.filter-tag').find((tag: any) =>
+			const vueTag = wrapper.findAll('[data-test="filter-tag"]').find((tag: any) =>
 				tag.text().includes('Vue'),
 			)
 			await vueTag.trigger('click')
 
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 			await searchInput.setValue('Vue')
 
 			// Clear all filters
-			const clearButton = wrapper.find('.clear-filters')
+			const clearButton = wrapper.find('[data-test="clear-filters"]')
 			await clearButton.trigger('click')
 
 			expect(wrapper.vm.searchQuery).toBe('')
@@ -414,7 +414,7 @@ describe('Portfolio View', () => {
 			// We'll need to modify the data or test with different data
 
 			// For now, test that the button doesn't show with current data
-			const showMoreButton = wrapper.find('.show-more-tags')
+			const showMoreButton = wrapper.find('[data-test="show-more-tags"]')
 			expect(showMoreButton.exists()).toBe(false)
 		})
 
@@ -423,7 +423,7 @@ describe('Portfolio View', () => {
 			wrapper.vm.showAllTags = true
 			await wrapper.vm.$nextTick()
 
-			const allTagsSection = wrapper.find('.all-tags')
+			const allTagsSection = wrapper.find('[data-test="all-tags"]')
 			expect(allTagsSection.exists()).toBe(true)
 		})
 	})
@@ -451,7 +451,7 @@ describe('Portfolio View', () => {
 
 	describe('Edge Cases and Error Handling', () => {
 		it('handles empty search results', async () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 			await searchInput.setValue('NonexistentProject')
 
 			const projectGrid = wrapper.findComponent({ name: 'ProjectGrid' })
@@ -484,7 +484,7 @@ describe('Portfolio View', () => {
 		})
 
 		it('provides proper form labels and structure', () => {
-			const searchInput = wrapper.find('.search-input')
+			const searchInput = wrapper.find('[data-test="search-input"]')
 			expect(searchInput.attributes('placeholder')).toBeTruthy()
 		})
 

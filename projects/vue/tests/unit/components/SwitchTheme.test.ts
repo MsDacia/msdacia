@@ -39,12 +39,12 @@ describe('SwitchTheme', () => {
 	describe('Component Rendering', () => {
 		it('renders the theme switcher container', () => {
 			const wrapper = mount(SwitchTheme)
-			expect(wrapper.find('.theme-switcher').exists()).toBe(true)
+			expect(wrapper.find('[data-test="theme-switcher"]').exists()).toBe(true)
 		})
 
 		it('renders the menu trigger button', () => {
 			const wrapper = mount(SwitchTheme)
-			const menuTrigger = wrapper.find('.menu-trigger')
+			const menuTrigger = wrapper.find('[data-test="menu-trigger"]')
 
 			expect(menuTrigger.exists()).toBe(true)
 			expect(menuTrigger.attributes('title')).toBe('Theme: System')
@@ -52,7 +52,7 @@ describe('SwitchTheme', () => {
 
 		it('displays the correct theme icon', () => {
 			const wrapper = mount(SwitchTheme)
-			const icon = wrapper.find('.menu-trigger [data-ui="icon"]')
+			const icon = wrapper.find('[data-test="menu-trigger"] [data-ui="icon"]')
 
 			expect(icon.exists()).toBe(true)
 			expect(icon.classes()).toContain('SVGComputerMonitor')
@@ -60,7 +60,7 @@ describe('SwitchTheme', () => {
 
 		it('shows the menu arrow', () => {
 			const wrapper = mount(SwitchTheme)
-			const arrow = wrapper.find('.menu-arrow')
+			const arrow = wrapper.find('[data-test="menu-arrow"]')
 
 			expect(arrow.exists()).toBe(true)
 			expect(arrow.classes()).toContain('SVGChevronDown')
@@ -70,38 +70,38 @@ describe('SwitchTheme', () => {
 	describe('Menu Interaction', () => {
 		it('opens menu when trigger is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
-			const menuTrigger = wrapper.find('.menu-trigger')
+			const menuTrigger = wrapper.find('[data-test="menu-trigger"]')
 
 			// Initially menu should be closed (v-show hides it via display:none)
 			expect(wrapper.vm.showMenu).toBe(false)
-			expect(wrapper.find('.menu-options').attributes('style') || '').toContain('display: none')
+			expect(wrapper.find('[data-test="menu-options"]').attributes('style') || '').toContain('display: none')
 
 			// Click to open menu
 			await menuTrigger.trigger('click')
 
 			expect(wrapper.vm.showMenu).toBe(true)
-			expect(wrapper.find('.menu-options').attributes('style') || '').not.toContain('display: none')
+			expect(wrapper.find('[data-test="menu-options"]').attributes('style') || '').not.toContain('display: none')
 		})
 
 		it('rotates arrow when menu is open', async () => {
 			const wrapper = mount(SwitchTheme)
-			const menuTrigger = wrapper.find('.menu-trigger')
+			const menuTrigger = wrapper.find('[data-test="menu-trigger"]')
 
 			// Open menu
 			await menuTrigger.trigger('click')
 			await nextTick()
 
-			expect(wrapper.find('.menu-arrow').classes()).toContain('rotated')
+			expect(wrapper.find('[data-test="menu-arrow"]').classes()).toContain('rotated')
 		})
 
 		it('displays all theme options when menu is open', async () => {
 			const wrapper = mount(SwitchTheme)
-			const menuTrigger = wrapper.find('.menu-trigger')
+			const menuTrigger = wrapper.find('[data-test="menu-trigger"]')
 
 			await menuTrigger.trigger('click')
 			await nextTick()
 
-			const options = wrapper.findAll('.theme-option')
+			const options = wrapper.findAll('[data-test="theme-option"]')
 			expect(options).toHaveLength(3)
 
 			// Check option contents
@@ -116,10 +116,10 @@ describe('SwitchTheme', () => {
 		it('calls setLightTheme when light option is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			await nextTick()
 
-			const lightOption = wrapper.findAll('.theme-option').find(option =>
+			const lightOption = wrapper.findAll('[data-test="theme-option"]').find(option =>
 				option.text().includes('Light'),
 			)
 			await lightOption!.trigger('click')
@@ -130,10 +130,10 @@ describe('SwitchTheme', () => {
 		it('calls setDarkTheme when dark option is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			await nextTick()
 
-			const darkOption = wrapper.findAll('.theme-option').find(option =>
+			const darkOption = wrapper.findAll('[data-test="theme-option"]').find(option =>
 				option.text().includes('Dark'),
 			)
 			await darkOption!.trigger('click')
@@ -144,10 +144,10 @@ describe('SwitchTheme', () => {
 		it('calls setSystemTheme when system option is clicked', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			await nextTick()
 
-			const systemOption = wrapper.findAll('.theme-option').find(option =>
+			const systemOption = wrapper.findAll('[data-test="theme-option"]').find(option =>
 				option.text().includes('System'),
 			)
 			await systemOption!.trigger('click')
@@ -158,10 +158,10 @@ describe('SwitchTheme', () => {
 		it('closes menu after selecting an option', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			expect(wrapper.vm.showMenu).toBe(true)
 
-			const lightOption = wrapper.findAll('.theme-option').find(option =>
+			const lightOption = wrapper.findAll('[data-test="theme-option"]').find(option =>
 				option.text().includes('Light'),
 			)
 			await lightOption!.trigger('click')
@@ -177,15 +177,15 @@ describe('SwitchTheme', () => {
 
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			await nextTick()
 
-			const lightOption = wrapper.findAll('.theme-option').find(option =>
+			const lightOption = wrapper.findAll('[data-test="theme-option"]').find(option =>
 				option.text().includes('Light'),
 			)
 
 			expect(lightOption!.classes()).toContain('active')
-			expect(lightOption!.find('.SVGCheck').exists()).toBe(true)
+			expect(lightOption!.find('[data-test="check-icon"]').exists()).toBe(true)
 		})
 
 		it('shows system preference indicator', async () => {
@@ -195,10 +195,10 @@ describe('SwitchTheme', () => {
 
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			await nextTick()
 
-			const systemOption = wrapper.findAll('.theme-option').find(option =>
+			const systemOption = wrapper.findAll('[data-test="theme-option"]').find(option =>
 				option.text().includes('System'),
 			)
 
@@ -209,7 +209,7 @@ describe('SwitchTheme', () => {
 	describe('Accessibility', () => {
 		it('has proper title attributes', () => {
 			const wrapper = mount(SwitchTheme)
-			const menuTrigger = wrapper.find('.menu-trigger')
+			const menuTrigger = wrapper.find('[data-test="menu-trigger"]')
 
 			expect(menuTrigger.attributes('title')).toBe('Theme: System')
 		})
@@ -217,16 +217,16 @@ describe('SwitchTheme', () => {
 		it('uses semantic button elements', () => {
 			const wrapper = mount(SwitchTheme)
 
-			expect(wrapper.find('.menu-trigger').element.tagName).toBe('BUTTON')
+			expect(wrapper.find('[data-test="menu-trigger"]').element.tagName).toBe('BUTTON')
 		})
 
 		it('provides proper button semantics for theme options', async () => {
 			const wrapper = mount(SwitchTheme)
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			await nextTick()
 
-			const options = wrapper.findAll('.theme-option')
+			const options = wrapper.findAll('[data-test="theme-option"]')
 			options.forEach(option => {
 				expect(option.element.tagName).toBe('BUTTON')
 			})
@@ -236,7 +236,7 @@ describe('SwitchTheme', () => {
 	describe('Theme Icon Updates', () => {
 		it('updates icon when theme changes', async () => {
 			const wrapper = mount(SwitchTheme)
-			let icon = wrapper.find('.menu-trigger [data-ui="icon"]')
+			let icon = wrapper.find('[data-test="menu-trigger"] [data-ui="icon"]')
 			expect(icon.classes()).toContain('SVGComputerMonitor')
 
 			// Change to light theme
@@ -246,7 +246,7 @@ describe('SwitchTheme', () => {
 
 			await nextTick()
 
-			icon = wrapper.find('.menu-trigger [data-ui="icon"]')
+			icon = wrapper.find('[data-test="menu-trigger"] [data-ui="icon"]')
 			expect(icon.classes()).toContain('SVGSun')
 		})
 	})
@@ -254,7 +254,7 @@ describe('SwitchTheme', () => {
 	describe('Edge Cases', () => {
 		it('handles rapid menu toggling', async () => {
 			const wrapper = mount(SwitchTheme)
-			const trigger = wrapper.find('.menu-trigger')
+			const trigger = wrapper.find('[data-test="menu-trigger"]')
 
 			// Rapid clicks
 			await trigger.trigger('click')
@@ -268,7 +268,7 @@ describe('SwitchTheme', () => {
 		it('closes the menu when clicking outside the switcher', async () => {
 			const wrapper = mount(SwitchTheme, { attachTo: document.body })
 
-			await wrapper.find('.menu-trigger').trigger('click')
+			await wrapper.find('[data-test="menu-trigger"]').trigger('click')
 			expect(wrapper.vm.showMenu).toBe(true)
 
 			// A click outside the .theme-switcher closes the menu

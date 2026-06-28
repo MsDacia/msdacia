@@ -14,7 +14,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 vi.mock('@/components/SwitchTheme.vue', () => ({
 	default: {
 		name: 'SwitchTheme',
-		template: '<div class="switch-theme-mock">Theme Switcher</div>',
+		template: '<div data-test="switch-theme">Theme Switcher</div>',
 	},
 }))
 
@@ -79,10 +79,10 @@ describe('SiteHeader Integration', () => {
 			})
 
 			// Open the menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			await nextTick()
 
-			const navLinks = wrapper.findAll('.nav-link')
+			const navLinks = wrapper.findAll('[data-test="nav-link"]')
 			expect(navLinks).toHaveLength(3)
 
 			// Check link titles
@@ -99,10 +99,10 @@ describe('SiteHeader Integration', () => {
 			})
 
 			// Open the menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			await nextTick()
 
-			const navLinks = wrapper.findAll('.nav-link')
+			const navLinks = wrapper.findAll('[data-test="nav-link"]')
 
 			expect(navLinks[0].attributes('href')).toBe('/')
 			expect(navLinks[1].attributes('href')).toBe('/about')
@@ -116,7 +116,7 @@ describe('SiteHeader Integration', () => {
 				},
 			})
 
-			const toggleButton = wrapper.find('.item')
+			const toggleButton = wrapper.find('[data-test="menu-toggle"]')
 			expect(toggleButton.exists()).toBe(true)
 		})
 	})
@@ -129,8 +129,8 @@ describe('SiteHeader Integration', () => {
 				},
 			})
 
-			const toggleButton = wrapper.find('.item')
-			const menu = wrapper.find('.menu')
+			const toggleButton = wrapper.find('[data-test="menu-toggle"]')
+			const menu = wrapper.find('[data-test="menu"]')
 
 			// Initially menu should be hidden
 			expect(wrapper.vm.showMenu).toBe(false)
@@ -154,18 +154,18 @@ describe('SiteHeader Integration', () => {
 				},
 			})
 
-			const toggleButton = wrapper.find('.item')
+			const toggleButton = wrapper.find('[data-test="menu-toggle"]')
 			const isHidden = (selector: string) => (wrapper.find(selector).attributes('style') ?? '').includes('display: none')
 
 			// Check initial icon states (menu closed: dots visible, close hidden)
-			expect(isHidden('.toggle.off')).toBe(false)
-			expect(isHidden('.toggle.on')).toBe(true)
+			expect(isHidden('[data-test="icon-menu-open"]')).toBe(false)
+			expect(isHidden('[data-test="icon-menu-close"]')).toBe(true)
 
 			// Open menu and check icon states (close visible, dots hidden)
 			await toggleButton.trigger('click')
 
-			expect(isHidden('.toggle.off')).toBe(true)
-			expect(isHidden('.toggle.on')).toBe(false)
+			expect(isHidden('[data-test="icon-menu-open"]')).toBe(true)
+			expect(isHidden('[data-test="icon-menu-close"]')).toBe(false)
 		})
 
 		it('closes menu when navigation link is clicked', async () => {
@@ -176,11 +176,11 @@ describe('SiteHeader Integration', () => {
 			})
 
 			// Open menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			expect(wrapper.vm.showMenu).toBe(true)
 
 			// Click on a navigation link
-			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+			const aboutLink = wrapper.findAll('[data-test="nav-link"]').find(link =>
 				link.text().includes('About'),
 			)
 			await aboutLink!.trigger('click')
@@ -199,11 +199,11 @@ describe('SiteHeader Integration', () => {
 			})
 
 			// Open menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			await nextTick()
 
 			// Click About link
-			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+			const aboutLink = wrapper.findAll('[data-test="nav-link"]').find(link =>
 				link.text().includes('About'),
 			)
 			await aboutLink!.trigger('click')
@@ -226,11 +226,11 @@ describe('SiteHeader Integration', () => {
 			})
 
 			// Open menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			await nextTick()
 
 			// Find the about link and check if it has active class
-			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+			const aboutLink = wrapper.findAll('[data-test="nav-link"]').find(link =>
 				link.text().includes('About'),
 			)
 
@@ -247,7 +247,7 @@ describe('SiteHeader Integration', () => {
 				},
 			})
 
-			expect(wrapper.find('.switch-theme-mock').exists()).toBe(true)
+			expect(wrapper.find('[data-test="switch-theme"]').exists()).toBe(true)
 		})
 
 		it('renders header element as root', () => {
@@ -273,11 +273,11 @@ describe('SiteHeader Integration', () => {
 			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
 
 			// Open menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			await nextTick()
 
 			// Click About link
-			const aboutLink = wrapper.findAll('.nav-link').find(link =>
+			const aboutLink = wrapper.findAll('[data-test="nav-link"]').find(link =>
 				link.text().includes('About'),
 			)
 			await aboutLink!.trigger('click')
@@ -315,7 +315,7 @@ describe('SiteHeader Integration', () => {
 			expect(wrapper.element.tagName).toBe('HEADER')
 
 			// All navigation links should be actual router-links
-			const navLinks = wrapper.findAll('.nav-link')
+			const navLinks = wrapper.findAll('[data-test="nav-link"]')
 			navLinks.forEach(link => {
 				// Vue Router converts router-link to 'a' tags
 				expect(['A', 'ROUTER-LINK']).toContain(link.element.tagName)
@@ -330,10 +330,10 @@ describe('SiteHeader Integration', () => {
 			})
 
 			// Open menu
-			await wrapper.find('.item').trigger('click')
+			await wrapper.find('[data-test="menu-toggle"]').trigger('click')
 			await nextTick()
 
-			const navLinks = wrapper.findAll('.nav-link')
+			const navLinks = wrapper.findAll('[data-test="nav-link"]')
 
 			// Each link should have meaningful text content
 			navLinks.forEach(link => {
@@ -353,10 +353,10 @@ describe('SiteHeader Integration', () => {
 
 			// While we can't test actual media queries in jsdom,
 			// we can verify the classes are present for CSS to target
-			const menu = wrapper.find('.menu')
+			const menu = wrapper.find('[data-test="menu"]')
 			expect(menu.exists()).toBe(true)
 
-			const toggleItem = wrapper.find('.item')
+			const toggleItem = wrapper.find('[data-test="menu-toggle"]')
 			expect(toggleItem.exists()).toBe(true)
 		})
 	})

@@ -10,13 +10,13 @@ describe('WelcomeItem', () => {
 	describe('Component Rendering', () => {
 		it('renders the item container', () => {
 			const wrapper = mount(WelcomeItem)
-			expect(wrapper.find('.item').exists()).toBe(true)
+			expect(wrapper.find('[data-test="item"]').exists()).toBe(true)
 		})
 
 		it('renders the details container with a heading', () => {
 			const wrapper = mount(WelcomeItem)
-			expect(wrapper.find('.details').exists()).toBe(true)
-			expect(wrapper.find('.details h3').exists()).toBe(true)
+			expect(wrapper.find('[data-test="details"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="details"] h3').exists()).toBe(true)
 		})
 	})
 
@@ -26,7 +26,7 @@ describe('WelcomeItem', () => {
 				slots: { icon: '<span class="my-icon">icon</span>' },
 			})
 
-			expect(wrapper.find('.icon-wrapper .my-icon').exists()).toBe(true)
+			expect(wrapper.find('[data-test="icon-wrapper"] .my-icon').exists()).toBe(true)
 		})
 
 		it('renders the heading slot content', () => {
@@ -42,7 +42,7 @@ describe('WelcomeItem', () => {
 				slots: { default: '<p class="body-text">Body content</p>' },
 			})
 
-			expect(wrapper.find('.details .body-text').text()).toBe('Body content')
+			expect(wrapper.find('[data-test="details"] .body-text').text()).toBe('Body content')
 		})
 	})
 })

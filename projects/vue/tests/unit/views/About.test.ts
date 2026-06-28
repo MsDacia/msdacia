@@ -28,7 +28,7 @@ vi.mock('@/data/static.en-us.json', () => ({
 vi.mock('@/components/ExperienceTimeline.vue', () => ({
 	default: {
 		name: 'ExperienceTimeline',
-		template: '<div class="experience-timeline-mock">Timeline</div>',
+		template: '<div data-test="experience-timeline">Timeline</div>',
 	},
 }))
 
@@ -36,7 +36,7 @@ describe('About View', () => {
 	describe('Component Rendering', () => {
 		it('renders the about container', () => {
 			const wrapper = mount(About)
-			expect(wrapper.find('.about').exists()).toBe(true)
+			expect(wrapper.find('[data-test="about"]').exists()).toBe(true)
 		})
 
 		it('renders the main title', () => {
@@ -46,7 +46,7 @@ describe('About View', () => {
 
 		it('renders all three about sections with their subtitles', () => {
 			const wrapper = mount(About)
-			const sections = wrapper.findAll('.about-section')
+			const sections = wrapper.findAll('[data-test="about-section"]')
 
 			expect(sections).toHaveLength(3)
 			expect(sections[0].find('h3').text()).toBe('Foundation')
@@ -56,7 +56,7 @@ describe('About View', () => {
 
 		it('renders rich-text copy via v-html', () => {
 			const wrapper = mount(About)
-			const firstSection = wrapper.findAll('.about-section')[0]
+			const firstSection = wrapper.findAll('[data-test="about-section"]')[0]
 
 			expect(firstSection.find('strong').text()).toBe('Foundation')
 		})
@@ -65,7 +65,7 @@ describe('About View', () => {
 	describe('Composition', () => {
 		it('includes the ExperienceTimeline component', () => {
 			const wrapper = mount(About)
-			expect(wrapper.find('.experience-timeline-mock').exists()).toBe(true)
+			expect(wrapper.find('[data-test="experience-timeline"]').exists()).toBe(true)
 		})
 	})
 })

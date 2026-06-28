@@ -1,9 +1,10 @@
 <template>
-	<div class="project-grid" :class="`view-${viewMode}`">
+	<div class="project-grid" data-test="project-grid" :class="`view-${viewMode}`">
 		<UICard
 			v-for="project in projects"
 			:key="project.id"
 			class="project-card"
+			data-test="project-card"
 			:data-testid="`project-${project.id}`"
 			@click="$emit('project-click', project)"
 		>
@@ -28,15 +29,15 @@
 				</div>
 
 				<div class="project-overlay">
-					<UIBadge class="project-year" :text="project.year" type="neutral" />
-					<UIBadge class="project-timeline" :text="project.timeline" type="positive" />
+					<UIBadge class="project-year" data-test="project-year" :text="project.year" type="neutral" />
+					<UIBadge class="project-timeline" data-test="project-timeline" :text="project.timeline" type="positive" />
 				</div>
 			</div>
 
 			<div class="project-content">
 				<div class="project-header">
-					<h3 class="project-title">{{ project.name }}</h3>
-					<p class="project-client">{{ project.client }}</p>
+					<h3 class="project-title" data-test="project-title">{{ project.name }}</h3>
+					<p class="project-client" data-test="project-client">{{ project.client }}</p>
 				</div>
 
 				<div class="project-tags">
@@ -44,12 +45,14 @@
 						v-for="tag in visibleTags(project)"
 						:key="tag"
 						class="tag"
+						data-test="tag"
 						:text="tag"
 					/>
 
 					<UIBadge
 						v-if="hiddenTagCount(project) > 0"
 						class="tag more-tags"
+						data-test="more-tag"
 						:text="`+${hiddenTagCount(project)} more`"
 						type="positive"
 					/>
@@ -57,17 +60,17 @@
 
 				<div class="project-footer">
 					<div class="project-meta">
-						<span class="meta-item">
+						<span class="meta-item" data-test="meta-item">
 							<UIIcon icon="SVGCalendar" />
 							{{ project.year }}
 						</span>
 
-						<span class="meta-item">
+						<span class="meta-item" data-test="meta-item">
 							<UIIcon icon="SVGClock" />
 							{{ project.timeline }}
 						</span>
 
-						<span v-if="project.link" class="meta-item">
+						<span v-if="project.link" class="meta-item" data-test="meta-item">
 							<UIIcon icon="SVGLink" />
 							Live Site
 						</span>
@@ -75,6 +78,7 @@
 
 					<UIButton
 						class="view-details"
+						data-test="view-details"
 						text="View Details"
 						icon-right="SVGArrowRight"
 					/>
@@ -86,6 +90,7 @@
 		<UIEmptyState
 			v-if="projects.length === 0"
 			class="empty-state"
+			data-test="empty-state"
 			icon="SVGSearch"
 			alignment="center"
 			text="No projects found"

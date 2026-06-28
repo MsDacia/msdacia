@@ -19,8 +19,8 @@ test.describe('About Page E2E', () => {
 			await expect(page.locator('h1')).toBeVisible()
 
 			// About view renders its content inside the .about container
-			await expect(page.locator('.about')).toBeVisible()
-			await expect(page.locator('.about-section')).toHaveCount(3)
+			await expect(page.locator('[data-test="about"]')).toBeVisible()
+			await expect(page.locator('[data-test="about-section"]')).toHaveCount(3)
 		})
 
 		test('should handle rich text content properly', async ({ page }) => {
@@ -46,7 +46,7 @@ test.describe('About Page E2E', () => {
 			await page.goto('/')
 
 			// Navigate to about via CTA button
-			await page.locator('.cta-button', { hasText: 'Learn About Me' }).click()
+			await page.locator('[data-test="cta-button"]', { hasText: 'Learn About Me' }).click()
 			await expect(page).toHaveURL('/about')
 		})
 
@@ -54,36 +54,36 @@ test.describe('About Page E2E', () => {
 			await page.goto('/')
 
 			// Use header navigation
-			const menuToggle = page.locator('.item')
+			const menuToggle = page.locator('[data-test="menu-toggle"]')
 			if (await menuToggle.isVisible()) {
 				await menuToggle.click()
-				await page.locator('.nav-link', { hasText: 'About' }).click()
+				await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 				await expect(page).toHaveURL('/about')
 			}
 		})
 
 		test('should show active state in navigation', async ({ page }) => {
-			const menuToggle = page.locator('.item')
+			const menuToggle = page.locator('[data-test="menu-toggle"]')
 			if (await menuToggle.isVisible()) {
 				await menuToggle.click()
 
-				const aboutLink = page.locator('.nav-link', { hasText: 'About' })
+				const aboutLink = page.locator('[data-test="nav-link"]', { hasText: 'About' })
 				await expect(aboutLink).toHaveClass(/router-link-active|current/)
 			}
 		})
 
 		test('should allow navigation to other pages', async ({ page }) => {
-			const menuToggle = page.locator('.item')
+			const menuToggle = page.locator('[data-test="menu-toggle"]')
 			if (await menuToggle.isVisible()) {
 				await menuToggle.click()
 
 				// Navigate to portfolio
-				await page.locator('.nav-link', { hasText: 'Portfolio' }).click()
+				await page.locator('[data-test="nav-link"]', { hasText: 'Portfolio' }).click()
 				await expect(page).toHaveURL('/portfolio')
 
 				// Navigate back to about
 				await menuToggle.click()
-				await page.locator('.nav-link', { hasText: 'About' }).click()
+				await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 				await expect(page).toHaveURL('/about')
 			}
 		})
@@ -180,12 +180,12 @@ test.describe('About Page E2E', () => {
 	test.describe('Theme Integration', () => {
 		test('should work well with light theme', async ({ page }) => {
 			// Set light theme
-			const themeSwitcher = page.locator('.theme-switcher')
+			const themeSwitcher = page.locator('[data-test="theme-switcher"]')
 			if (await themeSwitcher.isVisible()) {
-				const menuTrigger = page.locator('.menu-trigger')
+				const menuTrigger = page.locator('[data-test="menu-trigger"]')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
+					await page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ }).click()
 				}
 			}
 
@@ -197,10 +197,10 @@ test.describe('About Page E2E', () => {
 
 		test('should work well with dark theme', async ({ page }) => {
 			// Set dark theme via the theme menu
-			const menuTrigger = page.locator('.menu-trigger')
+			const menuTrigger = page.locator('[data-test="menu-trigger"]')
 			if (await menuTrigger.isVisible()) {
 				await menuTrigger.click()
-				await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+				await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 				// The app applies the theme to the <html> element
 				await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
@@ -215,12 +215,12 @@ test.describe('About Page E2E', () => {
 
 		test('should maintain theme when refreshing page', async ({ page }) => {
 			// Set dark theme
-			const themeSwitcher = page.locator('.theme-switcher')
+			const themeSwitcher = page.locator('[data-test="theme-switcher"]')
 			if (await themeSwitcher.isVisible()) {
-				const menuTrigger = page.locator('.menu-trigger')
+				const menuTrigger = page.locator('[data-test="menu-trigger"]')
 				if (await menuTrigger.isVisible()) {
 					await menuTrigger.click()
-					await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+					await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 				}
 			}
 
@@ -271,7 +271,7 @@ test.describe('About Page E2E', () => {
 			await expect(page.locator('h1')).toBeVisible()
 
 			// Content should be centered and constrained by the .about max-width
-			const aboutContent = page.locator('.about')
+			const aboutContent = page.locator('[data-test="about"]')
 			if (await aboutContent.count() > 0) {
 				const contentWidth = await aboutContent.first().evaluate(el => (el as HTMLElement).offsetWidth)
 				expect(contentWidth).toBeLessThanOrEqual(1200) // .about has max-width: 1200px
@@ -481,14 +481,14 @@ test.describe('About Page E2E', () => {
 			await page.goto('/')
 
 			// Navigate through site naturally
-			await page.locator('.cta-button', { hasText: 'Learn About Me' }).click()
+			await page.locator('[data-test="cta-button"]', { hasText: 'Learn About Me' }).click()
 			await expect(page).toHaveURL('/about')
 
 			// Should be able to continue to portfolio
-			const menuToggle = page.locator('.item')
+			const menuToggle = page.locator('[data-test="menu-toggle"]')
 			if (await menuToggle.isVisible()) {
 				await menuToggle.click()
-				await page.locator('.nav-link', { hasText: 'Portfolio' }).click()
+				await page.locator('[data-test="nav-link"]', { hasText: 'Portfolio' }).click()
 				await expect(page).toHaveURL('/portfolio')
 			}
 		})

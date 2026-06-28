@@ -51,9 +51,9 @@ describe('ProjectModal Component', () => {
 			})
 
 			// Title slot contains the year badge, project name and client
-			expect(wrapper.find('.modal-title .ui-badge').text()).toBe('2023')
-			expect(wrapper.find('.project-title').text()).toBe('Test Project Modal')
-			expect(wrapper.find('.project-client').text()).toBe('Modal Test Client')
+			expect(wrapper.find('[data-test="modal-title"] .ui-badge').text()).toBe('2023')
+			expect(wrapper.find('[data-test="project-title"]').text()).toBe('Test Project Modal')
+			expect(wrapper.find('[data-test="project-client"]').text()).toBe('Modal Test Client')
 		})
 
 		it('renders project image placeholder when the image fails to load', async () => {
@@ -61,14 +61,14 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const imageSection = wrapper.find('.project-image-large')
+			const imageSection = wrapper.find('[data-test="project-image-large"]')
 			expect(imageSection.exists()).toBe(true)
 
 			// Simulate the image failing to load, which reveals the placeholder
-			await imageSection.find('.project-img-large').trigger('error')
+			await imageSection.find('[data-test="project-img-large"]').trigger('error')
 
-			expect(imageSection.find('.placeholder-image').exists()).toBe(true)
-			expect(imageSection.find('.placeholder-image span').text()).toBe('Test Project Modal')
+			expect(imageSection.find('[data-test="placeholder-image"]').exists()).toBe(true)
+			expect(imageSection.find('[data-test="placeholder-image"] span').text()).toBe('Test Project Modal')
 		})
 
 		it('displays project metadata correctly', () => {
@@ -76,7 +76,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const metaItems = wrapper.findAll('.meta-item')
+			const metaItems = wrapper.findAll('[data-test="meta-item"]')
 			expect(metaItems.length).toBeGreaterThanOrEqual(3)
 
 			// Check that year, duration, and client are displayed
@@ -91,7 +91,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const liveLink = wrapper.find('.live-link')
+			const liveLink = wrapper.find('[data-test="live-link"]')
 			expect(liveLink.exists()).toBe(true)
 			// UILink drives navigation via JS, so it exposes target but not an href attribute
 			expect(liveLink.classes()).toContain('ui-link')
@@ -104,8 +104,8 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithoutLink },
 			})
 
-			expect(wrapper.find('.live-link').exists()).toBe(false)
-			expect(wrapper.findAll('.meta-item')).toHaveLength(3) // Only year, duration, client
+			expect(wrapper.find('[data-test="live-link"]').exists()).toBe(false)
+			expect(wrapper.findAll('[data-test="meta-item"]')).toHaveLength(3) // Only year, duration, client
 		})
 	})
 
@@ -115,7 +115,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const techTags = wrapper.findAll('.tech-tag')
+			const techTags = wrapper.findAll('[data-test="tech-tag"]')
 			expect(techTags).toHaveLength(5)
 
 			const tagTexts = techTags.map(tag => tag.text())
@@ -131,9 +131,9 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const vueTag = wrapper.findAll('.tech-tag').find(tag => tag.text() === 'Vue')
-			const sassTag = wrapper.findAll('.tech-tag').find(tag => tag.text() === 'SASS')
-			const dockerTag = wrapper.findAll('.tech-tag').find(tag => tag.text() === 'Docker')
+			const vueTag = wrapper.findAll('[data-test="tech-tag"]').find(tag => tag.text() === 'Vue')
+			const sassTag = wrapper.findAll('[data-test="tech-tag"]').find(tag => tag.text() === 'SASS')
+			const dockerTag = wrapper.findAll('[data-test="tech-tag"]').find(tag => tag.text() === 'Docker')
 
 			// Every tag is a UIBadge
 			expect(vueTag?.classes()).toContain('ui-badge')
@@ -154,7 +154,7 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithCustomTech },
 			})
 
-			const customTags = wrapper.findAll('.tech-tag')
+			const customTags = wrapper.findAll('[data-test="tech-tag"]')
 			customTags.forEach(tag => {
 				expect(tag.classes()).toContain('ui-badge__neutral')
 			})
@@ -197,7 +197,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const liveLink = wrapper.find('.live-link')
+			const liveLink = wrapper.find('[data-test="live-link"]')
 			await liveLink.trigger('click')
 
 			expect(liveLink.exists()).toBe(true)
@@ -279,7 +279,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			const externalLink = wrapper.find('.live-link')
+			const externalLink = wrapper.find('[data-test="live-link"]')
 			expect(externalLink.classes()).toContain('ui-link')
 			expect(externalLink.attributes('target')).toBe('_blank')
 		})
@@ -292,7 +292,7 @@ describe('ProjectModal Component', () => {
 			})
 
 			expect(wrapper.find(MODAL).exists()).toBe(true)
-			expect(wrapper.find('.project-meta-grid').exists()).toBe(true)
+			expect(wrapper.find('[data-test="project-meta-grid"]').exists()).toBe(true)
 		})
 
 		it('renders interactive elements for styling hooks', () => {
@@ -302,7 +302,7 @@ describe('ProjectModal Component', () => {
 
 			expect(wrapper.find(CLOSE_BUTTON).exists()).toBe(true)
 			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(true)
-			expect(wrapper.findAll('.tech-tag').length).toBeGreaterThan(0)
+			expect(wrapper.findAll('[data-test="tech-tag"]').length).toBeGreaterThan(0)
 		})
 	})
 
@@ -323,9 +323,9 @@ describe('ProjectModal Component', () => {
 				props: { project: minimalProject },
 			})
 
-			expect(wrapper.find('.project-title').text()).toBe('Minimal Project')
+			expect(wrapper.find('[data-test="project-title"]').text()).toBe('Minimal Project')
 			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(false)
-			expect(wrapper.find('.live-link').exists()).toBe(false)
+			expect(wrapper.find('[data-test="live-link"]').exists()).toBe(false)
 		})
 
 		it('handles empty tags array', () => {
@@ -338,8 +338,8 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithNoTags },
 			})
 
-			expect(wrapper.findAll('.tech-tag')).toHaveLength(0)
-			expect(wrapper.find('.technologies-section').exists()).toBe(true)
+			expect(wrapper.findAll('[data-test="tech-tag"]')).toHaveLength(0)
+			expect(wrapper.find('[data-test="technologies-section"]').exists()).toBe(true)
 		})
 
 		it('handles very long project names and client names', () => {
@@ -353,8 +353,8 @@ describe('ProjectModal Component', () => {
 				props: { project: projectWithLongNames },
 			})
 
-			expect(wrapper.find('.project-title').text()).toBe(projectWithLongNames.name)
-			expect(wrapper.find('.project-client').text()).toBe(projectWithLongNames.client)
+			expect(wrapper.find('[data-test="project-title"]').text()).toBe(projectWithLongNames.name)
+			expect(wrapper.find('[data-test="project-client"]').text()).toBe(projectWithLongNames.client)
 		})
 	})
 
@@ -446,8 +446,8 @@ describe('ProjectModal Component', () => {
 
 			// Check that responsive elements exist (actual responsive behavior tested in E2E)
 			expect(wrapper.find(MODAL).exists()).toBe(true)
-			expect(wrapper.find('.project-meta-grid').exists()).toBe(true)
-			expect(wrapper.find('.technologies-section').exists()).toBe(true)
+			expect(wrapper.find('[data-test="project-meta-grid"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="technologies-section"]').exists()).toBe(true)
 		})
 	})
 

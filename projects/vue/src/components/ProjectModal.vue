@@ -10,21 +10,22 @@
 		@cancel="closeModal"
 	>
 		<template #title>
-			<div class="modal-title">
+			<div class="modal-title" data-test="modal-title">
 				<UIBadge :text="project.year" type="neutral" />
-				<h2 class="project-title">{{ project.name }}</h2>
-				<p class="project-client">{{ project.client }}</p>
+				<h2 class="project-title" data-test="project-title">{{ project.name }}</h2>
+				<p class="project-client" data-test="project-client">{{ project.client }}</p>
 			</div>
 		</template>
 
 		<div class="project-image-section">
-			<div class="project-image-large">
+			<div class="project-image-large" data-test="project-image-large">
 				<!-- Show image if it exists and loads successfully -->
 				<img
 					v-if="!imageError && project.image"
 					:src="getImageUrl(project.image)"
 					:alt="project.name"
 					class="project-img-large"
+					data-test="project-img-large"
 					@error="() => handleImageError()"
 					@load="() => handleImageLoad()"
 				/>
@@ -33,6 +34,7 @@
 				<div
 					v-if="imageError || !project.image"
 					class="placeholder-image"
+					data-test="placeholder-image"
 				>
 					<UIIcon icon="SVGImage" />
 					<span>{{ project.name }}</span>
@@ -43,30 +45,31 @@
 		</div>
 
 		<div class="project-details">
-			<div class="project-meta-grid">
-				<div class="meta-item">
+			<div class="project-meta-grid" data-test="project-meta-grid">
+				<div class="meta-item" data-test="meta-item">
 					<UIIcon icon="SVGCalendar" />
 					<span class="meta-label">Year</span>
 					<span class="meta-value">{{ project.year }}</span>
 				</div>
 
-				<div class="meta-item">
+				<div class="meta-item" data-test="meta-item">
 					<UIIcon icon="SVGClock" />
 					<span class="meta-label">Duration</span>
 					<span class="meta-value">{{ project.timeline }}</span>
 				</div>
 
-				<div class="meta-item">
+				<div class="meta-item" data-test="meta-item">
 					<UIIcon icon="SVGBuilding" />
 					<span class="meta-label">Client</span>
 					<span class="meta-value">{{ project.client }}</span>
 				</div>
 
-				<div v-if="project.link" class="meta-item">
+				<div v-if="project.link" class="meta-item" data-test="meta-item">
 					<UIIcon icon="SVGLink" />
 					<span class="meta-label">Live Site</span>
 					<UILink
 						class="live-link"
+						data-test="live-link"
 						:href="project.link"
 						target="_blank"
 						text="Visit Project"
@@ -77,13 +80,14 @@
 				</div>
 			</div>
 
-			<div class="technologies-section">
+			<div class="technologies-section" data-test="technologies-section">
 				<h3>Technologies &amp; Skills</h3>
 				<div class="technology-tags">
 					<UIBadge
 						v-for="tag in project.tags"
 						:key="tag"
 						class="tech-tag"
+						data-test="tech-tag"
 						:text="tag"
 						:type="getBadgeType(tag)"
 					/>

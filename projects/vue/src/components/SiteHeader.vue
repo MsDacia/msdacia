@@ -2,16 +2,17 @@
 	<header>
 		<SwitchTheme />
 
-		<div class="item" @click="showMenu = !showMenu">
-			<UIIcon v-show="!showMenu" icon="SVGHamburger" class="toggle off icon" />
-			<UIIcon v-show="showMenu" icon="SVGClose" class="toggle on icon" />
+		<div class="item" data-test="menu-toggle" @click="showMenu = !showMenu">
+			<UIIcon v-show="!showMenu" icon="SVGHamburger" class="toggle off icon" data-test="icon-menu-open" />
+			<UIIcon v-show="showMenu" icon="SVGClose" class="toggle on icon" data-test="icon-menu-close" />
 		</div>
 
-		<div class="menu" :class="[showMenu ? 'show-content' : 'hide-content']">
+		<div class="menu" data-test="menu" :class="[showMenu ? 'show-content' : 'hide-content']">
 			<router-link
 				v-for="headerNav in content.common.navigation"
 				:key="headerNav.item"
 				class="nav-link"
+				data-test="nav-link"
 				:to="headerNav.path"
 				@click="handleNavClick(headerNav.title)"
 			>

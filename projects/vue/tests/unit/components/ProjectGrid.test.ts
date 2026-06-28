@@ -63,8 +63,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.find('.project-grid').classes()).toContain('view-grid')
-			expect(wrapper.findAll('.project-card')).toHaveLength(3)
+			expect(wrapper.find('[data-test="project-grid"]').classes()).toContain('view-grid')
+			expect(wrapper.findAll('[data-test="project-card"]')).toHaveLength(3)
 		})
 
 		it('displays project information correctly', () => {
@@ -75,18 +75,18 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const card = wrapper.find('.project-card')
+			const card = wrapper.find('[data-test="project-card"]')
 
 			// Check project title and client
-			expect(card.find('.project-title').text()).toBe('Test Project 1')
-			expect(card.find('.project-client').text()).toBe('Test Client 1')
+			expect(card.find('[data-test="project-title"]').text()).toBe('Test Project 1')
+			expect(card.find('[data-test="project-client"]').text()).toBe('Test Client 1')
 
 			// Check year and timeline in badges
-			expect(card.find('.project-year').text()).toBe('2023')
-			expect(card.find('.project-timeline').text()).toBe('3 months')
+			expect(card.find('[data-test="project-year"]').text()).toBe('2023')
+			expect(card.find('[data-test="project-timeline"]').text()).toBe('3 months')
 
 			// Check meta information
-			const metaItems = card.findAll('.meta-item')
+			const metaItems = card.findAll('[data-test="meta-item"]')
 			expect(metaItems[0].text()).toContain('2023') // Year
 			expect(metaItems[1].text()).toContain('3 months') // Timeline
 			expect(metaItems[2].text()).toContain('Live Site') // Link indicator
@@ -100,8 +100,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const tags = wrapper.findAll('.tag:not(.more-tags)')
-			const moreTags = wrapper.find('.more-tags')
+			const tags = wrapper.findAll('[data-test="tag"]')
+			const moreTags = wrapper.find('[data-test="more-tag"]')
 
 			expect(tags).toHaveLength(4) // Should show only 4 tags in grid view
 			expect(moreTags.exists()).toBe(true)
@@ -116,7 +116,7 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const moreTags = wrapper.find('.more-tags')
+			const moreTags = wrapper.find('[data-test="more-tag"]')
 			expect(moreTags.exists()).toBe(false)
 		})
 
@@ -128,14 +128,14 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const cards = wrapper.findAll('.project-card')
+			const cards = wrapper.findAll('[data-test="project-card"]')
 
 			// First project has a link
-			const firstCardMeta = cards[0].findAll('.meta-item')
+			const firstCardMeta = cards[0].findAll('[data-test="meta-item"]')
 			expect(firstCardMeta[2].text()).toContain('Live Site')
 
 			// Second project doesn't have a link
-			const secondCardMeta = cards[1].findAll('.meta-item')
+			const secondCardMeta = cards[1].findAll('[data-test="meta-item"]')
 			expect(secondCardMeta).toHaveLength(2) // Only year and timeline
 		})
 	})
@@ -149,8 +149,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.find('.project-grid').classes()).toContain('view-list')
-			expect(wrapper.findAll('.project-card')).toHaveLength(3)
+			expect(wrapper.find('[data-test="project-grid"]').classes()).toContain('view-list')
+			expect(wrapper.findAll('[data-test="project-card"]')).toHaveLength(3)
 		})
 
 		it('shows more tags in list view', () => {
@@ -161,8 +161,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const tags = wrapper.findAll('.tag:not(.more-tags)')
-			const moreTags = wrapper.find('.more-tags')
+			const tags = wrapper.findAll('[data-test="tag"]')
+			const moreTags = wrapper.find('[data-test="more-tag"]')
 
 			expect(tags).toHaveLength(8) // Should show all 8 tags in list view
 			expect(moreTags.exists()).toBe(false) // No "more" indicator needed
@@ -181,8 +181,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const tags = wrapper.findAll('.tag:not(.more-tags)')
-			const moreTags = wrapper.find('.more-tags')
+			const tags = wrapper.findAll('[data-test="tag"]')
+			const moreTags = wrapper.find('[data-test="more-tag"]')
 
 			expect(tags).toHaveLength(8) // Should show 8 tags in list view
 			expect(moreTags.exists()).toBe(true)
@@ -199,7 +199,7 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const emptyState = wrapper.find('.empty-state')
+			const emptyState = wrapper.find('[data-test="empty-state"]')
 			expect(emptyState.exists()).toBe(true)
 			expect(emptyState.text()).toContain('No projects found')
 		})
@@ -212,7 +212,7 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.find('.empty-state').exists()).toBe(false)
+			expect(wrapper.find('[data-test="empty-state"]').exists()).toBe(false)
 		})
 	})
 
@@ -225,7 +225,7 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const card = wrapper.find('.project-card')
+			const card = wrapper.find('[data-test="project-card"]')
 			await card.trigger('click')
 
 			expect(wrapper.emitted('project-click')).toHaveLength(1)
@@ -242,7 +242,7 @@ describe('ProjectGrid Component', () => {
 
 			// Note: Since the button is inside the card, clicking it will also trigger the card click
 			// This is expected behavior for the component
-			const viewDetailsButton = wrapper.find('.view-details')
+			const viewDetailsButton = wrapper.find('[data-test="view-details"]')
 			await viewDetailsButton.trigger('click')
 
 			expect(wrapper.emitted('project-click')).toHaveLength(1)
@@ -257,7 +257,7 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			const card = wrapper.find('.project-card')
+			const card = wrapper.find('[data-test="project-card"]')
 
 			// Test hover (simulated by adding CSS class)
 			await card.trigger('mouseenter')
@@ -277,8 +277,8 @@ describe('ProjectGrid Component', () => {
 			})
 
 			// Check that responsive classes are present
-			expect(wrapper.find('.project-grid').exists()).toBe(true)
-			expect(wrapper.find('.project-card').exists()).toBe(true)
+			expect(wrapper.find('[data-test="project-grid"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="project-card"]').exists()).toBe(true)
 		})
 	})
 
@@ -302,11 +302,11 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.find('.project-card').exists()).toBe(true)
-			expect(wrapper.find('.project-title').text()).toBe('Minimal Project')
+			expect(wrapper.find('[data-test="project-card"]').exists()).toBe(true)
+			expect(wrapper.find('[data-test="project-title"]').text()).toBe('Minimal Project')
 
 			// Should not show live site meta item
-			const metaItems = wrapper.findAll('.meta-item')
+			const metaItems = wrapper.findAll('[data-test="meta-item"]')
 			expect(metaItems).toHaveLength(2) // Only year and timeline
 		})
 
@@ -323,8 +323,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.find('.project-card').exists()).toBe(true)
-			expect(wrapper.findAll('.tag')).toHaveLength(0)
+			expect(wrapper.find('[data-test="project-card"]').exists()).toBe(true)
+			expect(wrapper.findAll('[data-test="tag"]')).toHaveLength(0)
 		})
 
 		it('handles very long project names and client names', () => {
@@ -341,8 +341,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.find('.project-title').text()).toBe(projectWithLongNames.name)
-			expect(wrapper.find('.project-client').text()).toBe(projectWithLongNames.client)
+			expect(wrapper.find('[data-test="project-title"]').text()).toBe(projectWithLongNames.name)
+			expect(wrapper.find('[data-test="project-client"]').text()).toBe(projectWithLongNames.client)
 		})
 
 		it('maintains proper structure with single project', () => {
@@ -353,8 +353,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.findAll('.project-card')).toHaveLength(1)
-			expect(wrapper.find('.empty-state').exists()).toBe(false)
+			expect(wrapper.findAll('[data-test="project-card"]')).toHaveLength(1)
+			expect(wrapper.find('[data-test="empty-state"]').exists()).toBe(false)
 		})
 	})
 
@@ -368,13 +368,13 @@ describe('ProjectGrid Component', () => {
 			})
 
 			// Check for proper heading structure
-			const titles = wrapper.findAll('.project-title')
+			const titles = wrapper.findAll('[data-test="project-title"]')
 			titles.forEach(title => {
 				expect(title.element.tagName).toBe('H3')
 			})
 
 			// Check for button elements
-			const buttons = wrapper.findAll('.view-details')
+			const buttons = wrapper.findAll('[data-test="view-details"]')
 			buttons.forEach(button => {
 				expect(button.element.tagName).toBe('BUTTON')
 			})
@@ -389,9 +389,9 @@ describe('ProjectGrid Component', () => {
 			})
 
 			// All text content should be meaningful
-			expect(wrapper.find('.project-title').text().trim()).toBeTruthy()
-			expect(wrapper.find('.project-client').text().trim()).toBeTruthy()
-			expect(wrapper.find('.view-details').text().trim()).toBeTruthy()
+			expect(wrapper.find('[data-test="project-title"]').text().trim()).toBeTruthy()
+			expect(wrapper.find('[data-test="project-client"]').text().trim()).toBeTruthy()
+			expect(wrapper.find('[data-test="view-details"]').text().trim()).toBeTruthy()
 		})
 	})
 
@@ -411,8 +411,8 @@ describe('ProjectGrid Component', () => {
 				},
 			})
 
-			expect(wrapper.findAll('.project-card')).toHaveLength(100)
-			expect(wrapper.find('.empty-state').exists()).toBe(false)
+			expect(wrapper.findAll('[data-test="project-card"]')).toHaveLength(100)
+			expect(wrapper.find('[data-test="empty-state"]').exists()).toBe(false)
 		})
 	})
 })

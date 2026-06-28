@@ -60,13 +60,13 @@ describe('SiteFooter', () => {
 
 		it('renders a social link for each social entry', () => {
 			const wrapper = mount(SiteFooter)
-			const links = wrapper.findAll('.social-link')
+			const links = wrapper.findAll('[data-test="social-link"]')
 			expect(links).toHaveLength(4)
 		})
 
 		it('sets the correct href, title and target on social links', () => {
 			const wrapper = mount(SiteFooter)
-			const firstLink = wrapper.findAll('.social-link')[0]
+			const firstLink = wrapper.findAll('[data-test="social-link"]')[0]
 
 			expect(firstLink.attributes('href')).toBe('https://facebook.com/test')
 			expect(firstLink.attributes('title')).toBe('Facebook')
@@ -77,7 +77,7 @@ describe('SiteFooter', () => {
 	describe('Icon Mapping', () => {
 		it('maps known semantic icon classes to ui-components SVG icons', () => {
 			const wrapper = mount(SiteFooter)
-			const icons = wrapper.findAll('.social-link [data-ui="icon"]')
+			const icons = wrapper.findAll('[data-test="social-link"] [data-ui="icon"]')
 
 			expect(icons[0].classes()).toContain('SVGFacebook')
 			expect(icons[1].classes()).toContain('SVGGithub')
@@ -86,7 +86,7 @@ describe('SiteFooter', () => {
 
 		it('falls back to SVGLink for unknown icon classes', () => {
 			const wrapper = mount(SiteFooter)
-			const icons = wrapper.findAll('.social-link [data-ui="icon"]')
+			const icons = wrapper.findAll('[data-test="social-link"] [data-ui="icon"]')
 
 			expect(icons[3].classes()).toContain('SVGLink')
 		})
@@ -95,15 +95,15 @@ describe('SiteFooter', () => {
 	describe('Copyright', () => {
 		it('renders the copyright symbol and content', () => {
 			const wrapper = mount(SiteFooter)
-			const copyright = wrapper.find('#copyright')
+			const copyright = wrapper.find('[data-test="copyright"]')
 
-			expect(copyright.find('.copyright-symbol').text()).toBe('©')
+			expect(copyright.find('[data-test="copyright-symbol"]').text()).toBe('©')
 			expect(copyright.text()).toContain('2020 designed, 2026 developed by')
 		})
 
 		it('renders the home link with the global title and url', () => {
 			const wrapper = mount(SiteFooter)
-			const homeLink = wrapper.find('.home-link')
+			const homeLink = wrapper.find('[data-test="home-link"]')
 
 			expect(homeLink.text()).toBe('MsDacia')
 			expect(homeLink.attributes('href')).toBe('http://msdacia.com')
@@ -115,7 +115,7 @@ describe('SiteFooter', () => {
 			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
 			const wrapper = mount(SiteFooter)
 
-			await wrapper.findAll('.social-link')[0].trigger('click')
+			await wrapper.findAll('[data-test="social-link"]')[0].trigger('click')
 
 			expect(consoleSpy).toHaveBeenCalledWith('Social media clicked:', 'Facebook')
 			consoleSpy.mockRestore()
@@ -125,7 +125,7 @@ describe('SiteFooter', () => {
 			const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => { })
 			const wrapper = mount(SiteFooter)
 
-			await wrapper.find('.home-link').trigger('click')
+			await wrapper.find('[data-test="home-link"]').trigger('click')
 
 			expect(consoleSpy).toHaveBeenCalledWith('Home link clicked:', 'MsDacia')
 			consoleSpy.mockRestore()

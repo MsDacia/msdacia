@@ -76,7 +76,7 @@ vi.mock('@/data/static.en-us.json', () => ({
 vi.mock('@/components/ExperienceTimeline.vue', () => ({
 	default: {
 		name: 'ExperienceTimeline',
-		template: '<div class="experience-timeline-mock">Timeline</div>',
+		template: '<div data-test="experience-timeline">Timeline</div>',
 	},
 }))
 
@@ -84,28 +84,28 @@ describe('Resume View', () => {
 	describe('Component Rendering', () => {
 		it('renders the resume container', () => {
 			const wrapper = mount(Resume)
-			expect(wrapper.find('.resume').exists()).toBe(true)
+			expect(wrapper.find('[data-test="resume"]').exists()).toBe(true)
 		})
 
 		it('renders the title and address', () => {
 			const wrapper = mount(Resume)
 			expect(wrapper.find('h1').text()).toBe('Resume')
-			expect(wrapper.find('.resume-address').text()).toBe('Chicago, Illinois 60653')
+			expect(wrapper.find('[data-test="resume-address"]').text()).toBe('Chicago, Illinois 60653')
 		})
 
 		it('renders the objective headline, subtitle, and copy', () => {
 			const wrapper = mount(Resume)
-			const objective = wrapper.find('.resume-objective')
+			const objective = wrapper.find('[data-test="resume-objective"]')
 
 			expect(objective.find('h3').text()).toBe('Objective')
-			expect(objective.find('.objective-headline').text()).toBe('Senior Frontend / Staff-Level Engineer')
-			expect(objective.find('.objective-subtitle').text()).toContain('TypeScript')
+			expect(objective.find('[data-test="objective-headline"]').text()).toBe('Senior Frontend / Staff-Level Engineer')
+			expect(objective.find('[data-test="objective-subtitle"]').text()).toContain('TypeScript')
 			expect(objective.text()).toContain('Product-focused engineer')
 		})
 
 		it('renders every skill category', () => {
 			const wrapper = mount(Resume)
-			const skills = wrapper.findAll('.skill-category')
+			const skills = wrapper.findAll('[data-test="skill-category"]')
 
 			expect(skills).toHaveLength(2)
 			expect(skills[0].find('h4').text()).toBe('Languages')
@@ -114,7 +114,7 @@ describe('Resume View', () => {
 
 		it('renders the education details without a graduation date', () => {
 			const wrapper = mount(Resume)
-			const education = wrapper.find('.resume-education')
+			const education = wrapper.find('[data-test="resume-education"]')
 
 			expect(education.find('h4').text()).toBe('Illinois Institute of Technology')
 			expect(education.text()).toContain('Professional and Technical Communications')
@@ -126,7 +126,7 @@ describe('Resume View', () => {
 	describe('Contact links', () => {
 		it('renders the email as a mailto link', () => {
 			const wrapper = mount(Resume)
-			const mailto = wrapper.find('.resume-contact a[href^="mailto:"]')
+			const mailto = wrapper.find('[data-test="resume-contact"] a[href^="mailto:"]')
 
 			expect(mailto.exists()).toBe(true)
 			expect(mailto.attributes('href')).toBe('mailto:msdessin@gmail.com')
@@ -134,7 +134,7 @@ describe('Resume View', () => {
 
 		it('opens external contact links in a new tab', () => {
 			const wrapper = mount(Resume)
-			const externalLinks = wrapper.findAll('.resume-contact a[href^="http"]')
+			const externalLinks = wrapper.findAll('[data-test="resume-contact"] a[href^="http"]')
 
 			expect(externalLinks).toHaveLength(2)
 			externalLinks.forEach(link => {
@@ -147,7 +147,7 @@ describe('Resume View', () => {
 	describe('Projects', () => {
 		it('renders every project link without a downloadable PDF', () => {
 			const wrapper = mount(Resume)
-			const links = wrapper.findAll('.projects-list a')
+			const links = wrapper.findAll('[data-test="projects-list"] a')
 
 			expect(links).toHaveLength(2)
 			expect(links[0].text()).toBe("Dacia's Closet App")
@@ -156,7 +156,7 @@ describe('Resume View', () => {
 
 		it('opens project links in a new tab', () => {
 			const wrapper = mount(Resume)
-			const links = wrapper.findAll('.projects-list a')
+			const links = wrapper.findAll('[data-test="projects-list"] a')
 
 			links.forEach(link => {
 				expect(link.attributes('target')).toBe('_blank')
@@ -168,7 +168,7 @@ describe('Resume View', () => {
 	describe('Composition', () => {
 		it('includes the ExperienceTimeline component', () => {
 			const wrapper = mount(Resume)
-			expect(wrapper.find('.experience-timeline-mock').exists()).toBe(true)
+			expect(wrapper.find('[data-test="experience-timeline"]').exists()).toBe(true)
 		})
 	})
 })

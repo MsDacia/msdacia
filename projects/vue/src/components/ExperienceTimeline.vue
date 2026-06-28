@@ -1,6 +1,6 @@
 <template>
-	<div class="experience-timeline">
-		<div class="timeline-header">
+	<div class="experience-timeline" data-test="experience-timeline">
+		<div class="timeline-header" data-test="timeline-header">
 			<UIHeading
 				:heading="2"
 				centered
@@ -8,20 +8,22 @@
 				{{ content.resume.experiences.title }}
 			</UIHeading>
 
-			<p class="timeline-subtitle">My professional journey in front-end development</p>
+			<p class="timeline-subtitle" data-test="timeline-subtitle">My professional journey in front-end development</p>
 		</div>
 
-		<div class="timeline">
+		<div class="timeline" data-test="timeline">
 			<div
 				v-for="job in jobs"
 				:key="job.id"
 				class="timeline-item"
+				data-test="timeline-item"
 				:class="{ 'expanded': expandedJob === job.id }"
 			>
-				<div class="timeline-marker" />
+				<div class="timeline-marker" data-test="timeline-marker" />
 
 				<UIAccordion
 					class="job-card"
+					data-test="job-card"
 					title=""
 					:expanded="expandedJob === job.id"
 					@update:expanded="(open: boolean) => (expandedJob = open ? job.id : null)"
@@ -29,22 +31,22 @@
 					<template #titleFlare>
 						<div class="job-header">
 							<div class="job-title-section">
-								<h3 class="job-title">{{ job.title }}</h3>
+								<h3 class="job-title" data-test="job-title">{{ job.title }}</h3>
 
 								<div class="company-info">
-									<h4 class="company-name">{{ job.company }}</h4>
-									<span class="job-location">{{ job.location }}</span>
+									<h4 class="company-name" data-test="company-name">{{ job.company }}</h4>
+									<span class="job-location" data-test="job-location">{{ job.location }}</span>
 								</div>
 							</div>
 
 							<div class="job-meta">
-								<span class="job-date">{{ job.date }}</span>
+								<span class="job-date" data-test="job-date">{{ job.date }}</span>
 							</div>
 						</div>
 					</template>
 
 					<div class="job-content">
-						<div class="responsibilities">
+						<div class="responsibilities" data-test="responsibilities">
 							<h5>Key Responsibilities &amp; Achievements:</h5>
 
 							<template v-if="job.groups && job.groups.length">
@@ -53,13 +55,14 @@
 									:key="group.title"
 									class="responsibility-group"
 								>
-									<h6 class="responsibility-group-title">{{ group.title }}</h6>
+									<h6 class="responsibility-group-title" data-test="responsibility-group-title">{{ group.title }}</h6>
 
-									<ul class="responsibility-list">
+									<ul class="responsibility-list" data-test="responsibility-list">
 										<li
 											v-for="(point, index) in group.points"
 											:key="index"
 											class="responsibility-item"
+											data-test="responsibility-item"
 											v-html="point"
 										/>
 									</ul>
@@ -69,11 +72,13 @@
 							<ul
 								v-else
 								class="responsibility-list"
+								data-test="responsibility-list"
 							>
 								<li
 									v-for="(point, index) in job.points"
 									:key="index"
 									class="responsibility-item"
+									data-test="responsibility-item"
 									v-html="point"
 								/>
 							</ul>

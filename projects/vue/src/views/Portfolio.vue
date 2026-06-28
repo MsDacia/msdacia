@@ -1,36 +1,36 @@
 <template>
 	<div class="modern-portfolio">
 		<!-- Portfolio Header -->
-		<div class="portfolio-header">
+		<div class="portfolio-header" data-test="portfolio-header">
 			<h1>{{ content.portfolio.title }}</h1>
-			<p class="portfolio-description" v-html="content.portfolio.copy"></p>
+			<p class="portfolio-description" data-test="portfolio-description" v-html="content.portfolio.copy"></p>
 
 			<!-- Portfolio Stats -->
 			<div class="portfolio-stats">
-				<div class="stat-item">
-					<span class="stat-number">{{ totalProjects }}</span>
-					<span class="stat-label">Projects</span>
+				<div class="stat-item" data-test="stat-item">
+					<span class="stat-number" data-test="stat-number">{{ totalProjects }}</span>
+					<span class="stat-label" data-test="stat-label">Projects</span>
 				</div>
 
-				<div class="stat-item">
-					<span class="stat-number">{{ totalClients }}</span>
-					<span class="stat-label">Clients</span>
+				<div class="stat-item" data-test="stat-item">
+					<span class="stat-number" data-test="stat-number">{{ totalClients }}</span>
+					<span class="stat-label" data-test="stat-label">Clients</span>
 				</div>
 
-				<div class="stat-item">
-					<span class="stat-number">{{ yearRange }}</span>
-					<span class="stat-label">Years</span>
+				<div class="stat-item" data-test="stat-item">
+					<span class="stat-number" data-test="stat-number">{{ yearRange }}</span>
+					<span class="stat-label" data-test="stat-label">Years</span>
 				</div>
 
-				<div class="stat-item">
-					<span class="stat-number">{{ totalTechnologies }}</span>
-					<span class="stat-label">Technologies</span>
+				<div class="stat-item" data-test="stat-item">
+					<span class="stat-number" data-test="stat-number">{{ totalTechnologies }}</span>
+					<span class="stat-label" data-test="stat-label">Technologies</span>
 				</div>
 			</div>
 		</div>
 
 		<!-- Search and Filter Controls -->
-		<div class="controls-section">
+		<div class="controls-section" data-test="controls-section">
 			<div class="search-controls">
 				<div class="search-box">
 					<UIIcon icon="SVGSearch" />
@@ -39,22 +39,25 @@
 						type="text"
 						placeholder="Search projects, clients, or technologies..."
 						class="search-input"
+						data-test="search-input"
 					>
 					<UIButton
 						v-if="searchQuery"
 						button-style="text"
 						class="clear-search"
+						data-test="clear-search"
 						@click="clearSearch"
 					>
 						<UIIcon icon="SVGClose" />
 					</UIButton>
 				</div>
 
-				<div class="view-controls">
+				<div class="view-controls" data-test="view-controls">
 					<UIButton
 						button-style="text"
 						:class="{ active: viewMode === 'grid' }"
 						class="view-button"
+						data-test="view-button-grid"
 						@click="viewMode = 'grid'"
 					>
 						<UIIcon icon="SVGLayout" /> Grid
@@ -64,6 +67,7 @@
 						button-style="text"
 						:class="{ active: viewMode === 'list' }"
 						class="view-button"
+						data-test="view-button-list"
 						@click="viewMode = 'list'"
 					>
 						<UIIcon icon="SVGList" /> List
@@ -72,13 +76,14 @@
 			</div>
 
 			<!-- Technology Filter Tags -->
-			<div class="filter-section">
+			<div class="filter-section" data-test="filter-section">
 				<h3>Filter by Technology:</h3>
-				<div class="tag-filters">
+				<div class="tag-filters" data-test="tag-filters">
 					<UIButton
 						button-style="text"
 						:class="{ active: selectedTag === '' }"
 						class="filter-tag all-tag"
+						data-test="filter-tag-all"
 						@click="selectedTag = ''"
 					>
 						All Projects ({{ totalProjects }})
@@ -90,6 +95,7 @@
 						button-style="text"
 						:class="{ active: selectedTag === tag.name }"
 						class="filter-tag"
+						data-test="filter-tag"
 						@click="selectedTag = tag.name"
 					>
 						{{ tag.name }} ({{ tag.count }})
@@ -100,18 +106,20 @@
 					v-if="!showAllTags && allTags.length > 12"
 					button-style="text"
 					class="show-more-tags"
+					data-test="show-more-tags"
 					@click="showAllTags = true"
 				>
 					Show {{ allTags.length - 12 }} more technologies...
 				</UIButton>
 
-				<div v-if="showAllTags" class="all-tags">
+				<div v-if="showAllTags" class="all-tags" data-test="all-tags">
 					<UIButton
 						v-for="tag in allTags.slice(12)"
 						:key="tag.name"
 						button-style="text"
 						:class="{ active: selectedTag === tag.name }"
 						class="filter-tag"
+						data-test="filter-tag"
 						@click="selectedTag = tag.name"
 					>
 						{{ tag.name }} ({{ tag.count }})
@@ -121,20 +129,20 @@
 		</div>
 
 		<!-- Results Summary -->
-		<div class="results-summary" v-if="filteredProjects.length !== totalProjects">
+		<div class="results-summary" data-test="results-summary" v-if="filteredProjects.length !== totalProjects">
 			<p>
 				Showing {{ filteredProjects.length }} of {{ totalProjects }} projects
 				<span v-if="selectedTag"> tagged with "{{ selectedTag }}"</span>
 				<span v-if="searchQuery"> matching "{{ searchQuery }}"</span>
 			</p>
 
-			<UIButton button-style="text" class="clear-filters" @click="clearFilters">
+			<UIButton button-style="text" class="clear-filters" data-test="clear-filters" @click="clearFilters">
 				<UIIcon icon="SVGClose" /> Clear Filters
 			</UIButton>
 		</div>
 
 		<!-- Project Grid/List -->
-		<div class="projects-container">
+		<div class="projects-container" data-test="projects-container">
 			<ProjectGrid
 				:projects="filteredProjects"
 				:view-mode="viewMode"

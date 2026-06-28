@@ -1,20 +1,20 @@
 <template>
-	<div class="about">
+	<div class="about" data-test="about">
 		<div class="about-intro">
 			<h1>{{ content.about.title }}</h1>
 
 			<div class="about-sections">
-				<section class="about-section">
+				<section class="about-section" data-test="about-section">
 					<h3>{{ content.about.subtitle }}</h3>
 					<p v-html="content.about.copy"></p>
 				</section>
 
-				<section class="about-section">
+				<section class="about-section" data-test="about-section">
 					<h3>{{ content.about.subtitle2 }}</h3>
 					<p v-html="content.about.copy2"></p>
 				</section>
 
-				<section class="about-section">
+				<section class="about-section" data-test="about-section">
 					<h3>{{ content.about.subtitle3 }}</h3>
 					<p v-html="content.about.copy3"></p>
 				</section>

@@ -1,13 +1,13 @@
 <template>
-	<div class="home">
-		<div class="hero-section">
-			<h1 class="hero-title">{{ content.common.global.title }}</h1>
-			<p class="hero-subtitle">{{ content.common.global.copy }} <em>{{ content.common.global.copy2 }}</em></p>
-			<h2 class="tagline">{{ content.common.global.tagline }}</h2>
+	<div class="home" data-test="home">
+		<div class="hero-section" data-test="hero-section">
+			<h1 class="hero-title" data-test="hero-title">{{ content.common.global.title }}</h1>
+			<p class="hero-subtitle" data-test="hero-subtitle">{{ content.common.global.copy }} <em>{{ content.common.global.copy2 }}</em></p>
+			<h2 class="tagline" data-test="tagline">{{ content.common.global.tagline }}</h2>
 
-			<div class="quick-links">
-				<router-link to="/about" class="cta-button">Learn About Me</router-link>
-				<router-link to="/portfolio" class="cta-button secondary">View Portfolio</router-link>
+			<div class="quick-links" data-test="quick-links">
+				<router-link to="/about" class="cta-button" data-test="cta-button">Learn About Me</router-link>
+				<router-link to="/portfolio" class="cta-button secondary" data-test="cta-button">View Portfolio</router-link>
 			</div>
 		</div>
 	</div>

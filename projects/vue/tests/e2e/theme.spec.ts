@@ -10,12 +10,12 @@ test.describe('Theme System E2E', () => {
 		await page.emulateMedia({ colorScheme: 'dark' })
 		await page.reload()
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 		if (await menuTrigger.isVisible()) {
 			await menuTrigger.click()
 
 			// System option should show "Dark" indicator
-			const systemOption = page.locator('.theme-option', { hasText: 'System' })
+			const systemOption = page.locator('[data-test="theme-option"]', { hasText: 'System' })
 			await expect(systemOption).toContainText('Dark')
 		}
 	})
@@ -25,11 +25,11 @@ test.describe('Theme System E2E', () => {
 		await page.emulateMedia({ colorScheme: 'light' })
 		await page.reload()
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 		if (await menuTrigger.isVisible()) {
 			// Set to system theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: 'System' }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: 'System' }).click()
 
 			// Should be light theme
 			await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
@@ -43,13 +43,13 @@ test.describe('Theme System E2E', () => {
 	})
 
 	test('should maintain theme during navigation', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
-		const navToggle = page.locator('.item')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
+		const navToggle = page.locator('[data-test="menu-toggle"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Set dark theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Navigate to multiple pages
 			const pages = ['About', 'Portfolio', 'Home']
@@ -58,7 +58,7 @@ test.describe('Theme System E2E', () => {
 				if (await navToggle.isVisible()) {
 					await navToggle.click()
 				}
-				await page.locator('.nav-link', { hasText: pageName }).click()
+				await page.locator('[data-test="nav-link"]', { hasText: pageName }).click()
 
 				// Theme should persist
 				await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
@@ -68,54 +68,54 @@ test.describe('Theme System E2E', () => {
 	})
 
 	test('should show correct active theme in menu', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Switch to light theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ }).click()
 
 			// Open menu again and check active state
 			await menuTrigger.click()
-			const lightOption = page.locator('.theme-option', { hasText: /^\s*Light\s*$/ })
+			const lightOption = page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ })
 			await expect(lightOption).toHaveClass(/active/)
-			await expect(lightOption.locator('.SVGCheck')).toBeVisible()
+			await expect(lightOption.locator('[data-test="check-icon"]')).toBeVisible()
 
 			// Switch to dark theme
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Check dark theme is now active
 			await menuTrigger.click()
-			const darkOption = page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ })
+			const darkOption = page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ })
 			await expect(darkOption).toHaveClass(/active/)
-			await expect(darkOption.locator('.SVGCheck')).toBeVisible()
+			await expect(darkOption.locator('[data-test="check-icon"]')).toBeVisible()
 		}
 	})
 
 	test('should close theme menu when clicking outside', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Open theme menu
 			await menuTrigger.click()
-			await expect(page.locator('.menu-options')).toBeVisible()
+			await expect(page.locator('[data-test="menu-options"]')).toBeVisible()
 
 			// Click outside the menu (the switcher is fixed at the top-left, so click
 			// well away from it to land outside the dropdown)
 			await page.locator('body').click({ position: { x: 600, y: 500 } })
 
 			// Menu should be closed
-			await expect(page.locator('.menu-options')).not.toBeVisible()
+			await expect(page.locator('[data-test="menu-options"]')).not.toBeVisible()
 		}
 	})
 
 	test('should work across browser refresh', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Set dark theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Refresh the page
 			await page.reload()
@@ -127,7 +127,7 @@ test.describe('Theme System E2E', () => {
 	})
 
 	test('should update theme icons correctly', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Check initial icon (should be the system monitor icon)
@@ -135,14 +135,14 @@ test.describe('Theme System E2E', () => {
 
 			// Switch to light theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ }).click()
 
 			// Icon should change to sun
 			await expect(menuTrigger.locator('.SVGSun')).toBeVisible()
 
 			// Switch to dark theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Icon should change to moon
 			await expect(menuTrigger.locator('.SVGMoon')).toBeVisible()
@@ -154,12 +154,12 @@ test.describe('Theme Accessibility', () => {
 	test('should have proper contrast in both themes', async ({ page }) => {
 		await page.goto('/')
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Test light theme contrast
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ }).click()
 
 			// Check that text is visible and readable
 			const header = page.locator('header')
@@ -167,7 +167,7 @@ test.describe('Theme Accessibility', () => {
 
 			// Test dark theme contrast
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Header should still be visible with good contrast
 			await expect(header).toBeVisible()
@@ -189,7 +189,7 @@ test.describe('Theme Accessibility', () => {
 			if (classes?.includes('menu-trigger')) {
 				// Found theme switcher, test keyboard interaction
 				await page.keyboard.press('Enter')
-				await expect(page.locator('.menu-options')).toBeVisible()
+				await expect(page.locator('[data-test="menu-options"]')).toBeVisible()
 				break
 			}
 
@@ -200,7 +200,7 @@ test.describe('Theme Accessibility', () => {
 	test('should work with screen reader attributes', async ({ page }) => {
 		await page.goto('/')
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Check for title attribute
@@ -209,7 +209,7 @@ test.describe('Theme Accessibility', () => {
 			// Check that theme options have proper text
 			await menuTrigger.click()
 
-			const options = page.locator('.theme-option')
+			const options = page.locator('[data-test="theme-option"]')
 			const optionCount = await options.count()
 
 			for (let i = 0; i < optionCount; i++) {
@@ -225,14 +225,14 @@ test.describe('Theme Performance', () => {
 	test('should switch themes quickly', async ({ page }) => {
 		await page.goto('/')
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			const startTime = Date.now()
 
 			// Switch theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Wait for theme to be applied
 			await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
@@ -247,7 +247,7 @@ test.describe('Theme Performance', () => {
 	test('should not cause layout shifts during theme changes', async ({ page }) => {
 		await page.goto('/')
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Get initial button position
@@ -255,7 +255,7 @@ test.describe('Theme Performance', () => {
 
 			// Switch theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Get position after theme change
 			const finalBox = await menuTrigger.boundingBox()
@@ -273,16 +273,16 @@ test.describe('Theme Edge Cases', () => {
 	test('should handle rapid theme switching', async ({ page }) => {
 		await page.goto('/')
 
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Rapidly switch between themes
 			for (let i = 0; i < 3; i++) {
 				await menuTrigger.click()
-				await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
+				await page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ }).click()
 
 				await menuTrigger.click()
-				await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+				await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 			}
 
 			// App should still be functional
@@ -294,19 +294,19 @@ test.describe('Theme Edge Cases', () => {
 	test('should work with browser back/forward', async ({ page }) => {
 		await page.goto('/')
 
-		const menuTrigger = page.locator('.menu-trigger')
-		const navToggle = page.locator('.item')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
+		const navToggle = page.locator('[data-test="menu-toggle"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Set dark theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Navigate to another page
 			if (await navToggle.isVisible()) {
 				await navToggle.click()
 			}
-			await page.locator('.nav-link', { hasText: 'About' }).click()
+			await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 
 			// Go back
 			await page.goBack()

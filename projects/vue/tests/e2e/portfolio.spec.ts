@@ -11,32 +11,32 @@ test.describe('Portfolio Page E2E', () => {
 			await expect(page).toHaveTitle(/Ms Dacia/)
 
 			// Check main sections are visible
-			await expect(page.locator('.portfolio-header')).toBeVisible()
-			await expect(page.locator('.controls-section')).toBeVisible()
-			await expect(page.locator('.projects-container')).toBeVisible()
+			await expect(page.locator('[data-test="portfolio-header"]')).toBeVisible()
+			await expect(page.locator('[data-test="controls-section"]')).toBeVisible()
+			await expect(page.locator('[data-test="projects-container"]')).toBeVisible()
 		})
 
 		test('should display portfolio statistics', async ({ page }) => {
-			const stats = page.locator('.stat-item')
+			const stats = page.locator('[data-test="stat-item"]')
 			await expect(stats).toHaveCount(4)
 
 			// Check that stats have numbers and labels
 			for (let i = 0; i < 4; i++) {
 				const stat = stats.nth(i)
-				await expect(stat.locator('.stat-number')).toBeVisible()
-				await expect(stat.locator('.stat-label')).toBeVisible()
+				await expect(stat.locator('[data-test="stat-number"]')).toBeVisible()
+				await expect(stat.locator('[data-test="stat-label"]')).toBeVisible()
 
 				// Numbers should be greater than 0
-				const numberText = await stat.locator('.stat-number').textContent()
+				const numberText = await stat.locator('[data-test="stat-number"]').textContent()
 				expect(parseInt(numberText || '0')).toBeGreaterThan(0)
 			}
 		})
 
 		test('should show search and filter controls', async ({ page }) => {
-			await expect(page.locator('.search-input')).toBeVisible()
-			await expect(page.locator('.view-controls')).toBeVisible()
-			await expect(page.locator('.filter-section')).toBeVisible()
-			await expect(page.locator('.tag-filters')).toBeVisible()
+			await expect(page.locator('[data-test="search-input"]')).toBeVisible()
+			await expect(page.locator('[data-test="view-controls"]')).toBeVisible()
+			await expect(page.locator('[data-test="filter-section"]')).toBeVisible()
+			await expect(page.locator('[data-test="tag-filters"]')).toBeVisible()
 		})
 	})
 
@@ -47,7 +47,7 @@ test.describe('Portfolio Page E2E', () => {
 			expect(initialProjects).toBeGreaterThan(0)
 
 			// Search for "Vue" projects
-			await page.locator('.search-input').fill('Vue')
+			await page.locator('[data-test="search-input"]').fill('Vue')
 
 			// Wait for filtering to occur
 			await page.waitForTimeout(300)
@@ -58,32 +58,32 @@ test.describe('Portfolio Page E2E', () => {
 
 			// Results summary should appear
 			if (filteredProjects < initialProjects) {
-				await expect(page.locator('.results-summary')).toBeVisible()
-				await expect(page.locator('.results-summary')).toContainText('Showing')
+				await expect(page.locator('[data-test="results-summary"]')).toBeVisible()
+				await expect(page.locator('[data-test="results-summary"]')).toContainText('Showing')
 			}
 		})
 
 		test('should show clear search button when searching', async ({ page }) => {
 			// Initially no clear button
-			await expect(page.locator('.clear-search')).not.toBeVisible()
+			await expect(page.locator('[data-test="clear-search"]')).not.toBeVisible()
 
 			// Type in search
-			await page.locator('.search-input').fill('React')
+			await page.locator('[data-test="search-input"]').fill('React')
 
 			// Clear button should appear
-			await expect(page.locator('.clear-search')).toBeVisible()
+			await expect(page.locator('[data-test="clear-search"]')).toBeVisible()
 
 			// Click clear button
-			await page.locator('.clear-search').click()
+			await page.locator('[data-test="clear-search"]').click()
 
 			// Search should be cleared
-			await expect(page.locator('.search-input')).toHaveValue('')
-			await expect(page.locator('.clear-search')).not.toBeVisible()
+			await expect(page.locator('[data-test="search-input"]')).toHaveValue('')
+			await expect(page.locator('[data-test="clear-search"]')).not.toBeVisible()
 		})
 
 		test('should handle empty search results gracefully', async ({ page }) => {
 			// Search for something that doesn't exist
-			await page.locator('.search-input').fill('NonexistentTechnology2024')
+			await page.locator('[data-test="search-input"]').fill('NonexistentTechnology2024')
 			await page.waitForTimeout(300)
 
 			// Should show no projects or empty state
@@ -91,7 +91,7 @@ test.describe('Portfolio Page E2E', () => {
 			expect(projects).toBe(0)
 
 			// Results summary should show 0 results
-			await expect(page.locator('.results-summary')).toContainText('Showing 0')
+			await expect(page.locator('[data-test="results-summary"]')).toContainText('Showing 0')
 		})
 	})
 
@@ -101,7 +101,7 @@ test.describe('Portfolio Page E2E', () => {
 			const initialCount = await page.locator('[data-testid^="project-"]').count()
 
 			// Click on a popular tag (should be Vue or similar)
-			const firstTag = page.locator('.filter-tag:not(.all-tag)').first()
+			const firstTag = page.locator('[data-test="filter-tag"]').first()
 			const tagText = await firstTag.textContent()
 			await firstTag.click()
 
@@ -116,36 +116,36 @@ test.describe('Portfolio Page E2E', () => {
 
 			// Results summary should appear if filtering occurred
 			if (filteredCount < initialCount) {
-				await expect(page.locator('.results-summary')).toBeVisible()
-				await expect(page.locator('.results-summary')).toContainText(tagText?.split('(')[0].trim() || '')
+				await expect(page.locator('[data-test="results-summary"]')).toBeVisible()
+				await expect(page.locator('[data-test="results-summary"]')).toContainText(tagText?.split('(')[0].trim() || '')
 			}
 		})
 
 		test('should show all projects when clicking "All Projects"', async ({ page }) => {
 			// First filter by a tag
-			await page.locator('.filter-tag:not(.all-tag)').first().click()
+			await page.locator('[data-test="filter-tag"]').first().click()
 			await page.waitForTimeout(300)
 
 			// Then click "All Projects"
-			await page.locator('.all-tag').click()
+			await page.locator('[data-test="filter-tag-all"]').click()
 			await page.waitForTimeout(300)
 
 			// Should show all projects again
-			await expect(page.locator('.all-tag')).toHaveClass(/active/)
+			await expect(page.locator('[data-test="filter-tag-all"]')).toHaveClass(/active/)
 
 			// Results summary should disappear
-			await expect(page.locator('.results-summary')).not.toBeVisible()
+			await expect(page.locator('[data-test="results-summary"]')).not.toBeVisible()
 		})
 
 		test('should combine search and tag filters', async ({ page }) => {
 			// Apply a tag filter first
-			await page.locator('.filter-tag:not(.all-tag)').first().click()
+			await page.locator('[data-test="filter-tag"]').first().click()
 			await page.waitForTimeout(300)
 
 			const afterTagCount = await page.locator('[data-testid^="project-"]').count()
 
 			// Then apply search filter
-			await page.locator('.search-input').fill('Project')
+			await page.locator('[data-test="search-input"]').fill('Project')
 			await page.waitForTimeout(300)
 
 			const afterBothCount = await page.locator('[data-testid^="project-"]').count()
@@ -154,51 +154,51 @@ test.describe('Portfolio Page E2E', () => {
 			expect(afterBothCount).toBeLessThanOrEqual(afterTagCount)
 
 			// Results summary should mention both filters
-			await expect(page.locator('.results-summary')).toBeVisible()
+			await expect(page.locator('[data-test="results-summary"]')).toBeVisible()
 		})
 
 		test('should clear all filters at once', async ({ page }) => {
 			// Apply multiple filters
-			await page.locator('.filter-tag:not(.all-tag)').first().click()
-			await page.locator('.search-input').fill('Vue')
+			await page.locator('[data-test="filter-tag"]').first().click()
+			await page.locator('[data-test="search-input"]').fill('Vue')
 			await page.waitForTimeout(300)
 
 			// Clear all filters
-			await page.locator('.clear-filters').click()
+			await page.locator('[data-test="clear-filters"]').click()
 
 			// All filters should be cleared
-			await expect(page.locator('.search-input')).toHaveValue('')
-			await expect(page.locator('.all-tag')).toHaveClass(/active/)
-			await expect(page.locator('.results-summary')).not.toBeVisible()
+			await expect(page.locator('[data-test="search-input"]')).toHaveValue('')
+			await expect(page.locator('[data-test="filter-tag-all"]')).toHaveClass(/active/)
+			await expect(page.locator('[data-test="results-summary"]')).not.toBeVisible()
 		})
 	})
 
 	test.describe('View Mode Switching', () => {
 		test('should switch between grid and list views', async ({ page }) => {
 			// Initially should be in grid view
-			await expect(page.locator('.view-button').first()).toHaveClass(/active/)
+			await expect(page.locator('[data-test^="view-button"]').first()).toHaveClass(/active/)
 
 			// Switch to list view
-			await page.locator('.view-button').last().click()
-			await expect(page.locator('.view-button').last()).toHaveClass(/active/)
-			await expect(page.locator('.view-button').first()).not.toHaveClass(/active/)
+			await page.locator('[data-test^="view-button"]').last().click()
+			await expect(page.locator('[data-test^="view-button"]').last()).toHaveClass(/active/)
+			await expect(page.locator('[data-test^="view-button"]').first()).not.toHaveClass(/active/)
 
 			// Switch back to grid view
-			await page.locator('.view-button').first().click()
-			await expect(page.locator('.view-button').first()).toHaveClass(/active/)
-			await expect(page.locator('.view-button').last()).not.toHaveClass(/active/)
+			await page.locator('[data-test^="view-button"]').first().click()
+			await expect(page.locator('[data-test^="view-button"]').first()).toHaveClass(/active/)
+			await expect(page.locator('[data-test^="view-button"]').last()).not.toHaveClass(/active/)
 		})
 
 		test('should maintain view mode during filtering', async ({ page }) => {
 			// Switch to list view
-			await page.locator('.view-button').last().click()
+			await page.locator('[data-test^="view-button"]').last().click()
 
 			// Apply a filter
-			await page.locator('.search-input').fill('Vue')
+			await page.locator('[data-test="search-input"]').fill('Vue')
 			await page.waitForTimeout(300)
 
 			// Should still be in list view
-			await expect(page.locator('.view-button').last()).toHaveClass(/active/)
+			await expect(page.locator('[data-test^="view-button"]').last()).toHaveClass(/active/)
 		})
 	})
 
@@ -211,7 +211,7 @@ test.describe('Portfolio Page E2E', () => {
 			await page.locator('[data-testid^="project-"]').first().click()
 
 			// Modal should open
-			await expect(page.locator('.ui-modal')).toBeVisible()
+			await expect(page.locator('.ui-modal__box')).toBeVisible()
 
 			// Modal should contain project information
 			await expect(page.locator('.ui-modal h3')).toBeVisible()
@@ -220,19 +220,19 @@ test.describe('Portfolio Page E2E', () => {
 		test('should close modal when close button is clicked', async ({ page }) => {
 			// Open modal
 			await page.locator('[data-testid^="project-"]').first().click()
-			await expect(page.locator('.ui-modal')).toBeVisible()
+			await expect(page.locator('.ui-modal__box')).toBeVisible()
 
 			// Close modal
 			await page.locator('.ui-close-button').click()
 
 			// Modal should be closed
-			await expect(page.locator('.ui-modal')).not.toBeVisible()
+			await expect(page.locator('.ui-modal__box')).not.toBeVisible()
 		})
 
 		test('should close modal when clicking outside (if implemented)', async ({ page }) => {
 			// Open modal
 			await page.locator('[data-testid^="project-"]').first().click()
-			await expect(page.locator('.ui-modal')).toBeVisible()
+			await expect(page.locator('.ui-modal__box')).toBeVisible()
 
 			// Click outside modal (on backdrop)
 			await page.locator('body').click({ position: { x: 10, y: 10 } })
@@ -247,9 +247,9 @@ test.describe('Portfolio Page E2E', () => {
 			await page.setViewportSize({ width: 375, height: 667 }) // iPhone size
 
 			// All main elements should still be visible
-			await expect(page.locator('.portfolio-header')).toBeVisible()
-			await expect(page.locator('.search-input')).toBeVisible()
-			await expect(page.locator('.view-controls')).toBeVisible()
+			await expect(page.locator('[data-test="portfolio-header"]')).toBeVisible()
+			await expect(page.locator('[data-test="search-input"]')).toBeVisible()
+			await expect(page.locator('[data-test="view-controls"]')).toBeVisible()
 
 			// Projects should still be displayed
 			const projectCount = await page.locator('[data-testid^="project-"]').count()
@@ -260,11 +260,15 @@ test.describe('Portfolio Page E2E', () => {
 			await page.setViewportSize({ width: 768, height: 1024 }) // iPad size
 
 			// Search functionality should work
-			await page.locator('.search-input').fill('Vue')
+			await page.locator('[data-test="search-input"]').fill('Vue')
 			await page.waitForTimeout(300)
 
+			// Clear the search so the tag filter is applied on its own; combining an
+			// unrelated search term and tag can legitimately produce zero results
+			await page.locator('[data-test="search-input"]').fill('')
+
 			// Filter functionality should work
-			await page.locator('.filter-tag:not(.all-tag)').first().click()
+			await page.locator('[data-test="filter-tag"]').first().click()
 			await page.waitForTimeout(300)
 
 			// Should show results
@@ -277,13 +281,13 @@ test.describe('Portfolio Page E2E', () => {
 			await page.setViewportSize({ width: 1920, height: 1080 }) // Desktop size
 
 			// All functionality should work the same
-			await page.locator('.search-input').fill('JavaScript')
-			await page.locator('.filter-tag:not(.all-tag)').first().click()
+			await page.locator('[data-test="search-input"]').fill('JavaScript')
+			await page.locator('[data-test="filter-tag"]').first().click()
 			await page.waitForTimeout(300)
 
 			// View mode switching should work
-			await page.locator('.view-button').last().click()
-			await expect(page.locator('.view-button').last()).toHaveClass(/active/)
+			await page.locator('[data-test^="view-button"]').last().click()
+			await expect(page.locator('[data-test^="view-button"]').last()).toHaveClass(/active/)
 		})
 	})
 
@@ -300,8 +304,8 @@ test.describe('Portfolio Page E2E', () => {
 		test('should handle rapid interactions gracefully', async ({ page }) => {
 			// Rapidly switch between filters
 			for (let i = 0; i < 5; i++) {
-				await page.locator('.filter-tag:not(.all-tag)').first().click()
-				await page.locator('.all-tag').click()
+				await page.locator('[data-test="filter-tag"]').first().click()
+				await page.locator('[data-test="filter-tag-all"]').click()
 			}
 
 			// Should still be functional
@@ -313,15 +317,15 @@ test.describe('Portfolio Page E2E', () => {
 		test('should not have memory leaks during filtering', async ({ page }) => {
 			// Perform many filter operations
 			for (let i = 0; i < 10; i++) {
-				await page.locator('.search-input').fill(`search${i}`)
+				await page.locator('[data-test="search-input"]').fill(`search${i}`)
 				await page.waitForTimeout(100)
-				await page.locator('.clear-search').click()
+				await page.locator('[data-test="clear-search"]').click()
 				await page.waitForTimeout(100)
 			}
 
 			// Page should still be responsive
-			await page.locator('.search-input').fill('Vue')
-			await expect(page.locator('.search-input')).toHaveValue('Vue')
+			await page.locator('[data-test="search-input"]').fill('Vue')
+			await expect(page.locator('[data-test="search-input"]')).toHaveValue('Vue')
 		})
 	})
 
@@ -341,7 +345,7 @@ test.describe('Portfolio Page E2E', () => {
 				if (focusedElement?.includes('search-input')) {
 					// Can type in search
 					await page.keyboard.type('Vue')
-					await expect(page.locator('.search-input')).toHaveValue('Vue')
+					await expect(page.locator('[data-test="search-input"]')).toHaveValue('Vue')
 					break
 				}
 			}
@@ -357,7 +361,7 @@ test.describe('Portfolio Page E2E', () => {
 
 		test('should have proper form labels and controls', async ({ page }) => {
 			// Search input should have placeholder or label
-			const searchInput = page.locator('.search-input')
+			const searchInput = page.locator('[data-test="search-input"]')
 			const placeholder = await searchInput.getAttribute('placeholder')
 			expect(placeholder).toBeTruthy()
 
@@ -378,7 +382,7 @@ test.describe('Portfolio Page E2E', () => {
 			await page.route('**/*', route => route.abort())
 
 			// Page should still render basic structure
-			await expect(page.locator('.portfolio-header')).toBeVisible()
+			await expect(page.locator('[data-test="portfolio-header"]')).toBeVisible()
 		})
 
 		test('should handle invalid URLs gracefully', async ({ page }) => {
@@ -386,38 +390,38 @@ test.describe('Portfolio Page E2E', () => {
 			await page.goto('/portfolio?invalid=params&search=test')
 
 			// Should still load normally
-			await expect(page.locator('.portfolio-header')).toBeVisible()
-			await expect(page.locator('.search-input')).toBeVisible()
+			await expect(page.locator('[data-test="portfolio-header"]')).toBeVisible()
+			await expect(page.locator('[data-test="search-input"]')).toBeVisible()
 		})
 	})
 
 	test.describe('User Experience Flows', () => {
 		test('complete user journey: search, filter, view project', async ({ page }) => {
 			// Step 1: User searches for a technology
-			await page.locator('.search-input').fill('Vue')
+			await page.locator('[data-test="search-input"]').fill('Vue')
 			await page.waitForTimeout(300)
 
 			// Step 2: User applies additional filter
-			await page.locator('.filter-tag:not(.all-tag)').first().click()
+			await page.locator('[data-test="filter-tag"]').first().click()
 			await page.waitForTimeout(300)
 
 			// Step 3: User switches to list view
-			await page.locator('.view-button').last().click()
+			await page.locator('[data-test^="view-button"]').last().click()
 
 			// Step 4: User opens a project modal
 			const projects = page.locator('[data-testid^="project-"]')
 			if (await projects.count() > 0) {
 				await projects.first().click()
-				await expect(page.locator('.ui-modal')).toBeVisible()
+				await expect(page.locator('.ui-modal__box')).toBeVisible()
 
 				// Step 5: User closes modal
 				await page.locator('.ui-close-button').click()
-				await expect(page.locator('.ui-modal')).not.toBeVisible()
+				await expect(page.locator('.ui-modal__box')).not.toBeVisible()
 			}
 
 			// Step 6: User clears all filters
-			await page.locator('.clear-filters').click()
-			await expect(page.locator('.search-input')).toHaveValue('')
+			await page.locator('[data-test="clear-filters"]').click()
+			await expect(page.locator('[data-test="search-input"]')).toHaveValue('')
 		})
 
 		test('portfolio browsing without filters', async ({ page }) => {
@@ -426,8 +430,8 @@ test.describe('Portfolio Page E2E', () => {
 			expect(initialCount).toBeGreaterThan(0)
 
 			// User switches view modes
-			await page.locator('.view-button').last().click()
-			await page.locator('.view-button').first().click()
+			await page.locator('[data-test^="view-button"]').last().click()
+			await page.locator('[data-test^="view-button"]').first().click()
 
 			// Project count should remain the same
 			const finalCount = await page.locator('[data-testid^="project-"]').count()

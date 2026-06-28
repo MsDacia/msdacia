@@ -13,45 +13,45 @@ test.describe('Navigation and Routing', () => {
 
 	test('should navigate between pages using header menu', async ({ page }) => {
 		// Open the mobile menu (if needed on larger screens, this test covers both)
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
 
 		// Navigate to About page
-		await page.locator('.nav-link', { hasText: 'About' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 		await expect(page).toHaveURL('/about')
 
 		// Open menu again and navigate to Portfolio
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
-		await page.locator('.nav-link', { hasText: 'Portfolio' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'Portfolio' }).click()
 		await expect(page).toHaveURL('/portfolio')
 
 		// Navigate back to Home
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
-		await page.locator('.nav-link', { hasText: 'Home' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'Home' }).click()
 		await expect(page).toHaveURL('/')
 	})
 
 	test('should show active navigation state', async ({ page }) => {
 		// Navigate to About page
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
 
-		await page.locator('.nav-link', { hasText: 'About' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 
 		// Check that About link has active class
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
 
-		const aboutLink = page.locator('.nav-link', { hasText: 'About' })
+		const aboutLink = page.locator('[data-test="nav-link"]', { hasText: 'About' })
 		await expect(aboutLink).toHaveClass(/router-link-active|current/)
 	})
 
@@ -59,8 +59,8 @@ test.describe('Navigation and Routing', () => {
 		// This test is more relevant on mobile, but we can simulate it
 		await page.setViewportSize({ width: 640, height: 480 }) // Mobile size
 
-		const menuToggle = page.locator('.item')
-		const menu = page.locator('.menu')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
+		const menu = page.locator('[data-test="menu"]')
 
 		// Open menu
 		if (await menuToggle.isVisible()) {
@@ -69,7 +69,7 @@ test.describe('Navigation and Routing', () => {
 		}
 
 		// Click a navigation link
-		await page.locator('.nav-link', { hasText: 'About' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 
 		// Menu should be closed (we can't easily test this without checking component state)
 		// But we can verify navigation worked
@@ -83,32 +83,32 @@ test.describe('Theme Switching', () => {
 	})
 
 	test('should display theme switcher', async ({ page }) => {
-		const themeSwitcher = page.locator('.theme-switcher')
+		const themeSwitcher = page.locator('[data-test="theme-switcher"]')
 		await expect(themeSwitcher).toBeVisible()
 	})
 
 	test('should open theme menu and display options', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			await menuTrigger.click()
 
 			// Check that all theme options are visible
-			await expect(page.locator('.theme-option', { hasText: /^\s*Light\s*$/ })).toBeVisible()
-			await expect(page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ })).toBeVisible()
-			await expect(page.locator('.theme-option', { hasText: 'System' })).toBeVisible()
+			await expect(page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ })).toBeVisible()
+			await expect(page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ })).toBeVisible()
+			await expect(page.locator('[data-test="theme-option"]', { hasText: 'System' })).toBeVisible()
 		}
 	})
 
 	test('should switch themes and apply changes', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Open theme menu
 			await menuTrigger.click()
 
 			// Switch to dark theme
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Verify dark theme is applied to document
 			const htmlElement = page.locator('html')
@@ -117,7 +117,7 @@ test.describe('Theme Switching', () => {
 
 			// Switch to light theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Light\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Light\s*$/ }).click()
 
 			// Verify light theme is applied
 			await expect(htmlElement).toHaveAttribute('data-theme', 'light')
@@ -126,19 +126,19 @@ test.describe('Theme Switching', () => {
 	})
 
 	test('should persist theme across page navigation', async ({ page }) => {
-		const menuTrigger = page.locator('.menu-trigger')
+		const menuTrigger = page.locator('[data-test="menu-trigger"]')
 
 		if (await menuTrigger.isVisible()) {
 			// Set dark theme
 			await menuTrigger.click()
-			await page.locator('.theme-option', { hasText: /^\s*Dark\s*$/ }).click()
+			await page.locator('[data-test="theme-option"]', { hasText: /^\s*Dark\s*$/ }).click()
 
 			// Navigate to another page
-			const navToggle = page.locator('.item')
+			const navToggle = page.locator('[data-test="menu-toggle"]')
 			if (await navToggle.isVisible()) {
 				await navToggle.click()
 			}
-			await page.locator('.nav-link', { hasText: 'About' }).click()
+			await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 
 			// Theme should persist
 			const htmlElement = page.locator('html')
@@ -153,14 +153,14 @@ test.describe('Responsive Design', () => {
 		await page.goto('/')
 
 		// Theme switcher should be visible and functional
-		const themeSwitcher = page.locator('.theme-switcher')
+		const themeSwitcher = page.locator('[data-test="theme-switcher"]')
 		await expect(themeSwitcher).toBeVisible()
 
 		// Navigation should be accessible
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
-			const menu = page.locator('.menu')
+			const menu = page.locator('[data-test="menu"]')
 			await expect(menu).toBeVisible()
 		}
 	})
@@ -170,7 +170,7 @@ test.describe('Responsive Design', () => {
 		await page.goto('/')
 
 		// All functionality should work
-		const themeSwitcher = page.locator('.theme-switcher')
+		const themeSwitcher = page.locator('[data-test="theme-switcher"]')
 		await expect(themeSwitcher).toBeVisible()
 	})
 
@@ -179,7 +179,7 @@ test.describe('Responsive Design', () => {
 		await page.goto('/')
 
 		// All functionality should work
-		const themeSwitcher = page.locator('.theme-switcher')
+		const themeSwitcher = page.locator('[data-test="theme-switcher"]')
 		await expect(themeSwitcher).toBeVisible()
 	})
 })
@@ -190,18 +190,18 @@ test.describe('Page Content and SEO', () => {
 		await expect(page).toHaveTitle(/Ms Dacia/)
 
 		// Navigate to About and check title updates (if implemented)
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
-		await page.locator('.nav-link', { hasText: 'About' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 		// Title should update (you may need to implement this)
 
 		// Navigate to Portfolio and check title
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
-		await page.locator('.nav-link', { hasText: 'Portfolio' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'Portfolio' }).click()
 		// Title should update (you may need to implement this)
 	})
 
@@ -213,12 +213,12 @@ test.describe('Page Content and SEO', () => {
 		await expect(header).toBeVisible()
 
 		// Check for proper link text
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
 
-		const navLinks = page.locator('.nav-link')
+		const navLinks = page.locator('[data-test="nav-link"]')
 		const linkCount = await navLinks.count()
 
 		for (let i = 0; i < linkCount; i++) {
@@ -256,7 +256,7 @@ test.describe('Error Handling and Edge Cases', () => {
 	test('should handle rapid interactions gracefully', async ({ page }) => {
 		await page.goto('/')
 
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			// Rapidly click menu toggle
 			for (let i = 0; i < 5; i++) {
@@ -292,16 +292,16 @@ test.describe('Performance and Loading', () => {
 		await page.goto('/')
 
 		// Navigate through pages to check for errors
-		const menuToggle = page.locator('.item')
+		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
-		await page.locator('.nav-link', { hasText: 'About' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'About' }).click()
 
 		if (await menuToggle.isVisible()) {
 			await menuToggle.click()
 		}
-		await page.locator('.nav-link', { hasText: 'Portfolio' }).click()
+		await page.locator('[data-test="nav-link"]', { hasText: 'Portfolio' }).click()
 
 		// Check that no errors occurred
 		expect(errors).toHaveLength(0)

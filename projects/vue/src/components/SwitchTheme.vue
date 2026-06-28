@@ -1,5 +1,5 @@
 <template>
-	<div class="theme-switcher">
+	<div class="theme-switcher" data-test="theme-switcher">
 		<!-- Simple Toggle Button (touch devices) -->
 		<UIButton
 			button-style="text"
@@ -16,20 +16,22 @@
 			<UIButton
 				button-style="text"
 				class="menu-trigger"
+				data-test="menu-trigger"
 				:title="`Theme: ${themeLabel}`"
 				@click="showMenu = !showMenu"
 			>
 				<UIIcon :icon="themeIcon" />
 				<span class="theme-label">{{ themeLabel }}</span>
-				<UIIcon icon="SVGChevronDown" class="menu-arrow" :class="{ rotated: showMenu }" />
+				<UIIcon icon="SVGChevronDown" class="menu-arrow" data-test="menu-arrow" :class="{ rotated: showMenu }" />
 			</UIButton>
 
-			<div v-show="showMenu" class="menu-options">
+			<div v-show="showMenu" class="menu-options" data-test="menu-options">
 				<UIButton
 					v-for="option in themeOptions"
 					:key="option.mode"
 					button-style="text"
 					class="theme-option"
+					data-test="theme-option"
 					:class="{ active: currentMode === option.mode }"
 					@click="selectTheme(option)"
 				>
@@ -42,7 +44,7 @@
 						</span>
 					</span>
 
-					<UIIcon v-if="currentMode === option.mode" icon="SVGCheck" class="check-icon" />
+					<UIIcon v-if="currentMode === option.mode" icon="SVGCheck" class="check-icon" data-test="check-icon" />
 				</UIButton>
 			</div>
 		</div>
