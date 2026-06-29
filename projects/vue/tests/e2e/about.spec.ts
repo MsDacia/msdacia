@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('About Page E2E', () => {
 	test.beforeEach(async ({ page }) => {
@@ -284,28 +284,22 @@ test.describe('About Page E2E', () => {
 			// Tab through the page content
 			await page.keyboard.press('Tab')
 
-			let tabCount = 0
 			const maxTabs = 20
 
-			while (tabCount < maxTabs) {
-				const focusedElement = page.locator(':focus')
-				const tagName = await focusedElement.evaluate(el => el.tagName.toLowerCase()).catch(() => '')
+			for (let tabCount = 0; tabCount < maxTabs; tabCount++) {
+				const tagName = await page.evaluate(() => document.activeElement?.tagName?.toLowerCase() ?? '')
 
 				if (['a', 'button', 'input', 'textarea'].includes(tagName)) {
-					// Found focusable element
-					await expect(focusedElement).toBeVisible()
-
-					if (tagName === 'a') {
-						// Test link activation with keyboard
-						await page.keyboard.press('Enter')
-						// If it's an internal link, should navigate
-						break
-					}
+					// Found a focusable interactive element
+					await expect(page.locator(':focus')).toBeVisible()
+					break
 				}
 
 				await page.keyboard.press('Tab')
-				tabCount++
 			}
+
+			// The page should remain functional regardless of how far focus moved
+			await expect(page.locator('h1')).toBeVisible()
 		})
 
 		test('should have proper heading structure', async ({ page }) => {

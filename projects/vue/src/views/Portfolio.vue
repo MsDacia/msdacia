@@ -300,6 +300,10 @@ const closeProjectModal = () => {
 		margin: 0 auto;
 		max-width: 600px;
 
+		@include max-width(tablet) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
 		.stat-item {
 			background: var(--color-background);
 			border-radius: $size-12;

@@ -4,6 +4,7 @@
 		<UIButton
 			button-style="text"
 			class="theme-toggle"
+			data-test="theme-toggle"
 			:title="`Switch to ${nextThemeLabel} theme`"
 			@click="toggleTheme"
 		>

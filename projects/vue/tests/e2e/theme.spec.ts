@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Theme System E2E', () => {
 	test.beforeEach(async ({ page }) => {
@@ -180,21 +180,22 @@ test.describe('Theme Accessibility', () => {
 		// Tab to theme switcher
 		await page.keyboard.press('Tab')
 
-		// Continue tabbing until we reach the theme switcher
-		// (Implementation depends on your tab order)
 		for (let i = 0; i < 10; i++) {
-			const focused = await page.locator(':focus')
-			const classes = await focused.getAttribute('class')
+			const className = await page.evaluate(() => document.activeElement?.className ?? '')
 
-			if (classes?.includes('menu-trigger')) {
+			if (className.includes('menu-trigger')) {
 				// Found theme switcher, test keyboard interaction
 				await page.keyboard.press('Enter')
 				await expect(page.locator('[data-test="menu-options"]')).toBeVisible()
-				break
+				return
 			}
 
 			await page.keyboard.press('Tab')
 		}
+
+		// On touch/WebKit the advanced menu trigger may not be focusable; the switcher
+		// should still be present on the page
+		await expect(page.locator('[data-test="theme-switcher"]')).toBeVisible()
 	})
 
 	test('should work with screen reader attributes', async ({ page }) => {
