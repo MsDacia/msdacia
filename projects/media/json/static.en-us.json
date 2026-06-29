@@ -26,7 +26,7 @@
 			{
 				"id": 67,
 				"client": "MsDacia",
-				"image": ".png",
+				"image": "budget-tracker.png",
 				"name": "Personal Budget Tracker",
 				"tags": [
 					"Claude code",

@@ -16,7 +16,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 REMOTE_USER="msdacia"
-REMOTE_HOST="msdacia@vps69418.dreamhostps.com"
+REMOTE_HOST="vps69418.dreamhostps.com"
 REMOTE_PATH="/home/msdacia/msdacia.com"
 LOCAL_BUILD_DIR="./dist"
 BACKUP_DIR="backups"
