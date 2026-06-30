@@ -2,8 +2,12 @@
 	<div class="modern-portfolio">
 		<!-- Portfolio Header -->
 		<div class="portfolio-header" data-test="portfolio-header">
-			<h1>{{ content.portfolio.title }}</h1>
-			<p class="portfolio-description" data-test="portfolio-description" v-html="content.portfolio.copy"></p>
+			<UIHeading :heading="1" centered>{{ content.portfolio.title }}</UIHeading>
+			<p
+				class="portfolio-description"
+				data-test="portfolio-description"
+				v-html="content.portfolio.copy"
+			></p>
 
 			<!-- Portfolio Stats -->
 			<div class="portfolio-stats">
@@ -78,6 +82,7 @@
 			<!-- Technology Filter Tags -->
 			<div class="filter-section" data-test="filter-section">
 				<h3>Filter by Technology:</h3>
+
 				<div class="tag-filters" data-test="tag-filters">
 					<UIButton
 						button-style="text"
@@ -112,7 +117,11 @@
 					Show {{ allTags.length - 12 }} more technologies...
 				</UIButton>
 
-				<div v-if="showAllTags" class="all-tags" data-test="all-tags">
+				<div
+					v-if="showAllTags"
+					class="all-tags"
+					data-test="all-tags"
+				>
 					<UIButton
 						v-for="tag in allTags.slice(12)"
 						:key="tag.name"
@@ -129,14 +138,23 @@
 		</div>
 
 		<!-- Results Summary -->
-		<div class="results-summary" data-test="results-summary" v-if="filteredProjects.length !== totalProjects">
+		<div
+			class="results-summary"
+			data-test="results-summary"
+			v-if="filteredProjects.length !== totalProjects"
+		>
 			<p>
 				Showing {{ filteredProjects.length }} of {{ totalProjects }} projects
 				<span v-if="selectedTag"> tagged with "{{ selectedTag }}"</span>
 				<span v-if="searchQuery"> matching "{{ searchQuery }}"</span>
 			</p>
 
-			<UIButton button-style="text" class="clear-filters" data-test="clear-filters" @click="clearFilters">
+			<UIButton
+				button-style="text"
+				class="clear-filters"
+				data-test="clear-filters"
+				@click="clearFilters"
+			>
 				<UIIcon icon="SVGClose" /> Clear Filters
 			</UIButton>
 		</div>
@@ -161,7 +179,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { UIButton, UIIcon } from 'ui-components'
+import {
+	UIButton,
+	UIHeading,
+	UIIcon,
+} from 'ui-components'
 import ProjectGrid from '../components/ProjectGrid.vue'
 import ProjectModal from '../components/ProjectModal.vue'
 import contentData from '../data/static.en-us.json'
@@ -265,11 +287,14 @@ const closeProjectModal = () => {
 	margin-bottom: $size-48;
 	text-align: center;
 
-	h1 {
+	:deep(.ui-heading) {
+		margin-bottom: $size-16;
+	}
+
+	:deep([data-ui-role='title']) {
 		color: var(--color-heading);
 		font-size: $size-48;
 		font-weight: $weight-bold;
-		margin-bottom: $size-16;
 
 		@include max-width(tablet) {
 			font-size: 2.2rem;

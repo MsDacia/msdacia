@@ -1,7 +1,7 @@
 <template>
 	<div class="resume" data-test="resume">
 		<div class="resume-intro">
-			<h1>{{ content.resume.title }}</h1>
+			<UIHeading :heading="1" centered>{{ content.resume.title }}</UIHeading>
 			<p class="resume-address" data-test="resume-address">{{ content.resume.address }}</p>
 
 			<ul class="resume-contact" data-test="resume-contact">
@@ -21,16 +21,25 @@
 			</ul>
 		</div>
 
-		<section class="resume-section resume-objective" data-test="resume-objective">
-			<h3>{{ content.resume.objective.title }}</h3>
+		<UICard
+			class="resume-section resume-objective"
+			data-test="resume-objective"
+			:heading="3"
+			:title="content.resume.objective.title"
+		>
 			<p class="objective-headline" data-test="objective-headline">{{ content.resume.objective.headline }}</p>
+
 			<p class="objective-subtitle" data-test="objective-subtitle">{{ content.resume.objective.subtitle }}</p>
+
 			<p>{{ content.resume.objective.copy }}</p>
-		</section>
+		</UICard>
 
-		<section class="resume-section resume-skills" data-test="resume-skills">
-			<h3>{{ content.resume.skills.title }}</h3>
-
+		<UICard
+			class="resume-section resume-skills"
+			data-test="resume-skills"
+			:heading="3"
+			:title="content.resume.skills.title"
+		>
 			<div class="skills-grid">
 				<div
 					v-for="skill in content.resume.skills.categories"
@@ -38,18 +47,21 @@
 					class="skill-category"
 					data-test="skill-category"
 				>
-					<h4>{{ skill.title }}</h4>
+					<UIHeading :heading="4">{{ skill.title }}</UIHeading>
 					<p>{{ skill.copy }}</p>
 				</div>
 			</div>
-		</section>
+		</UICard>
 
 		<!-- Professional Experience Timeline (shared with the About view) -->
 		<ExperienceTimeline />
 
-		<section class="resume-section resume-projects" data-test="resume-projects">
-			<h3>{{ content.resume.projects.title }}</h3>
-
+		<UICard
+			class="resume-section resume-projects"
+			data-test="resume-projects"
+			:heading="3"
+			:title="content.resume.projects.title"
+		>
 			<ul class="projects-list" data-test="projects-list">
 				<li
 					v-for="project in content.resume.projects.categories"
@@ -62,13 +74,17 @@
 					>{{ project.title }}</a>
 				</li>
 			</ul>
-		</section>
+		</UICard>
 
-		<section class="resume-section resume-education" data-test="resume-education">
-			<h3>{{ content.resume.education.title }}</h3>
-
+		<UICard
+			class="resume-section resume-education"
+			data-test="resume-education"
+			:heading="3"
+			:title="content.resume.education.title"
+		>
 			<div class="education-card">
-				<h4>{{ content.resume.education.school }}</h4>
+				<UIHeading :heading="4">{{ content.resume.education.school }}</UIHeading>
+
 				<span class="education-meta">{{ content.resume.education.location }}</span>
 
 				<ul class="education-list">
@@ -76,12 +92,13 @@
 					<li>Minor: {{ content.resume.education.minor }}</li>
 				</ul>
 			</div>
-		</section>
+		</UICard>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UICard, UIHeading } from 'ui-components'
 import ExperienceTimeline from '../components/ExperienceTimeline.vue'
 import contentData from '../data/static.en-us.json'
 
@@ -110,11 +127,14 @@ defineExpose({
 			padding: $size-24;
 		}
 
-		h1 {
+		:deep(.ui-heading) {
+			margin-bottom: $size-8;
+		}
+
+		:deep([data-ui-role='title']) {
 			color: var(--color-heading);
 			font-size: $size-48;
 			font-weight: $weight-bold;
-			margin-bottom: $size-8;
 
 			@include max-width(tablet) {
 				font-size: 2.2rem;
@@ -152,24 +172,25 @@ defineExpose({
 
 	.resume-section {
 		background: var(--color-background);
-		border-left: 4px solid var(--color-text-secondary);
-		border-radius: 12px;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+		border-left: $size-4 solid var(--color-text-secondary);
+		border-radius: $size-12;
+		box-shadow: 0 $size-2 $size-10 rgba(0, 0, 0, 0.05);
 		margin-bottom: $size-32;
 		padding: $size-24;
 
-		h3 {
-			color: var(--color-text-secondary);
-			font-size: 1.3rem;
-			font-weight: $weight-semibold;
-			margin-bottom: $size-16;
+		:deep(.ui-card__content) {
+			padding: 0;
 		}
 
-		h4 {
-			color: var(--color-text);
-			font-size: 1.1rem;
-			font-weight: $weight-semibold;
-			margin: 0 0 $size-8 0;
+		:deep(.ui-card__header) {
+			margin: 0 0 $size-16 0;
+			padding: 0;
+
+			[data-ui-role='title'] {
+				color: var(--color-text-secondary);
+				font-size: 1.3rem;
+				font-weight: $weight-semibold;
+			}
 		}
 
 		p {
@@ -203,13 +224,23 @@ defineExpose({
 		}
 
 		.skill-category {
-			h4 {
+			:deep([data-ui-role='title']) {
 				color: var(--color-text-secondary);
+				font-size: 1.1rem;
+				font-weight: $weight-semibold;
+				margin: 0 0 $size-8 0;
 			}
 		}
 	}
 
 	.education-card {
+		:deep([data-ui-role='title']) {
+			color: var(--color-text);
+			font-size: 1.1rem;
+			font-weight: $weight-semibold;
+			margin: 0 0 $size-8 0;
+		}
+
 		.education-meta {
 			color: var(--color-text);
 			display: block;

@@ -1,9 +1,27 @@
 <template>
 	<div class="home" data-test="home">
 		<div class="hero-section" data-test="hero-section">
-			<h1 class="hero-title" data-test="hero-title">{{ content.common.global.title }}</h1>
-			<p class="hero-subtitle" data-test="hero-subtitle">{{ content.common.global.copy }} <em>{{ content.common.global.copy2 }}</em></p>
-			<h2 class="tagline" data-test="tagline">{{ content.common.global.tagline }}</h2>
+			<UIHeading
+				class="hero-title"
+				data-test="hero-title"
+				:heading="1"
+				centered
+			>
+				{{ content.common.global.title }}
+			</UIHeading>
+
+			<p class="hero-subtitle" data-test="hero-subtitle">
+				{{ content.common.global.copy }} <em>{{ content.common.global.copy2 }}</em>
+			</p>
+
+			<UIHeading
+				class="tagline"
+				data-test="tagline"
+				:heading="2"
+				centered
+			>
+				{{ content.common.global.tagline }}
+			</UIHeading>
 
 			<div class="quick-links" data-test="quick-links">
 				<router-link to="/about" class="cta-button" data-test="cta-button">Learn About Me</router-link>
@@ -15,6 +33,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UIHeading } from 'ui-components'
 import contentData from '../data/static.en-us.json'
 
 const content = ref(contentData)
@@ -38,13 +57,16 @@ defineExpose({
 		text-align: center;
 
 		.hero-title {
-			color: var(--color-heading);
-			font-size: $size-56;
-			font-weight: $weight-bold;
 			margin-bottom: $size-16;
 
-			@include max-width(tablet) {
-				font-size: $size-40;
+			:deep([data-ui-role='title']) {
+				color: var(--color-heading);
+				font-size: $size-56;
+				font-weight: $weight-bold;
+
+				@include max-width(tablet) {
+					font-size: $size-40;
+				}
 			}
 		}
 
@@ -61,13 +83,16 @@ defineExpose({
 		}
 
 		.tagline {
-			color: var(--color-text-secondary);
-			font-size: $size-32;
-			font-weight: $weight-light;
 			margin-bottom: $size-48;
 
-			@include max-width(tablet) {
-				font-size: $size-24;
+			:deep([data-ui-role='title']) {
+				color: var(--color-text-secondary);
+				font-size: $size-32;
+				font-weight: $weight-light;
+
+				@include max-width(tablet) {
+					font-size: $size-24;
+				}
 			}
 		}
 

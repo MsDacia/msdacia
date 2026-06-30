@@ -1,23 +1,35 @@
 <template>
 	<div class="about" data-test="about">
 		<div class="about-intro">
-			<h1>{{ content.about.title }}</h1>
+			<UIHeading :heading="1" centered>{{ content.about.title }}</UIHeading>
 
 			<div class="about-sections">
-				<section class="about-section" data-test="about-section">
-					<h3>{{ content.about.subtitle }}</h3>
+				<UICard
+					class="about-section"
+					data-test="about-section"
+					:heading="3"
+					:title="content.about.subtitle"
+				>
 					<p v-html="content.about.copy"></p>
-				</section>
+				</UICard>
 
-				<section class="about-section" data-test="about-section">
-					<h3>{{ content.about.subtitle2 }}</h3>
+				<UICard
+					class="about-section"
+					data-test="about-section"
+					:heading="3"
+					:title="content.about.subtitle2"
+				>
 					<p v-html="content.about.copy2"></p>
-				</section>
+				</UICard>
 
-				<section class="about-section" data-test="about-section">
-					<h3>{{ content.about.subtitle3 }}</h3>
+				<UICard
+					class="about-section"
+					data-test="about-section"
+					:heading="3"
+					:title="content.about.subtitle3"
+				>
 					<p v-html="content.about.copy3"></p>
-				</section>
+				</UICard>
 			</div>
 		</div>
 
@@ -28,6 +40,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { UICard, UIHeading } from 'ui-components'
 import ExperienceTimeline from '../components/ExperienceTimeline.vue'
 import contentData from '../data/static.en-us.json'
 
@@ -50,12 +63,14 @@ const content = ref(contentData)
 			padding: $size-24;
 		}
 
-		h1 {
+		:deep(.ui-heading) {
+			margin-bottom: $size-32;
+		}
+
+		:deep([data-ui-role='title']) {
 			color: var(--color-heading);
 			font-size: $size-48;
 			font-weight: $weight-bold;
-			margin-bottom: $size-32;
-			text-align: center;
 
 			@include max-width(tablet) {
 				font-size: 2.2rem;
@@ -77,11 +92,19 @@ const content = ref(contentData)
 				box-shadow: 0 $size-2 $size-10 rgba(0, 0, 0, 0.05);
 				padding: $size-24;
 
-				h3 {
-					color: var(--color-text-secondary);
-					font-size: 1.3rem;
-					font-weight: $weight-semibold;
-					margin-bottom: $size-16;
+				:deep(.ui-card__content) {
+					padding: 0;
+				}
+
+				:deep(.ui-card__header) {
+					margin: 0 0 $size-16 0;
+					padding: 0;
+
+					[data-ui-role='title'] {
+						color: var(--color-text-secondary);
+						font-size: 1.3rem;
+						font-weight: $weight-semibold;
+					}
 				}
 
 				p {
