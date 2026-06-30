@@ -133,4 +133,12 @@ const content = ref(contentData)
 		}
 	}
 }
+
+.ui-card {
+	&__table {
+		.ui-card__content {
+			background-color: transparent;
+		}
+	}
+}
 </style>
