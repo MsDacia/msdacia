@@ -1,22 +1,23 @@
+import { mount } from '@vue/test-utils'
 import {
 	describe,
 	expect,
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+
 import About from '@/views/About.vue'
 
 // Mock the static content data (vi.hoisted so it is available to the hoisted factory)
 const mockData = vi.hoisted(() => ({
 	about: {
-		title: 'WYSIWYG',
-		subtitle: 'Foundation',
 		copy: '<strong>Foundation</strong> copy.',
-		subtitle2: 'Professionally',
 		copy2: 'Professional copy.',
-		subtitle3: 'Personally',
 		copy3: 'Personal copy.',
+		subtitle: 'Foundation',
+		subtitle2: 'Professionally',
+		subtitle3: 'Personally',
+		title: 'WYSIWYG',
 	},
 }))
 

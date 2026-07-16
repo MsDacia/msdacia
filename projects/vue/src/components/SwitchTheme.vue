@@ -53,9 +53,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { UIButton, UIIcon } from 'ui-components'
-import { useTheme, type ThemeMode } from '../composables/useTheme'
+import { ref } from 'vue'
+
+import { type ThemeMode, useTheme } from '../composables/useTheme'
 
 const {
 	currentMode,
@@ -106,13 +107,13 @@ const selectTheme = (option: ThemeOption) => {
 
 // Expose properties for testing
 defineExpose({
-	showMenu,
 	currentMode,
 	nextThemeLabel,
 	selectTheme,
 	setDarkTheme,
 	setLightTheme,
 	setSystemTheme,
+	showMenu,
 	systemPrefersDark,
 	themeIcon,
 	themeLabel,

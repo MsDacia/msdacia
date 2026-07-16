@@ -39,8 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { UICard, UIHeading } from 'ui-components'
+import { ref } from 'vue'
+
 import ExperienceTimeline from '../components/ExperienceTimeline.vue'
 import contentData from '../data/static.en-us.json'
 

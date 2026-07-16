@@ -178,12 +178,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import {
 	UIButton,
 	UIHeading,
 	UIIcon,
 } from 'ui-components'
+import { computed, ref } from 'vue'
+
 import ProjectGrid from '../components/ProjectGrid.vue'
 import ProjectModal from '../components/ProjectModal.vue'
 import contentData from '../data/static.en-us.json'
@@ -221,7 +222,7 @@ const allTags = computed(() => {
 	})
 
 	return Array.from(tagMap.entries())
-		.map(([name, count]) => ({ name, count }))
+		.map(([name, count]) => ({ count, name }))
 		.sort((a, b) => b.count - a.count)
 })
 

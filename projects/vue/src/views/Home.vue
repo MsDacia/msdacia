@@ -32,8 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { UIHeading } from 'ui-components'
+import { ref } from 'vue'
+
 import contentData from '../data/static.en-us.json'
 
 const content = ref(contentData)

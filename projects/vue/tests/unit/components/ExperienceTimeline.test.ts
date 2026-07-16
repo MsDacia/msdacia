@@ -1,17 +1,17 @@
+import { mount } from '@vue/test-utils'
 import {
 	describe,
 	expect,
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+
 import ExperienceTimeline from '@/components/ExperienceTimeline.vue'
 
 // Mock the content data (vi.hoisted so it is available to the hoisted vi.mock factory)
 const mockResumeData = vi.hoisted(() => ({
 	resume: {
 		experiences: {
-			title: 'Experience',
 			job: [
 				{
 					company: 'Test Company A',
@@ -50,6 +50,7 @@ const mockResumeData = vi.hoisted(() => ({
 					title: 'Junior Web Developer',
 				},
 			],
+			title: 'Experience',
 		},
 	},
 }))
@@ -216,18 +217,18 @@ describe('ExperienceTimeline Component', () => {
 			const htmlMockData = {
 				resume: {
 					experiences: {
-						title: 'Experience',
 						job: [{
-							id: 1,
 							company: 'HTML Test Company',
 							date: '2020-2022',
+							id: 1,
 							location: 'Remote',
-							title: 'Developer',
 							points: [
 								'Used <strong>Vue.js</strong> and <em>TypeScript</em>',
 								'Built <a href="https://example.com">modern applications</a>',
 							],
+							title: 'Developer',
 						}],
+						title: 'Experience',
 					},
 				},
 			}
@@ -263,7 +264,6 @@ describe('ExperienceTimeline Component', () => {
 			const groupedMockData = {
 				resume: {
 					experiences: {
-						title: 'Experience',
 						job: [{
 							company: 'Grouped Company',
 							date: '2020 to current',
@@ -281,6 +281,7 @@ describe('ExperienceTimeline Component', () => {
 							location: 'Remote',
 							title: 'Senior Engineer',
 						}],
+						title: 'Experience',
 					},
 				},
 			}
@@ -457,8 +458,8 @@ describe('ExperienceTimeline Component', () => {
 			const emptyJobsData = {
 				resume: {
 					experiences: {
-						title: 'Experience',
 						job: [],
+						title: 'Experience',
 					},
 				},
 			}
@@ -477,15 +478,15 @@ describe('ExperienceTimeline Component', () => {
 			const jobWithEmptyPoints = {
 				resume: {
 					experiences: {
-						title: 'Experience',
 						job: [{
-							id: 1,
 							company: 'Test Company',
 							date: '2020-2022',
+							id: 1,
 							location: 'Remote',
-							title: 'Developer',
 							points: [],
+							title: 'Developer',
 						}],
+						title: 'Experience',
 					},
 				},
 			}
@@ -505,14 +506,14 @@ describe('ExperienceTimeline Component', () => {
 			const incompleteJobData = {
 				resume: {
 					experiences: {
-						title: 'Experience',
 						job: [{
-							id: 1,
 							company: 'Test Company',
-							title: 'Developer',
+							id: 1,
 							points: ['Single responsibility'],
+							title: 'Developer',
 							// Missing date and location
 						}],
+						title: 'Experience',
 					},
 				},
 			}
@@ -532,19 +533,19 @@ describe('ExperienceTimeline Component', () => {
 	describe('Performance Considerations', () => {
 		it('handles large number of jobs efficiently', async () => {
 			const manyJobs = Array.from({ length: 20 }, (_, i) => ({
-				id: i + 1,
 				company: `Company ${i + 1}`,
 				date: `202${i % 4} to present`,
+				id: i + 1,
 				location: 'Remote',
-				title: `Position ${i + 1}`,
 				points: [`Responsibility ${i + 1}`],
+				title: `Position ${i + 1}`,
 			}))
 
 			const largeDatSet = {
 				resume: {
 					experiences: {
-						title: 'Experience',
 						job: manyJobs,
+						title: 'Experience',
 					},
 				},
 			}

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Portfolio Page E2E', () => {
 	test.beforeEach(async ({ page }) => {
@@ -244,7 +244,7 @@ test.describe('Portfolio Page E2E', () => {
 
 	test.describe('Responsive Design', () => {
 		test('should work properly on mobile devices', async ({ page }) => {
-			await page.setViewportSize({ width: 375, height: 667 }) // iPhone size
+			await page.setViewportSize({ height: 667, width: 375 }) // iPhone size
 
 			// All main elements should still be visible
 			await expect(page.locator('[data-test="portfolio-header"]')).toBeVisible()
@@ -257,7 +257,7 @@ test.describe('Portfolio Page E2E', () => {
 		})
 
 		test('should work properly on tablet devices', async ({ page }) => {
-			await page.setViewportSize({ width: 768, height: 1024 }) // iPad size
+			await page.setViewportSize({ height: 1024, width: 768 }) // iPad size
 
 			// Search functionality should work
 			await page.locator('[data-test="search-input"]').fill('Vue')
@@ -278,7 +278,7 @@ test.describe('Portfolio Page E2E', () => {
 		})
 
 		test('should maintain functionality on large screens', async ({ page }) => {
-			await page.setViewportSize({ width: 1920, height: 1080 }) // Desktop size
+			await page.setViewportSize({ height: 1080, width: 1920 }) // Desktop size
 
 			// All functionality should work the same
 			await page.locator('[data-test="search-input"]').fill('JavaScript')

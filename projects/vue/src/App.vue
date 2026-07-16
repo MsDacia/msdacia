@@ -9,9 +9,10 @@
 </template>
 
 <script setup lang="ts">
-import SiteHeader from './components/SiteHeader.vue'
-import SiteFooter from './components/SiteFooter.vue'
 import { RouterView } from 'vue-router'
+
+import SiteFooter from './components/SiteFooter.vue'
+import SiteHeader from './components/SiteHeader.vue'
 </script>
 
 <style lang="scss">

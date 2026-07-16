@@ -1,28 +1,29 @@
 import '@testing-library/jest-dom'
+
 import { config } from '@vue/test-utils'
 import { vi } from 'vitest'
 
 // Mock window.matchMedia for theme tests
 Object.defineProperty(window, 'matchMedia', {
-	writable: true,
 	value: vi.fn().mockImplementation(query => ({
+		addEventListener: vi.fn(),
+		addListener: vi.fn(), // deprecated
+		dispatchEvent: vi.fn(),
 		matches: false,
 		media: query,
 		onchange: null,
-		addListener: vi.fn(), // deprecated
-		removeListener: vi.fn(), // deprecated
-		addEventListener: vi.fn(),
 		removeEventListener: vi.fn(),
-		dispatchEvent: vi.fn(),
+		removeListener: vi.fn(), // deprecated
 	})),
+	writable: true,
 })
 
 // Mock window.localStorage
 const localStorageMock = {
-	getItem: vi.fn(),
-	setItem: vi.fn(),
-	removeItem: vi.fn(),
 	clear: vi.fn(),
+	getItem: vi.fn(),
+	removeItem: vi.fn(),
+	setItem: vi.fn(),
 }
 Object.defineProperty(window, 'localStorage', {
 	value: localStorageMock,
@@ -31,10 +32,10 @@ Object.defineProperty(window, 'localStorage', {
 // Mock console methods to avoid noise in tests
 global.console = {
 	...console,
+	error: vi.fn(),
 	// Uncomment the next line if you want to silence console logs during tests
 	// log: vi.fn(),
 	warn: vi.fn(),
-	error: vi.fn(),
 }
 
 // Register ui-components directives as no-ops so components that use them
@@ -66,18 +67,18 @@ config.global.stubs = {
 
 // Global test utilities
 export const createMockRouter = () => ({
-	push: vi.fn(),
-	replace: vi.fn(),
-	go: vi.fn(),
 	back: vi.fn(),
-	forward: vi.fn(),
 	currentRoute: {
 		value: {
-			path: '/',
+			meta: {},
 			name: 'Home',
 			params: {},
+			path: '/',
 			query: {},
-			meta: {},
 		},
 	},
+	forward: vi.fn(),
+	go: vi.fn(),
+	push: vi.fn(),
+	replace: vi.fn(),
 })

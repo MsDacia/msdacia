@@ -1,5 +1,5 @@
 // Simple test to verify @ alias is working
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 // This import should work if @ alias is properly configured
 import Portfolio from '@/views/Portfolio.vue'

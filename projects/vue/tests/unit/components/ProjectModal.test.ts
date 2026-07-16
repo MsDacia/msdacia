@@ -1,11 +1,12 @@
+import { mount } from '@vue/test-utils'
 import {
 	afterEach,
 	describe,
-	it,
 	expect,
+	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+
 import ProjectModal from '@/components/ProjectModal.vue'
 import { createMockProject } from '@/tests/utils/test-helpers'
 
@@ -309,13 +310,13 @@ describe('ProjectModal Component', () => {
 	describe('Data Handling', () => {
 		it('handles missing optional project properties gracefully', () => {
 			const minimalProject = {
-				id: 1,
-				name: 'Minimal Project',
 				client: 'Test Client',
-				year: '2023',
-				timeline: '1 week',
-				tags: ['HTML'],
+				id: 1,
 				image: 'minimal.png',
+				name: 'Minimal Project',
+				tags: ['HTML'],
+				timeline: '1 week',
+				year: '2023',
 				// No link property
 			}
 
@@ -345,8 +346,8 @@ describe('ProjectModal Component', () => {
 		it('handles very long project names and client names', () => {
 			const projectWithLongNames = {
 				...mockProject,
-				name: 'This is a Very Long Project Name That Should Be Handled Gracefully in the Modal',
 				client: 'This is a Very Long Client Name That Should Also Be Handled Properly',
+				name: 'This is a Very Long Project Name That Should Be Handled Gracefully in the Modal',
 			}
 
 			const wrapper = mount(ProjectModal, {

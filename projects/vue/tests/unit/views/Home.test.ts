@@ -1,3 +1,4 @@
+import { flushPromises, mount } from '@vue/test-utils'
 import {
 	beforeEach,
 	describe,
@@ -5,10 +6,10 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { flushPromises, mount } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
+
 import { createTestRoutes } from '@/tests/utils/test-helpers'
+import Home from '@/views/Home.vue'
 
 // Mock the content data (async import so the hoisted factory can use the helper)
 vi.mock('@/data/static.en-us.json', async () => {

@@ -2,8 +2,8 @@ import '@davidanddacia/react-ui-components/styles.css'
 import './media/styles/main.scss'
 
 import {
-	BrowserRouter as Router,
 	Route,
+	BrowserRouter as Router,
 	Routes,
 	useLocation,
 } from 'react-router-dom'

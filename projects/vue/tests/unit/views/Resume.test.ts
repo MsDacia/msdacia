@@ -1,10 +1,11 @@
+import { mount } from '@vue/test-utils'
 import {
 	describe,
 	expect,
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+
 import Resume from '@/views/Resume.vue'
 
 // Mock the static content data (vi.hoisted so it is available to the hoisted factory)

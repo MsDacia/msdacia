@@ -1,23 +1,9 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [
-		vue(),
-	],
-	server: {
-		port: 5173,
-		strictPort: true,
-	},
-	resolve: {
-		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
-			'@ui': fileURLToPath(new URL('./node_modules/ui-components', import.meta.url)),
-		},
-	},
 	css: {
 		preprocessorOptions: {
 			scss: {
@@ -28,5 +14,18 @@ export default defineConfig({
 				],
 			},
 		},
+	},
+	plugins: [
+		vue(),
+	],
+	resolve: {
+		alias: {
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+			'@ui': fileURLToPath(new URL('./node_modules/ui-components', import.meta.url)),
+		},
+	},
+	server: {
+		port: 5173,
+		strictPort: true,
 	},
 })

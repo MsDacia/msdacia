@@ -98,9 +98,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
 import { UIBadge, UIIcon, UILink, UIModal } from 'ui-components'
 import type { BadgeType } from 'ui-components'
+import { ref, watch } from 'vue'
 
 interface Project {
 	client: string
@@ -187,12 +187,12 @@ const getTechCategory = (tech: string): string => {
 // Map a technology category to a ui-components badge color type
 const getBadgeType = (tech: string): BadgeType => {
 	const typeByCategory: Record<string, BadgeType> = {
-		framework: 'positive',
-		styling: 'warning',
 		backend: 'negative',
-		tools: 'neutral',
 		cms: 'info',
+		framework: 'positive',
 		other: 'neutral',
+		styling: 'warning',
+		tools: 'neutral',
 	}
 
 	return typeByCategory[getTechCategory(tech)] ?? 'neutral'

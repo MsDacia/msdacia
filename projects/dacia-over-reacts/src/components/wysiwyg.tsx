@@ -10,18 +10,18 @@ export default function Wysiwyg() {
 
 	const sections = [
 		{
-			icon: 'heartbeat',
 			header: content.about.subtitle,
+			icon: 'heartbeat',
 			text: content.about.copy,
 		},
 		{
-			icon: 'desktop',
 			header: content.about.subtitle2,
+			icon: 'desktop',
 			text: content.about.copy2,
 		},
 		{
-			icon: 'diamond',
 			header: content.about.subtitle3,
+			icon: 'diamond',
 			text: content.about.copy3,
 		},
 	]

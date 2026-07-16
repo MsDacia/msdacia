@@ -103,25 +103,25 @@ export function useTheme() {
 	})
 
 	return {
+		actualTheme,
 		// State
 		currentMode: readonly(currentMode),
-		actualTheme,
 		systemPrefersDark: readonly(systemPrefersDark),
 
+		setDarkTheme,
+		setLightTheme,
+		setSystemTheme,
 		// Actions
 		setThemeMode,
 		toggleTheme,
-		setLightTheme,
-		setDarkTheme,
-		setSystemTheme,
 
+		isDark,
 		// Computed
 		isLight,
-		isDark,
 		isSystem,
+		nextThemeLabel,
 		themeIcon,
 		themeLabel,
-		nextThemeLabel,
 	}
 }
 

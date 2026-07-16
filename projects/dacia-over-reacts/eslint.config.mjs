@@ -1,15 +1,15 @@
 /* eslint-disable no-magic-numbers */
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-
 import cspell from '@cspell/eslint-plugin'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import perfectionist from 'eslint-plugin-perfectionist'
 import reactHooks from 'eslint-plugin-react-hooks'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unicorn from 'eslint-plugin-unicorn'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+import eslintLocalRules from './eslint-local-rules/index.mjs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -43,9 +43,9 @@ export default [
 		plugins: {
 			'@cspell': cspell,
 			'@stylistic': stylistic,
+			local: eslintLocalRules,
 			perfectionist: perfectionist,
 			'react-hooks': reactHooks,
-			'simple-import-sort': simpleImportSort,
 			unicorn: unicorn,
 		},
 
@@ -206,24 +206,16 @@ export default [
 				'tab',
 				{
 					ArrayExpression: 1,
+					flatTernaryExpressions: true,
 					FunctionDeclaration: { body: 1, parameters: 1 },
 					FunctionExpression: { body: 1, parameters: 1 },
+					ignoreComments: true,
 					ImportDeclaration: 1,
 					MemberExpression: 1,
 					ObjectExpression: 1,
 					SwitchCase: 1,
 					VariableDeclarator: 1,
-					flatTernaryExpressions: true,
-					ignoreComments: true,
 				},
-			],
-			'@stylistic/jsx-quotes': [
-				'error',
-				'prefer-double',
-			],
-			'@stylistic/jsx-self-closing-comp': [
-				'error',
-				{ component: true, html: true },
 			],
 			'@stylistic/jsx-closing-bracket-location': [
 				'error',
@@ -236,6 +228,14 @@ export default [
 			'@stylistic/jsx-max-props-per-line': [
 				'error',
 				{ maximum: 2, when: 'always' },
+			],
+			'@stylistic/jsx-quotes': [
+				'error',
+				'prefer-double',
+			],
+			'@stylistic/jsx-self-closing-comp': [
+				'error',
+				{ component: true, html: true },
 			],
 			'@stylistic/no-mixed-spaces-and-tabs': [
 				'error',
@@ -468,6 +468,41 @@ export default [
 			],
 			'no-trailing-spaces': 'error',
 			'no-var': 'error',
+			'perfectionist/sort-imports': [
+				'error',
+				{
+					groups: [
+						'side-effect',
+						[
+							'type-builtin',
+							'type-external',
+							'value-builtin',
+							'value-external',
+						],
+						[
+							'type-internal',
+							'value-internal',
+						],
+						[
+							'type-index',
+							'type-parent',
+							'type-sibling',
+							'value-index',
+							'value-parent',
+							'value-sibling',
+						],
+					],
+					internalPattern: [
+						'^@/.+',
+						'^@ds/.+',
+						'^@icons/.+',
+						'^@vuejs/.+',
+					],
+					newlinesBetween: 1,
+					order: 'asc',
+					type: 'alphabetical',
+				},
+			],
 			'perfectionist/sort-jsx-props': [
 				'error',
 				{
@@ -485,14 +520,35 @@ export default [
 					type: 'alphabetical',
 				},
 			],
+			'perfectionist/sort-named-exports': [
+				'error',
+				{
+					order: 'asc',
+					type: 'alphabetical',
+				},
+			],
+			'perfectionist/sort-named-imports': [
+				'error',
+				{
+					order: 'asc',
+					type: 'alphabetical',
+				},
+			],
+			'perfectionist/sort-objects': [
+				'error',
+				{
+					ignoreCase: false,
+					order: 'asc',
+					partitionByNewLine: true,
+					type: 'alphabetical',
+				},
+			],
 			'prefer-const': 'error',
 			'prefer-object-spread': 'error',
 			'prefer-spread': 'error',
 			'prefer-template': 'error',
 			'react-hooks/exhaustive-deps': 'warn',
 			'react-hooks/rules-of-hooks': 'error',
-			'simple-import-sort/exports': 'error',
-			'simple-import-sort/imports': 'error',
 			'sort-vars': 'error',
 			'unicorn/empty-brace-spaces': 'error',
 		},
@@ -516,14 +572,6 @@ export default [
 		files: ['**/*.tsx'],
 		rules: {
 			'perfectionist/sort-interfaces': [
-				'error',
-				{
-					ignoreCase: true,
-					order: 'asc',
-					type: 'alphabetical',
-				},
-			],
-			'perfectionist/sort-object-types': [
 				'error',
 				{
 					ignoreCase: true,
@@ -563,6 +611,14 @@ export default [
 							'declare-type',
 						],
 					],
+				},
+			],
+			'perfectionist/sort-object-types': [
+				'error',
+				{
+					ignoreCase: true,
+					order: 'asc',
+					type: 'alphabetical',
 				},
 			],
 		},

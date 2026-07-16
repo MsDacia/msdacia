@@ -1,9 +1,10 @@
+import { mount } from '@vue/test-utils'
 import {
 	describe,
 	expect,
 	it,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+
 import WelcomeItem from '@/components/WelcomeItem.vue'
 
 describe('WelcomeItem', () => {

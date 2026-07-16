@@ -235,7 +235,7 @@ test.describe('About Page E2E', () => {
 
 	test.describe('Responsive Design', () => {
 		test('should display correctly on mobile devices', async ({ page }) => {
-			await page.setViewportSize({ width: 375, height: 667 }) // iPhone size
+			await page.setViewportSize({ height: 667, width: 375 }) // iPhone size
 
 			// Content should be visible and readable
 			await expect(page.locator('h1')).toBeVisible()
@@ -247,7 +247,7 @@ test.describe('About Page E2E', () => {
 		})
 
 		test('should display correctly on tablet devices', async ({ page }) => {
-			await page.setViewportSize({ width: 768, height: 1024 }) // iPad size
+			await page.setViewportSize({ height: 1024, width: 768 }) // iPad size
 
 			await expect(page.locator('h1')).toBeVisible()
 
@@ -266,7 +266,7 @@ test.describe('About Page E2E', () => {
 		})
 
 		test('should display correctly on desktop', async ({ page }) => {
-			await page.setViewportSize({ width: 1920, height: 1080 }) // Desktop size
+			await page.setViewportSize({ height: 1080, width: 1920 }) // Desktop size
 
 			await expect(page.locator('h1')).toBeVisible()
 
@@ -453,7 +453,7 @@ test.describe('About Page E2E', () => {
 	})
 
 	test.describe('Cross-browser Compatibility', () => {
-		test('should work across different browsers', async ({ page, browserName }) => {
+		test('should work across different browsers', async ({ browserName, page }) => {
 			await expect(page.locator('h1')).toBeVisible()
 
 			// Basic functionality should work — only click a link that is actually visible

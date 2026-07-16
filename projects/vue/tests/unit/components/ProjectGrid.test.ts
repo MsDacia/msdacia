@@ -1,10 +1,11 @@
-import ProjectGrid from '@/components/ProjectGrid.vue'
 import { mount } from '@vue/test-utils'
 import {
 	describe,
 	expect,
 	it,
 } from 'vitest'
+
+import ProjectGrid from '@/components/ProjectGrid.vue'
 
 // Mock data for testing
 const mockProjects = [
@@ -285,13 +286,13 @@ describe('ProjectGrid Component', () => {
 	describe('Data Validation and Edge Cases', () => {
 		it('handles projects with missing optional fields gracefully', () => {
 			const projectWithMissingFields = {
-				id: 999,
-				name: 'Minimal Project',
 				client: 'Test Client',
-				year: '2023',
-				timeline: '1 week',
-				tags: ['Vue'],
+				id: 999,
 				image: 'minimal.png',
+				name: 'Minimal Project',
+				tags: ['Vue'],
+				timeline: '1 week',
+				year: '2023',
 				// No link field
 			}
 
@@ -330,8 +331,8 @@ describe('ProjectGrid Component', () => {
 		it('handles very long project names and client names', () => {
 			const projectWithLongNames = {
 				...mockProjects[0],
-				name: 'This is a very long project name that might cause layout issues if not handled properly',
 				client: 'This is a very long client name that should also be handled gracefully',
+				name: 'This is a very long project name that might cause layout issues if not handled properly',
 			}
 
 			const wrapper = mount(ProjectGrid, {

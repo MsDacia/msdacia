@@ -1,6 +1,7 @@
-import { useTheme } from '@/composables/useTheme'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
+
+import { useTheme } from '@/composables/useTheme'
 
 describe('useTheme composable', () => {
 	let matchMediaMock: any
@@ -14,19 +15,19 @@ describe('useTheme composable', () => {
 
 		// Mock matchMedia with specific behavior
 		matchMediaMock = vi.fn().mockImplementation(query => ({
-			matches: query === '(prefers-color-scheme: dark)',
-			media: query,
-			onchange: null,
 			addEventListener: vi.fn(),
 			addListener: vi.fn(),
 			dispatchEvent: vi.fn(),
+			matches: query === '(prefers-color-scheme: dark)',
+			media: query,
+			onchange: null,
 			removeEventListener: vi.fn(),
 			removeListener: vi.fn(),
 		}))
 
 		Object.defineProperty(window, 'matchMedia', {
-			writable: true,
 			value: matchMediaMock,
+			writable: true,
 		})
 	})
 
@@ -41,7 +42,7 @@ describe('useTheme composable', () => {
 		})
 
 		it('should allow setting different theme modes', () => {
-			const { setThemeMode, currentMode } = useTheme()
+			const { currentMode, setThemeMode } = useTheme()
 
 			setThemeMode('light')
 			expect(currentMode.value).toBe('light')
@@ -54,7 +55,7 @@ describe('useTheme composable', () => {
 		})
 
 		it('should provide individual theme setters', () => {
-			const { setLightTheme, setDarkTheme, setSystemTheme, currentMode } = useTheme()
+			const { currentMode, setDarkTheme, setLightTheme, setSystemTheme } = useTheme()
 
 			setLightTheme()
 			expect(currentMode.value).toBe('light')
@@ -69,7 +70,7 @@ describe('useTheme composable', () => {
 
 	describe('Theme Toggle Functionality', () => {
 		it('should cycle through themes correctly', () => {
-			const { toggleTheme, currentMode, setThemeMode } = useTheme()
+			const { currentMode, setThemeMode, toggleTheme } = useTheme()
 
 			// Start with light
 			setThemeMode('light')
@@ -95,19 +96,19 @@ describe('useTheme composable', () => {
 
 	describe('Actual Theme Computation', () => {
 		it('should return correct actual theme for light mode', () => {
-			const { setLightTheme, actualTheme } = useTheme()
+			const { actualTheme, setLightTheme } = useTheme()
 			setLightTheme()
 			expect(actualTheme.value).toBe('light')
 		})
 
 		it('should return correct actual theme for dark mode', () => {
-			const { setDarkTheme, actualTheme } = useTheme()
+			const { actualTheme, setDarkTheme } = useTheme()
 			setDarkTheme()
 			expect(actualTheme.value).toBe('dark')
 		})
 
 		it('should follow system preference in system mode', () => {
-			const { setSystemTheme, actualTheme, systemPrefersDark } = useTheme()
+			const { actualTheme, setSystemTheme, systemPrefersDark } = useTheme()
 
 			setSystemTheme()
 			// actualTheme mirrors the detected system preference
@@ -117,7 +118,7 @@ describe('useTheme composable', () => {
 
 	describe('Theme State Helpers', () => {
 		it('should provide correct boolean states', () => {
-			const { setLightTheme, setDarkTheme, isLight, isDark, isSystem } = useTheme()
+			const { isDark, isLight, isSystem, setDarkTheme, setLightTheme } = useTheme()
 
 			setLightTheme()
 			expect(isLight.value).toBe(true)
@@ -133,7 +134,7 @@ describe('useTheme composable', () => {
 
 	describe('UI Helper Functions', () => {
 		it('should provide correct theme icons', () => {
-			const { setLightTheme, setDarkTheme, setSystemTheme, themeIcon } = useTheme()
+			const { setDarkTheme, setLightTheme, setSystemTheme, themeIcon } = useTheme()
 
 			setLightTheme()
 			expect(themeIcon.value).toBe('SVGSun')
@@ -146,7 +147,7 @@ describe('useTheme composable', () => {
 		})
 
 		it('should provide correct theme labels', () => {
-			const { setLightTheme, setDarkTheme, setSystemTheme, themeLabel } = useTheme()
+			const { setDarkTheme, setLightTheme, setSystemTheme, themeLabel } = useTheme()
 
 			setLightTheme()
 			expect(themeLabel.value).toBe('Light')
@@ -159,7 +160,7 @@ describe('useTheme composable', () => {
 		})
 
 		it('should provide correct next theme labels', () => {
-			const { setLightTheme, setDarkTheme, setSystemTheme, nextThemeLabel } = useTheme()
+			const { nextThemeLabel, setDarkTheme, setLightTheme, setSystemTheme } = useTheme()
 
 			setLightTheme()
 			expect(nextThemeLabel.value).toBe('Dark')
@@ -174,7 +175,7 @@ describe('useTheme composable', () => {
 
 	describe('DOM Integration', () => {
 		it('should apply theme to document element', async () => {
-			const { setLightTheme, setDarkTheme } = useTheme()
+			const { setDarkTheme, setLightTheme } = useTheme()
 
 			setLightTheme()
 			await nextTick()

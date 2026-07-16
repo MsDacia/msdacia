@@ -1,3 +1,4 @@
+import { mount } from '@vue/test-utils'
 import {
 	beforeEach,
 	describe,
@@ -5,10 +6,9 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
 import { nextTick, ref } from 'vue'
-import SwitchTheme from '@/components/SwitchTheme.vue'
 
+import SwitchTheme from '@/components/SwitchTheme.vue'
 import { useTheme } from '@/composables/useTheme'
 
 // Mock the composable

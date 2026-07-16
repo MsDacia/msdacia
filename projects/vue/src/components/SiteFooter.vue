@@ -31,8 +31,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { UIIcon } from 'ui-components'
+import { ref } from 'vue'
+
 import contentData from '../data/static.en-us.json'
 
 // Reactive data using Composition API (Vue 3 way!)
@@ -51,12 +52,12 @@ const handleHomeClick = (title: string) => {
 // Map Semantic UI icon classes to ui-components SVG icon names
 const getIconName = (semanticClass: string): string => {
 	const iconMap: { [key: string]: string } = {
+		'bitbucket icon': 'SVGCode',
 		'facebook icon': 'SVGFacebook',
+		'github icon': 'SVGGithub',
+		'instagram icon': 'SVGInstagram',
 		'linkedin icon': 'SVGLinkedIn',
 		'twitter icon': 'SVGTwitter',
-		'instagram icon': 'SVGInstagram',
-		'github icon': 'SVGGithub',
-		'bitbucket icon': 'SVGCode',
 	}
 
 	return iconMap[semanticClass] || 'SVGLink'

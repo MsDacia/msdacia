@@ -88,7 +88,7 @@ test.describe('Home Page E2E', () => {
 
 	test.describe('Responsive Design', () => {
 		test('should display correctly on mobile devices', async ({ page }) => {
-			await page.setViewportSize({ width: 375, height: 667 }) // iPhone size
+			await page.setViewportSize({ height: 667, width: 375 }) // iPhone size
 
 			// All content should be visible
 			await expect(page.locator('[data-test="hero-title"]')).toBeVisible()
@@ -104,7 +104,7 @@ test.describe('Home Page E2E', () => {
 		})
 
 		test('should display correctly on tablet devices', async ({ page }) => {
-			await page.setViewportSize({ width: 768, height: 1024 }) // iPad size
+			await page.setViewportSize({ height: 1024, width: 768 }) // iPad size
 
 			// Content should be properly centered and sized
 			await expect(page.locator('[data-test="hero-section"]')).toBeVisible()
@@ -115,7 +115,7 @@ test.describe('Home Page E2E', () => {
 		})
 
 		test('should display correctly on desktop', async ({ page }) => {
-			await page.setViewportSize({ width: 1920, height: 1080 }) // Desktop size
+			await page.setViewportSize({ height: 1080, width: 1920 }) // Desktop size
 
 			// All elements should be properly positioned
 			await expect(page.locator('[data-test="hero-section"]')).toBeVisible()
@@ -127,7 +127,7 @@ test.describe('Home Page E2E', () => {
 		})
 
 		test('should handle very small screens gracefully', async ({ page }) => {
-			await page.setViewportSize({ width: 320, height: 568 }) // Small mobile
+			await page.setViewportSize({ height: 568, width: 320 }) // Small mobile
 
 			// Content should still be accessible
 			await expect(page.locator('[data-test="hero-title"]')).toBeVisible()
@@ -372,7 +372,7 @@ test.describe('Home Page E2E', () => {
 	})
 
 	test.describe('Cross-browser Compatibility', () => {
-		test('should work in different browsers', async ({ page, browserName }) => {
+		test('should work in different browsers', async ({ browserName, page }) => {
 			// Basic functionality should work regardless of browser
 			await expect(page.locator('[data-test="hero-title"]')).toBeVisible()
 			await expect(page.locator('[data-test="cta-button"]').first()).toBeVisible()

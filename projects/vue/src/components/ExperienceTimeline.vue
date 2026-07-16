@@ -91,8 +91,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
 import { UIAccordion, UIHeading } from 'ui-components'
+import { computed, ref } from 'vue'
+
 import contentData from '../data/static.en-us.json'
 
 interface ExperienceGroup {

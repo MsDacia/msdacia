@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Navigation and Routing', () => {
 	test.beforeEach(async ({ page }) => {
@@ -57,7 +57,7 @@ test.describe('Navigation and Routing', () => {
 
 	test('should close mobile menu after navigation', async ({ page }) => {
 		// This test is more relevant on mobile, but we can simulate it
-		await page.setViewportSize({ width: 640, height: 480 }) // Mobile size
+		await page.setViewportSize({ height: 480, width: 640 }) // Mobile size
 
 		const menuToggle = page.locator('[data-test="menu-toggle"]')
 		const menu = page.locator('[data-test="menu"]')
@@ -149,7 +149,7 @@ test.describe('Theme Switching', () => {
 
 test.describe('Responsive Design', () => {
 	test('should work on mobile devices', async ({ page }) => {
-		await page.setViewportSize({ width: 375, height: 667 }) // iPhone size
+		await page.setViewportSize({ height: 667, width: 375 }) // iPhone size
 		await page.goto('/')
 
 		// Theme switcher should be visible and functional
@@ -166,7 +166,7 @@ test.describe('Responsive Design', () => {
 	})
 
 	test('should work on tablet devices', async ({ page }) => {
-		await page.setViewportSize({ width: 768, height: 1024 }) // iPad size
+		await page.setViewportSize({ height: 1024, width: 768 }) // iPad size
 		await page.goto('/')
 
 		// All functionality should work
@@ -175,7 +175,7 @@ test.describe('Responsive Design', () => {
 	})
 
 	test('should work on desktop', async ({ page }) => {
-		await page.setViewportSize({ width: 1920, height: 1080 }) // Desktop size
+		await page.setViewportSize({ height: 1080, width: 1920 }) // Desktop size
 		await page.goto('/')
 
 		// All functionality should work

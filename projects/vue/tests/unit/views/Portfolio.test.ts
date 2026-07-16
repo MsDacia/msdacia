@@ -1,3 +1,4 @@
+import { mount } from '@vue/test-utils'
 import {
 	beforeEach,
 	describe,
@@ -5,7 +6,7 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { mount } from '@vue/test-utils'
+
 import Portfolio from '@/views/Portfolio.vue'
 
 // Mock portfolio data (vi.hoisted so it is available to the hoisted vi.mock factory)
@@ -14,40 +15,40 @@ const mockPortfolioData = vi.hoisted(() => ({
 		copy: 'Browse my gallery of projects.',
 		projects: [
 			{
+				client: 'Client A',
 				id: 1,
-				name: 'Vue Project',
-				client: 'Client A',
-				year: '2023',
-				timeline: '3 months',
-				tags: ['Vue', 'TypeScript', 'SASS'],
 				image: 'vue-project.png',
-			},
-			{
-				id: 2,
-				name: 'React Project',
-				client: 'Client B',
-				year: '2022',
-				timeline: '6 weeks',
-				tags: ['React', 'JavaScript', 'CSS'],
-				image: 'react-project.png',
-			},
-			{
-				id: 3,
-				name: 'Angular Project',
-				client: 'Client A',
-				year: '2024',
-				timeline: 'ongoing',
-				tags: ['Angular', 'TypeScript', 'RxJS'],
-				image: 'angular-project.png',
-			},
-			{
-				id: 4,
-				name: 'Fullstack Project',
-				client: 'Client C',
+				name: 'Vue Project',
+				tags: ['Vue', 'TypeScript', 'SASS'],
+				timeline: '3 months',
 				year: '2023',
-				timeline: '8 months',
-				tags: ['Vue', 'Node.js', 'PostgreSQL'],
+			},
+			{
+				client: 'Client B',
+				id: 2,
+				image: 'react-project.png',
+				name: 'React Project',
+				tags: ['React', 'JavaScript', 'CSS'],
+				timeline: '6 weeks',
+				year: '2022',
+			},
+			{
+				client: 'Client A',
+				id: 3,
+				image: 'angular-project.png',
+				name: 'Angular Project',
+				tags: ['Angular', 'TypeScript', 'RxJS'],
+				timeline: 'ongoing',
+				year: '2024',
+			},
+			{
+				client: 'Client C',
+				id: 4,
 				image: 'fullstack-project.png',
+				name: 'Fullstack Project',
+				tags: ['Vue', 'Node.js', 'PostgreSQL'],
+				timeline: '8 months',
+				year: '2023',
 			},
 		],
 		title: 'Portfolio',

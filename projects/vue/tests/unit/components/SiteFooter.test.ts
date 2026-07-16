@@ -1,4 +1,3 @@
-import SiteFooter from '@/components/SiteFooter.vue'
 import { mount } from '@vue/test-utils'
 import {
 	beforeEach,
@@ -8,15 +7,17 @@ import {
 	vi,
 } from 'vitest'
 
+import SiteFooter from '@/components/SiteFooter.vue'
+
 // Mock the static content data (vi.hoisted so it is available to the hoisted factory)
 const mockData = vi.hoisted(() => ({
 	common: {
+		copyright: {
+			content: '2020 designed, 2026 developed by',
+		},
 		global: {
 			title: 'MsDacia',
 			url: 'http://msdacia.com',
-		},
-		copyright: {
-			content: '2020 designed, 2026 developed by',
 		},
 		social: [
 			{

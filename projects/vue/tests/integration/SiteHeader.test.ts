@@ -1,4 +1,3 @@
-import SiteHeader from '@/components/SiteHeader.vue'
 import { mount } from '@vue/test-utils'
 import {
 	beforeEach,
@@ -9,6 +8,8 @@ import {
 } from 'vitest'
 import { nextTick } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+
+import SiteHeader from '@/components/SiteHeader.vue'
 
 // Mock the SwitchTheme component
 vi.mock('@/components/SwitchTheme.vue', () => ({
@@ -58,12 +59,12 @@ describe('SiteHeader Integration', () => {
 		// Create a fresh router for each test
 		router = createRouter({
 			history: createWebHistory(),
-			routes: [
-				{ path: '/', name: 'home', component: MockHome },
-				{ path: '/about', name: 'about', component: MockAbout },
-				{ path: '/portfolio', name: 'portfolio', component: MockPortfolio },
-			],
 			linkActiveClass: 'current',
+			routes: [
+				{ component: MockHome, name: 'home', path: '/' },
+				{ component: MockAbout, name: 'about', path: '/about' },
+				{ component: MockPortfolio, name: 'portfolio', path: '/portfolio' },
+			],
 		})
 
 		// Start at home route

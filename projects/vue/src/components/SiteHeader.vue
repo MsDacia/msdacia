@@ -23,10 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { UIIcon } from 'ui-components'
-import SwitchTheme from './SwitchTheme.vue'
+import { ref } from 'vue'
+
 import contentData from '../data/static.en-us.json'
+import SwitchTheme from './SwitchTheme.vue'
 
 // Reactive data using Composition API (Vue 3 way!)
 const content = ref(contentData)
@@ -42,8 +43,8 @@ const handleNavClick = (title: string) => {
 // Expose properties for testing
 defineExpose({
 	content,
-	showMenu,
 	handleNavClick,
+	showMenu,
 })
 </script>
 

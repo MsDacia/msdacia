@@ -99,8 +99,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
 import { UIBadge, UIButton, UICard, UIEmptyState, UIIcon } from 'ui-components'
+import { reactive } from 'vue'
 
 interface Project {
 	client: string

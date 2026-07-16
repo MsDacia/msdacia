@@ -44,7 +44,7 @@ test.describe('Home Page', () => {
 	})
 
 	test('toggles the collapsible menu on a mobile viewport', async ({ page }) => {
-		await page.setViewportSize({ width: 375, height: 700 }) /* eslint-disable-line no-magic-numbers */
+		await page.setViewportSize({ height: 700, width: 375 }) /* eslint-disable-line no-magic-numbers */
 		await page.goto('/')
 
 		const menu = page.locator('header .menu')

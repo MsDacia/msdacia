@@ -41,8 +41,8 @@ export const createMockProjects = (count: number = 3): MockProject[] => {
 				['Angular', 'RxJS', 'Material UI'],
 			][index] || ['HTML', 'CSS', 'JavaScript'],
 			timeline: `${(index + 1) * 2} months`,
-			year: String(2023 - index),
 			unique: `test-project-${index + 1}`,
+			year: String(2023 - index),
 		}),
 	)
 }
@@ -80,7 +80,27 @@ export const createMockPortfolioData = (projects: MockProject[] = createMockProj
  * Content Data Factory
  */
 export const createMockContentData = () => ({
+	about: {
+		copy: 'Test about content...',
+		copy2: 'Test professional content...',
+		copy3: 'Test personal content...',
+		subtitle: 'Foundation',
+		subtitle2: 'Professionally',
+		subtitle3: 'Personally',
+		title: 'WYSIWYG',
+	},
 	common: {
+		copyright: {
+			content: '2026 designed, developed by',
+			icon: 'fal fa-copyright',
+		},
+		email: {
+			domain: 'gmail.com',
+			icon: 'mail icon',
+			local: 'test',
+			subject: 'Test Subject',
+			title: 'Email',
+		},
 		global: {
 			copy: 'pronounced',
 			copy2: 'day-sha',
@@ -117,26 +137,6 @@ export const createMockContentData = () => ({
 				url: 'https://github.com/TestUser',
 			},
 		],
-		copyright: {
-			content: '2026 designed, developed by',
-			icon: 'fal fa-copyright',
-		},
-		email: {
-			domain: 'gmail.com',
-			icon: 'mail icon',
-			local: 'test',
-			subject: 'Test Subject',
-			title: 'Email',
-		},
-	},
-	about: {
-		copy: 'Test about content...',
-		copy2: 'Test professional content...',
-		copy3: 'Test personal content...',
-		subtitle: 'Foundation',
-		subtitle2: 'Professionally',
-		subtitle3: 'Personally',
-		title: 'WYSIWYG',
 	},
 	...createMockPortfolioData(),
 })
@@ -165,6 +165,10 @@ export const createMockThemeData = () => ({
  * Router Mock Factory
  */
 export const createMockRouter = () => ({
+	addRoute: vi.fn(),
+	afterEach: vi.fn(),
+	back: vi.fn(),
+	beforeEach: vi.fn(),
 	currentRoute: {
 		value: {
 			fullPath: '/',
@@ -178,10 +182,6 @@ export const createMockRouter = () => ({
 			redirectedFrom: undefined,
 		},
 	},
-	addRoute: vi.fn(),
-	afterEach: vi.fn(),
-	back: vi.fn(),
-	beforeEach: vi.fn(),
 	forward: vi.fn(),
 	getRoutes: vi.fn(),
 	go: vi.fn(),
@@ -218,9 +218,9 @@ export const createTestRoutes = () => [
  * Component Mock Factories
  */
 export const createMockComponent = (name: string, props: string[] = [], emits: string[] = []) => ({
+	emits,
 	name,
 	props,
-	emits,
 	template: `<div class="${name.toLowerCase()}-mock">${name} Mock</div>`,
 })
 
@@ -289,12 +289,12 @@ export const setValue = async (wrapper: any, selector: string, value: string) =>
  */
 export const createMockMediaQuery = (matches: boolean = false) => {
 	return vi.fn().mockImplementation((query: string) => ({
-		matches,
-		media: query,
-		onchange: null,
 		addEventListener: vi.fn(),
 		addListener: vi.fn(),
 		dispatchEvent: vi.fn(),
+		matches,
+		media: query,
+		onchange: null,
 		removeEventListener: vi.fn(),
 		removeListener: vi.fn(),
 	}))
@@ -302,8 +302,8 @@ export const createMockMediaQuery = (matches: boolean = false) => {
 
 export const mockMatchMedia = (matches: boolean = false) => {
 	Object.defineProperty(window, 'matchMedia', {
-		writable: true,
 		value: createMockMediaQuery(matches),
+		writable: true,
 	})
 }
 
@@ -325,8 +325,8 @@ export const createMockLocalStorage = () => {
 
 export const mockLocalStorage = () => {
 	Object.defineProperty(window, 'localStorage', {
-		writable: true,
 		value: createMockLocalStorage(),
+		writable: true,
 	})
 }
 
