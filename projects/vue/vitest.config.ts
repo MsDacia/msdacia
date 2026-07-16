@@ -6,9 +6,9 @@ export default defineConfig({
 	plugins: [vue()],
 	resolve: {
 		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
 			'@/tests': fileURLToPath(new URL('./tests', import.meta.url)),
 			'@ui': fileURLToPath(new URL('./node_modules/ui-components', import.meta.url)),
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
 		},
 	},
 	test: {
