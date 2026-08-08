@@ -6,7 +6,7 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	useLocation,
-} from 'react-router-dom'
+} from 'react-router'
 
 import content from './media/json/static.en-us.json'
 import About from './pages/About'
