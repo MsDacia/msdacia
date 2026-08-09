@@ -3,8 +3,8 @@
 		<SwitchTheme />
 
 		<div class="item" data-test="menu-toggle" @click="showMenu = !showMenu">
-			<UIIcon v-show="!showMenu" icon="SVGHamburger" class="toggle off icon" data-test="icon-menu-open" />
-			<UIIcon v-show="showMenu" icon="SVGClose" class="toggle on icon" data-test="icon-menu-close" />
+			<UIIcon v-show="!showMenu" :icon="SVGHamburger" class="toggle off icon" data-test="icon-menu-open" />
+			<UIIcon v-show="showMenu" :icon="SVGClose" class="toggle on icon" data-test="icon-menu-close" />
 		</div>
 
 		<div class="menu" data-test="menu" :class="[showMenu ? 'show-content' : 'hide-content']">
@@ -16,7 +16,7 @@
 				:to="headerNav.path"
 				@click="handleNavClick(headerNav.title)"
 			>
-				<UIIcon icon="SVGCode" class="icon" /> {{ headerNav.title }}
+				<UIIcon :icon="SVGCode" class="icon" /> {{ headerNav.title }}
 			</router-link>
 		</div>
 	</header>
@@ -24,6 +24,9 @@
 
 <script setup lang="ts">
 import { UIIcon } from 'ui-components'
+import SVGClose from 'ui-components/icons/SVGClose.svg'
+import SVGCode from 'ui-components/icons/SVGCode.svg'
+import SVGHamburger from 'ui-components/icons/SVGHamburger.svg'
 import { ref } from 'vue'
 
 import contentData from '../data/static.en-us.json'

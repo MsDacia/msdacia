@@ -23,7 +23,7 @@
 			>
 				<UIIcon :icon="themeIcon" />
 				<span class="theme-label">{{ themeLabel }}</span>
-				<UIIcon icon="SVGChevronDown" class="menu-arrow" data-test="menu-arrow" :class="{ rotated: showMenu }" />
+				<UIIcon :icon="SVGChevronDown" class="menu-arrow" data-test="menu-arrow" :class="{ rotated: showMenu }" />
 			</UIButton>
 
 			<div v-show="showMenu" class="menu-options" data-test="menu-options">
@@ -45,7 +45,7 @@
 						</span>
 					</span>
 
-					<UIIcon v-if="currentMode === option.mode" icon="SVGCheck" class="check-icon" data-test="check-icon" />
+					<UIIcon v-if="currentMode === option.mode" :icon="SVGCheck" class="check-icon" data-test="check-icon" />
 				</UIButton>
 			</div>
 		</div>
@@ -54,7 +54,12 @@
 
 <script setup lang="ts">
 import { UIButton, UIIcon } from 'ui-components'
-import { ref } from 'vue'
+import SVGCheck from 'ui-components/icons/SVGCheck.svg'
+import SVGChevronDown from 'ui-components/icons/SVGChevronDown.svg'
+import SVGComputerMonitor from 'ui-components/icons/SVGComputerMonitor.svg'
+import SVGMoon from 'ui-components/icons/SVGMoon.svg'
+import SVGSun from 'ui-components/icons/SVGSun.svg'
+import { type Component, ref } from 'vue'
 
 import { type ThemeMode, useTheme } from '../composables/useTheme'
 
@@ -75,26 +80,26 @@ const showMenu = ref(false)
 interface ThemeOption {
 	mode: ThemeMode
 	label: string
-	icon: string
+	icon: Component
 	apply: () => void
 }
 
 const themeOptions: ThemeOption[] = [
 	{
 		apply: setLightTheme,
-		icon: 'SVGSun',
+		icon: SVGSun,
 		label: 'Light',
 		mode: 'light',
 	},
 	{
 		apply: setDarkTheme,
-		icon: 'SVGMoon',
+		icon: SVGMoon,
 		label: 'Dark',
 		mode: 'dark',
 	},
 	{
 		apply: setSystemTheme,
-		icon: 'SVGComputerMonitor',
+		icon: SVGComputerMonitor,
 		label: 'System',
 		mode: 'system',
 	},

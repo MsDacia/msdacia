@@ -1,3 +1,6 @@
+import SVGComputerMonitor from 'ui-components/icons/SVGComputerMonitor.svg'
+import SVGMoon from 'ui-components/icons/SVGMoon.svg'
+import SVGSun from 'ui-components/icons/SVGSun.svg'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 
@@ -137,13 +140,13 @@ describe('useTheme composable', () => {
 			const { setDarkTheme, setLightTheme, setSystemTheme, themeIcon } = useTheme()
 
 			setLightTheme()
-			expect(themeIcon.value).toBe('SVGSun')
+			expect(themeIcon.value).toBe(SVGSun)
 
 			setDarkTheme()
-			expect(themeIcon.value).toBe('SVGMoon')
+			expect(themeIcon.value).toBe(SVGMoon)
 
 			setSystemTheme()
-			expect(themeIcon.value).toBe('SVGComputerMonitor')
+			expect(themeIcon.value).toBe(SVGComputerMonitor)
 		})
 
 		it('should provide correct theme labels', () => {

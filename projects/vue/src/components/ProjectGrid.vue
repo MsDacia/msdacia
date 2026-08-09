@@ -24,7 +24,7 @@
 					v-if="imageErrors[project.id] || !project.image"
 					class="placeholder-image"
 				>
-					<UIIcon icon="SVGImage" />
+					<UIIcon :icon="SVGImage" />
 					<span>{{ project.name }}</span>
 				</div>
 
@@ -61,17 +61,17 @@
 				<div class="project-footer">
 					<div class="project-meta">
 						<span class="meta-item" data-test="meta-item">
-							<UIIcon icon="SVGCalendar" />
+							<UIIcon :icon="SVGCalendar" />
 							{{ project.year }}
 						</span>
 
 						<span class="meta-item" data-test="meta-item">
-							<UIIcon icon="SVGClock" />
+							<UIIcon :icon="SVGClock" />
 							{{ project.timeline }}
 						</span>
 
 						<span v-if="project.link" class="meta-item" data-test="meta-item">
-							<UIIcon icon="SVGLink" />
+							<UIIcon :icon="SVGLink" />
 							Live Site
 						</span>
 					</div>
@@ -80,7 +80,7 @@
 						class="view-details"
 						data-test="view-details"
 						text="View Details"
-						icon-right="SVGArrowRight"
+						:icon-right="SVGArrowRight"
 					/>
 				</div>
 			</div>
@@ -91,7 +91,7 @@
 			v-if="projects.length === 0"
 			class="empty-state"
 			data-test="empty-state"
-			icon="SVGSearch"
+			:icon="SVGSearch"
 			alignment="center"
 			text="No projects found"
 		/>
@@ -100,6 +100,12 @@
 
 <script setup lang="ts">
 import { UIBadge, UIButton, UICard, UIEmptyState, UIIcon } from 'ui-components'
+import SVGArrowRight from 'ui-components/icons/SVGArrowRight.svg'
+import SVGCalendar from 'ui-components/icons/SVGCalendar.svg'
+import SVGClock from 'ui-components/icons/SVGClock.svg'
+import SVGImage from 'ui-components/icons/SVGImage.svg'
+import SVGLink from 'ui-components/icons/SVGLink.svg'
+import SVGSearch from 'ui-components/icons/SVGSearch.svg'
 import { reactive } from 'vue'
 
 interface Project {

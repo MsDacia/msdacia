@@ -11,7 +11,7 @@
 				class="social-link"
 				data-test="social-link"
 			>
-				<UIIcon :icon="getIconName(social.icon)" />
+				<UIIcon :icon="getIcon(social.icon)" />
 			</a>
 		</div>
 
@@ -32,7 +32,14 @@
 
 <script setup lang="ts">
 import { UIIcon } from 'ui-components'
-import { ref } from 'vue'
+import SVGCode from 'ui-components/icons/SVGCode.svg'
+import SVGFacebook from 'ui-components/icons/SVGFacebook.svg'
+import SVGGithub from 'ui-components/icons/SVGGithub.svg'
+import SVGInstagram from 'ui-components/icons/SVGInstagram.svg'
+import SVGLink from 'ui-components/icons/SVGLink.svg'
+import SVGLinkedIn from 'ui-components/icons/SVGLinkedIn.svg'
+import SVGTwitter from 'ui-components/icons/SVGTwitter.svg'
+import { type Component, ref } from 'vue'
 
 import contentData from '../data/static.en-us.json'
 
@@ -49,18 +56,18 @@ const handleHomeClick = (title: string) => {
 	console.log('Home link clicked:', title)
 }
 
-// Map Semantic UI icon classes to ui-components SVG icon names
-const getIconName = (semanticClass: string): string => {
-	const iconMap: { [key: string]: string } = {
-		'bitbucket icon': 'SVGCode',
-		'facebook icon': 'SVGFacebook',
-		'github icon': 'SVGGithub',
-		'instagram icon': 'SVGInstagram',
-		'linkedin icon': 'SVGLinkedIn',
-		'twitter icon': 'SVGTwitter',
+// Map Semantic UI icon classes to ui-components SVG icon components
+const getIcon = (semanticClass: string): Component => {
+	const iconMap: { [key: string]: Component } = {
+		'bitbucket icon': SVGCode,
+		'facebook icon': SVGFacebook,
+		'github icon': SVGGithub,
+		'instagram icon': SVGInstagram,
+		'linkedin icon': SVGLinkedIn,
+		'twitter icon': SVGTwitter,
 	}
 
-	return iconMap[semanticClass] || 'SVGLink'
+	return iconMap[semanticClass] || SVGLink
 }
 </script>
 

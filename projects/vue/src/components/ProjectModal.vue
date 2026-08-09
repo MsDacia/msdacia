@@ -36,7 +36,7 @@
 					class="placeholder-image"
 					data-test="placeholder-image"
 				>
-					<UIIcon icon="SVGImage" />
+					<UIIcon :icon="SVGImage" />
 					<span>{{ project.name }}</span>
 				</div>
 
@@ -47,25 +47,25 @@
 		<div class="project-details">
 			<div class="project-meta-grid" data-test="project-meta-grid">
 				<div class="meta-item" data-test="meta-item">
-					<UIIcon icon="SVGCalendar" />
+					<UIIcon :icon="SVGCalendar" />
 					<span class="meta-label">Year</span>
 					<span class="meta-value">{{ project.year }}</span>
 				</div>
 
 				<div class="meta-item" data-test="meta-item">
-					<UIIcon icon="SVGClock" />
+					<UIIcon :icon="SVGClock" />
 					<span class="meta-label">Duration</span>
 					<span class="meta-value">{{ project.timeline }}</span>
 				</div>
 
 				<div class="meta-item" data-test="meta-item">
-					<UIIcon icon="SVGBuilding" />
+					<UIIcon :icon="SVGBuilding" />
 					<span class="meta-label">Client</span>
 					<span class="meta-value">{{ project.client }}</span>
 				</div>
 
 				<div v-if="project.link" class="meta-item" data-test="meta-item">
-					<UIIcon icon="SVGLink" />
+					<UIIcon :icon="SVGLink" />
 					<span class="meta-label">Live Site</span>
 					<UILink
 						class="live-link"
@@ -73,7 +73,7 @@
 						:href="project.link"
 						target="_blank"
 						text="Visit Project"
-						icon-right="SVGLink"
+						:icon-right="SVGLink"
 						type="positive"
 						@click="handleLiveClick"
 					/>
@@ -100,6 +100,11 @@
 <script setup lang="ts">
 import { UIBadge, UIIcon, UILink, UIModal } from 'ui-components'
 import type { BadgeType } from 'ui-components'
+import SVGBuilding from 'ui-components/icons/SVGBuilding.svg'
+import SVGCalendar from 'ui-components/icons/SVGCalendar.svg'
+import SVGClock from 'ui-components/icons/SVGClock.svg'
+import SVGImage from 'ui-components/icons/SVGImage.svg'
+import SVGLink from 'ui-components/icons/SVGLink.svg'
 import { ref, watch } from 'vue'
 
 interface Project {

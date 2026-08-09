@@ -335,7 +335,7 @@ test.describe('Portfolio Page E2E', () => {
 			await page.keyboard.press('Tab')
 
 			// Should be able to reach search input
-			let focusedElement = await page.locator(':focus').getAttribute('class')
+			let focusedElement: null | string
 
 			// Continue tabbing to reach other interactive elements
 			for (let i = 0; i < 10; i++) {

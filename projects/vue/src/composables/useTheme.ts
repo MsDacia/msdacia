@@ -1,3 +1,6 @@
+import SVGComputerMonitor from 'ui-components/icons/SVGComputerMonitor.svg'
+import SVGMoon from 'ui-components/icons/SVGMoon.svg'
+import SVGSun from 'ui-components/icons/SVGSun.svg'
 import {
 	computed,
 	ref,
@@ -72,13 +75,13 @@ export function useTheme() {
 	const isDark = computed(() => actualTheme.value === 'dark')
 	const isSystem = computed(() => currentMode.value === 'system')
 
-	// Get theme icon for UI (ui-components SVG icon name)
+	// Get theme icon for UI (ui-components SVG icon component)
 	const themeIcon = computed(() => {
 		switch (currentMode.value) {
-			case 'light': return 'SVGSun'
-			case 'dark': return 'SVGMoon'
-			case 'system': return 'SVGComputerMonitor'
-			default: return 'SVGComputerMonitor'
+			case 'light': return SVGSun
+			case 'dark': return SVGMoon
+			case 'system': return SVGComputerMonitor
+			default: return SVGComputerMonitor
 		}
 	})
 

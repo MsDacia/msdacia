@@ -1,4 +1,6 @@
 import { mount } from '@vue/test-utils'
+import SVGComputerMonitor from 'ui-components/icons/SVGComputerMonitor.svg'
+import SVGSun from 'ui-components/icons/SVGSun.svg'
 import {
 	beforeEach,
 	describe,
@@ -6,7 +8,7 @@ import {
 	it,
 	vi,
 } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, shallowRef } from 'vue'
 
 import SwitchTheme from '@/components/SwitchTheme.vue'
 import { useTheme } from '@/composables/useTheme'
@@ -28,7 +30,7 @@ describe('SwitchTheme', () => {
 			setLightTheme: vi.fn(),
 			setSystemTheme: vi.fn(),
 			systemPrefersDark: ref(false),
-			themeIcon: ref('SVGComputerMonitor'),
+			themeIcon: shallowRef(SVGComputerMonitor),
 			themeLabel: ref('System'),
 			toggleTheme: vi.fn(),
 		}
@@ -241,7 +243,7 @@ describe('SwitchTheme', () => {
 
 			// Change to light theme
 			mockUseTheme.currentMode.value = 'light'
-			mockUseTheme.themeIcon.value = 'SVGSun'
+			mockUseTheme.themeIcon.value = SVGSun
 			mockUseTheme.themeLabel.value = 'Light'
 
 			await nextTick()

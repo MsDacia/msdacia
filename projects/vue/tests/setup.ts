@@ -53,18 +53,6 @@ config.global.directives = {
 	},
 }
 
-// Stub ui-components UIIcon with a synchronous marker. The real UIIcon resolves
-// its SVG via an async component, so stubbing keeps icon assertions deterministic.
-// The rendered element exposes `data-ui="icon"` and the icon name as a class,
-// matching the real component's fall-through markup.
-config.global.stubs = {
-	UIIcon: {
-		name: 'UIIcon',
-		props: ['icon', 'color', 'tooltip'],
-		template: '<svg data-ui="icon" :class="icon"></svg>',
-	},
-}
-
 // Global test utilities
 export const createMockRouter = () => ({
 	back: vi.fn(),

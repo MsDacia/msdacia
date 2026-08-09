@@ -37,7 +37,7 @@
 		<div class="controls-section" data-test="controls-section">
 			<div class="search-controls">
 				<div class="search-box">
-					<UIIcon icon="SVGSearch" />
+					<UIIcon :icon="SVGSearch" />
 					<input
 						v-model="searchQuery"
 						type="text"
@@ -52,7 +52,7 @@
 						data-test="clear-search"
 						@click="clearSearch"
 					>
-						<UIIcon icon="SVGClose" />
+						<UIIcon :icon="SVGClose" />
 					</UIButton>
 				</div>
 
@@ -64,7 +64,7 @@
 						data-test="view-button-grid"
 						@click="viewMode = 'grid'"
 					>
-						<UIIcon icon="SVGLayout" /> Grid
+						<UIIcon :icon="SVGLayout" /> Grid
 					</UIButton>
 
 					<UIButton
@@ -74,7 +74,7 @@
 						data-test="view-button-list"
 						@click="viewMode = 'list'"
 					>
-						<UIIcon icon="SVGList" /> List
+						<UIIcon :icon="SVGList" /> List
 					</UIButton>
 				</div>
 			</div>
@@ -155,7 +155,7 @@
 				data-test="clear-filters"
 				@click="clearFilters"
 			>
-				<UIIcon icon="SVGClose" /> Clear Filters
+				<UIIcon :icon="SVGClose" /> Clear Filters
 			</UIButton>
 		</div>
 
@@ -183,6 +183,10 @@ import {
 	UIHeading,
 	UIIcon,
 } from 'ui-components'
+import SVGClose from 'ui-components/icons/SVGClose.svg'
+import SVGLayout from 'ui-components/icons/SVGLayout.svg'
+import SVGList from 'ui-components/icons/SVGList.svg'
+import SVGSearch from 'ui-components/icons/SVGSearch.svg'
 import { computed, ref } from 'vue'
 
 import ProjectGrid from '../components/ProjectGrid.vue'
