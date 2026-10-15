@@ -1,7 +1,7 @@
 import AdWork from '../components/ad-work'
 import ProjectStats from '../components/stats'
 import ProjectTimeline from '../components/timeline'
-import content from '../media/json/static.en-us.json'
+import content from '../media/json/static.en-us.json' with { type: 'json' }
 
 export default function Portfolio() {
 	return (

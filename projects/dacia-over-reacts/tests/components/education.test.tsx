@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import Education from '../../src/components/education'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const education = content.resume.education
 

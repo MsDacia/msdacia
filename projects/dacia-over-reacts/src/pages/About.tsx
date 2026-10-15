@@ -1,5 +1,5 @@
 import Wysiwyg from '../components/wysiwyg'
-import content from '../media/json/static.en-us.json'
+import content from '../media/json/static.en-us.json' with { type: 'json' }
 
 export default function About() {
 	return (

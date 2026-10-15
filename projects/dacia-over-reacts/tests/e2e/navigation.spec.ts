@@ -2,7 +2,7 @@ import {
 	expect, Page, test,
 } from '@playwright/test'
 
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const navigation = content.common.navigation
 

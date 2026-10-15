@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import Experience from '../../src/components/experience'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const jobs = content.resume.experiences.job
 

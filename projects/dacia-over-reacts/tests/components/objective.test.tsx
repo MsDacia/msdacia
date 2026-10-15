@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import Objective from '../../src/components/objective'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const objective = content.resume.objective
 

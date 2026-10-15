@@ -8,7 +8,7 @@ import {
 	useLocation,
 } from 'react-router'
 
-import content from './media/json/static.en-us.json'
+import content from './media/json/static.en-us.json' with { type: 'json' }
 import About from './pages/About'
 import Footer from './pages/Footer'
 import Header, { MenuItem } from './pages/Header'

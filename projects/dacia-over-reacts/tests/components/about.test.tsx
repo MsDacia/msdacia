@@ -5,7 +5,7 @@ import {
 	it,
 } from 'vitest'
 
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 import About from '../../src/pages/About'
 
 describe('About Page', () => {

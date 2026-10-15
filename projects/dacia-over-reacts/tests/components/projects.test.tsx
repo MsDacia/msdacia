@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import Projects from '../../src/components/projects'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const categories = content.resume.projects.categories
 

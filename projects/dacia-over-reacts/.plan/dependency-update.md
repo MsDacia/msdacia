@@ -74,6 +74,11 @@ Stale committed `src/**/dist/*.js` files using `require()` would break under it 
 The warning is cosmetic and concerns a *future* Vite major, so it is not worth a real
 regression. Reverted. Revisit only alongside migrating the JSON imports.
 
+**Update (2026-10-15): done.** Added `"type": "module"` together with
+`with { type: 'json' }` on every JSON import in `src/` and `tests/`. The stale `dist/*.js`
+files are gone. Unit 79/79, build, lint, tsc, and e2e 21/21 all pass, and the Vite
+`configLoader: 'native'` warning is gone.
+
 ## Accepted risk: react-router 7.18.2
 
 `npm audit` still reports 2 high, both from one advisory: GHSA-qwww-vcr4-c8h2, RSC-mode

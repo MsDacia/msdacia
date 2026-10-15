@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import Wysiwyg from '../../src/components/wysiwyg'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const headers = [
 	content.about.subtitle,
