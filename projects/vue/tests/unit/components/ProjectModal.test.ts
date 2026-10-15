@@ -19,7 +19,7 @@ Object.defineProperty(window, 'open', {
 
 // Selectors for the ui-components UIModal shell
 const MODAL = '.ui-modal'
-const BACKDROP = '.ui-layout-backdrop'
+const BACKDROP = '.ui-backdrop'
 const CLOSE_BUTTON = '.ui-close-button'
 const SUBMIT_BUTTON = '[data-ui-role="submit"]'
 const CANCEL_BUTTON = '[data-ui-role="cancel"]'
@@ -140,9 +140,9 @@ describe('ProjectModal Component', () => {
 			expect(vueTag?.classes()).toContain('ui-badge')
 
 			// Categories map to badge color types
-			expect(vueTag?.classes()).toContain('ui-badge__positive') // framework
-			expect(sassTag?.classes()).toContain('ui-badge__warning') // styling
-			expect(dockerTag?.classes()).toContain('ui-badge__neutral') // tools
+			expect(vueTag?.attributes('data-type')).toBe('positive') // framework
+			expect(sassTag?.attributes('data-type')).toBe('warning') // styling
+			expect(dockerTag?.attributes('data-type')).toBe('neutral') // tools
 		})
 
 		it('handles technologies not in predefined categories', () => {
@@ -156,8 +156,9 @@ describe('ProjectModal Component', () => {
 			})
 
 			const customTags = wrapper.findAll('[data-test="tech-tag"]')
+			expect(customTags).toHaveLength(2)
 			customTags.forEach(tag => {
-				expect(tag.classes()).toContain('ui-badge__neutral')
+				expect(tag.attributes('data-type')).toBe('neutral')
 			})
 		})
 	})
