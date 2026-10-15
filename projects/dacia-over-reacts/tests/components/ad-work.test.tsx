@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import AdWork from '../../src/components/ad-work'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const message = (container: HTMLElement) => container.querySelector('.ui.icon.ad.message')!
 

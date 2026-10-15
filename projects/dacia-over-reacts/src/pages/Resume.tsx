@@ -4,7 +4,7 @@ import Experience from '../components/experience'
 import Objective from '../components/objective'
 import Projects from '../components/projects'
 import Skills from '../components/skills'
-import content from '../media/json/static.en-us.json'
+import content from '../media/json/static.en-us.json' with { type: 'json' }
 
 export default function Resume() {
 	return (

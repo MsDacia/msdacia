@@ -1,7 +1,7 @@
 import { UIModal } from '@davidanddacia/react-ui-components'
 import { useState } from 'react'
 
-import content from '../media/json/static.en-us.json'
+import content from '../media/json/static.en-us.json' with { type: 'json' }
 
 function getImage(image: string): string {
 	return new URL(`../media/assets/images/projects/${image}`, import.meta.url).href

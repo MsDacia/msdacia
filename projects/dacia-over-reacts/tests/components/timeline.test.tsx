@@ -6,7 +6,7 @@ import {
 } from 'vitest'
 
 import Timeline from '../../src/components/timeline'
-import content from '../../src/media/json/static.en-us.json'
+import content from '../../src/media/json/static.en-us.json' with { type: 'json' }
 
 const projects = content.portfolio.projects
 const firstProject = projects[0]

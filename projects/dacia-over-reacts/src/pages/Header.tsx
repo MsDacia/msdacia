@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import content from '../media/json/static.en-us.json'
+import content from '../media/json/static.en-us.json' with { type: 'json' }
 
 export default function Footer({ items }: MenuProps) {
 	const [
