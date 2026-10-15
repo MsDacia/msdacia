@@ -61,7 +61,7 @@ vi.mock('@/data/static.en-us.json', () => ({
 
 // Selectors for the ui-components UIAccordion shell used per job
 const HEADER = '.ui-accordion__header'
-const CONTENT = '.ui-accordion__content'
+const CONTENT = '.ui-accordion__panel'
 
 describe('ExperienceTimeline Component', () => {
 	describe('Component Rendering', () => {
@@ -117,8 +117,9 @@ describe('ExperienceTimeline Component', () => {
 			expect(wrapper.vm.expandedJob).toBeNull()
 
 			const contents = wrapper.findAll(CONTENT)
+			expect(contents).toHaveLength(3)
 			contents.forEach(content => {
-				expect(content.classes()).toContain('hidden-content')
+				expect(content.attributes('data-state')).toBe('closed')
 			})
 		})
 
@@ -130,7 +131,7 @@ describe('ExperienceTimeline Component', () => {
 			expect(wrapper.vm.expandedJob).toBe(1)
 
 			expect(wrapper.findAll(HEADER).at(0)?.attributes('aria-expanded')).toBe('true')
-			expect(wrapper.findAll(CONTENT).at(0)?.classes()).not.toContain('hidden-content')
+			expect(wrapper.findAll(CONTENT).at(0)?.attributes('data-state')).toBe('open')
 		})
 
 		it('collapses job when clicked again', async () => {
@@ -430,9 +431,11 @@ describe('ExperienceTimeline Component', () => {
 
 			const headers = wrapper.findAll(HEADER)
 			expect(headers).toHaveLength(3)
-			headers.forEach(header => {
+			headers.forEach((header, index) => {
 				expect(header.attributes('aria-expanded')).toBeDefined()
-				expect(header.attributes('aria-label')).toBe('Toggle accordion')
+				// Named by its visible job details rather than a generic aria-label
+				expect(header.attributes('aria-label')).toBeUndefined()
+				expect(header.text()).toContain(mockResumeData.resume.experiences.job[index]?.title)
 			})
 		})
 
