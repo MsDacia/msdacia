@@ -1,4 +1,8 @@
-import { mount } from '@vue/test-utils'
+import {
+	DOMWrapper,
+	enableAutoUnmount,
+	mount,
+} from '@vue/test-utils'
 import {
 	afterEach,
 	describe,
@@ -18,11 +22,16 @@ Object.defineProperty(window, 'open', {
 })
 
 // Selectors for the ui-components UIModal shell
-const MODAL = '.ui-modal'
-const BACKDROP = '.ui-backdrop'
-const CLOSE_BUTTON = '.ui-close-button'
+const MODAL = '[data-ui="modal"]'
+const BACKDROP = '[data-ui="backdrop"]'
+const CLOSE_BUTTON = '[data-ui="close-button"]'
 const SUBMIT_BUTTON = '[data-ui-role="submit"]'
 const CANCEL_BUTTON = '[data-ui-role="cancel"]'
+
+// UIModal teleports the open dialog to <body>, so its markup is found on the page, not the wrapper.
+const page = new DOMWrapper(document.body)
+
+enableAutoUnmount(afterEach)
 
 describe('ProjectModal Component', () => {
 	const mockProject = createMockProject({
@@ -38,46 +47,46 @@ describe('ProjectModal Component', () => {
 
 	describe('Component Rendering', () => {
 		it('renders the UIModal shell', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			expect(wrapper.find(MODAL).exists()).toBe(true)
-			expect(wrapper.find(BACKDROP).exists()).toBe(true)
+			expect(page.find(MODAL).exists()).toBe(true)
+			expect(page.find(BACKDROP).exists()).toBe(true)
 		})
 
 		it('displays project information correctly', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
 			// Title slot contains the year badge, project name and client
-			expect(wrapper.find('[data-test="modal-title"] .ui-badge').text()).toBe('2023')
-			expect(wrapper.find('[data-test="project-title"]').text()).toBe('Test Project Modal')
-			expect(wrapper.find('[data-test="project-client"]').text()).toBe('Modal Test Client')
+			expect(page.find('[data-ui-role="modal-title"] [data-ui="badge"]').text()).toBe('2023')
+			expect(page.find('[data-ui-role="project-title"]').text()).toBe('Test Project Modal')
+			expect(page.find('[data-ui-role="project-client"]').text()).toBe('Modal Test Client')
 		})
 
 		it('renders project image placeholder when the image fails to load', async () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const imageSection = wrapper.find('[data-test="project-image-large"]')
+			const imageSection = page.find('[data-ui-role="project-image-large"]')
 			expect(imageSection.exists()).toBe(true)
 
 			// Simulate the image failing to load, which reveals the placeholder
-			await imageSection.find('[data-test="project-img-large"]').trigger('error')
+			await imageSection.find('[data-ui-role="project-img-large"]').trigger('error')
 
-			expect(imageSection.find('[data-test="placeholder-image"]').exists()).toBe(true)
-			expect(imageSection.find('[data-test="placeholder-image"] span').text()).toBe('Test Project Modal')
+			expect(imageSection.find('[data-ui-role="placeholder-image"]').exists()).toBe(true)
+			expect(imageSection.find('[data-ui-role="placeholder-image"] span').text()).toBe('Test Project Modal')
 		})
 
 		it('displays project metadata correctly', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const metaItems = wrapper.findAll('[data-test="meta-item"]')
+			const metaItems = page.findAll('[data-ui-role="meta-item"]')
 			expect(metaItems.length).toBeGreaterThanOrEqual(3)
 
 			// Check that year, duration, and client are displayed
@@ -88,35 +97,35 @@ describe('ProjectModal Component', () => {
 		})
 
 		it('shows live site link when project has link', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const liveLink = wrapper.find('[data-test="live-link"]')
+			const liveLink = page.find('[data-ui-role="live-link"]')
 			expect(liveLink.exists()).toBe(true)
 			// UILink drives navigation via JS, so it exposes target but not an href attribute
-			expect(liveLink.classes()).toContain('ui-link')
+			expect(liveLink.attributes('data-ui')).toBe('link')
 			expect(liveLink.attributes('target')).toBe('_blank')
 		})
 
 		it('hides live site link when project has no link', () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: projectWithoutLink },
 			})
 
-			expect(wrapper.find('[data-test="live-link"]').exists()).toBe(false)
-			expect(wrapper.findAll('[data-test="meta-item"]')).toHaveLength(3) // Only year, duration, client
+			expect(page.find('[data-ui-role="live-link"]').exists()).toBe(false)
+			expect(page.findAll('[data-ui-role="meta-item"]')).toHaveLength(3) // Only year, duration, client
 		})
 	})
 
 	describe('Technology Tags', () => {
 		it('displays all technology tags', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const techTags = wrapper.findAll('[data-test="tech-tag"]')
+			const techTags = page.findAll('[data-ui-role="tech-tag"]')
 			expect(techTags).toHaveLength(5)
 
 			const tagTexts = techTags.map(tag => tag.text())
@@ -128,16 +137,16 @@ describe('ProjectModal Component', () => {
 		})
 
 		it('renders tags as ui-components badges with a color type', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const vueTag = wrapper.findAll('[data-test="tech-tag"]').find(tag => tag.text() === 'Vue')
-			const sassTag = wrapper.findAll('[data-test="tech-tag"]').find(tag => tag.text() === 'SASS')
-			const dockerTag = wrapper.findAll('[data-test="tech-tag"]').find(tag => tag.text() === 'Docker')
+			const vueTag = page.findAll('[data-ui-role="tech-tag"]').find(tag => tag.text() === 'Vue')
+			const sassTag = page.findAll('[data-ui-role="tech-tag"]').find(tag => tag.text() === 'SASS')
+			const dockerTag = page.findAll('[data-ui-role="tech-tag"]').find(tag => tag.text() === 'Docker')
 
 			// Every tag is a UIBadge
-			expect(vueTag?.classes()).toContain('ui-badge')
+			expect(vueTag?.attributes('data-ui')).toBe('badge')
 
 			// Categories map to badge color types
 			expect(vueTag?.attributes('data-type')).toBe('positive') // framework
@@ -151,11 +160,11 @@ describe('ProjectModal Component', () => {
 				tags: ['CustomFramework', 'NewTechnology'],
 			}
 
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: projectWithCustomTech },
 			})
 
-			const customTags = wrapper.findAll('[data-test="tech-tag"]')
+			const customTags = page.findAll('[data-ui-role="tech-tag"]')
 			expect(customTags).toHaveLength(2)
 			customTags.forEach(tag => {
 				expect(tag.attributes('data-type')).toBe('neutral')
@@ -169,7 +178,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			await wrapper.find(CLOSE_BUTTON).trigger('click')
+			await page.find(CLOSE_BUTTON).trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
 		})
@@ -179,27 +188,27 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			await wrapper.find(BACKDROP).trigger('click')
+			await page.find(BACKDROP).trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
 		})
 
 		it('opens live project in new tab when primary action is clicked', async () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			await wrapper.find(SUBMIT_BUTTON).trigger('click')
+			await page.find(SUBMIT_BUTTON).trigger('click')
 
 			expect(mockWindowOpen).toHaveBeenCalledWith('https://example.com', '_blank')
 		})
 
 		it('opens live project when live link is clicked', async () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const liveLink = wrapper.find('[data-test="live-link"]')
+			const liveLink = page.find('[data-ui-role="live-link"]')
 			await liveLink.trigger('click')
 
 			expect(liveLink.exists()).toBe(true)
@@ -210,7 +219,7 @@ describe('ProjectModal Component', () => {
 				props: { project: mockProject },
 			})
 
-			await wrapper.find(CANCEL_BUTTON).trigger('click')
+			await page.find(CANCEL_BUTTON).trigger('click')
 
 			expect(wrapper.emitted('close')).toHaveLength(1)
 		})
@@ -218,45 +227,45 @@ describe('ProjectModal Component', () => {
 
 	describe('Conditional Rendering', () => {
 		it('shows primary action button only when project has link', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(true)
+			expect(page.find(SUBMIT_BUTTON).exists()).toBe(true)
 		})
 
 		it('hides primary action button when project has no link', () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: projectWithoutLink },
 			})
 
-			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(false)
-			expect(wrapper.find(CANCEL_BUTTON).exists()).toBe(true)
+			expect(page.find(SUBMIT_BUTTON).exists()).toBe(false)
+			expect(page.find(CANCEL_BUTTON).exists()).toBe(true)
 		})
 
 		it('always shows secondary action button', () => {
 			const projectWithoutLink = { ...mockProject, link: undefined }
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: projectWithoutLink },
 			})
 
-			expect(wrapper.find(CANCEL_BUTTON).exists()).toBe(true)
+			expect(page.find(CANCEL_BUTTON).exists()).toBe(true)
 		})
 	})
 
 	describe('Accessibility', () => {
 		it('uses semantic HTML structure', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
 			// Should have proper heading hierarchy
-			expect(wrapper.find('h2').exists()).toBe(true)
-			expect(wrapper.find('h3').exists()).toBe(true)
+			expect(page.find('h2').exists()).toBe(true)
+			expect(page.find('h3').exists()).toBe(true)
 
 			// Buttons should be actual button elements
-			const buttons = wrapper.findAll('button')
+			const buttons = page.findAll('button')
 			expect(buttons.length).toBeGreaterThan(0)
 			buttons.forEach(button => {
 				expect(button.element.tagName).toBe('BUTTON')
@@ -264,47 +273,47 @@ describe('ProjectModal Component', () => {
 		})
 
 		it('provides meaningful button text', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
 			// Close button should have icon (aria would be better but not implemented)
-			expect(wrapper.find(CLOSE_BUTTON).exists()).toBe(true)
+			expect(page.find(CLOSE_BUTTON).exists()).toBe(true)
 
 			// Action buttons should have descriptive text
-			expect(wrapper.find(SUBMIT_BUTTON).text()).toContain('View Live Project')
-			expect(wrapper.find(CANCEL_BUTTON).text()).toContain('Back to Portfolio')
+			expect(page.find(SUBMIT_BUTTON).text()).toContain('View Live Project')
+			expect(page.find(CANCEL_BUTTON).text()).toContain('Back to Portfolio')
 		})
 
 		it('uses proper link attributes for external links', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			const externalLink = wrapper.find('[data-test="live-link"]')
-			expect(externalLink.classes()).toContain('ui-link')
+			const externalLink = page.find('[data-ui-role="live-link"]')
+			expect(externalLink.attributes('data-ui')).toBe('link')
 			expect(externalLink.attributes('target')).toBe('_blank')
 		})
 	})
 
 	describe('Visual Design', () => {
 		it('renders the modal box and meta grid', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			expect(wrapper.find(MODAL).exists()).toBe(true)
-			expect(wrapper.find('[data-test="project-meta-grid"]').exists()).toBe(true)
+			expect(page.find(MODAL).exists()).toBe(true)
+			expect(page.find('[data-ui-role="project-meta-grid"]').exists()).toBe(true)
 		})
 
 		it('renders interactive elements for styling hooks', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
-			expect(wrapper.find(CLOSE_BUTTON).exists()).toBe(true)
-			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(true)
-			expect(wrapper.findAll('[data-test="tech-tag"]').length).toBeGreaterThan(0)
+			expect(page.find(CLOSE_BUTTON).exists()).toBe(true)
+			expect(page.find(SUBMIT_BUTTON).exists()).toBe(true)
+			expect(page.findAll('[data-ui-role="tech-tag"]').length).toBeGreaterThan(0)
 		})
 	})
 
@@ -321,13 +330,13 @@ describe('ProjectModal Component', () => {
 				// No link property
 			}
 
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: minimalProject },
 			})
 
-			expect(wrapper.find('[data-test="project-title"]').text()).toBe('Minimal Project')
-			expect(wrapper.find(SUBMIT_BUTTON).exists()).toBe(false)
-			expect(wrapper.find('[data-test="live-link"]').exists()).toBe(false)
+			expect(page.find('[data-ui-role="project-title"]').text()).toBe('Minimal Project')
+			expect(page.find(SUBMIT_BUTTON).exists()).toBe(false)
+			expect(page.find('[data-ui-role="live-link"]').exists()).toBe(false)
 		})
 
 		it('handles empty tags array', () => {
@@ -336,12 +345,12 @@ describe('ProjectModal Component', () => {
 				tags: [],
 			}
 
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: projectWithNoTags },
 			})
 
-			expect(wrapper.findAll('[data-test="tech-tag"]')).toHaveLength(0)
-			expect(wrapper.find('[data-test="technologies-section"]').exists()).toBe(true)
+			expect(page.findAll('[data-ui-role="tech-tag"]')).toHaveLength(0)
+			expect(page.find('[data-ui-role="technologies-section"]').exists()).toBe(true)
 		})
 
 		it('handles very long project names and client names', () => {
@@ -351,12 +360,12 @@ describe('ProjectModal Component', () => {
 				name: 'This is a Very Long Project Name That Should Be Handled Gracefully in the Modal',
 			}
 
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: projectWithLongNames },
 			})
 
-			expect(wrapper.find('[data-test="project-title"]').text()).toBe(projectWithLongNames.name)
-			expect(wrapper.find('[data-test="project-client"]').text()).toBe(projectWithLongNames.client)
+			expect(page.find('[data-ui-role="project-title"]').text()).toBe(projectWithLongNames.name)
+			expect(page.find('[data-ui-role="project-client"]').text()).toBe(projectWithLongNames.client)
 		})
 	})
 
@@ -442,14 +451,14 @@ describe('ProjectModal Component', () => {
 
 	describe('Responsive Design Support', () => {
 		it('renders responsive structure correctly', () => {
-			const wrapper = mount(ProjectModal, {
+			mount(ProjectModal, {
 				props: { project: mockProject },
 			})
 
 			// Check that responsive elements exist (actual responsive behavior tested in E2E)
-			expect(wrapper.find(MODAL).exists()).toBe(true)
-			expect(wrapper.find('[data-test="project-meta-grid"]').exists()).toBe(true)
-			expect(wrapper.find('[data-test="technologies-section"]').exists()).toBe(true)
+			expect(page.find(MODAL).exists()).toBe(true)
+			expect(page.find('[data-ui-role="project-meta-grid"]').exists()).toBe(true)
+			expect(page.find('[data-ui-role="technologies-section"]').exists()).toBe(true)
 		})
 	})
 
