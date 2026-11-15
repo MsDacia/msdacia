@@ -1,8 +1,8 @@
 import js from '@eslint/js'
-import perfectionist from 'eslint-plugin-perfectionist'
 import stylistic from '@stylistic/eslint-plugin'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsparser from '@typescript-eslint/parser'
+import perfectionist from 'eslint-plugin-perfectionist'
 import pluginVue from 'eslint-plugin-vue'
 import globals from 'globals'
 import vueParser from 'vue-eslint-parser'
@@ -51,6 +51,18 @@ export default [
 			'@stylistic/semi': ['error', 'never'],
 			'@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
 			'@stylistic/comma-dangle': ['error', 'always-multiline'],
+			'@stylistic/jsx-closing-bracket-location': [
+				'error',
+				'line-aligned',
+			],
+			'@stylistic/jsx-first-prop-new-line': [
+				'error',
+				'multiline',
+			],
+			'@stylistic/jsx-max-props-per-line': [
+				'error',
+				{ maximum: { multi: 1, single: 2 } },
+			],
 			'@stylistic/no-trailing-spaces': 'error',
 			'@typescript-eslint/no-explicit-any': 'off',
 			'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
