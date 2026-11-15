@@ -19,7 +19,8 @@ export default function Timeline() {
 				<div className="five wide column">
 					{content.portfolio.projects.map((project, index) =>
 						<div
-							key={index} className="item"
+							key={index}
+							className="item"
 						>
 							<div className="ui segment">
 								{index === 0 || content.portfolio.projects[index - 1].year !== project.year &&
@@ -32,7 +33,8 @@ export default function Timeline() {
 									onClick={() => setActiveProject(project.unique)}
 								>
 									<img
-										alt={project.name} src={getImage(project.image)}
+										alt={project.name}
+										src={getImage(project.image)}
 									/>
 									<div className="ui green right ribbon label">{project.timeline}</div>
 									<div className="ui bottom attached label">{project.name}</div>
@@ -48,7 +50,8 @@ export default function Timeline() {
 											<h3>
 												{project.link ?
 													<a
-														href={project.link} target="_blank"
+														href={project.link}
+														target="_blank"
 													>
 														{project.name}
 													</a>
@@ -62,7 +65,8 @@ export default function Timeline() {
 								>
 									<span className="ui small image">
 										<img
-											alt={project.name} src={getImage(project.image)}
+											alt={project.name}
+											src={getImage(project.image)}
 										/>
 										<div className="ui green right ribbon label">{project.timeline}</div>
 									</span>
@@ -70,7 +74,8 @@ export default function Timeline() {
 									<div className="ui labels">
 										{project.tags.map((tag, index) =>
 											<span
-												key={index} className="ui label"
+												key={index}
+												className="ui label"
 											>{tag}</span>
 										)}
 									</div>

@@ -28,10 +28,12 @@ export default function Resume() {
 
 						{content.resume.contact.links.map((link, index) =>
 							<div
-								key={index} className="item"
+								key={index}
+								className="item"
 							>
 								<a
-									href={link.url} rel="noopener noreferrer"
+									href={link.url}
+									rel="noopener noreferrer"
 									target="_blank"
 								>{link.title}</a>
 							</div>

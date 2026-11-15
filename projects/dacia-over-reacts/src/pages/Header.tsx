@@ -30,10 +30,12 @@ export default function Footer({ items }: MenuProps) {
 			/>
 
 			<div
-				className="item" onClick={() => setShowMenu(prev => !prev)}
+				className="item"
+				onClick={() => setShowMenu(prev => !prev)}
 			>
-				<i className={`toggle ${showMenu ? "off" : "on"} icon ${showMenu ? "hide-content" : "show-content"
-				}`}
+				<i
+					className={`toggle ${showMenu ? "off" : "on"} icon ${showMenu ? "hide-content" : "show-content"
+					}`}
 				/>
 
 				<em className={showMenu ? "active" : ""}>
@@ -44,7 +46,8 @@ export default function Footer({ items }: MenuProps) {
 			<div className={showMenu ? "menu show-content" : "menu hide-content"}>
 				{items.map(nav =>
 					<a
-						key={nav.item} href={nav.path}
+						key={nav.item}
+						href={nav.path}
 						onClick={() => setShowMenu(false)}
 					>
 						<i className="terminal icon" /> {nav.title}

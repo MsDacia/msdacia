@@ -6,11 +6,13 @@ export default function Projects() {
 			<div className="ui horizontal list">
 				{content.resume.projects.categories.map((project, index) =>
 					<div
-						key={index} className="item"
+						key={index}
+						className="item"
 					>
 						<div className="content">
 							<a
-								href={project.url} rel="noopener noreferrer"
+								href={project.url}
+								rel="noopener noreferrer"
 								target="_blank"
 							>{project.title}</a>
 						</div>

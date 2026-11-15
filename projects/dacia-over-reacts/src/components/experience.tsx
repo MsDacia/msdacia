@@ -39,7 +39,8 @@ export default function Experience() {
 										{job.groups
 											? job.groups.map((group, groupIndex) =>
 												<div
-													key={groupIndex} className="responsibility-group"
+													key={groupIndex}
+													className="responsibility-group"
 												>
 													<h4 className="ui sub header">{group.title}</h4>
 													<Points points={group.points} />
@@ -63,12 +64,14 @@ function Points({ points }: { points: readonly string[] }) {
 		<>
 			{points.map((point, index) =>
 				<div
-					key={index} className="ui middle aligned divided list"
+					key={index}
+					className="ui middle aligned divided list"
 				>
 					<div className="item">
 						<i className="tiny circle icon" />
 						<div
-							className="content" dangerouslySetInnerHTML={{ __html: point }}
+							className="content"
+							dangerouslySetInnerHTML={{ __html: point }}
 						/>
 					</div>
 				</div>

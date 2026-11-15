@@ -24,7 +24,8 @@ export default function Portfolio() {
 					</div>
 
 					<div
-						className="fourteen wide column" id="timeline"
+						className="fourteen wide column"
+						id="timeline"
 					>
 						<h2>{content.portfolio.subtitle3}</h2>
 						<ProjectTimeline />

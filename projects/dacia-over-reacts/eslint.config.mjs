@@ -221,13 +221,25 @@ export default [
 				'error',
 				'line-aligned',
 			],
+			'@stylistic/jsx-closing-bracket-location': [
+				'error',
+				'line-aligned',
+			],
 			'@stylistic/jsx-first-prop-new-line': [
 				'error',
 				'multiprop',
 			],
+			'@stylistic/jsx-first-prop-new-line': [
+				'error',
+				'multiline',
+			],
 			'@stylistic/jsx-max-props-per-line': [
 				'error',
 				{ maximum: 2, when: 'always' },
+			],
+			'@stylistic/jsx-max-props-per-line': [
+				'error',
+				{ maximum: { multi: 1, single: 2 } },
 			],
 			'@stylistic/jsx-quotes': [
 				'error',

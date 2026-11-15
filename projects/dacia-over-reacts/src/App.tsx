@@ -40,16 +40,20 @@ const AppContent = () => {
 					<div className={`main-content ${routeClass}`}>
 						<Routes>
 							<Route
-								element={<About />} path="/about"
+								element={<About />}
+								path="/about"
 							/>
 							<Route
-								element={<Portfolio />} path="/portfolio"
+								element={<Portfolio />}
+								path="/portfolio"
 							/>
 							<Route
-								element={<Resume />} path="/resume"
+								element={<Resume />}
+								path="/resume"
 							/>
 							<Route
-								element={<Home />} path="/"
+								element={<Home />}
+								path="/"
 							/>
 						</Routes>
 					</div>
